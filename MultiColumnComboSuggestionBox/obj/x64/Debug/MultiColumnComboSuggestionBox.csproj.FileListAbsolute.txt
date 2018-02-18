@@ -1,0 +1,6 @@
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\bin\x64\Debug\MultiColumnComboSuggestionBox.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\bin\x64\Debug\MultiColumnComboSuggestionBox.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\obj\x64\Debug\MultiColumnComboSuggestionBox.csprojResolveAssemblyReference.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\obj\x64\Debug\MultiColumnComboSuggestionBox.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\obj\x64\Debug\MultiColumnComboSuggestionBox.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\obj\x64\Debug\MultiColumnComboSuggestionBox.pdb

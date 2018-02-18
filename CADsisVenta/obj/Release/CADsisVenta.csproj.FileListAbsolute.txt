@@ -1,0 +1,13 @@
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\CADsisVenta\bin\Release\CADsisVenta.dll.config
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\CADsisVenta\bin\Release\CADsisVenta.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\CADsisVenta\bin\Release\CADsisVenta.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\CADsisVenta\obj\Release\CADsisVenta.csprojResolveAssemblyReference.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\CADsisVenta\obj\Release\CADsisVenta.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\CADsisVenta\obj\Release\CADsisVenta.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\CADsisVenta\obj\Release\CADsisVenta.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\CADsisVenta\bin\Release\CADsisVenta.dll.config
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\CADsisVenta\bin\Release\CADsisVenta.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\CADsisVenta\bin\Release\CADsisVenta.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\CADsisVenta\obj\Release\CADsisVenta.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\CADsisVenta\obj\Release\CADsisVenta.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\CADsisVenta\obj\Release\CADsisVenta.pdb

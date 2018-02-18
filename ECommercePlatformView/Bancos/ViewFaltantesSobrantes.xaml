@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="ViewFaltantesSobrantes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="670">
+
+    <Grid  x:Name="GridPanel" >
+        <ListView x:Name="listViewMoneda" Grid.Column="0"  Grid.Row="0" SelectionMode="Single" 
+                  SelectionChanged="listViewMoneda_SelectionChanged">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="{x:Type ListViewItem}">
+                    <Setter Property="BorderBrush" Value="LightGray" />
+                    <Setter Property="BorderThickness" Value="0,0,0,1" />
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.ItemTemplate x:Uid="itemTemplate"   >
+                <DataTemplate  >
+                    <StackPanel Orientation="Horizontal" >
+
+                        <!--BOTONES-->
+                        <DockPanel Margin="6,2,0,2" Width="25"  >
+                            <Border CornerRadius="4" BorderBrush="Black" Background="Azure" BorderThickness="0.5" DockPanel.Dock="Left">
+                                <StackPanel Orientation="Vertical" Margin="0.5">
+                                    <Button Margin="1" Height="35" ToolTip="Ver detalle" BorderThickness="0.5" Width="20">
+                                        <StackPanel>
+                                            <TextBlock MouseDown="TextBlock_MouseDown_1"  Tag="{Binding idCajaStado}" Text="Ver." FontSize="9" ToolTip="Ver detalle" RenderTransformOrigin="0.5,0.5">
+                                                <TextBlock.RenderTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform/>
+                                                        <SkewTransform/>
+                                                        <RotateTransform Angle="-90"/>
+                                                        <TranslateTransform/>
+                                                    </TransformGroup>
+                                                </TextBlock.RenderTransform></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                    <Button Margin="1" Height="35" ToolTip="Ver detalle" BorderThickness="0.5" Width="20">
+                                        <StackPanel>
+                                            <TextBlock MouseDown="TextBlock_MouseDown" Tag="{Binding idCajaStado}" Text="Prit." FontSize="8" ToolTip="Imprimir" RenderTransformOrigin="0.5,0.5">
+                                                <TextBlock.RenderTransform>
+                                                    <TransformGroup>
+                                                        <ScaleTransform/>
+                                                        <SkewTransform/>
+                                                        <RotateTransform Angle="-90"/>
+                                                        <TranslateTransform/>
+                                                    </TransformGroup>
+                                                </TextBlock.RenderTransform></TextBlock>
+                                        </StackPanel>
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+                        </DockPanel>
+
+                        <!--DIREFENCIA Y USUARIO-->
+                        <DockPanel Margin="3,8,8,8"  >
+                            <Border CornerRadius="6" BorderBrush="Gray" Background="AliceBlue" BorderThickness="2" DockPanel.Dock="Top">
+                                <StackPanel Orientation="Vertical">
+                                    <TextBlock Text ="{Binding Qnty_diference}" Height="auto" FontSize="40" />
+                                    <StackPanel Orientation="Horizontal" Margin="0">
+                                        <Label  Content ="CAJERO:" Height="auto" FontSize="16"  Foreground="Red"/>
+                                        <Label  Content ="{Binding UserOwner}" Height="auto" FontSize="12" VerticalAlignment="Bottom" HorizontalAlignment="Left" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DockPanel>
+
+                        <!--Locales y terminales-->
+                        <StackPanel Orientation="Vertical" Margin="10,5,0,2" >
+                            <!--local -->
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <TextBlock Text="Local o bodega: " ></TextBlock>
+                                <TextBlock Text="{Binding LocalBodega}" FontWeight="Bold" ></TextBlock>
+                            </StackPanel>
+                            <!--TERMINAL-->
+                            <StackPanel Orientation="Horizontal" Margin="2">
+                                <TextBlock Text="RETMINAL: " ></TextBlock>
+                                <TextBlock Text="{Binding CodTerinal}" FontWeight="Bold" Foreground="Indigo"></TextBlock>
+                            </StackPanel>
+                            <!--fecha INICIO-->
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="Fecha de inicio: " ></TextBlock>
+                                <TextBlock Text="{Binding dateStar}" ></TextBlock>
+                            </StackPanel>
+                            <!--fecha termino-->
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="Fecha cierre: " ></TextBlock>
+                                <TextBlock Text="{Binding dateEnd}" ></TextBlock>
+                            </StackPanel>
+                            <!--fecha termino-->
+                            <StackPanel Orientation="Horizontal" Margin="1,4,1,0">
+                                <TextBlock Text="Nº Operación: " ></TextBlock>
+                                <TextBlock Text="{Binding idCajaStado}" Foreground="Red" ></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                        
+                        <!--TERMINAL MONEDAS AUTORIZADORES-->
+                        <StackPanel Orientation="Vertical" Margin="20,5,0,2" >
+                            <!--MONEDAS INICIO-->
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="Inicio de divisa: " ></TextBlock>
+                                <TextBlock Text="{Binding QnttyOpen}" TextOptions.TextFormattingMode="Ideal"  ></TextBlock>
+                            </StackPanel>
+                            <!--MONEDAS termino-->
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="Finaliza divisa: " ></TextBlock>
+                                <TextBlock Text="{Binding QnttyClose}" ></TextBlock>
+                            </StackPanel>
+                            <!--User Open-->
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="Aperturó: " ></TextBlock>
+                                <TextBlock Text="{Binding codUserOpen}" ></TextBlock>
+                            </StackPanel>
+                            <!--User Cierre-->
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="Realizo el cierre: " ></TextBlock>
+                                <TextBlock Text="{Binding codUserClosed}" ></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

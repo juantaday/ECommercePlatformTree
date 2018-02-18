@@ -1,0 +1,2194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BD6C6F15-980C-4BDC-A541-A6A8D1592006}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Sub Main</StartupObject>
+    <RootNamespace>ECommercePlatformView</RootNamespace>
+    <AssemblyName>ECommercePlatformView</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>ECommercePlatformView.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Optimize>false</Optimize>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ECommercePlatformView.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Bunifu Technologies\Bunifu Framework Manager\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\SAP BusinessObjects\Crystal Reports for .NET Framework 4.0\Common\SAP BusinessObjects Enterprise XI 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.Charts.v17.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.Printing.v17.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.Sparkline.v17.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraBars.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraCharts.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraCharts.v17.1.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraCharts.v17.1.Wizard, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraCharts.v17.1.Wizard.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraEditors.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraPrinting.v17.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="itextsharp">
+      <HintPath>..\BarcodeDLL\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design.resources, Version=12.0.0.0, Culture=de, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms.resources, Version=12.0.0.0, Culture=de, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.resources.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ECommercePlatform\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Balance\frmBalanceGeneral.designer.vb">
+      <DependentUpon>frmBalanceGeneral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\frmBalanceGeneral.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Balance\TabBalanceGeneral.designer.vb">
+      <DependentUpon>TabBalanceGeneral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\TabBalanceGeneral.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Balance\TabSalesToDate.Designer.vb">
+      <DependentUpon>TabSalesToDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Balance\TabSalesToDate.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\AdminVirtualBox\frmExitMoneyVirtualBox.Designer.vb">
+      <DependentUpon>frmExitMoneyVirtualBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\AdminVirtualBox\frmExitMoneyVirtualBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\AdminVirtualBox\UConAccountEmployee.Designer.vb">
+      <DependentUpon>UConAccountEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\AdminVirtualBox\UConAccountEmployee.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\AdminVirtualBox\UConBankDeposit.Designer.vb">
+      <DependentUpon>UConBankDeposit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\AdminVirtualBox\UConBankDeposit.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\AdminVirtualBox\UconExitDivisaToOnwer.Designer.vb">
+      <DependentUpon>UconExitDivisaToOnwer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\AdminVirtualBox\UconExitDivisaToOnwer.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmChilBanckDeposit.Designer.vb">
+      <DependentUpon>frmChilBanckDeposit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmChilBanckDeposit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmChildEmployeeAccount.Designer.vb">
+      <DependentUpon>frmChildEmployeeAccount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmChildEmployeeAccount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmChildPaymentProvider.Designer.vb">
+      <DependentUpon>frmChildPaymentProvider.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmChildPaymentProvider.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmChiltExitDocumentBanck.Designer.vb">
+      <DependentUpon>frmChiltExitDocumentBanck.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmChiltExitDocumentBanck.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmchilVirtualBox.Designer.vb">
+      <DependentUpon>frmchilVirtualBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\ChildCajas\frmchilVirtualBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmAdminMoney.Designer.vb">
+      <DependentUpon>frmAdminMoney.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmAdminMoney.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmCajaDetail.Designer.vb">
+      <DependentUpon>frmCajaDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmCajaDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmChequeContab.Designer.vb">
+      <DependentUpon>frmChequeContab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmChequeContab.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmClosedTransactionsTerminal.Designer.vb">
+      <DependentUpon>frmClosedTransactionsTerminal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmClosedTransactionsTerminal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmExitDocument.Designer.vb">
+      <DependentUpon>frmExitDocument.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmExitDocument.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmExitMoney.Designer.vb">
+      <DependentUpon>frmExitMoney.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmExitMoney.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmFaltantesSobrantes.Designer.vb">
+      <DependentUpon>frmFaltantesSobrantes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmFaltantesSobrantes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmHabilitaTerminal.Designer.vb">
+      <DependentUpon>frmHabilitaTerminal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmHabilitaTerminal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmListMoviSalidaCaja.Designer.vb">
+      <DependentUpon>frmListMoviSalidaCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmListMoviSalidaCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmNewOperationCaja.Designer.vb">
+      <DependentUpon>frmNewOperationCaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmNewOperationCaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\FrmSaldo_caja.Designer.vb">
+      <DependentUpon>FrmSaldo_caja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\FrmSaldo_caja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmSaldo_Terminales.Designer.vb">
+      <DependentUpon>frmSaldo_Terminales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmSaldo_Terminales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmStadoDivisas.Designer.vb">
+      <DependentUpon>frmStadoDivisas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmStadoDivisas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmTargetContab.Designer.vb">
+      <DependentUpon>frmTargetContab.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmTargetContab.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmVirtualBoxBalance.Designer.vb">
+      <DependentUpon>frmVirtualBoxBalance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\frmVirtualBoxBalance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\MDIcajas.Designer.vb">
+      <DependentUpon>MDIcajas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\Cajas\MDIcajas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\Cajas\MoneyDetail.xaml.vb">
+      <DependentUpon>MoneyDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\frmAdd_Banco.Designer.vb">
+      <DependentUpon>frmAdd_Banco.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\frmAdd_Banco.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\frmAdd_cuenta.Designer.vb">
+      <DependentUpon>frmAdd_Cuenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\frmAdd_Cuenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\frmAdd_UpdateMoney.Designer.vb">
+      <DependentUpon>frmAdd_UpdateMoney.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\frmAdd_UpdateMoney.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\frmExitDivisaInVirtualBox.Designer.vb">
+      <DependentUpon>frmExitDivisaInVirtualBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\frmExitDivisaInVirtualBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\frmListBanckOwner.Designer.vb">
+      <DependentUpon>frmListBanckOwner.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\frmListBanckOwner.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\frmListBancos.designer.vb">
+      <DependentUpon>frmListBancos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\frmListBancos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\FrmMonedas.designer.vb">
+      <DependentUpon>FrmMonedas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bancos\FrmMonedas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bancos\ViewFaltantesSobrantes.xaml.vb">
+      <DependentUpon>ViewFaltantesSobrantes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarCodeddl\BarCodeClass.vb" />
+    <Compile Include="BarCodeddl\convertBitmapToBites.vb" />
+    <Compile Include="BarCodeddl\DrawBarCodeAndLabel.vb" />
+    <Compile Include="BarCodeddl\mdFunciones.vb" />
+    <Compile Include="BarCodeddl\mdVariables.vb" />
+    <Compile Include="BodegaAlmacen\frmAdd_Almacen.Designer.vb">
+      <DependentUpon>frmAdd_Almacen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BodegaAlmacen\frmAdd_Almacen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BodegaAlmacen\frmBodegas.Designer.vb">
+      <DependentUpon>frmBodegas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BodegaAlmacen\frmBodegas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BodegaAlmacen\frmList_Bodega.Designer.vb">
+      <DependentUpon>frmList_Bodega.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BodegaAlmacen\frmList_Bodega.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Classes\BinaryJPEGToImageSourceConverter.vb" />
+    <Compile Include="Classes\ImageAdmin.vb" />
+    <Compile Include="Classes\Response.vb" />
+    <Compile Include="Classes\ResponseCodeBarr.vb" />
+    <Compile Include="Classes\ResponseSpliter.vb" />
+    <Compile Include="Classes\ResponseTerminal.vb" />
+    <Compile Include="Clientes\FClientes.vb" />
+    <Compile Include="Clientes\frmCobro.Designer.vb">
+      <DependentUpon>frmCobro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmCobro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmList_clientes.Designer.vb">
+      <DependentUpon>frmList_clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmList_clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\FrmList_ClientRates.Designer.vb">
+      <DependentUpon>FrmList_ClientRates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\FrmList_ClientRates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmList_CuentasXcobrar.Designer.vb">
+      <DependentUpon>frmList_CuentasXcobrar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes\frmList_CuentasXcobrar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\fCompras.vb" />
+    <Compile Include="Compras\frmAdquisicion.designer.vb">
+      <DependentUpon>frmAdquisicion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmAdquisicion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmEditCompra.Designer.vb">
+      <DependentUpon>frmEditCompra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmEditCompra.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmFacturCompProducto.Designer.vb">
+      <DependentUpon>FrmFacturCompProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmFacturCompProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmFacturCompProvider.Designer.vb">
+      <DependentUpon>FrmFacturCompProvider.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmFacturCompProvider.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\FrmFacturCompTypoDocument.Designer.vb">
+      <DependentUpon>FrmFacturCompTypoDocument.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\FrmFacturCompTypoDocument.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmImputData.Designer.vb">
+      <DependentUpon>frmImputData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmImputData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmImput_Consumo.Designer.vb">
+      <DependentUpon>frmImput_Consumo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmImput_Consumo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmListPedido.Designer.vb">
+      <DependentUpon>frmListPedido.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmListPedido.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\frmList_ProductoComprable.Designer.vb">
+      <DependentUpon>frmList_ProductoComprable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmList_ProductoComprable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Conexion\Conexiones.vb" />
+    <Compile Include="Conexion\DataClassesDB.vb" />
+    <Compile Include="Conexion\Utilidad.vb" />
+    <Compile Include="Configuracion\ChildConfig\frmAddVirtualBox.Designer.vb">
+      <DependentUpon>frmAddVirtualBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\frmAddVirtualBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\frmOwnerCommerce.Designer.vb">
+      <DependentUpon>frmOwnerCommerce.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\frmOwnerCommerce.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\frmSetthingCommerce.Designer.vb">
+      <DependentUpon>frmSetthingCommerce.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\frmSetthingCommerce.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\frmWhereHouseCommerce.Designer.vb">
+      <DependentUpon>frmWhereHouseCommerce.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\frmWhereHouseCommerce.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\Frm_DetailEcommerce.Designer.vb">
+      <DependentUpon>Frm_DetailEcommerce.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\ChildConfig\Frm_DetailEcommerce.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\frmConfFactura.designer.vb">
+      <DependentUpon>frmConfFactura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\frmConfFactura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\frmMyCommerce.Designer.vb">
+      <DependentUpon>frmMyCommerce.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\frmMyCommerce.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Printers\frmOptionPrint.designer.vb">
+      <DependentUpon>frmOptionPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Printers\frmOptionPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\frmRegistroEquipo.designer.vb">
+      <DependentUpon>frmRegistroEquipo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\frmRegistroEquipo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\frm_registerInTerminal.Designer.vb">
+      <DependentUpon>frm_registerInTerminal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\frm_registerInTerminal.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Predeterminados.vb" />
+    <Compile Include="Configuracion\Printers\frmAdminDocument.Designer.vb">
+      <DependentUpon>frmAdminDocument.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Printers\frmAdminDocument.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuracion\Printers\frmSettingDocuments.Designer.vb">
+      <DependentUpon>frmSettingDocuments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Printers\frmSettingDocuments.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\frmAdd_Empleados.designer.vb">
+      <DependentUpon>frmAdd_Empleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\frmAdd_Empleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\frmCobroEmpleado.Designer.vb">
+      <DependentUpon>frmCobroEmpleado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\frmCobroEmpleado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\frmListEmployeeView.Designer.vb">
+      <DependentUpon>frmListEmployeeView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\frmListEmployeeView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\frmList_Empleados.designer.vb">
+      <DependentUpon>frmList_Empleados.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\frmList_Empleados.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\frmList_EmployeeDebit.Designer.vb">
+      <DependentUpon>frmList_EmployeeDebit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados\frmList_EmployeeDebit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empleados\ItemBebitEmployee.xaml.vb">
+      <DependentUpon>ItemBebitEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Enumm\EnumSatateModule.vb" />
+    <Compile Include="Facturacion\Ffacturacion.vb" />
+    <Compile Include="Facturacion\frmList_Facturas.designer.vb">
+      <DependentUpon>frmList_Facturas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\frmList_Facturas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\AboutBox.designer.vb">
+      <DependentUpon>AboutBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\AboutBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\ContagFrm.Designer.vb">
+      <DependentUpon>ContagFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\ContagFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\fInicio.vb" />
+    <Compile Include="Inicio\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\frmPanel.designer.vb">
+      <DependentUpon>frmPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\frmPanel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\FunInicio.vb" />
+    <Compile Include="Inicio\WaitForTaskScreenWithCancellation.Designer.vb">
+      <DependentUpon>WaitForTaskScreenWithCancellation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\WaitForTaskScreenWithCancellation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\getInicio.vb" />
+    <Compile Include="Inicio\Load_InformationServer.vb" />
+    <Compile Include="Inicio\LoginForm.designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\MDIPareInicio.designer.vb">
+      <DependentUpon>MDIPareInicio.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\MDIPareInicio.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\SplashScreen1.Designer.vb">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\SplashScreen1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="JSofwareCommerceDB02DataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JSofwareCommerceDB02DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Logica\AdminControles.vb" />
+    <Compile Include="Logica\cModule.vb" />
+    <Compile Include="Logica\detailControl.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logica\detaiList.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logica\Estructuras.vb" />
+    <Compile Include="Logica\MasterControl.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Logica\RawPrinterHelper.vb" />
+    <Compile Include="Logica\Variables.vb" />
+    <Compile Include="Models\ItemAccessPanelUers.vb" />
+    <Compile Include="Models\BarCodeTicket.vb" />
+    <Compile Include="Models\CleanableTable.vb" />
+    <Compile Include="Models\DebitEmployee.vb" />
+    <Compile Include="Models\ItemAcquisition.vb" />
+    <Compile Include="Models\ItemCajaStado.vb" />
+    <Compile Include="Models\ItemOwner.vb" />
+    <Compile Include="Models\ItemPerson.vb" />
+    <Compile Include="Models\ItemSettingOptionPrint.vb" />
+    <Compile Include="Models\ItemSobrantes.vb" />
+    <Compile Include="Models\ItemViewVenta.vb" />
+    <Compile Include="Models\ItemWhereHouse.vb" />
+    <Compile Include="Models\MoneyList.vb" />
+    <Compile Include="Models\Person.vb" />
+    <Compile Include="Models\PresentVendiblescollection.vb" />
+    <Compile Include="Models\RatesCollecction.vb" />
+    <Compile Include="Modulos\Funciones.vb" />
+    <Compile Include="Modulos\PrintTickets.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Pagos\frmFormaPago.designer.vb">
+      <DependentUpon>frmFormaPago.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos\frmFormaPago.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personas\frmAdd_Personas.Designer.vb">
+      <DependentUpon>frmAdd_Personas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personas\frmAdd_Personas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personas\frmList_PersonViewDetail.Designer.vb">
+      <DependentUpon>frmList_PersonViewDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personas\frmList_PersonViewDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personas\frmList_PersonViewTarget.Designer.vb">
+      <DependentUpon>frmList_PersonViewTarget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Personas\frmList_PersonViewTarget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmCategoryRates.Designer.vb">
+      <DependentUpon>frmCategoryRates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmCategoryRates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmList_RatesDiscount.Designer.vb">
+      <DependentUpon>frmList_RatesDiscount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmList_RatesDiscount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmList_RatesSelect.Designer.vb">
+      <DependentUpon>frmList_RatesSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmList_RatesSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmPresentRates.Designer.vb">
+      <DependentUpon>frmPresentRates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmPresentRates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmProductoRates.Designer.vb">
+      <DependentUpon>frmProductoRates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmProductoRates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmSelectTypeRates.Designer.vb">
+      <DependentUpon>frmSelectTypeRates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmSelectTypeRates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmSubCategoryRates.Designer.vb">
+      <DependentUpon>frmSubCategoryRates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Ajustes\frmSubCategoryRates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\ClassProducto.vb" />
+    <Compile Include="Producto\fproducto.vb" />
+    <Compile Include="Producto\frmAdministrarPrecios.designer.vb">
+      <DependentUpon>frmAdministrarPrecios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\frmAdministrarPrecios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\frmAdminOfertas.Designer.vb">
+      <DependentUpon>frmAdminOfertas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\frmAdminOfertas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\frmEditaValor.designer.vb">
+      <DependentUpon>frmEditaValor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\frmEditaValor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\frmList_ProductoView.designer.vb">
+      <DependentUpon>frmList_ProductoView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\frmList_ProductoView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\frmList_ProductPrecioVenta.designer.vb">
+      <DependentUpon>frmList_ProductPrecioVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\frmList_ProductPrecioVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\frmOferta.designer.vb">
+      <DependentUpon>frmOferta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\frmOferta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Inventories\frmDescriptionInventories.Designer.vb">
+      <DependentUpon>frmDescriptionInventories.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Inventories\frmDescriptionInventories.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Inventories\frmInventoriesExplorer.Designer.vb">
+      <DependentUpon>frmInventoriesExplorer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Inventories\frmInventoriesExplorer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Inventories\frmListInventoriesUpdate.Designer.vb">
+      <DependentUpon>frmListInventoriesUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Inventories\frmListInventoriesUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Inventories\frmUpdateInventotyOneProduct.Designer.vb">
+      <DependentUpon>frmUpdateInventotyOneProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Inventories\frmUpdateInventotyOneProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Inventories\frm_ListInventories.Designer.vb">
+      <DependentUpon>frm_ListInventories.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Inventories\frm_ListInventories.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frmBarrCode.Designer.vb">
+      <DependentUpon>frmBarrCode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frmBarrCode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frmConfiguracion.Designer.vb">
+      <DependentUpon>frmConfiguracion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frmConfiguracion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frmIvaDialog.Designer.vb">
+      <DependentUpon>frmIvaDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frmIvaDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frm_Categoria.designer.vb">
+      <DependentUpon>frm_Categoria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frm_Categoria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frm_Detalle.designer.vb">
+      <DependentUpon>frm_Detalle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frm_Detalle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frm_Presentacion.designer.vb">
+      <DependentUpon>frm_Presentacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frm_Presentacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frm_Proveedor.designer.vb">
+      <DependentUpon>frm_Proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\NewProducto\frm_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\NewProducto\MDI_AddProductos.designer.vb">
+      <DependentUpon>MDI_AddProductos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\NewProducto\MDI_AddProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\ViewBarCode\frmViewBarcodeList.Designer.vb">
+      <DependentUpon>frmViewBarcodeList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\ViewBarCode\frmViewBarcodeList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\ViewBarCode\frmViewSalesSing.Designer.vb">
+      <DependentUpon>frmViewSalesSing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\ViewBarCode\frmViewSalesSing.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\Dproveedor.vb" />
+    <Compile Include="Proveedores\fProveedor.vb" />
+    <Compile Include="Proveedores\frmAdd_Proveedor.designer.vb">
+      <DependentUpon>frmAdd_Proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\frmAdd_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\frmList_DeudaProveedor.Designer.vb">
+      <DependentUpon>frmList_DeudaProveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\frmList_DeudaProveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\frmList_Proveedores.designer.vb">
+      <DependentUpon>frmList_Proveedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\frmList_Proveedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\frmPagos.designer.vb">
+      <DependentUpon>frmPagos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\frmPagos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proveedores\frmProduc_Proveedor.designer.vb">
+      <DependentUpon>frmProduc_Proveedor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores\frmProduc_Proveedor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\rptCloseTerminal2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCloseTerminal.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptCobroCliente2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptCobroCliente.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptFacturaBacha2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptFacturaBacha.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptInventoriesUpdate2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptInventoriesUpdate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptNotaVentaBacha2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptNotaVentaBacha.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptProformaBacha2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptProformaBacha.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptSaldoDivisas2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSaldoDivisas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptSubSaldoXLocalidad2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSubSaldoXLocalidad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptSubSaldoXTipo2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSubSaldoXTipo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptViewSalesByDate2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptViewSalesByDate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportView\frmReportCobroDeuda.Designer.vb">
+      <DependentUpon>frmReportCobroDeuda.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportView\frmReportCobroDeuda.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportView\frmReportFactura.Designer.vb">
+      <DependentUpon>frmReportFactura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportView\frmReportFactura.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportView\frmReportInventoriesUpdates.Designer.vb">
+      <DependentUpon>frmReportInventoriesUpdates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportView\frmReportInventoriesUpdates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportView\frmReportNotaVenta.Designer.vb">
+      <DependentUpon>frmReportNotaVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportView\frmReportNotaVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportView\frmReportProforma.Designer.vb">
+      <DependentUpon>frmReportProforma.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReportView\frmReportProforma.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\fbackup.vb" />
+    <Compile Include="Seguridad\frmAdd_Usuarios.designer.vb">
+      <DependentUpon>frmAdd_Usuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmAdd_Usuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmbackup_Base.designer.vb">
+      <DependentUpon>frmbackup_Base.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmbackup_Base.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmChangePassword.Designer.vb">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmChangePassword.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmList_Users.Designer.vb">
+      <DependentUpon>frmList_Users.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmList_Users.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmPermisos.designer.vb">
+      <DependentUpon>frmPermisos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmPermisos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmPermososSpecial.Designer.vb">
+      <DependentUpon>frmPermososSpecial.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmPermososSpecial.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmUsuarios.designer.vb">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmUsuarios.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System\frmViewDataReset.Designer.vb">
+      <DependentUpon>frmViewDataReset.vb</DependentUpon>
+    </Compile>
+    <Compile Include="System\frmViewDataReset.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmDetailOrderVenta.designer.vb">
+      <DependentUpon>frmDetailOrderVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmDetailOrderVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\FrmImputDate.Designer.vb">
+      <DependentUpon>FrmImputDate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\FrmImputDate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmList_OrdenVenta.designer.vb">
+      <DependentUpon>frmList_OrdenVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmList_OrdenVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmProductoPresentacion.designer.vb">
+      <DependentUpon>frmProductoPresentacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmProductoPresentacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmUltDocument.designer.vb">
+      <DependentUpon>frmUltDocument.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmUltDocument.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\frmVentas.designer.vb">
+      <DependentUpon>frmVentas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frmVentas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\FrmVentaXcaja.Designer.vb">
+      <DependentUpon>FrmVentaXcaja.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\FrmVentaXcaja.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\FrmVentaXcliente.Designer.vb">
+      <DependentUpon>FrmVentaXcliente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\FrmVentaXcliente.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\FrmVentaXEmpleado.Designer.vb">
+      <DependentUpon>FrmVentaXEmpleado.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\FrmVentaXEmpleado.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\FrmVentaXProducto.Designer.vb">
+      <DependentUpon>FrmVentaXProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\FrmVentaXProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\frm_SelctFecha.designer.vb">
+      <DependentUpon>frm_SelctFecha.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\frm_SelctFecha.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewModel\ItemCodBarTicket.vb" />
+    <Compile Include="ViewModel\RelayCommand.vb" />
+    <Compile Include="Zonas\frmAdd_Zonas.Designer.vb">
+      <DependentUpon>frmAdd_Zonas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Zonas\frmAdd_Zonas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zonas\frmZonas.Designer.vb">
+      <DependentUpon>frmZonas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Zonas\frmZonas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zonas\frmZonasDescrip.Designer.vb">
+      <DependentUpon>frmZonasDescrip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Zonas\frmZonasDescrip.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Balance\frmBalanceGeneral.resx">
+      <DependentUpon>frmBalanceGeneral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\TabBalanceGeneral.resx">
+      <DependentUpon>TabBalanceGeneral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Balance\TabSalesToDate.resx">
+      <DependentUpon>TabSalesToDate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\AdminVirtualBox\frmExitMoneyVirtualBox.resx">
+      <DependentUpon>frmExitMoneyVirtualBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\AdminVirtualBox\UConAccountEmployee.resx">
+      <DependentUpon>UConAccountEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\AdminVirtualBox\UConBankDeposit.resx">
+      <DependentUpon>UConBankDeposit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\AdminVirtualBox\UconExitDivisaToOnwer.resx">
+      <DependentUpon>UconExitDivisaToOnwer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\ChildCajas\frmChilBanckDeposit.resx">
+      <DependentUpon>frmChilBanckDeposit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\ChildCajas\frmChildEmployeeAccount.resx">
+      <DependentUpon>frmChildEmployeeAccount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\ChildCajas\frmChildPaymentProvider.resx">
+      <DependentUpon>frmChildPaymentProvider.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\ChildCajas\frmChiltExitDocumentBanck.resx">
+      <DependentUpon>frmChiltExitDocumentBanck.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\ChildCajas\frmchilVirtualBox.resx">
+      <DependentUpon>frmchilVirtualBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmAdminMoney.resx">
+      <DependentUpon>frmAdminMoney.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmCajaDetail.resx">
+      <DependentUpon>frmCajaDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmChequeContab.resx">
+      <DependentUpon>frmChequeContab.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmClosedTransactionsTerminal.resx">
+      <DependentUpon>frmClosedTransactionsTerminal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmExitDocument.resx">
+      <DependentUpon>frmExitDocument.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmExitMoney.resx">
+      <DependentUpon>frmExitMoney.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmFaltantesSobrantes.resx">
+      <DependentUpon>frmFaltantesSobrantes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmHabilitaTerminal.resx">
+      <DependentUpon>frmHabilitaTerminal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmListMoviSalidaCaja.resx">
+      <DependentUpon>frmListMoviSalidaCaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmNewOperationCaja.resx">
+      <DependentUpon>frmNewOperationCaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\FrmSaldo_caja.resx">
+      <DependentUpon>FrmSaldo_caja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmSaldo_Terminales.resx">
+      <DependentUpon>frmSaldo_Terminales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmStadoDivisas.resx">
+      <DependentUpon>frmStadoDivisas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmTargetContab.resx">
+      <DependentUpon>frmTargetContab.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\frmVirtualBoxBalance.resx">
+      <DependentUpon>frmVirtualBoxBalance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\Cajas\MDIcajas.resx">
+      <DependentUpon>MDIcajas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\frmAdd_Banco.resx">
+      <DependentUpon>frmAdd_Banco.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\frmAdd_cuenta.resx">
+      <DependentUpon>frmAdd_Cuenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\frmAdd_UpdateMoney.resx">
+      <DependentUpon>frmAdd_UpdateMoney.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\frmExitDivisaInVirtualBox.resx">
+      <DependentUpon>frmExitDivisaInVirtualBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\frmListBanckOwner.resx">
+      <DependentUpon>frmListBanckOwner.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\frmListBancos.resx">
+      <DependentUpon>frmListBancos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bancos\FrmMonedas.resx">
+      <DependentUpon>FrmMonedas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BodegaAlmacen\frmAdd_Almacen.resx">
+      <DependentUpon>frmAdd_Almacen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BodegaAlmacen\frmBodegas.resx">
+      <DependentUpon>frmBodegas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BodegaAlmacen\frmList_Bodega.resx">
+      <DependentUpon>frmList_Bodega.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmCobro.resx">
+      <DependentUpon>frmCobro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmList_clientes.resx">
+      <DependentUpon>frmList_clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\FrmList_ClientRates.resx">
+      <DependentUpon>FrmList_ClientRates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes\frmList_CuentasXcobrar.resx">
+      <DependentUpon>frmList_CuentasXcobrar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmAdquisicion.resx">
+      <DependentUpon>frmAdquisicion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmEditCompra.resx">
+      <DependentUpon>frmEditCompra.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmFacturCompProducto.resx">
+      <DependentUpon>FrmFacturCompProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmFacturCompProvider.resx">
+      <DependentUpon>FrmFacturCompProvider.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\FrmFacturCompTypoDocument.resx">
+      <DependentUpon>FrmFacturCompTypoDocument.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmImputData.resx">
+      <DependentUpon>frmImputData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmImput_Consumo.resx">
+      <DependentUpon>frmImput_Consumo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmListPedido.resx">
+      <DependentUpon>frmListPedido.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmList_ProductoComprable.resx">
+      <DependentUpon>frmList_ProductoComprable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\ChildConfig\frmAddVirtualBox.resx">
+      <DependentUpon>frmAddVirtualBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\ChildConfig\frmOwnerCommerce.resx">
+      <DependentUpon>frmOwnerCommerce.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\ChildConfig\frmSetthingCommerce.resx">
+      <DependentUpon>frmSetthingCommerce.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\ChildConfig\frmWhereHouseCommerce.resx">
+      <DependentUpon>frmWhereHouseCommerce.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\ChildConfig\Frm_DetailEcommerce.resx">
+      <DependentUpon>Frm_DetailEcommerce.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\frmConfFactura.resx">
+      <DependentUpon>frmConfFactura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\frmMyCommerce.resx">
+      <DependentUpon>frmMyCommerce.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Printers\frmOptionPrint.resx">
+      <DependentUpon>frmOptionPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\frmRegistroEquipo.resx">
+      <DependentUpon>frmRegistroEquipo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\frm_registerInTerminal.resx">
+      <DependentUpon>frm_registerInTerminal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Printers\frmAdminDocument.resx">
+      <DependentUpon>frmAdminDocument.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Printers\frmSettingDocuments.resx">
+      <DependentUpon>frmSettingDocuments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\frmAdd_Empleados.resx">
+      <DependentUpon>frmAdd_Empleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\frmCobroEmpleado.resx">
+      <DependentUpon>frmCobroEmpleado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\frmListEmployeeView.resx">
+      <DependentUpon>frmListEmployeeView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\frmList_Empleados.resx">
+      <DependentUpon>frmList_Empleados.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados\frmList_EmployeeDebit.resx">
+      <DependentUpon>frmList_EmployeeDebit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\frmList_Facturas.resx">
+      <DependentUpon>frmList_Facturas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\AboutBox.resx">
+      <DependentUpon>AboutBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\ContagFrm.resx">
+      <DependentUpon>ContagFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\frmPanel.resx">
+      <DependentUpon>frmPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\WaitForTaskScreenWithCancellation.resx">
+      <DependentUpon>WaitForTaskScreenWithCancellation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\MDIPareInicio.resx">
+      <DependentUpon>MDIPareInicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\SplashScreen1.resx">
+      <DependentUpon>SplashScreen1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logica\MasterControl.resx">
+      <DependentUpon>MasterControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pagos\frmFormaPago.resx">
+      <DependentUpon>frmFormaPago.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personas\frmAdd_Personas.resx">
+      <DependentUpon>frmAdd_Personas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personas\frmList_PersonViewDetail.resx">
+      <DependentUpon>frmList_PersonViewDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personas\frmList_PersonViewTarget.resx">
+      <DependentUpon>frmList_PersonViewTarget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Ajustes\frmCategoryRates.resx">
+      <DependentUpon>frmCategoryRates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Ajustes\frmList_RatesDiscount.resx">
+      <DependentUpon>frmList_RatesDiscount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Ajustes\frmList_RatesSelect.resx">
+      <DependentUpon>frmList_RatesSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Ajustes\frmPresentRates.resx">
+      <DependentUpon>frmPresentRates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Ajustes\frmProductoRates.resx">
+      <DependentUpon>frmProductoRates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Ajustes\frmSelectTypeRates.resx">
+      <DependentUpon>frmSelectTypeRates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Ajustes\frmSubCategoryRates.resx">
+      <DependentUpon>frmSubCategoryRates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\frmAdministrarPrecios.resx">
+      <DependentUpon>frmAdministrarPrecios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\frmAdminOfertas.resx">
+      <DependentUpon>frmAdminOfertas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\frmEditaValor.resx">
+      <DependentUpon>frmEditaValor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\frmList_ProductoView.resx">
+      <DependentUpon>frmList_ProductoView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\frmList_ProductPrecioVenta.resx">
+      <DependentUpon>frmList_ProductPrecioVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\frmOferta.resx">
+      <DependentUpon>frmOferta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Inventories\frmDescriptionInventories.resx">
+      <DependentUpon>frmDescriptionInventories.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Inventories\frmInventoriesExplorer.resx">
+      <DependentUpon>frmInventoriesExplorer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Inventories\frmListInventoriesUpdate.resx">
+      <DependentUpon>frmListInventoriesUpdate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Inventories\frmUpdateInventotyOneProduct.resx">
+      <DependentUpon>frmUpdateInventotyOneProduct.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Inventories\frm_ListInventories.resx">
+      <DependentUpon>frm_ListInventories.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\NewProducto\frmBarrCode.resx">
+      <DependentUpon>frmBarrCode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\NewProducto\frmConfiguracion.resx">
+      <DependentUpon>frmConfiguracion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\NewProducto\frmIvaDialog.resx">
+      <DependentUpon>frmIvaDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\NewProducto\frm_Categoria.resx">
+      <DependentUpon>frm_Categoria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\NewProducto\frm_Detalle.resx">
+      <DependentUpon>frm_Detalle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\NewProducto\frm_Presentacion.resx">
+      <DependentUpon>frm_Presentacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\NewProducto\frm_Proveedor.resx">
+      <DependentUpon>frm_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\NewProducto\MDI_AddProductos.resx">
+      <DependentUpon>MDI_AddProductos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\ViewBarCode\frmViewBarcodeList.resx">
+      <DependentUpon>frmViewBarcodeList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\ViewBarCode\frmViewSalesSing.resx">
+      <DependentUpon>frmViewSalesSing.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\frmAdd_Proveedor.resx">
+      <DependentUpon>frmAdd_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\frmList_DeudaProveedor.resx">
+      <DependentUpon>frmList_DeudaProveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\frmList_Proveedores.resx">
+      <DependentUpon>frmList_Proveedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\frmPagos.resx">
+      <DependentUpon>frmPagos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proveedores\frmProduc_Proveedor.resx">
+      <DependentUpon>frmProduc_Proveedor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCloseTerminal.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCloseTerminal2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCobroCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptCobroCliente2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptFacturaBacha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptFacturaBacha2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptInventoriesUpdate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptInventoriesUpdate2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptNotaVentaBacha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptNotaVentaBacha2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptProformaBacha.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptProformaBacha2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptSaldoDivisas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSaldoDivisas2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptSalesSing.rdlc" />
+    <EmbeddedResource Include="Reports\rptSubSaldoXLocalidad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubSaldoXLocalidad2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptSubSaldoXTipo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubSaldoXTipo2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptViewSalesByDate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptViewSalesByDate2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportView\frmReportCobroDeuda.resx">
+      <DependentUpon>frmReportCobroDeuda.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportView\frmReportFactura.resx">
+      <DependentUpon>frmReportFactura.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportView\frmReportInventoriesUpdates.resx">
+      <DependentUpon>frmReportInventoriesUpdates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportView\frmReportNotaVenta.resx">
+      <DependentUpon>frmReportNotaVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportView\frmReportProforma.resx">
+      <DependentUpon>frmReportProforma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmAdd_Usuarios.resx">
+      <DependentUpon>frmAdd_Usuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmbackup_Base.resx">
+      <DependentUpon>frmbackup_Base.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmList_Users.resx">
+      <DependentUpon>frmList_Users.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmPermisos.resx">
+      <DependentUpon>frmPermisos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmPermososSpecial.resx">
+      <DependentUpon>frmPermososSpecial.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System\frmViewDataReset.resx">
+      <DependentUpon>frmViewDataReset.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\frmDetailOrderVenta.resx">
+      <DependentUpon>frmDetailOrderVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\FrmImputDate.resx">
+      <DependentUpon>FrmImputDate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\frmList_OrdenVenta.resx">
+      <DependentUpon>frmList_OrdenVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\frmProductoPresentacion.resx">
+      <DependentUpon>frmProductoPresentacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\frmUltDocument.resx">
+      <DependentUpon>frmUltDocument.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\frmVentas.resx">
+      <DependentUpon>frmVentas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\FrmVentaXcaja.resx">
+      <DependentUpon>FrmVentaXcaja.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\FrmVentaXcliente.resx">
+      <DependentUpon>FrmVentaXcliente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\FrmVentaXEmpleado.resx">
+      <DependentUpon>FrmVentaXEmpleado.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\FrmVentaXProducto.resx">
+      <DependentUpon>FrmVentaXProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\frm_SelctFecha.resx">
+      <DependentUpon>frm_SelctFecha.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zonas\frmAdd_Zonas.resx">
+      <DependentUpon>frmAdd_Zonas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zonas\frmZonas.resx">
+      <DependentUpon>frmZonas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zonas\frmZonasDescrip.resx">
+      <DependentUpon>frmZonasDescrip.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\ECommercePlatformView.exe.config" />
+    <None Include="bin\Debug\ECommercePlatformView.vshost.exe.config" />
+    <None Include="bin\Debug\ECommercePlatformView.vshost.exe.manifest" />
+    <None Include="JSofwareCommerceDB02DataSet.xsc">
+      <DependentUpon>JSofwareCommerceDB02DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="JSofwareCommerceDB02DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>JSofwareCommerceDB02DataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="JSofwareCommerceDB02DataSet.xss">
+      <DependentUpon>JSofwareCommerceDB02DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="My Project\app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\ECommercePlatformView.vbproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\ECommercePlatformView.vbproj.CoreCompileInputs.cache" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Bancos\Cajas\MoneyDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Bancos\ViewFaltantesSobrantes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Empleados\ItemBebitEmployee.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ECommercePlatformView.vshost.exe" />
+    <Content Include="Conexion\RutaConexion.txt" />
+    <Content Include="obj\Debug\ECommercePlatformView.vbproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\TempPE\CrystalReport1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.CrystalReport1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.CrystalReport2.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.CrystalReport31.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptCloseTerminal1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptCobroCliente1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptFacturaBacha1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptInventoriesUpdate1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptNotaVentaBacha1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptProformaBacha1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptSaldoDivisas1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptSubSaldoXLocalidad1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptSubSaldoXTipo1.vb.dll" />
+    <Content Include="obj\Debug\TempPE\Reports.rptViewSalesByDate1.vb.dll" />
+    <Content Include="Resources\3DFullStackedArea_16x16.png" />
+    <Content Include="Resources\Acceso_no_48.png" />
+    <Content Include="Resources\Acceso_ok_48.png" />
+    <Content Include="Resources\ActionsInDetailView.png" />
+    <Content Include="Resources\ActionsInDetailView_32x32.png" />
+    <Content Include="Resources\Action_Cancel_32x32.png" />
+    <Content Include="Resources\Action_Copy.png" />
+    <Content Include="Resources\Action_Delete_12x12.png" />
+    <Content Include="Resources\Action_Delete_16x16.png" />
+    <Content Include="Resources\Action_Inline_Edit.png" />
+    <Content Include="Resources\Action_Inline_Edit_32x32.png" />
+    <Content Include="Resources\Action_New.png" />
+    <Content Include="Resources\Action_Printing_Print_16x16.png" />
+    <Content Include="Resources\Action_Printing_Print_32x32.png" />
+    <Content Include="Resources\Action_Save.png" />
+    <Content Include="Resources\Action_SaveScript_32x32.png" />
+    <Content Include="Resources\Action_Save_16x16.png" />
+    <Content Include="Resources\Action_Save_32x32.png" />
+    <Content Include="Resources\Action_Security_ChangePassword_32x32.png" />
+    <Content Include="Resources\Add-Folder_24.png" />
+    <Content Include="Resources\addBank.ico" />
+    <Content Include="Resources\addBanks.ico" />
+    <Content Include="Resources\AddItem_32x32.png" />
+    <Content Include="Resources\AddItem_Black_32x32.png" />
+    <Content Include="Resources\addListNew_48.png" />
+    <None Include="Resources\AddList_32.png" />
+    <None Include="Resources\AddList_20.png" />
+    <Content Include="Resources\addList_48.png" />
+    <Content Include="Resources\Add_64x64.png" />
+    <Content Include="Resources\add_circle_Black_32.png" />
+    <Content Include="Resources\add_client_48.png" />
+    <Content Include="Resources\Add_Folder_16.png" />
+    <Content Include="Resources\add_list-48.png" />
+    <Content Include="Resources\Add_user.png" />
+    <Content Include="Resources\add_user_48.png" />
+    <Content Include="Resources\almacen_icon_24.png" />
+    <Content Include="Resources\Almacen_icon_48.png" />
+    <Content Include="Resources\Archiv128x128.png" />
+    <Content Include="Resources\Archiv_48.png" />
+    <Content Include="Resources\Arrow_Back_48.png" />
+    <Content Include="Resources\Arrow_Forward_48.png" />
+    <Content Include="Resources\arrow_left_48x48.png" />
+    <Content Include="Resources\Articulos_72_png.png" />
+    <Content Include="Resources\Atm_32.png" />
+    <Content Include="Resources\Atm_Check_32.png" />
+    <Content Include="Resources\Backup_Blue_32.png" />
+    <Content Include="Resources\Banck_32x32_png.png" />
+    <Content Include="Resources\BarCodeScan_16.png" />
+    <Content Include="Resources\barcode_48.png" />
+    <Content Include="Resources\Barcod_32.png" />
+    <Content Include="Resources\BarrCode_16.png" />
+    <Content Include="Resources\BO_Category_32x32.png" />
+    <Content Include="Resources\BO_User_32x32.png" />
+    <Content Include="Resources\business_Black_32.png" />
+    <Content Include="Resources\Button_Refresh_Icon_64.png" />
+    <Content Include="Resources\Caja_72_png.png" />
+    <Content Include="Resources\Caja_regidter.png" />
+    <Content Include="Resources\calculadora_48.png" />
+    <Content Include="Resources\CalculateNow_32x32.png" />
+    <Content Include="Resources\Calendar_32.png" />
+    <Content Include="Resources\calendar_list_icon_48.png" />
+    <Content Include="Resources\camera_42.png" />
+    <Content Include="Resources\cancel_Edit_40.png" />
+    <Content Include="Resources\cancel_file-64.png" />
+    <Content Include="Resources\Cantidad_16.png" />
+    <Content Include="Resources\Cantidad_32.png" />
+    <Content Include="Resources\Card_16x16.png" />
+    <Content Include="Resources\Carpeta.png" />
+    <Content Include="Resources\cashbox_48.png" />
+    <Content Include="Resources\Cash_Counter_32.png" />
+    <Content Include="Resources\Cash_register_32.png" />
+    <Content Include="Resources\Category_32.png" />
+    <Content Include="Resources\Category_TreeView24.png" />
+    <Content Include="Resources\Category_TreeView32.png" />
+    <Content Include="Resources\changePassword_48.png" />
+    <Content Include="Resources\changePassword_481.png" />
+    <Content Include="Resources\change_passwor_32.png" />
+    <Content Include="Resources\checkbox_checked_16.png" />
+    <Content Include="Resources\checkbox_notChecked_16.png" />
+    <Content Include="Resources\check_16.png" />
+    <Content Include="Resources\check_48png.png" />
+    <Content Include="Resources\check_listx32.png" />
+    <Content Include="Resources\check_list_48.png" />
+    <Content Include="Resources\check_not16.png" />
+    <Content Include="Resources\clearPassword_24.png" />
+    <Content Include="Resources\clear_White_32.png" />
+    <Content Include="Resources\clients.png" />
+    <Content Include="Resources\Clien_72_png.png" />
+    <Content Include="Resources\Close_32x32.png" />
+    <Content Include="Resources\cobro_48.png" />
+    <Content Include="Resources\collapsible_down.png" />
+    <Content Include="Resources\collapsible_down_blue.png" />
+    <Content Include="Resources\commece_24.png" />
+    <Content Include="Resources\compra_32.png" />
+    <Content Include="Resources\compra_48.png" />
+    <Content Include="Resources\Compuesto_32.png" />
+    <Content Include="Resources\Computer_pngX24.png" />
+    <Content Include="Resources\configura_icon_48.png" />
+    <Content Include="Resources\confirCost_32.png" />
+    <Content Include="Resources\Contacts_24_png.png" />
+    <Content Include="Resources\Contact_32x32.png" />
+    <Content Include="Resources\Contraint_Treeview_24.png" />
+    <Content Include="Resources\Credid_48.png" />
+    <Content Include="Resources\credit_card48png.png" />
+    <Content Include="Resources\Credit_User_24.png" />
+    <Content Include="Resources\Credit_User_32.png" />
+    <Content Include="Resources\CrossbandBox_32x32.png" />
+    <Content Include="Resources\debit_Client_32.png" />
+    <Content Include="Resources\Delete65x65.png" />
+    <None Include="Resources\DeleteDate_25.png" />
+    <None Include="Resources\DeleteDate_20.png" />
+    <Content Include="Resources\DeleteSheetRows_32x32.png" />
+    <Content Include="Resources\Delete_32.png" />
+    <Content Include="Resources\Delete_48.png" />
+    <Content Include="Resources\delete_64x64.png" />
+    <Content Include="Resources\delete_72.png" />
+    <Content Include="Resources\delete_Black_32.png" />
+    <Content Include="Resources\delete_card_32.png" />
+    <Content Include="Resources\Delete_cliente_48.png" />
+    <Content Include="Resources\Delete_Column_icon_48.png" />
+    <Content Include="Resources\delete_file-64.png" />
+    <Content Include="Resources\Delete_Foto_24.png" />
+    <Content Include="Resources\delete_red_32.png" />
+    <Content Include="Resources\delete_red_64.png" />
+    <Content Include="Resources\delete_user_24.png" />
+    <Content Include="Resources\delete_user_32.png" />
+    <Content Include="Resources\delete_user_48.png" />
+    <Content Include="Resources\details-48.png" />
+    <Content Include="Resources\Details_24.png" />
+    <Content Include="Resources\Details_Whit24.png" />
+    <Content Include="Resources\Detail_32.png" />
+    <Content Include="Resources\Detail_72.png" />
+    <Content Include="Resources\Detail_Employee_64.png" />
+    <Content Include="Resources\Detail_user_24.png" />
+    <Content Include="Resources\detail_user_48.png" />
+    <Content Include="Resources\deuda_24.png" />
+    <Content Include="Resources\Documento_48.png" />
+    <Content Include="Resources\Documento_481.png" />
+    <Content Include="Resources\document_excel_icon_48.png" />
+    <Content Include="Resources\down_32.png" />
+    <Content Include="Resources\Down_32x32.png" />
+    <Content Include="Resources\ECommercePlatform.ico" />
+    <Content Include="Resources\ECommercePlatformnNew.ico" />
+    <Content Include="Resources\Edd65x65.png" />
+    <Content Include="Resources\Edd_client_48.png" />
+    <Content Include="Resources\edid_pencil_32.jpg" />
+    <Content Include="Resources\edid_pencil_64.jpg" />
+    <Content Include="Resources\edir_16.png" />
+    <Content Include="Resources\Edit.png" />
+    <Content Include="Resources\Editar_24.png" />
+    <Content Include="Resources\edit_24.png" />
+    <Content Include="Resources\Edit_32.png" />
+    <Content Include="Resources\edit_black_32.png" />
+    <Content Include="Resources\Edit_cart_Employee_64.png" />
+    <Content Include="Resources\edit_file-64.png" />
+    <Content Include="Resources\edit_list_32.png" />
+    <Content Include="Resources\edit_list_321.png" />
+    <Content Include="Resources\edit_validat.png" />
+    <Content Include="Resources\Empaquetar.png" />
+    <Content Include="Resources\empaque_48.png" />
+    <Content Include="Resources\Empleado_24.png" />
+    <Content Include="Resources\Empleado_48.png" />
+    <Content Include="Resources\Empleado_72.png" />
+    <Content Include="Resources\Employee_48.png" />
+    <Content Include="Resources\EnviarRuta_16.png" />
+    <Content Include="Resources\EnviarRuta_161.png" />
+    <Content Include="Resources\esc_48.png" />
+    <Content Include="Resources\EviarList_16.png" />
+    <Content Include="Resources\Exit_icon.png" />
+    <Content Include="Resources\Expant_Treeview_24.png" />
+    <Content Include="Resources\Expant_Treeview_Black_24.png" />
+    <Content Include="Resources\factura_32.png" />
+    <Content Include="Resources\Factur_32.png" />
+    <Content Include="Resources\feje_24pgn.png" />
+    <Content Include="Resources\file-64.png" />
+    <Content Include="Resources\FindCustomers_16x16.png" />
+    <Content Include="Resources\FindCustomers_32x32.png" />
+    <Content Include="Resources\finDocument.png" />
+    <Content Include="Resources\find_Black_16.png" />
+    <Content Include="Resources\Find_Employee_64.png" />
+    <Content Include="Resources\Find_Transpar_24.png" />
+    <Content Include="Resources\find_with_16.png" />
+    <Content Include="Resources\fin_deudor_32.png" />
+    <Content Include="Resources\Flecha_icon.png" />
+    <Content Include="Resources\folder-invoices-icon.png" />
+    <Content Include="Resources\folder-invoices-icon_125.png" />
+    <Content Include="Resources\folder_Balnce_Blue_32.png" />
+    <Content Include="Resources\folder_Blue_32.png" />
+    <Content Include="Resources\formaPago.png" />
+    <Content Include="Resources\Full_shopping_cart_Icon_96.png" />
+    <Content Include="Resources\google_maps_pin_locate_48.png" />
+    <Content Include="Resources\Group-Black-Folder-icon.png" />
+    <Content Include="Resources\hamburger_22.png" />
+    <Content Include="Resources\hamburger_22_Down_white.png" />
+    <Content Include="Resources\hamburger_22_white.png" />
+    <Content Include="Resources\hamburger_22_white1.png" />
+    <Content Include="Resources\hamburger_22_white2.png" />
+    <Content Include="Resources\Herram_icon_32.png" />
+    <Content Include="Resources\Herram_icon_48.png" />
+    <Content Include="Resources\Hiberna_x40.png" />
+    <Content Include="Resources\Home_Red_Icon_48.png" />
+    <Content Include="Resources\httpzcoolcomcnpicpngpng_7915png.png" />
+    <Content Include="Resources\ic_find_in_page.png" />
+    <Content Include="Resources\ic_settings_Black_32.png" />
+    <Content Include="Resources\ic_settings_white_32.png" />
+    <Content Include="Resources\ic_shortcut_save.png" />
+    <Content Include="Resources\Image1.png" />
+    <Content Include="Resources\Inventory_32.png" />
+    <Content Include="Resources\invoice-icon_125.png" />
+    <Content Include="Resources\invoice_icon_48.png" />
+    <Content Include="Resources\invoice_x64.png" />
+    <Content Include="Resources\invoice_x641.png" />
+    <Content Include="Resources\Letrerito_32White.png" />
+    <Content Include="Resources\Like_32.png" />
+    <Content Include="Resources\list-48.png" />
+    <Content Include="Resources\ListPedido_48.png" />
+    <Content Include="Resources\ListTerminal_48.png" />
+    <Content Include="Resources\List_32x32.png" />
+    <Content Include="Resources\list_48.png" />
+    <Content Include="Resources\Located_48x48.gif" />
+    <Content Include="Resources\Logo_CrediParra_200.png" />
+    <Content Include="Resources\Logo_Parra_New_200.png" />
+    <Content Include="Resources\luggage18.png" />
+    <Content Include="Resources\maintenance_icon_32.png" />
+    <Content Include="Resources\men_punto_48x48.png" />
+    <Content Include="Resources\MobilePhone2_16x16.png" />
+    <Content Include="Resources\modif_user_48.png" />
+    <Content Include="Resources\Moneda_saldo_16.png" />
+    <Content Include="Resources\Moneda_saldo_22.png" />
+    <Content Include="Resources\Moneda_saldo_28.png" />
+    <Content Include="Resources\MoneyAditional_32png.png" />
+    <Content Include="Resources\Money_24.png" />
+    <Content Include="Resources\Money_Calculator_icon_48.png" />
+    <Content Include="Resources\Monto_16.png" />
+    <Content Include="Resources\Monto_32.png" />
+    <Content Include="Resources\MoveDown_32x32.png" />
+    <Content Include="Resources\MovePrevio_16x16.gif" />
+    <Content Include="Resources\MoveUp_32x32.png" />
+    <Content Include="Resources\Move_next_16x16.png" />
+    <Content Include="Resources\MultiSeclt.png" />
+    <Content Include="Resources\myCommerce_48.png" />
+    <Content Include="Resources\MySpliter.png" />
+    <Content Include="Resources\new-32.png" />
+    <Content Include="Resources\new-48.png" />
+    <Content Include="Resources\NewPedidoAnual_48.png" />
+    <Content Include="Resources\newProvider_48_Gif.gif" />
+    <Content Include="Resources\newSales_48.png" />
+    <Content Include="Resources\New_32.png" />
+    <Content Include="Resources\New_green_32.png" />
+    <Content Include="Resources\New_green_64.png" />
+    <Content Include="Resources\New_list65x65.png" />
+    <Content Include="Resources\new_people.png" />
+    <Content Include="Resources\New_People_24.png" />
+    <Content Include="Resources\noteSales_32.png" />
+    <Content Include="Resources\notLike_32.png" />
+    <Content Include="Resources\not_Filter_16.png" />
+    <Content Include="Resources\not_Filter_24.png" />
+    <Content Include="Resources\nuevo_16.png" />
+    <Content Include="Resources\NullDocument_32.png" />
+    <Content Include="Resources\Number_32x32.png" />
+    <Content Include="Resources\Numeration_24.png" />
+    <Content Include="Resources\numeration_32.png" />
+    <Content Include="Resources\Numera_24.png" />
+    <Content Include="Resources\Ofert_Promo_32.png" />
+    <Content Include="Resources\Offers_32.png" />
+    <Content Include="Resources\Ok-icon.png" />
+    <Content Include="Resources\ok.png" />
+    <Content Include="Resources\ok1_icon.png" />
+    <Content Include="Resources\ok_16.png" />
+    <Content Include="Resources\ok_32.png" />
+    <Content Include="Resources\Ok_64.ico" />
+    <Content Include="Resources\OnePicxel.png" />
+    <Content Include="Resources\Onwer_32.png" />
+    <Content Include="Resources\OpenTerminal_48.png" />
+    <Content Include="Resources\Open_.png" />
+    <Content Include="Resources\PackageProduct_32x32.png" />
+    <Content Include="Resources\PageInfo_32x32.png" />
+    <Content Include="Resources\Pago_48gif.gif" />
+    <Content Include="Resources\PanelSettingicon_48.png" />
+    <None Include="Resources\Panel_660x40.png" />
+    <Content Include="Resources\Panel_Setting_icon32.png" />
+    <Content Include="Resources\Payment_White_32.png" />
+    <Content Include="Resources\payPal_32.png" />
+    <Content Include="Resources\Pencil_24.png" />
+    <Content Include="Resources\Perdidas_32_Black.png" />
+    <Content Include="Resources\permiso_24.png" />
+    <Content Include="Resources\Person.png" />
+    <Content Include="Resources\Person_128png.png" />
+    <Content Include="Resources\Person_128_Won_png.png" />
+    <Content Include="Resources\Person_20.png" />
+    <Content Include="Resources\person_Black_32.png" />
+    <Content Include="Resources\person_Black_321.png" />
+    <Content Include="Resources\Person_Delete.png" />
+    <Content Include="Resources\Person_Online.png" />
+    <Content Include="Resources\Power_32.png" />
+    <Content Include="Resources\Power_icon.png" />
+    <Content Include="Resources\Power_icon_32.png" />
+    <Content Include="Resources\PrecioProduct_32.png" />
+    <Content Include="Resources\Present_24.png" />
+    <Content Include="Resources\Previous.png" />
+    <Content Include="Resources\Price_32.png" />
+    <Content Include="Resources\print-64.png" />
+    <Content Include="Resources\Print-icon.png" />
+    <Content Include="Resources\printer-icon.png" />
+    <Content Include="Resources\printer-icon72x72.png" />
+    <Content Include="Resources\printerMatricial_48.png" />
+    <Content Include="Resources\printers_axes.png" />
+    <Content Include="Resources\printer_icon_48.png" />
+    <Content Include="Resources\printer_x64.png" />
+    <Content Include="Resources\printer_x71.png" />
+    <Content Include="Resources\PrintList_24.png" />
+    <Content Include="Resources\printMatrix_24.png" />
+    <Content Include="Resources\printMatrix_32.png" />
+    <Content Include="Resources\printMatrix_ok_32.png" />
+    <Content Include="Resources\producto_24.png" />
+    <Content Include="Resources\producto_241.png" />
+    <Content Include="Resources\Product_Icon_64.png" />
+    <Content Include="Resources\Product_List.png" />
+    <Content Include="Resources\Product_Presenta.png" />
+    <Content Include="Resources\Product_return_32.png" />
+    <Content Include="Resources\Product_sales_report_Icon_64.png" />
+    <Content Include="Resources\Produc_Presenta.png" />
+    <Content Include="Resources\Program_Group_Icon_64.png" />
+    <Content Include="Resources\Proveedor.png" />
+    <Content Include="Resources\Proveedorsicon.png" />
+    <Content Include="Resources\Proveedor_450x270_Jpg.jpg" />
+    <Content Include="Resources\ProviderDetail_48_Gif.gif" />
+    <Content Include="Resources\RatesNot_24.png" />
+    <Content Include="Resources\Rates_24.png" />
+    <Content Include="Resources\Rates_32.png" />
+    <Content Include="Resources\Rates_Barr_24.png" />
+    <Content Include="Resources\Rates_Client_32.png" />
+    <Content Include="Resources\refresh-16.png" />
+    <Content Include="Resources\refresh-48.png" />
+    <Content Include="Resources\Refresh_32png.png" />
+    <Content Include="Resources\refresh_Blavk_20.png" />
+    <Content Include="Resources\Refresh_icon_48.png" />
+    <Content Include="Resources\refressh.ico" />
+    <Content Include="Resources\Retencion_Iva_32.png" />
+    <Content Include="Resources\Retencion_Renta_32.png" />
+    <Content Include="Resources\SalesInvoice_16x16.png" />
+    <Content Include="Resources\SalesMy_32_png.png" />
+    <Content Include="Resources\SalesSummary_32x32.png" />
+    <Content Include="Resources\Sales_32x32.png" />
+    <Content Include="Resources\Salir.png" />
+    <Content Include="Resources\Save2_icon_48.png" />
+    <Content Include="Resources\saveAs_32.png" />
+    <Content Include="Resources\Save_32.png" />
+    <Content Include="Resources\save_48.png" />
+    <Content Include="Resources\save_as-64.png" />
+    <Content Include="Resources\save_Black2_32.png" />
+    <Content Include="Resources\save_Black_32.png" />
+    <Content Include="Resources\save_icon_48.png" />
+    <Content Include="Resources\Save_White_32.png" />
+    <Content Include="Resources\Seguridad_48gif.gif" />
+    <Content Include="Resources\Segurity_48.png" />
+    <Content Include="Resources\select.png" />
+    <Content Include="Resources\SelectAll_16x16.jpg" />
+    <Content Include="Resources\SelectTable_16x16.png" />
+    <Content Include="Resources\SettingCurrency_32.png" />
+    <None Include="Resources\settings_file_32.png" />
+    <Content Include="Resources\Setting_48.png" />
+    <Content Include="Resources\Siguiente.png" />
+    <Content Include="Resources\spliterEcommerce.png" />
+    <Content Include="Resources\State_Validation_Information_48x48.png" />
+    <Content Include="Resources\stock_Bodega_32.png" />
+    <Content Include="Resources\stock_Product_128.png" />
+    <Content Include="Resources\stock_Product_32.png" />
+    <Content Include="Resources\TextBox2_32x32.png" />
+    <Content Include="Resources\TextBox_32x32.png" />
+    <Content Include="Resources\Ticket-icon.png" />
+    <Content Include="Resources\ticket.JPG" />
+    <Content Include="Resources\Ticket_24.png" />
+    <Content Include="Resources\toolbar_find.png" />
+    <Content Include="Resources\transfer_Banck_Person_White_32.png" />
+    <Content Include="Resources\Transfer_Data_32.png" />
+    <Content Include="Resources\Transfer_Product_32.png" />
+    <Content Include="Resources\transfer_White_black_32.png" />
+    <Content Include="Resources\TwoPixcel_16.png" />
+    <Content Include="Resources\Up2_32x32.png" />
+    <Content Include="Resources\UpdateTable_16x16.png" />
+    <Content Include="Resources\UpdateTable_32x32.png" />
+    <Content Include="Resources\Update_32.png" />
+    <Content Include="Resources\update_reload_refresh_32.png" />
+    <Content Include="Resources\Update_User.png" />
+    <Content Include="Resources\Users_20.png" />
+    <Content Include="Resources\user_bloqueo.png" />
+    <Content Include="Resources\User_delete.png" />
+    <Content Include="Resources\user_nothing_72.png" />
+    <Content Include="Resources\user_ok_femenino_48.png" />
+    <Content Include="Resources\user_ok_masculino_48.png" />
+    <Content Include="Resources\VentasCarro_32.png" />
+    <Content Include="Resources\Venta_32.png" />
+    <Content Include="Resources\Venta_32_png.PNG" />
+    <Content Include="Resources\Venta_48.png" />
+    <Content Include="Resources\venta_48_gif.gif" />
+    <Content Include="Resources\Villetes_28.png" />
+    <Content Include="Resources\Villetes_44.png" />
+    <Content Include="Resources\WhereHouse_24.png" />
+    <Content Include="Resources\whereHouse_48.png" />
+    <Content Include="Resources\WhereHouse_Whit_24.png" />
+    <Content Include="Resources\whreHouse_32.png" />
+    <Content Include="Resources\zoom-green-48icon.png" />
+    <Content Include="Resources\Zoom.bmp" />
+    <Content Include="Resources\zoom_Grin_24.png" />
+    <Content Include="Resources\zoom_icon_24.png" />
+    <Content Include="Resources\Zoom_icon_48.png" />
+    <None Include="Resources\Editar_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bancos\Cajas\UserControlsCaja\" />
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ECommercePlatformTwo\BarcodeLib\BarcodeLib.csproj">
+      <Project>{f8646414-0c9c-49bb-9da3-3923bf78a398}</Project>
+      <Name>BarcodeLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ECommercePlatformTwo\CADsisVenta\CADsisVenta.csproj">
+      <Project>{a8751b79-0344-46e3-99b8-9d92418ec0c5}</Project>
+      <Name>CADsisVenta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ECommercePlatformTwo\DGVPrinterHelper\DGVPrinterHelper.csproj">
+      <Project>{399aae71-3afc-4ff3-ada1-5cced6ed74d6}</Project>
+      <Name>DGVPrinterHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ECommercePlatformTwo\LibPrintTicket\LibPrintTicket.csproj">
+      <Project>{6e9ce6bc-fa36-48fb-b592-56e4f440e61b}</Project>
+      <Name>LibPrintTicket</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ECommercePlatformTwo\MultiColumnComboSuggestionBox\MultiColumnComboSuggestionBox.csproj">
+      <Project>{f2127f73-480e-4841-944c-d1e9db1ebc25}</Project>
+      <Name>MultiColumnComboSuggestionBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjectListView\ObjectListView2012.csproj">
+      <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>
+      <Name>ObjectListView2012</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

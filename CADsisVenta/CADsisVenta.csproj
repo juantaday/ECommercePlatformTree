@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A8751B79-0344-46E3-99B8-9D92418EC0C5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CADsisVenta</RootNamespace>
+    <AssemblyName>CADsisVenta</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ECommercePlatform.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Reflection.Context" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClsCajaBancos.cs" />
+    <Compile Include="ClsClientes.cs" />
+    <Compile Include="ClsCompras.cs" />
+    <Compile Include="ClsEmployee.cs" />
+    <Compile Include="ClsPerson.cs" />
+    <Compile Include="ClsSystem.cs" />
+    <Compile Include="ClsZona.cs" />
+    <Compile Include="DataClassesDB.cs">
+      <DependentUpon>DataClassesDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataClassesDB.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClassesDB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetClientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetClientes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetCompras.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetCompras.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetDeudas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetDeudas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetEmployee.cs">
+      <DependentUpon>DataSetEmployee.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetEmployee.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetEmployee.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetFacturaVenta.cs">
+      <DependentUpon>DataSetFacturaVenta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetFacturaVenta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetFacturaVenta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetGrafico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetGrafico.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetMonedas.cs">
+      <DependentUpon>DataSetMonedas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetMonedas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetMonedas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPerson.cs">
+      <DependentUpon>DataSetPerson.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetPerson.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetPerson.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetProductos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetReport.cs">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSecurity.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSecurity.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetStock.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetStock.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSystem.cs">
+      <DependentUpon>DataSetSystem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetSystem.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetSystem.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTicket.cs">
+      <DependentUpon>DataSetTicket.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetTicket.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetTicket.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetVentas1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetVentas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSetZonas.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetZonas.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GetConnectionString.cs" />
+    <Compile Include="IpFinder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataClassesDB.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>DataClassesDB.designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetClientes.xsc">
+      <DependentUpon>DataSetClientes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetClientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetClientes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetClientes.xss">
+      <DependentUpon>DataSetClientes.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCompras.xsc">
+      <DependentUpon>DataSetCompras.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetCompras.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetCompras.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetCompras.xss">
+      <DependentUpon>DataSetCompras.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetDeudas.xsc">
+      <DependentUpon>DataSetDeudas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetDeudas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetDeudas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetDeudas.xss">
+      <DependentUpon>DataSetDeudas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetEmployee.xsc">
+      <DependentUpon>DataSetEmployee.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetEmployee.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetEmployee.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetEmployee.xss">
+      <DependentUpon>DataSetEmployee.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFacturaVenta.xsc">
+      <DependentUpon>DataSetFacturaVenta.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetFacturaVenta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetFacturaVenta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetFacturaVenta.xss">
+      <DependentUpon>DataSetFacturaVenta.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetGrafico.xsc">
+      <DependentUpon>DataSetGrafico.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetGrafico.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetGrafico.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetGrafico.xss">
+      <DependentUpon>DataSetGrafico.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMonedas.xsc">
+      <DependentUpon>DataSetMonedas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetMonedas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>DataSetMonedas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetMonedas.xss">
+      <DependentUpon>DataSetMonedas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPerson.xsc">
+      <DependentUpon>DataSetPerson.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetPerson.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetPerson.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetPerson.xss">
+      <DependentUpon>DataSetPerson.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProductos.xsc">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetProductos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetProductos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetProductos.xss">
+      <DependentUpon>DataSetProductos.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetReport.xsc">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetReport.xss">
+      <DependentUpon>DataSetReport.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSecurity.xsc">
+      <DependentUpon>DataSetSecurity.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSecurity.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSecurity.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSecurity.xss">
+      <DependentUpon>DataSetSecurity.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetStock.xsc">
+      <DependentUpon>DataSetStock.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetStock.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetStock.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetStock.xss">
+      <DependentUpon>DataSetStock.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetSystem.xsc">
+      <DependentUpon>DataSetSystem.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetSystem.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetSystem.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetSystem.xss">
+      <DependentUpon>DataSetSystem.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTicket.xsc">
+      <DependentUpon>DataSetTicket.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetTicket.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetTicket.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetTicket.xss">
+      <DependentUpon>DataSetTicket.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsers.xsc">
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetUsers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetUsers.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetUsers.xss">
+      <DependentUpon>DataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVentas.xsc">
+      <DependentUpon>DataSetVentas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetVentas.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetVentas1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSetVentas.xss">
+      <DependentUpon>DataSetVentas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetZonas.xsc">
+      <DependentUpon>DataSetZonas.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetZonas.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetZonas.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetZonas.xss">
+      <DependentUpon>DataSetZonas.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataClassesDB.dbml.layout">
+      <DependentUpon>DataClassesDB.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ECommercePlatform.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

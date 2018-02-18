@@ -1,0 +1,1413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSetVentas" targetNamespace="http://tempuri.org/DataSetVentas.xsd" xmlns:mstns="http://tempuri.org/DataSetVentas.xsd" xmlns="http://tempuri.org/DataSetVentas.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="JsofConneccionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="JsofConneccionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CADsisVenta.Properties.Settings.GlobalReference.Default.JsofConneccionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CobrosTableAdapter" GeneratorDataComponentClassName="CobrosTableAdapter" Name="Cobros" UserDataComponentName="CobrosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Cobros" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT idCobro, idFacturaVenta, idCliente, val_Factura, fech_Factura, stateCobro FROM dbo.Cobros</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idCobro" DataSetColumn="idCobro" />
+              <Mapping SourceColumn="idFacturaVenta" DataSetColumn="idFacturaVenta" />
+              <Mapping SourceColumn="idCliente" DataSetColumn="idCliente" />
+              <Mapping SourceColumn="val_Factura" DataSetColumn="val_Factura" />
+              <Mapping SourceColumn="fech_Factura" DataSetColumn="fech_Factura" />
+              <Mapping SourceColumn="stateCobro" DataSetColumn="stateCobro" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Cobros" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataDeuda" GetMethodModifier="Public" GetMethodName="GetDataDeuda" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataDeuda" UserSourceName="GetDataDeuda">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT fech_Factura, idCliente, idCobro, idFacturaVenta, stateCobro, val_Factura FROM Cobros WHERE (stateCobro = 0)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DeudaClientesTableAdapter" GeneratorDataComponentClassName="DeudaClientesTableAdapter" Name="DeudaClientes" UserDataComponentName="DeudaClientesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select sal.idCliente ,c.Nombres, count(sal.idCliente) [letras] ,sum(sal.saldo) as [saldo] from
+(select c.idCobro,c.idCliente,
+case when cd.cobrado is not null then c.val_Factura - cd.cobrado else c.val_Factura  end as [saldo] 
+from
+(select c.idCobro, Sum(cd.val_Cobro) as [cobrado] 
+from CobroDetail  as cd
+inner join Cobros  as c on c.idCobro  = cd.idCobro 
+where c.stateCobro   = 0
+group by c.idCobro) as cd
+right outer join Cobros as c on c.idCobro  = cd.idCobro
+where c.stateCobro   = 0) as Sal
+inner join ClienteName  as c on c.idCliente  = sal.idCliente
+group by sal.idCliente ,c.Nombres
+order by c.Nombres
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idCliente" DataSetColumn="idCliente" />
+              <Mapping SourceColumn="Nombres" DataSetColumn="Nombres" />
+              <Mapping SourceColumn="letras" DataSetColumn="Documentos" />
+              <Mapping SourceColumn="saldo" DataSetColumn="saldo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClienteNameTableAdapter" GeneratorDataComponentClassName="ClienteNameTableAdapter" Name="ClienteName" UserDataComponentName="ClienteNameTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        idCliente, Ruc_Ci, Nombres, telefono, Direccion
+FROM            ClienteName</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idCliente" DataSetColumn="idCliente" />
+              <Mapping SourceColumn="Ruc_Ci" DataSetColumn="Cédula" />
+              <Mapping SourceColumn="Nombres" DataSetColumn="Nombre" />
+              <Mapping SourceColumn="telefono" DataSetColumn="Teléfono" />
+              <Mapping SourceColumn="Direccion" DataSetColumn="Dirección" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DeudaDetalleClientesTableAdapter" GeneratorDataComponentClassName="DeudaDetalleClientesTableAdapter" Name="DeudaDetalleClientes" UserDataComponentName="DeudaDetalleClientesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        c.idCliente, f.Num_Factu, c.idFacturaVenta, CONVERT(date, f.fechaDesde) AS Fecha, f.Total, CASE WHEN t .cobrado IS NOT NULL THEN c.val_Factura - t .cobrado ELSE c.val_Factura END AS saldo
+FROM            (SELECT        idCobro, SUM(val_Cobro) AS cobrado
+                          FROM            CobroDetail AS d
+                          GROUP BY idCobro) AS T RIGHT OUTER JOIN
+                         Cobros AS c ON c.idCobro = T.idCobro INNER JOIN
+                         FacturaVenta AS f ON f.idFactVenta = c.idFacturaVenta
+WHERE        (c.stateCobro = 0)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idCliente" DataSetColumn="idCliente" />
+              <Mapping SourceColumn="Num_Factu" DataSetColumn="Núm Doc." />
+              <Mapping SourceColumn="idFacturaVenta" DataSetColumn="Cód Interno" />
+              <Mapping SourceColumn="Fecha" DataSetColumn="Fecha Factura" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total Factura" />
+              <Mapping SourceColumn="saldo" DataSetColumn="Total Saldo" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaCajaTableAdapter" GeneratorDataComponentClassName="FacturaVentaCajaTableAdapter" Name="FacturaVentaCaja" UserDataComponentName="FacturaVentaCajaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select codTerminal as Caja, sum (f.Total) as Total 
+from facturaVenta  as f
+where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
+group by codTerminal</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Caja" DataSetColumn="Caja" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaEmpleadoTableAdapter" GeneratorDataComponentClassName="FacturaVentaEmpleadoTableAdapter" Name="FacturaVentaEmpleado" UserDataComponentName="FacturaVentaEmpleadoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select codTerminal as Caja ,codUser as Empledo, sum (f.Total) as Total 
+from facturaVenta  as f
+where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
+group by  codTerminal, codUser</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Caja" DataSetColumn="Caja" />
+              <Mapping SourceColumn="Empledo" DataSetColumn="Empledo" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaNumFacturTableAdapter" GeneratorDataComponentClassName="FacturaVentaNumFacturTableAdapter" Name="FacturaVentaNumFactur" UserDataComponentName="FacturaVentaNumFacturTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select codTerminal as Caja ,Num_Factu as [Numero de documento],sum (f.Total) as Total 
+from facturaVenta  as f
+where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
+group by  codTerminal, Num_Factu</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Caja" DataSetColumn="Caja" />
+              <Mapping SourceColumn="Numero de documento" DataSetColumn="Numero de documento" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaFechaTableAdapter" GeneratorDataComponentClassName="FacturaVentaFechaTableAdapter" Name="FacturaVentaFecha" UserDataComponentName="FacturaVentaFechaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select codTerminal as Caja,  convert (DATE,fechaDesde) as [Fecha de venta],sum (f.Total) as Total 
+from facturaVenta  as f
+where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
+group by  codTerminal, convert (DATE,fechaDesde)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Caja" DataSetColumn="Caja" />
+              <Mapping SourceColumn="Fecha de venta" DataSetColumn="Fecha de venta" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaHoraTableAdapter" GeneratorDataComponentClassName="FacturaVentaHoraTableAdapter" Name="FacturaVentaHora" UserDataComponentName="FacturaVentaHoraTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select codTerminal as Caja,  convert (TIME,fechaDesde) as [Hora],sum (f.Total) as Total 
+from facturaVenta  as f
+where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
+group by  codTerminal, convert (TIME,fechaDesde)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Caja" DataSetColumn="Caja" />
+              <Mapping SourceColumn="Hora" DataSetColumn="Hora" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaClienteFechAllTableAdapter" GeneratorDataComponentClassName="FacturaVentaClienteFechAllTableAdapter" Name="FacturaVentaClienteFechAll" UserDataComponentName="FacturaVentaClienteFechAllTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  c.Ruc_Ci  as [Identidad], 
+c.Nombres as [Cliente],CONVERT(date,f.fechaDesde) as [Fecha venta],
+Sum(f.Total ) as [Total]
+
+FROM [dbo].[FacturaVenta]  as f
+INNER JOIN [dbo].ClienteName  As c on f.idCliente  = c.idCliente 
+where ((f.fechaDesde &gt; =@fechaIni AND f.fechaDesde &lt;= @fechaFin) 
+AND F.Estado  = 1)
+GROUP BY c.Ruc_Ci , c.Nombres, CONVERT(date,f.fechaDesde)
+ORDER BY C.Nombres</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Identidad" DataSetColumn="Identidad" />
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Fecha venta" DataSetColumn="Fecha venta" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaClienteAllTableAdapter" GeneratorDataComponentClassName="FacturaVentaClienteAllTableAdapter" Name="FacturaVentaClienteAll" UserDataComponentName="FacturaVentaClienteAllTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT  c.Ruc_Ci  as [Identidad], c.Nombres as [Cliente],
+Sum(f.Total ) as [Total]
+FROM [dbo].[FacturaVenta]  as f
+INNER JOIN [dbo].ClienteName  As c on f.idCliente  = c.idCliente 
+where ((f.fechaDesde &gt; =@fechaIni AND f.fechaDesde &lt;= @fechaFin) AND F.Estado  = 1)
+GROUP BY  c.Ruc_Ci , c.Nombres
+ORDER BY C.Nombres
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Identidad" DataSetColumn="Identidad" />
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaClienteIdDetailTableAdapter" GeneratorDataComponentClassName="FacturaVentaClienteIdDetailTableAdapter" Name="FacturaVentaClienteIdDetail" UserDataComponentName="FacturaVentaClienteIdDetailTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select fd.idFacturaVenta as idFactVenta, p.Nom_Comercial as [Producto], pp.Presentacion, fd.cantidad,fd.Prec_Venta  as[Total]
+from FacturaVentaDetail as fd
+INNER JOIN ProductoPresentacion  AS pp ON pp.idPresentacion  = fd.idPresent
+inner join Productos  as p  on p.idProducto  = pp.idProducto
+inner join FacturaVenta as f on fd.idFacturaVenta  = f.idFactVenta
+where f.idCliente  = @idCliente
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idCliente" ColumnName="idCliente" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCliente" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idFactVenta" DataSetColumn="idFactVenta" />
+              <Mapping SourceColumn="Producto" DataSetColumn="Producto" />
+              <Mapping SourceColumn="Presentacion" DataSetColumn="Presentacion" />
+              <Mapping SourceColumn="cantidad" DataSetColumn="cantidad" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaClienteIdTableAdapter" GeneratorDataComponentClassName="FacturaVentaClienteIdTableAdapter" Name="FacturaVentaClienteId" UserDataComponentName="FacturaVentaClienteIdTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT f.idFactVenta,   c.Ruc_Ci  as [Identidad], c.Nombres as [Cliente],
+CONVERT (date ,f.fechaDesde ) as [Fecha venta],f.Num_Factu as [Num. documento], f.Total as [Total]
+FROM [dbo].[FacturaVenta]  as f
+INNER JOIN [dbo].ClienteName  As c on f.idCliente  = c.idCliente 
+where ((f.fechaDesde &gt; =@fechaIni AND f.fechaDesde &lt;= @fechaFin) 
+and C.Idcliente =@IdCliente AND F.Estado  = 1)
+ORDER BY C.Nombres</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="IdCliente" ColumnName="idCliente" DataSourceName="JSofwareCommerceDB.dbo.ClienteName" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdCliente" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idFactVenta" DataSetColumn="idFactVenta" />
+              <Mapping SourceColumn="Identidad" DataSetColumn="Identidad" />
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Fecha venta" DataSetColumn="Fecha venta" />
+              <Mapping SourceColumn="Num. documento" DataSetColumn="Num_ documento" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaProducCategTableAdapter" GeneratorDataComponentClassName="FacturaVentaProducCategTableAdapter" Name="FacturaVentaProducCateg" UserDataComponentName="FacturaVentaProducCategTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select sc.idSubCategoria, ct.Nom_Categoria  as [Categoria],sc.Nom_SubCategoria as [Sub categoria] ,sum(fd.Prec_Venta) as Total
+from ProductoCategoria as ct
+inner join ProductoSubCategoria as sc on ct.idCategoria   = sc.idCategoria
+inner join Productos as p on p.IdSubCategoria  = sc.idSubCategoria
+inner join ProductoPresentacion as pp on pp.idProducto = p.idProducto
+inner join FacturaVentaDetail as fd on fd.idPresent  =pp.idPresentacion
+inner join FacturaVenta as f on f.idFactVenta  = fd.idFacturaVenta
+where (f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;= @fechFin)
+group by sc.idSubCategoria, ct.Nom_Categoria,sc.Nom_SubCategoria</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idSubCategoria" DataSetColumn="idSubCategoria" />
+              <Mapping SourceColumn="Categoria" DataSetColumn="Categoria" />
+              <Mapping SourceColumn="Sub categoria" DataSetColumn="Sub categoria" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaProductProductTableAdapter" GeneratorDataComponentClassName="FacturaVentaProductProductTableAdapter" Name="FacturaVentaProductProduct" UserDataComponentName="FacturaVentaProductProductTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select p.idSubCategoria, p.Nom_Comercial as [Producto],
+pp.Presentacion,sum(fd.Cantidad) as [Cantidad],
+sum(fd.Prec_Venta) as Total
+from Productos as p 
+inner join ProductoPresentacion as pp on pp.idProducto = p.idProducto
+inner join FacturaVentaDetail as fd on fd.idPresent  =pp.idPresentacion
+inner join FacturaVenta as f on f.idFactVenta  = fd.idFacturaVenta
+where (f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;= @fechFin)
+group by p.idSubCategoria, p.Nom_Comercial,pp.Presentacion</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idSubCategoria" DataSetColumn="idSubCategoria" />
+              <Mapping SourceColumn="Producto" DataSetColumn="Producto" />
+              <Mapping SourceColumn="Presentacion" DataSetColumn="Presentacion" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaGroupByProductTableAdapter" GeneratorDataComponentClassName="FacturaVentaGroupByProductTableAdapter" Name="FacturaVentaGroupByProduct" UserDataComponentName="FacturaVentaGroupByProductTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select p.Nom_Comercial as [Producto],
+pp.Presentacion,
+max(convert (date,f.fechaDesde)) as [Ultima venta],sum(fd.Cantidad) as [Cantidad],
+sum(fd.Prec_Venta) as [Total $],p.idProducto
+from Productos as p 
+inner join ProductoPresentacion as pp on pp.idProducto = p.idProducto
+inner join FacturaVentaDetail as fd on fd.idPresent  =pp.idPresentacion
+inner join FacturaVenta as f on f.idFactVenta  = fd.idFacturaVenta
+where (f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;= @fechFin)
+group by p.Nom_Comercial,pp.Presentacion, p.idProducto
+order by p.Nom_Comercial </CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Producto" DataSetColumn="Producto" />
+              <Mapping SourceColumn="Presentacion" DataSetColumn="Presentacion" />
+              <Mapping SourceColumn="Ultima venta" DataSetColumn="Ultima venta" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Total $" DataSetColumn="Total" />
+              <Mapping SourceColumn="idProducto" DataSetColumn="idProducto" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaGroupByClientTableAdapter" GeneratorDataComponentClassName="FacturaVentaGroupByClientTableAdapter" Name="FacturaVentaGroupByClient" UserDataComponentName="FacturaVentaGroupByClientTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select pp.idProducto,c.Ruc_Ci ,c.Nombres,
+max(convert (date,f.fechaDesde)) as [Ultima venta],sum(fd.Cantidad) as [Cantidad],
+sum(fd.Prec_Venta) as [Total $]
+from ProductoPresentacion as pp
+inner join FacturaVentaDetail as fd on fd.idPresent  =pp.idPresentacion
+inner join FacturaVenta as f on f.idFactVenta  = fd.idFacturaVenta
+inner join ClienteName as c on f.idCliente  = c.idCliente
+where ((f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;=@fechFin))
+group by c.Ruc_Ci ,c.Nombres, pp.idProducto
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idProducto" DataSetColumn="idProducto" />
+              <Mapping SourceColumn="Ruc_Ci" DataSetColumn="Ruc_Ci" />
+              <Mapping SourceColumn="Nombres" DataSetColumn="Nombres" />
+              <Mapping SourceColumn="Ultima venta" DataSetColumn="Ultima venta" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Total $" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaGroupByIdProdcutTableAdapter" GeneratorDataComponentClassName="FacturaVentaGroupByIdProdcutTableAdapter" Name="FacturaVentaGroupByIdProdcut" UserDataComponentName="FacturaVentaGroupByIdProdcutTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select f.idFactVenta,f.Num_Factu as[Num documento],c.Ruc_Ci as [C.I ruc] ,c.Nombres as [Cliente],
+pp.Presentacion,
+max(convert (date,f.fechaDesde)) as [Fecha venta],sum(fd.Cantidad) as [Cantidad],
+sum(fd.Prec_Venta) as [Total]
+from ProductoPresentacion as pp
+inner join FacturaVentaDetail as fd on fd.idPresent  =pp.idPresentacion
+inner join FacturaVenta as f on f.idFactVenta  = fd.idFacturaVenta
+inner join ClienteName as c on f.idCliente  = c.idCliente
+where ((f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;=@fechFin) and pp.idProducto = @idProdcut)
+group by f.idFactVenta, f.Num_Factu , pp.Presentacion, c.Ruc_Ci ,c.Nombres, pp.idProducto
+</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idProdcut" ColumnName="idProducto" DataSourceName="JSofwareCommerceDB.dbo.ProductoPresentacion" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idProdcut" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idProducto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idFactVenta" DataSetColumn="idFactVenta" />
+              <Mapping SourceColumn="Num documento" DataSetColumn="Num documento" />
+              <Mapping SourceColumn="C.I ruc" DataSetColumn="C.I ruc" />
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Presentacion" DataSetColumn="Presentacion" />
+              <Mapping SourceColumn="Fecha venta" DataSetColumn="Fecha venta" />
+              <Mapping SourceColumn="Cantidad" DataSetColumn="Cantidad" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FVGroupByUserTableAdapter" GeneratorDataComponentClassName="FVGroupByUserTableAdapter" Name="FVGroupByUser" UserDataComponentName="FVGroupByUserTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.UserName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select [u].[login] as [codUser],
+u.Ruc_Ci as [Ruc. C.I],
+u.Nombres as[Empleado],
+u.telefono as[Teléfono],
+min(f.fechaDesde) as [Primera venta],
+max(f.fechaDesde) as [Ultima venta],
+count(f.idFactVenta) as [Cantidad codumento],
+sum(f.Total) as [Total],
+cast((sum(f.Total)/count(f.idFactVenta)) as decimal(12,2)) as [Prom. x documento]
+from FacturaVenta  as f
+inner join UserName as U on u.[login] = f.codUser
+where ((f.fechaDesde&gt;=@fechIni and f.fechaDesde &lt;=@fechFin) and (f.Estado = 1))
+group by [u].[login],u.Ruc_Ci,u.Nombres,u.telefono</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Ruc. C.I" DataSetColumn="Ruc_ C_I" />
+              <Mapping SourceColumn="Empleado" DataSetColumn="Empleado" />
+              <Mapping SourceColumn="Teléfono" DataSetColumn="Teléfono" />
+              <Mapping SourceColumn="Primera venta" DataSetColumn="Primera venta" />
+              <Mapping SourceColumn="Ultima venta" DataSetColumn="Ultima venta" />
+              <Mapping SourceColumn="Cantidad codumento" DataSetColumn="Cantidad codumento" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Prom. x documento" DataSetColumn="Prom_ x documento" />
+              <Mapping SourceColumn="codUser" DataSetColumn="codUser" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FVGroupByUserDeatailTableAdapter" GeneratorDataComponentClassName="FVGroupByUserDeatailTableAdapter" Name="FVGroupByUserDeatail" UserDataComponentName="FVGroupByUserDeatailTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Fill" GenerateShortCommands="false" GeneratorSourceName="Fill" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select f.codUser, 
+f.Num_Factu as [Núm. documento],
+f.fechaDesde as [Fecha venta],
+c.Ruc_Ci as [Ruc. C.I Cliente],
+c.Nombres as [Cliente],
+(f.Total ) as [Total]
+ from FacturaVenta as f
+ inner join ClienteName as c on f.idCliente  = c.idCliente 
+ where ((f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;=@fechFin) and f.Estado = 1)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="Fecha venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="Fecha venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="codUser" DataSetColumn="codUser" />
+              <Mapping SourceColumn="Núm. documento" DataSetColumn="Núm_ documento" />
+              <Mapping SourceColumn="Fecha venta" DataSetColumn="Fecha venta" />
+              <Mapping SourceColumn="Ruc. C.I Cliente" DataSetColumn="Ruc_ C_I Cliente" />
+              <Mapping SourceColumn="Cliente" DataSetColumn="Cliente" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ChequeContabTableAdapter" GeneratorDataComponentClassName="ChequeContabTableAdapter" Name="ChequeContab" UserDataComponentName="ChequeContabTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>  select 
+  cdm.idCajaDetailCheque,
+  B.nom_Banco,
+  BD.num_Cuenta,
+  cbd.Num_Documento,
+  cd.val_Cobro,
+  cdm.isArching
+  from CajaStado  as c
+  inner join CajaDetailDocument  as cdm on c.idCajaStado = cdm.idCajaStado
+  inner join CobroDocumento as cbd on cbd.idCobroDocumento= cdm.idCobroDocumento
+  inner join CobroDetail as cd on cd.idCobroDetail = cbd.idCobroDetail
+  inner join Cobros as cb on cb.idCobro = cd.idCobro
+  inner join BancosCuentas AS BD on BD.idBancoCuenta= cbd.idBancoDetail
+  inner join Bancos AS B ON B.idBanco= BD.idBanco
+  where c.idCajaStado=@idCajaStado AND B.idBanco=@idBanco
+  order by B.nom_Banco,BD.num_Cuenta</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="JSofwareCommerceDB.dbo.CajaStado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idBanco" ColumnName="idBanco" DataSourceName="JSofwareCommerceDB.dbo.Bancos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idBanco" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idBanco" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idCajaDetailCheque" DataSetColumn="idCajaDetailCheque" />
+              <Mapping SourceColumn="nom_Banco" DataSetColumn="nom_Banco" />
+              <Mapping SourceColumn="num_Cuenta" DataSetColumn="num_Cuenta" />
+              <Mapping SourceColumn="Num_Documento" DataSetColumn="Num_Documento" />
+              <Mapping SourceColumn="val_Cobro" DataSetColumn="val_Cobro" />
+              <Mapping SourceColumn="isArching" DataSetColumn="isArching" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cheqResumencontabTableAdapter" GeneratorDataComponentClassName="cheqResumencontabTableAdapter" Name="cheqResumencontab" UserDataComponentName="cheqResumencontabTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.Bancos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT 
+  b.idBanco,
+ b.nom_Banco,
+ count(cd.idCajaDetailCheque) as [N_cheque],
+ sum (cob.val_Cobro)  as Total
+  FROM [dbo].CajaDetailDocument as cd
+  inner join CobroDocumento as d on d.idCobroDocumento = cd.idCobroDocumento
+  inner join BancosCuentas as bc on bc.idBancoCuenta = d.idBancoDetail 
+  inner join Bancos as b on b.idBanco = bc.idBanco
+  inner join CobroDetail as cob on cob.idCobroDetail = d.idCobroDetail
+where ((idCajaStado =@idCajaStado) and (cd.isArching =1))
+group by  b.idBanco,b.nom_Banco</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="JSofwareCommerceDB02.dbo.CajaDetailDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idBanco" DataSetColumn="idBanco" />
+              <Mapping SourceColumn="nom_Banco" DataSetColumn="nom_Banco" />
+              <Mapping SourceColumn="N_cheque" DataSetColumn="N_cheque" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CheqNotFountTableAdapter" GeneratorDataComponentClassName="CheqNotFountTableAdapter" Name="CheqNotFount" UserDataComponentName="CheqNotFountTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>  select c.idCajaDetailCheque,
+  cdd.val_Cobro
+  from [dbo].[CajaDetailDocument] as c
+  inner join CobroDocumento as cd on c.idCobroDocumento = cd.idCobroDocumento
+  inner join CobroDetail as cdd on cdd.idCobroDetail = cd.idCobroDetail
+  where idCajaStado =@idCajaStado and isArching = 0</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="JSofwareCommerceDB.dbo.CajaDetailDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="val_Cobro" DataSetColumn="val_Cobro" />
+              <Mapping SourceColumn="idCajaDetailCheque" DataSetColumn="idCajaDetailCheque" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="pcdGetListProductRentableTableAdapter" GeneratorDataComponentClassName="pcdGetListProductRentableTableAdapter" Name="pcdGetListProductRentable" UserDataComponentName="pcdGetListProductRentableTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.pcdGetListProductRentable" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.pcdGetListProductRentable</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="char" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@codTerminal" Precision="0" ProviderType="Char" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="char" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@codUser" Precision="0" ProviderType="Char" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idProducto" DataSetColumn="idProducto" />
+              <Mapping SourceColumn="codProducto" DataSetColumn="codProducto" />
+              <Mapping SourceColumn="Nom_Comercial" DataSetColumn="Nom_Comercial" />
+              <Mapping SourceColumn="Nom_Comun" DataSetColumn="Nom_Comun" />
+              <Mapping SourceColumn="Nom_Medida" DataSetColumn="Nom_Medida" />
+              <Mapping SourceColumn="Cant_Present" DataSetColumn="Cant_Present" />
+              <Mapping SourceColumn="UltimaCompra" DataSetColumn="UltimaCompra" />
+              <Mapping SourceColumn="precioVenta" DataSetColumn="precioVenta" />
+              <Mapping SourceColumn="Utilidad" DataSetColumn="Utilidad" />
+              <Mapping SourceColumn="Rentabilidad" DataSetColumn="Rentabilidad" />
+              <Mapping SourceColumn="Barcode" DataSetColumn="Barcode" />
+              <Mapping SourceColumn="idPresentacion" DataSetColumn="idPresentacion" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="pcdGetListProductVentaTableAdapter" GeneratorDataComponentClassName="pcdGetListProductVentaTableAdapter" Name="pcdGetListProductVenta" UserDataComponentName="pcdGetListProductVentaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.pcdGetListProductVenta" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.pcdGetListProductVenta</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="char" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@codTerminal" Precision="0" ProviderType="Char" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="char" DbType="AnsiStringFixedLength" Direction="Input" ParameterName="@codUser" Precision="0" ProviderType="Char" Scale="0" Size="8" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="idPresentacion" DataSetColumn="idPresentacion" />
+              <Mapping SourceColumn="idProducto" DataSetColumn="idProducto" />
+              <Mapping SourceColumn="codProducto" DataSetColumn="codProducto" />
+              <Mapping SourceColumn="Nom_Comercial" DataSetColumn="Nom_Comercial" />
+              <Mapping SourceColumn="Nom_Medida" DataSetColumn="Nom_Medida" />
+              <Mapping SourceColumn="Presentacion" DataSetColumn="Presentacion" />
+              <Mapping SourceColumn="Empaquetado" DataSetColumn="Empaquetado" />
+              <Mapping SourceColumn="precioVenta" DataSetColumn="precioVenta" />
+              <Mapping SourceColumn="isDefaultSales" DataSetColumn="isDefaultSales" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSetVentas" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetVentas" msprop:Generator_UserDSName="DataSetVentas">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Cobros" msprop:Generator_TableClassName="CobrosDataTable" msprop:Generator_TableVarName="tableCobros" msprop:Generator_RowChangedName="CobrosRowChanged" msprop:Generator_TablePropName="Cobros" msprop:Generator_RowDeletingName="CobrosRowDeleting" msprop:Generator_RowChangingName="CobrosRowChanging" msprop:Generator_RowEvHandlerName="CobrosRowChangeEventHandler" msprop:Generator_RowDeletedName="CobrosRowDeleted" msprop:Generator_RowClassName="CobrosRow" msprop:Generator_UserTableName="Cobros" msprop:Generator_RowEvArgName="CobrosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idCobro" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidCobro" msprop:Generator_ColumnPropNameInRow="idCobro" msprop:Generator_ColumnPropNameInTable="idCobroColumn" msprop:Generator_UserColumnName="idCobro" type="xs:int" />
+              <xs:element name="idFacturaVenta" msprop:Generator_ColumnVarNameInTable="columnidFacturaVenta" msprop:Generator_ColumnPropNameInRow="idFacturaVenta" msprop:Generator_ColumnPropNameInTable="idFacturaVentaColumn" msprop:Generator_UserColumnName="idFacturaVenta" type="xs:int" />
+              <xs:element name="idCliente" msprop:Generator_ColumnVarNameInTable="columnidCliente" msprop:Generator_ColumnPropNameInRow="idCliente" msprop:Generator_ColumnPropNameInTable="idClienteColumn" msprop:Generator_UserColumnName="idCliente" type="xs:int" />
+              <xs:element name="val_Factura" msprop:Generator_ColumnVarNameInTable="columnval_Factura" msprop:Generator_ColumnPropNameInRow="val_Factura" msprop:Generator_ColumnPropNameInTable="val_FacturaColumn" msprop:Generator_UserColumnName="val_Factura" type="xs:decimal" />
+              <xs:element name="fech_Factura" msprop:Generator_ColumnVarNameInTable="columnfech_Factura" msprop:Generator_ColumnPropNameInRow="fech_Factura" msprop:Generator_ColumnPropNameInTable="fech_FacturaColumn" msprop:Generator_UserColumnName="fech_Factura" type="xs:dateTime" />
+              <xs:element name="stateCobro" msprop:Generator_ColumnVarNameInTable="columnstateCobro" msprop:Generator_ColumnPropNameInRow="stateCobro" msprop:Generator_ColumnPropNameInTable="stateCobroColumn" msprop:Generator_UserColumnName="stateCobro" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DeudaClientes" msprop:Generator_TableClassName="DeudaClientesDataTable" msprop:Generator_TableVarName="tableDeudaClientes" msprop:Generator_RowChangedName="DeudaClientesRowChanged" msprop:Generator_TablePropName="DeudaClientes" msprop:Generator_RowDeletingName="DeudaClientesRowDeleting" msprop:Generator_RowChangingName="DeudaClientesRowChanging" msprop:Generator_RowEvHandlerName="DeudaClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="DeudaClientesRowDeleted" msprop:Generator_RowClassName="DeudaClientesRow" msprop:Generator_UserTableName="DeudaClientes" msprop:Generator_RowEvArgName="DeudaClientesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idCliente" msprop:Generator_ColumnVarNameInTable="columnidCliente" msprop:Generator_ColumnPropNameInRow="idCliente" msprop:Generator_ColumnPropNameInTable="idClienteColumn" msprop:Generator_UserColumnName="idCliente" type="xs:int" />
+              <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Documentos" msdata:ReadOnly="true" msdata:Caption="letras" msprop:Generator_ColumnVarNameInTable="columnDocumentos" msprop:Generator_ColumnPropNameInRow="Documentos" msprop:Generator_ColumnPropNameInTable="DocumentosColumn" msprop:Generator_UserColumnName="Documentos" type="xs:int" minOccurs="0" />
+              <xs:element name="saldo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsaldo" msprop:Generator_ColumnPropNameInRow="saldo" msprop:Generator_ColumnPropNameInTable="saldoColumn" msprop:Generator_UserColumnName="saldo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ClienteName" msprop:Generator_TableClassName="ClienteNameDataTable" msprop:Generator_TableVarName="tableClienteName" msprop:Generator_RowChangedName="ClienteNameRowChanged" msprop:Generator_TablePropName="ClienteName" msprop:Generator_RowDeletingName="ClienteNameRowDeleting" msprop:Generator_RowChangingName="ClienteNameRowChanging" msprop:Generator_RowEvHandlerName="ClienteNameRowChangeEventHandler" msprop:Generator_RowDeletedName="ClienteNameRowDeleted" msprop:Generator_RowClassName="ClienteNameRow" msprop:Generator_UserTableName="ClienteName" msprop:Generator_RowEvArgName="ClienteNameRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idCliente" msprop:Generator_ColumnVarNameInTable="columnidCliente" msprop:Generator_ColumnPropNameInRow="idCliente" msprop:Generator_ColumnPropNameInTable="idClienteColumn" msprop:Generator_UserColumnName="idCliente" type="xs:int" />
+              <xs:element name="Cédula" msdata:Caption="Ruc_Ci" msprop:Generator_ColumnVarNameInTable="columnCédula" msprop:Generator_ColumnPropNameInRow="Cédula" msprop:Generator_ColumnPropNameInTable="CédulaColumn" msprop:Generator_UserColumnName="Cédula">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombre" msdata:ReadOnly="true" msdata:Caption="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombre" msprop:Generator_ColumnPropNameInRow="Nombre" msprop:Generator_ColumnPropNameInTable="NombreColumn" msprop:Generator_UserColumnName="Nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Teléfono" msdata:Caption="telefono" msprop:Generator_ColumnVarNameInTable="columnTeléfono" msprop:Generator_ColumnPropNameInRow="Teléfono" msprop:Generator_ColumnPropNameInTable="TeléfonoColumn" msprop:Generator_UserColumnName="Teléfono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Dirección" msdata:Caption="Direccion" msprop:Generator_ColumnVarNameInTable="columnDirección" msprop:Generator_ColumnPropNameInRow="Dirección" msprop:Generator_ColumnPropNameInTable="DirecciónColumn" msprop:Generator_UserColumnName="Dirección" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DeudaDetalleClientes" msprop:Generator_TableClassName="DeudaDetalleClientesDataTable" msprop:Generator_TableVarName="tableDeudaDetalleClientes" msprop:Generator_RowChangedName="DeudaDetalleClientesRowChanged" msprop:Generator_TablePropName="DeudaDetalleClientes" msprop:Generator_RowDeletingName="DeudaDetalleClientesRowDeleting" msprop:Generator_RowChangingName="DeudaDetalleClientesRowChanging" msprop:Generator_RowEvHandlerName="DeudaDetalleClientesRowChangeEventHandler" msprop:Generator_RowDeletedName="DeudaDetalleClientesRowDeleted" msprop:Generator_RowClassName="DeudaDetalleClientesRow" msprop:Generator_UserTableName="DeudaDetalleClientes" msprop:Generator_RowEvArgName="DeudaDetalleClientesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idCliente" msprop:Generator_ColumnVarNameInTable="columnidCliente" msprop:Generator_ColumnPropNameInRow="idCliente" msprop:Generator_ColumnPropNameInTable="idClienteColumn" msprop:Generator_UserColumnName="idCliente" type="xs:int" />
+              <xs:element name="Núm_x0020_Doc." msdata:Caption="Num_Factu" msprop:Generator_ColumnVarNameInTable="_columnNúm_Doc_" msprop:Generator_ColumnPropNameInRow="_Núm_Doc_" msprop:Generator_ColumnPropNameInTable="_Núm_Doc_Column" msprop:Generator_UserColumnName="Núm Doc.">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="17" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cód_x0020_Interno" msdata:Caption="idFacturaVenta" msprop:Generator_ColumnVarNameInTable="columnCód_Interno" msprop:Generator_ColumnPropNameInRow="Cód_Interno" msprop:Generator_ColumnPropNameInTable="Cód_InternoColumn" msprop:Generator_UserColumnName="Cód Interno" type="xs:int" />
+              <xs:element name="Fecha_x0020_Factura" msdata:ReadOnly="true" msdata:Caption="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha_Factura" msprop:Generator_ColumnPropNameInRow="Fecha_Factura" msprop:Generator_ColumnPropNameInTable="Fecha_FacturaColumn" msprop:Generator_UserColumnName="Fecha Factura" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Total_x0020_Factura" msdata:Caption="Total" msprop:Generator_ColumnVarNameInTable="columnTotal_Factura" msprop:Generator_ColumnPropNameInRow="Total_Factura" msprop:Generator_ColumnPropNameInTable="Total_FacturaColumn" msprop:Generator_UserColumnName="Total Factura" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total_x0020_Saldo" msdata:ReadOnly="true" msdata:Caption="saldo" msprop:Generator_ColumnVarNameInTable="columnTotal_Saldo" msprop:Generator_ColumnPropNameInRow="Total_Saldo" msprop:Generator_ColumnPropNameInTable="Total_SaldoColumn" msprop:Generator_UserColumnName="Total Saldo" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaCaja" msprop:Generator_TableClassName="FacturaVentaCajaDataTable" msprop:Generator_TableVarName="tableFacturaVentaCaja" msprop:Generator_RowChangedName="FacturaVentaCajaRowChanged" msprop:Generator_TablePropName="FacturaVentaCaja" msprop:Generator_RowDeletingName="FacturaVentaCajaRowDeleting" msprop:Generator_RowChangingName="FacturaVentaCajaRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaCajaRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaCajaRowDeleted" msprop:Generator_RowClassName="FacturaVentaCajaRow" msprop:Generator_UserTableName="FacturaVentaCaja" msprop:Generator_RowEvArgName="FacturaVentaCajaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Caja" msprop:Generator_ColumnVarNameInTable="columnCaja" msprop:Generator_ColumnPropNameInRow="Caja" msprop:Generator_ColumnPropNameInTable="CajaColumn" msprop:Generator_UserColumnName="Caja">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaEmpleado" msprop:Generator_TableClassName="FacturaVentaEmpleadoDataTable" msprop:Generator_TableVarName="tableFacturaVentaEmpleado" msprop:Generator_RowChangedName="FacturaVentaEmpleadoRowChanged" msprop:Generator_TablePropName="FacturaVentaEmpleado" msprop:Generator_RowDeletingName="FacturaVentaEmpleadoRowDeleting" msprop:Generator_RowChangingName="FacturaVentaEmpleadoRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaEmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaEmpleadoRowDeleted" msprop:Generator_RowClassName="FacturaVentaEmpleadoRow" msprop:Generator_UserTableName="FacturaVentaEmpleado" msprop:Generator_RowEvArgName="FacturaVentaEmpleadoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Caja" msprop:Generator_ColumnVarNameInTable="columnCaja" msprop:Generator_ColumnPropNameInRow="Caja" msprop:Generator_ColumnPropNameInTable="CajaColumn" msprop:Generator_UserColumnName="Caja">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Empledo" msprop:Generator_ColumnVarNameInTable="columnEmpledo" msprop:Generator_ColumnPropNameInRow="Empledo" msprop:Generator_ColumnPropNameInTable="EmpledoColumn" msprop:Generator_UserColumnName="Empledo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaNumFactur" msprop:Generator_TableClassName="FacturaVentaNumFacturDataTable" msprop:Generator_TableVarName="tableFacturaVentaNumFactur" msprop:Generator_RowChangedName="FacturaVentaNumFacturRowChanged" msprop:Generator_TablePropName="FacturaVentaNumFactur" msprop:Generator_RowDeletingName="FacturaVentaNumFacturRowDeleting" msprop:Generator_RowChangingName="FacturaVentaNumFacturRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaNumFacturRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaNumFacturRowDeleted" msprop:Generator_RowClassName="FacturaVentaNumFacturRow" msprop:Generator_UserTableName="FacturaVentaNumFactur" msprop:Generator_RowEvArgName="FacturaVentaNumFacturRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Caja" msprop:Generator_ColumnVarNameInTable="columnCaja" msprop:Generator_ColumnPropNameInRow="Caja" msprop:Generator_ColumnPropNameInTable="CajaColumn" msprop:Generator_UserColumnName="Caja">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Numero_x0020_de_x0020_documento" msprop:Generator_ColumnVarNameInTable="columnNumero_de_documento" msprop:Generator_ColumnPropNameInRow="Numero_de_documento" msprop:Generator_ColumnPropNameInTable="Numero_de_documentoColumn" msprop:Generator_UserColumnName="Numero de documento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="17" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaFecha" msprop:Generator_TableClassName="FacturaVentaFechaDataTable" msprop:Generator_TableVarName="tableFacturaVentaFecha" msprop:Generator_RowChangedName="FacturaVentaFechaRowChanged" msprop:Generator_TablePropName="FacturaVentaFecha" msprop:Generator_RowDeletingName="FacturaVentaFechaRowDeleting" msprop:Generator_RowChangingName="FacturaVentaFechaRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaFechaRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaFechaRowDeleted" msprop:Generator_RowClassName="FacturaVentaFechaRow" msprop:Generator_UserTableName="FacturaVentaFecha" msprop:Generator_RowEvArgName="FacturaVentaFechaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Caja" msprop:Generator_ColumnVarNameInTable="columnCaja" msprop:Generator_ColumnPropNameInRow="Caja" msprop:Generator_ColumnPropNameInTable="CajaColumn" msprop:Generator_UserColumnName="Caja">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha_x0020_de_x0020_venta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFecha_de_venta" msprop:Generator_ColumnPropNameInRow="Fecha_de_venta" msprop:Generator_ColumnPropNameInTable="Fecha_de_ventaColumn" msprop:Generator_UserColumnName="Fecha de venta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaHora" msprop:Generator_TableClassName="FacturaVentaHoraDataTable" msprop:Generator_TableVarName="tableFacturaVentaHora" msprop:Generator_RowChangedName="FacturaVentaHoraRowChanged" msprop:Generator_TablePropName="FacturaVentaHora" msprop:Generator_RowDeletingName="FacturaVentaHoraRowDeleting" msprop:Generator_RowChangingName="FacturaVentaHoraRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaHoraRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaHoraRowDeleted" msprop:Generator_RowClassName="FacturaVentaHoraRow" msprop:Generator_UserTableName="FacturaVentaHora" msprop:Generator_RowEvArgName="FacturaVentaHoraRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Caja" msprop:Generator_ColumnVarNameInTable="columnCaja" msprop:Generator_ColumnPropNameInRow="Caja" msprop:Generator_ColumnPropNameInTable="CajaColumn" msprop:Generator_UserColumnName="Caja">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hora" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHora" msprop:Generator_ColumnPropNameInRow="Hora" msprop:Generator_ColumnPropNameInTable="HoraColumn" msprop:Generator_UserColumnName="Hora" type="xs:duration" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaClienteFechAll" msprop:Generator_TableClassName="FacturaVentaClienteFechAllDataTable" msprop:Generator_TableVarName="tableFacturaVentaClienteFechAll" msprop:Generator_RowChangedName="FacturaVentaClienteFechAllRowChanged" msprop:Generator_TablePropName="FacturaVentaClienteFechAll" msprop:Generator_RowDeletingName="FacturaVentaClienteFechAllRowDeleting" msprop:Generator_RowChangingName="FacturaVentaClienteFechAllRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaClienteFechAllRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaClienteFechAllRowDeleted" msprop:Generator_RowClassName="FacturaVentaClienteFechAllRow" msprop:Generator_UserTableName="FacturaVentaClienteFechAll" msprop:Generator_RowEvArgName="FacturaVentaClienteFechAllRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Identidad" msprop:Generator_ColumnVarNameInTable="columnIdentidad" msprop:Generator_ColumnPropNameInRow="Identidad" msprop:Generator_ColumnPropNameInTable="IdentidadColumn" msprop:Generator_UserColumnName="Identidad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha_x0020_venta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFecha_venta" msprop:Generator_ColumnPropNameInRow="Fecha_venta" msprop:Generator_ColumnPropNameInTable="Fecha_ventaColumn" msprop:Generator_UserColumnName="Fecha venta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaClienteAll" msprop:Generator_TableClassName="FacturaVentaClienteAllDataTable" msprop:Generator_TableVarName="tableFacturaVentaClienteAll" msprop:Generator_RowChangedName="FacturaVentaClienteAllRowChanged" msprop:Generator_TablePropName="FacturaVentaClienteAll" msprop:Generator_RowDeletingName="FacturaVentaClienteAllRowDeleting" msprop:Generator_RowChangingName="FacturaVentaClienteAllRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaClienteAllRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaClienteAllRowDeleted" msprop:Generator_RowClassName="FacturaVentaClienteAllRow" msprop:Generator_UserTableName="FacturaVentaClienteAll" msprop:Generator_RowEvArgName="FacturaVentaClienteAllRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Identidad" msprop:Generator_ColumnVarNameInTable="columnIdentidad" msprop:Generator_ColumnPropNameInRow="Identidad" msprop:Generator_ColumnPropNameInTable="IdentidadColumn" msprop:Generator_UserColumnName="Identidad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaClienteIdDetail" msprop:Generator_TableClassName="FacturaVentaClienteIdDetailDataTable" msprop:Generator_TableVarName="tableFacturaVentaClienteIdDetail" msprop:Generator_RowChangedName="FacturaVentaClienteIdDetailRowChanged" msprop:Generator_TablePropName="FacturaVentaClienteIdDetail" msprop:Generator_RowDeletingName="FacturaVentaClienteIdDetailRowDeleting" msprop:Generator_RowChangingName="FacturaVentaClienteIdDetailRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaClienteIdDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaClienteIdDetailRowDeleted" msprop:Generator_RowClassName="FacturaVentaClienteIdDetailRow" msprop:Generator_UserTableName="FacturaVentaClienteIdDetail" msprop:Generator_RowEvArgName="FacturaVentaClienteIdDetailRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idFactVenta" msprop:Generator_ColumnVarNameInTable="columnidFactVenta" msprop:Generator_ColumnPropNameInRow="idFactVenta" msprop:Generator_ColumnPropNameInTable="idFactVentaColumn" msprop:Generator_UserColumnName="idFactVenta" type="xs:int" />
+              <xs:element name="Producto" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_UserColumnName="Producto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Presentacion" msprop:Generator_ColumnVarNameInTable="columnPresentacion" msprop:Generator_ColumnPropNameInRow="Presentacion" msprop:Generator_ColumnPropNameInTable="PresentacionColumn" msprop:Generator_UserColumnName="Presentacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:decimal" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaClienteId" msprop:Generator_TableClassName="FacturaVentaClienteIdDataTable" msprop:Generator_TableVarName="tableFacturaVentaClienteId" msprop:Generator_RowChangedName="FacturaVentaClienteIdRowChanged" msprop:Generator_TablePropName="FacturaVentaClienteId" msprop:Generator_RowDeletingName="FacturaVentaClienteIdRowDeleting" msprop:Generator_RowChangingName="FacturaVentaClienteIdRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaClienteIdRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaClienteIdRowDeleted" msprop:Generator_RowClassName="FacturaVentaClienteIdRow" msprop:Generator_UserTableName="FacturaVentaClienteId" msprop:Generator_RowEvArgName="FacturaVentaClienteIdRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idFactVenta" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidFactVenta" msprop:Generator_ColumnPropNameInRow="idFactVenta" msprop:Generator_ColumnPropNameInTable="idFactVentaColumn" msprop:Generator_UserColumnName="idFactVenta" type="xs:int" />
+              <xs:element name="Identidad" msprop:Generator_ColumnVarNameInTable="columnIdentidad" msprop:Generator_ColumnPropNameInRow="Identidad" msprop:Generator_ColumnPropNameInTable="IdentidadColumn" msprop:Generator_UserColumnName="Identidad">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cliente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha_x0020_venta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFecha_venta" msprop:Generator_ColumnPropNameInRow="Fecha_venta" msprop:Generator_ColumnPropNameInTable="Fecha_ventaColumn" msprop:Generator_UserColumnName="Fecha venta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Num__x0020_documento" msdata:Caption="Num. documento" msprop:Generator_ColumnVarNameInTable="columnNum__documento" msprop:Generator_ColumnPropNameInRow="Num__documento" msprop:Generator_ColumnPropNameInTable="Num__documentoColumn" msprop:Generator_UserColumnName="Num_ documento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="17" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaProducCateg" msprop:Generator_TableClassName="FacturaVentaProducCategDataTable" msprop:Generator_TableVarName="tableFacturaVentaProducCateg" msprop:Generator_RowChangedName="FacturaVentaProducCategRowChanged" msprop:Generator_TablePropName="FacturaVentaProducCateg" msprop:Generator_RowDeletingName="FacturaVentaProducCategRowDeleting" msprop:Generator_RowChangingName="FacturaVentaProducCategRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaProducCategRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaProducCategRowDeleted" msprop:Generator_RowClassName="FacturaVentaProducCategRow" msprop:Generator_UserTableName="FacturaVentaProducCateg" msprop:Generator_RowEvArgName="FacturaVentaProducCategRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idSubCategoria" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidSubCategoria" msprop:Generator_ColumnPropNameInRow="idSubCategoria" msprop:Generator_ColumnPropNameInTable="idSubCategoriaColumn" msprop:Generator_UserColumnName="idSubCategoria" type="xs:int" />
+              <xs:element name="Categoria" msprop:Generator_ColumnVarNameInTable="columnCategoria" msprop:Generator_ColumnPropNameInRow="Categoria" msprop:Generator_ColumnPropNameInTable="CategoriaColumn" msprop:Generator_UserColumnName="Categoria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sub_x0020_categoria" msprop:Generator_ColumnVarNameInTable="columnSub_categoria" msprop:Generator_ColumnPropNameInRow="Sub_categoria" msprop:Generator_ColumnPropNameInTable="Sub_categoriaColumn" msprop:Generator_UserColumnName="Sub categoria">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaProductProduct" msprop:Generator_TableClassName="FacturaVentaProductProductDataTable" msprop:Generator_TableVarName="tableFacturaVentaProductProduct" msprop:Generator_RowChangedName="FacturaVentaProductProductRowChanged" msprop:Generator_TablePropName="FacturaVentaProductProduct" msprop:Generator_RowDeletingName="FacturaVentaProductProductRowDeleting" msprop:Generator_RowChangingName="FacturaVentaProductProductRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaProductProductRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaProductProductRowDeleted" msprop:Generator_RowClassName="FacturaVentaProductProductRow" msprop:Generator_UserTableName="FacturaVentaProductProduct" msprop:Generator_RowEvArgName="FacturaVentaProductProductRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idSubCategoria" msprop:Generator_ColumnVarNameInTable="columnidSubCategoria" msprop:Generator_ColumnPropNameInRow="idSubCategoria" msprop:Generator_ColumnPropNameInTable="idSubCategoriaColumn" msprop:Generator_UserColumnName="idSubCategoria" type="xs:int" />
+              <xs:element name="Producto" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_UserColumnName="Producto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Presentacion" msprop:Generator_ColumnVarNameInTable="columnPresentacion" msprop:Generator_ColumnPropNameInRow="Presentacion" msprop:Generator_ColumnPropNameInTable="PresentacionColumn" msprop:Generator_UserColumnName="Presentacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cantidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaGroupByProduct" msprop:Generator_TableClassName="FacturaVentaGroupByProductDataTable" msprop:Generator_TableVarName="tableFacturaVentaGroupByProduct" msprop:Generator_RowChangedName="FacturaVentaGroupByProductRowChanged" msprop:Generator_TablePropName="FacturaVentaGroupByProduct" msprop:Generator_RowDeletingName="FacturaVentaGroupByProductRowDeleting" msprop:Generator_RowChangingName="FacturaVentaGroupByProductRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaGroupByProductRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaGroupByProductRowDeleted" msprop:Generator_RowClassName="FacturaVentaGroupByProductRow" msprop:Generator_UserTableName="FacturaVentaGroupByProduct" msprop:Generator_RowEvArgName="FacturaVentaGroupByProductRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Producto" msprop:Generator_ColumnVarNameInTable="columnProducto" msprop:Generator_ColumnPropNameInRow="Producto" msprop:Generator_ColumnPropNameInTable="ProductoColumn" msprop:Generator_UserColumnName="Producto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Presentacion" msprop:Generator_ColumnVarNameInTable="columnPresentacion" msprop:Generator_ColumnPropNameInRow="Presentacion" msprop:Generator_ColumnPropNameInTable="PresentacionColumn" msprop:Generator_UserColumnName="Presentacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ultima_x0020_venta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUltima_venta" msprop:Generator_ColumnPropNameInRow="Ultima_venta" msprop:Generator_ColumnPropNameInTable="Ultima_ventaColumn" msprop:Generator_UserColumnName="Ultima venta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Cantidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msdata:Caption="Total $" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="idProducto" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidProducto" msprop:Generator_ColumnPropNameInRow="idProducto" msprop:Generator_ColumnPropNameInTable="idProductoColumn" msprop:Generator_UserColumnName="idProducto" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaGroupByClient" msprop:Generator_TableClassName="FacturaVentaGroupByClientDataTable" msprop:Generator_TableVarName="tableFacturaVentaGroupByClient" msprop:Generator_RowChangedName="FacturaVentaGroupByClientRowChanged" msprop:Generator_TablePropName="FacturaVentaGroupByClient" msprop:Generator_RowDeletingName="FacturaVentaGroupByClientRowDeleting" msprop:Generator_RowChangingName="FacturaVentaGroupByClientRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaGroupByClientRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaGroupByClientRowDeleted" msprop:Generator_RowClassName="FacturaVentaGroupByClientRow" msprop:Generator_UserTableName="FacturaVentaGroupByClient" msprop:Generator_RowEvArgName="FacturaVentaGroupByClientRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idProducto" msprop:Generator_ColumnVarNameInTable="columnidProducto" msprop:Generator_ColumnPropNameInRow="idProducto" msprop:Generator_ColumnPropNameInTable="idProductoColumn" msprop:Generator_UserColumnName="idProducto" type="xs:int" />
+              <xs:element name="Ruc_Ci" msprop:Generator_ColumnVarNameInTable="columnRuc_Ci" msprop:Generator_ColumnPropNameInRow="Ruc_Ci" msprop:Generator_ColumnPropNameInTable="Ruc_CiColumn" msprop:Generator_UserColumnName="Ruc_Ci">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nombres" msprop:Generator_ColumnVarNameInTable="columnNombres" msprop:Generator_ColumnPropNameInRow="Nombres" msprop:Generator_ColumnPropNameInTable="NombresColumn" msprop:Generator_UserColumnName="Nombres">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ultima_x0020_venta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUltima_venta" msprop:Generator_ColumnPropNameInRow="Ultima_venta" msprop:Generator_ColumnPropNameInTable="Ultima_ventaColumn" msprop:Generator_UserColumnName="Ultima venta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Cantidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msdata:Caption="Total $" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FacturaVentaGroupByIdProdcut" msprop:Generator_TableClassName="FacturaVentaGroupByIdProdcutDataTable" msprop:Generator_TableVarName="tableFacturaVentaGroupByIdProdcut" msprop:Generator_RowChangedName="FacturaVentaGroupByIdProdcutRowChanged" msprop:Generator_TablePropName="FacturaVentaGroupByIdProdcut" msprop:Generator_RowDeletingName="FacturaVentaGroupByIdProdcutRowDeleting" msprop:Generator_RowChangingName="FacturaVentaGroupByIdProdcutRowChanging" msprop:Generator_RowEvHandlerName="FacturaVentaGroupByIdProdcutRowChangeEventHandler" msprop:Generator_RowDeletedName="FacturaVentaGroupByIdProdcutRowDeleted" msprop:Generator_RowClassName="FacturaVentaGroupByIdProdcutRow" msprop:Generator_UserTableName="FacturaVentaGroupByIdProdcut" msprop:Generator_RowEvArgName="FacturaVentaGroupByIdProdcutRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idFactVenta" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidFactVenta" msprop:Generator_ColumnPropNameInRow="idFactVenta" msprop:Generator_ColumnPropNameInTable="idFactVentaColumn" msprop:Generator_UserColumnName="idFactVenta" type="xs:int" />
+              <xs:element name="Num_x0020_documento" msprop:Generator_ColumnVarNameInTable="columnNum_documento" msprop:Generator_ColumnPropNameInRow="Num_documento" msprop:Generator_ColumnPropNameInTable="Num_documentoColumn" msprop:Generator_UserColumnName="Num documento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="17" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="C.I_x0020_ruc" msprop:Generator_ColumnVarNameInTable="_columnC_I_ruc" msprop:Generator_ColumnPropNameInRow="_C_I_ruc" msprop:Generator_ColumnPropNameInTable="_C_I_rucColumn" msprop:Generator_UserColumnName="C.I ruc">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cliente" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Presentacion" msprop:Generator_ColumnVarNameInTable="columnPresentacion" msprop:Generator_ColumnPropNameInRow="Presentacion" msprop:Generator_ColumnPropNameInTable="PresentacionColumn" msprop:Generator_UserColumnName="Presentacion" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha_x0020_venta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFecha_venta" msprop:Generator_ColumnPropNameInRow="Fecha_venta" msprop:Generator_ColumnPropNameInTable="Fecha_ventaColumn" msprop:Generator_UserColumnName="Fecha venta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Cantidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCantidad" msprop:Generator_ColumnPropNameInRow="Cantidad" msprop:Generator_ColumnPropNameInTable="CantidadColumn" msprop:Generator_UserColumnName="Cantidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FVGroupByUser" msprop:Generator_TableClassName="FVGroupByUserDataTable" msprop:Generator_TableVarName="tableFVGroupByUser" msprop:Generator_RowChangedName="FVGroupByUserRowChanged" msprop:Generator_TablePropName="FVGroupByUser" msprop:Generator_RowDeletingName="FVGroupByUserRowDeleting" msprop:Generator_RowChangingName="FVGroupByUserRowChanging" msprop:Generator_RowEvHandlerName="FVGroupByUserRowChangeEventHandler" msprop:Generator_RowDeletedName="FVGroupByUserRowDeleted" msprop:Generator_RowClassName="FVGroupByUserRow" msprop:Generator_UserTableName="FVGroupByUser" msprop:Generator_RowEvArgName="FVGroupByUserRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Ruc__x0020_C_I" msdata:Caption="Ruc. C.I" msprop:Generator_ColumnVarNameInTable="columnRuc__C_I" msprop:Generator_ColumnPropNameInRow="Ruc__C_I" msprop:Generator_ColumnPropNameInTable="Ruc__C_IColumn" msprop:Generator_UserColumnName="Ruc_ C_I">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Empleado" msprop:Generator_ColumnVarNameInTable="columnEmpleado" msprop:Generator_ColumnPropNameInRow="Empleado" msprop:Generator_ColumnPropNameInTable="EmpleadoColumn" msprop:Generator_UserColumnName="Empleado">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Teléfono" msprop:Generator_ColumnVarNameInTable="columnTeléfono" msprop:Generator_ColumnPropNameInRow="Teléfono" msprop:Generator_ColumnPropNameInTable="TeléfonoColumn" msprop:Generator_UserColumnName="Teléfono" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primera_x0020_venta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPrimera_venta" msprop:Generator_ColumnPropNameInRow="Primera_venta" msprop:Generator_ColumnPropNameInTable="Primera_ventaColumn" msprop:Generator_UserColumnName="Primera venta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Ultima_x0020_venta" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUltima_venta" msprop:Generator_ColumnPropNameInRow="Ultima_venta" msprop:Generator_ColumnPropNameInTable="Ultima_ventaColumn" msprop:Generator_UserColumnName="Ultima venta" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Cantidad_x0020_codumento" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCantidad_codumento" msprop:Generator_ColumnPropNameInRow="Cantidad_codumento" msprop:Generator_ColumnPropNameInTable="Cantidad_codumentoColumn" msprop:Generator_UserColumnName="Cantidad codumento" type="xs:int" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Prom__x0020_x_x0020_documento" msdata:ReadOnly="true" msdata:Caption="Prom. x documento" msprop:Generator_ColumnVarNameInTable="columnProm__x_documento" msprop:Generator_ColumnPropNameInRow="Prom__x_documento" msprop:Generator_ColumnPropNameInTable="Prom__x_documentoColumn" msprop:Generator_UserColumnName="Prom_ x documento" type="xs:decimal" minOccurs="0" />
+              <xs:element name="codUser" msprop:Generator_ColumnVarNameInTable="columncodUser" msprop:Generator_ColumnPropNameInRow="codUser" msprop:Generator_ColumnPropNameInTable="codUserColumn" msprop:Generator_UserColumnName="codUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FVGroupByUserDeatail" msprop:Generator_TableClassName="FVGroupByUserDeatailDataTable" msprop:Generator_TableVarName="tableFVGroupByUserDeatail" msprop:Generator_RowChangedName="FVGroupByUserDeatailRowChanged" msprop:Generator_TablePropName="FVGroupByUserDeatail" msprop:Generator_RowDeletingName="FVGroupByUserDeatailRowDeleting" msprop:Generator_RowChangingName="FVGroupByUserDeatailRowChanging" msprop:Generator_RowEvHandlerName="FVGroupByUserDeatailRowChangeEventHandler" msprop:Generator_RowDeletedName="FVGroupByUserDeatailRowDeleted" msprop:Generator_RowClassName="FVGroupByUserDeatailRow" msprop:Generator_UserTableName="FVGroupByUserDeatail" msprop:Generator_RowEvArgName="FVGroupByUserDeatailRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="codUser" msprop:Generator_ColumnVarNameInTable="columncodUser" msprop:Generator_ColumnPropNameInRow="codUser" msprop:Generator_ColumnPropNameInTable="codUserColumn" msprop:Generator_UserColumnName="codUser">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Núm__x0020_documento" msdata:Caption="Núm. documento" msprop:Generator_ColumnVarNameInTable="columnNúm__documento" msprop:Generator_ColumnPropNameInRow="Núm__documento" msprop:Generator_ColumnPropNameInTable="Núm__documentoColumn" msprop:Generator_UserColumnName="Núm_ documento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="17" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Fecha_x0020_venta" msprop:Generator_ColumnVarNameInTable="columnFecha_venta" msprop:Generator_ColumnPropNameInRow="Fecha_venta" msprop:Generator_ColumnPropNameInTable="Fecha_ventaColumn" msprop:Generator_UserColumnName="Fecha venta" type="xs:dateTime" />
+              <xs:element name="Ruc__x0020_C_I_x0020_Cliente" msdata:Caption="Ruc. C.I Cliente" msprop:Generator_ColumnVarNameInTable="columnRuc__C_I_Cliente" msprop:Generator_ColumnPropNameInRow="Ruc__C_I_Cliente" msprop:Generator_ColumnPropNameInTable="Ruc__C_I_ClienteColumn" msprop:Generator_UserColumnName="Ruc_ C_I Cliente">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cliente" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCliente" msprop:Generator_ColumnPropNameInRow="Cliente" msprop:Generator_ColumnPropNameInTable="ClienteColumn" msprop:Generator_UserColumnName="Cliente" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ChequeContab" msprop:Generator_TableClassName="ChequeContabDataTable" msprop:Generator_TableVarName="tableChequeContab" msprop:Generator_TablePropName="ChequeContab" msprop:Generator_RowDeletingName="ChequeContabRowDeleting" msprop:Generator_RowChangingName="ChequeContabRowChanging" msprop:Generator_RowEvHandlerName="ChequeContabRowChangeEventHandler" msprop:Generator_RowDeletedName="ChequeContabRowDeleted" msprop:Generator_UserTableName="ChequeContab" msprop:Generator_RowChangedName="ChequeContabRowChanged" msprop:Generator_RowEvArgName="ChequeContabRowChangeEvent" msprop:Generator_RowClassName="ChequeContabRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idCajaDetailCheque" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidCajaDetailCheque" msprop:Generator_ColumnPropNameInRow="idCajaDetailCheque" msprop:Generator_ColumnPropNameInTable="idCajaDetailChequeColumn" msprop:Generator_UserColumnName="idCajaDetailCheque" type="xs:int" />
+              <xs:element name="nom_Banco" msprop:Generator_ColumnVarNameInTable="columnnom_Banco" msprop:Generator_ColumnPropNameInRow="nom_Banco" msprop:Generator_ColumnPropNameInTable="nom_BancoColumn" msprop:Generator_UserColumnName="nom_Banco">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="num_Cuenta" msprop:Generator_ColumnVarNameInTable="columnnum_Cuenta" msprop:Generator_ColumnPropNameInRow="num_Cuenta" msprop:Generator_ColumnPropNameInTable="num_CuentaColumn" msprop:Generator_UserColumnName="num_Cuenta">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Num_Documento" msprop:Generator_ColumnVarNameInTable="columnNum_Documento" msprop:Generator_ColumnPropNameInRow="Num_Documento" msprop:Generator_ColumnPropNameInTable="Num_DocumentoColumn" msprop:Generator_UserColumnName="Num_Documento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="val_Cobro" msprop:Generator_ColumnVarNameInTable="columnval_Cobro" msprop:Generator_ColumnPropNameInRow="val_Cobro" msprop:Generator_ColumnPropNameInTable="val_CobroColumn" msprop:Generator_UserColumnName="val_Cobro" type="xs:decimal" />
+              <xs:element name="isArching" msprop:Generator_ColumnVarNameInTable="columnisArching" msprop:Generator_ColumnPropNameInRow="isArching" msprop:Generator_ColumnPropNameInTable="isArchingColumn" msprop:Generator_UserColumnName="isArching" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cheqResumencontab" msprop:Generator_TableClassName="cheqResumencontabDataTable" msprop:Generator_TableVarName="tablecheqResumencontab" msprop:Generator_TablePropName="cheqResumencontab" msprop:Generator_RowDeletingName="cheqResumencontabRowDeleting" msprop:Generator_RowChangingName="cheqResumencontabRowChanging" msprop:Generator_RowEvHandlerName="cheqResumencontabRowChangeEventHandler" msprop:Generator_RowDeletedName="cheqResumencontabRowDeleted" msprop:Generator_UserTableName="cheqResumencontab" msprop:Generator_RowChangedName="cheqResumencontabRowChanged" msprop:Generator_RowEvArgName="cheqResumencontabRowChangeEvent" msprop:Generator_RowClassName="cheqResumencontabRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idBanco" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidBanco" msprop:Generator_ColumnPropNameInRow="idBanco" msprop:Generator_ColumnPropNameInTable="idBancoColumn" msprop:Generator_UserColumnName="idBanco" type="xs:int" />
+              <xs:element name="nom_Banco" msprop:Generator_ColumnVarNameInTable="columnnom_Banco" msprop:Generator_ColumnPropNameInRow="nom_Banco" msprop:Generator_ColumnPropNameInTable="nom_BancoColumn" msprop:Generator_UserColumnName="nom_Banco">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="N_cheque" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnN_cheque" msprop:Generator_ColumnPropNameInRow="N_cheque" msprop:Generator_ColumnPropNameInTable="N_chequeColumn" msprop:Generator_UserColumnName="N_cheque" type="xs:int" minOccurs="0" />
+              <xs:element name="Total" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="CheqNotFount" msprop:Generator_TableClassName="CheqNotFountDataTable" msprop:Generator_TableVarName="tableCheqNotFount" msprop:Generator_RowChangedName="CheqNotFountRowChanged" msprop:Generator_TablePropName="CheqNotFount" msprop:Generator_RowDeletingName="CheqNotFountRowDeleting" msprop:Generator_RowChangingName="CheqNotFountRowChanging" msprop:Generator_RowEvHandlerName="CheqNotFountRowChangeEventHandler" msprop:Generator_RowDeletedName="CheqNotFountRowDeleted" msprop:Generator_RowClassName="CheqNotFountRow" msprop:Generator_UserTableName="CheqNotFount" msprop:Generator_RowEvArgName="CheqNotFountRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="val_Cobro" msprop:Generator_ColumnVarNameInTable="columnval_Cobro" msprop:Generator_ColumnPropNameInRow="val_Cobro" msprop:Generator_ColumnPropNameInTable="val_CobroColumn" msprop:Generator_UserColumnName="val_Cobro" type="xs:decimal" />
+              <xs:element name="idCajaDetailCheque" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidCajaDetailCheque" msprop:Generator_ColumnPropNameInRow="idCajaDetailCheque" msprop:Generator_ColumnPropNameInTable="idCajaDetailChequeColumn" msprop:Generator_UserColumnName="idCajaDetailCheque" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pcdGetListProductRentable" msprop:Generator_TableClassName="pcdGetListProductRentableDataTable" msprop:Generator_TableVarName="tablepcdGetListProductRentable" msprop:Generator_RowChangedName="pcdGetListProductRentableRowChanged" msprop:Generator_TablePropName="pcdGetListProductRentable" msprop:Generator_RowDeletingName="pcdGetListProductRentableRowDeleting" msprop:Generator_RowChangingName="pcdGetListProductRentableRowChanging" msprop:Generator_RowEvHandlerName="pcdGetListProductRentableRowChangeEventHandler" msprop:Generator_RowDeletedName="pcdGetListProductRentableRowDeleted" msprop:Generator_RowClassName="pcdGetListProductRentableRow" msprop:Generator_UserTableName="pcdGetListProductRentable" msprop:Generator_RowEvArgName="pcdGetListProductRentableRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idProducto" msprop:Generator_ColumnVarNameInTable="columnidProducto" msprop:Generator_ColumnPropNameInRow="idProducto" msprop:Generator_ColumnPropNameInTable="idProductoColumn" msprop:Generator_UserColumnName="idProducto" type="xs:int" />
+              <xs:element name="codProducto" msprop:Generator_ColumnVarNameInTable="columncodProducto" msprop:Generator_ColumnPropNameInRow="codProducto" msprop:Generator_ColumnPropNameInTable="codProductoColumn" msprop:Generator_UserColumnName="codProducto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nom_Comercial" msprop:Generator_ColumnVarNameInTable="columnNom_Comercial" msprop:Generator_ColumnPropNameInRow="Nom_Comercial" msprop:Generator_ColumnPropNameInTable="Nom_ComercialColumn" msprop:Generator_UserColumnName="Nom_Comercial">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nom_Comun" msprop:Generator_ColumnVarNameInTable="columnNom_Comun" msprop:Generator_ColumnPropNameInRow="Nom_Comun" msprop:Generator_ColumnPropNameInTable="Nom_ComunColumn" msprop:Generator_UserColumnName="Nom_Comun">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nom_Medida" msprop:Generator_ColumnVarNameInTable="columnNom_Medida" msprop:Generator_ColumnPropNameInRow="Nom_Medida" msprop:Generator_ColumnPropNameInTable="Nom_MedidaColumn" msprop:Generator_UserColumnName="Nom_Medida">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Cant_Present" msprop:Generator_ColumnVarNameInTable="columnCant_Present" msprop:Generator_ColumnPropNameInRow="Cant_Present" msprop:Generator_ColumnPropNameInTable="Cant_PresentColumn" msprop:Generator_UserColumnName="Cant_Present" type="xs:decimal" />
+              <xs:element name="UltimaCompra" msprop:Generator_ColumnVarNameInTable="columnUltimaCompra" msprop:Generator_ColumnPropNameInRow="UltimaCompra" msprop:Generator_ColumnPropNameInTable="UltimaCompraColumn" msprop:Generator_UserColumnName="UltimaCompra" type="xs:decimal" />
+              <xs:element name="precioVenta" msprop:Generator_ColumnVarNameInTable="columnprecioVenta" msprop:Generator_ColumnPropNameInRow="precioVenta" msprop:Generator_ColumnPropNameInTable="precioVentaColumn" msprop:Generator_UserColumnName="precioVenta" type="xs:decimal" />
+              <xs:element name="Utilidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUtilidad" msprop:Generator_ColumnPropNameInRow="Utilidad" msprop:Generator_ColumnPropNameInTable="UtilidadColumn" msprop:Generator_UserColumnName="Utilidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Rentabilidad" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRentabilidad" msprop:Generator_ColumnPropNameInRow="Rentabilidad" msprop:Generator_ColumnPropNameInTable="RentabilidadColumn" msprop:Generator_UserColumnName="Rentabilidad" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Barcode" msprop:Generator_ColumnVarNameInTable="columnBarcode" msprop:Generator_ColumnPropNameInRow="Barcode" msprop:Generator_ColumnPropNameInTable="BarcodeColumn" msprop:Generator_UserColumnName="Barcode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="idPresentacion" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidPresentacion" msprop:Generator_ColumnPropNameInRow="idPresentacion" msprop:Generator_ColumnPropNameInTable="idPresentacionColumn" msprop:Generator_UserColumnName="idPresentacion" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="pcdGetListProductVenta" msprop:Generator_TableClassName="pcdGetListProductVentaDataTable" msprop:Generator_TableVarName="tablepcdGetListProductVenta" msprop:Generator_TablePropName="pcdGetListProductVenta" msprop:Generator_RowDeletingName="pcdGetListProductVentaRowDeleting" msprop:Generator_RowChangingName="pcdGetListProductVentaRowChanging" msprop:Generator_RowEvHandlerName="pcdGetListProductVentaRowChangeEventHandler" msprop:Generator_RowDeletedName="pcdGetListProductVentaRowDeleted" msprop:Generator_UserTableName="pcdGetListProductVenta" msprop:Generator_RowChangedName="pcdGetListProductVentaRowChanged" msprop:Generator_RowEvArgName="pcdGetListProductVentaRowChangeEvent" msprop:Generator_RowClassName="pcdGetListProductVentaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="idPresentacion" msdata:ReadOnly="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidPresentacion" msprop:Generator_ColumnPropNameInRow="idPresentacion" msprop:Generator_ColumnPropNameInTable="idPresentacionColumn" msprop:Generator_UserColumnName="idPresentacion" type="xs:int" />
+              <xs:element name="idProducto" msdata:ReadOnly="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidProducto" msprop:Generator_ColumnPropNameInRow="idProducto" msprop:Generator_ColumnPropNameInTable="idProductoColumn" msprop:Generator_UserColumnName="idProducto" type="xs:int" />
+              <xs:element name="codProducto" msprop:Generator_ColumnVarNameInTable="columncodProducto" msprop:Generator_ColumnPropNameInRow="codProducto" msprop:Generator_ColumnPropNameInTable="codProductoColumn" msprop:Generator_UserColumnName="codProducto">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="40" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nom_Comercial" msprop:Generator_ColumnVarNameInTable="columnNom_Comercial" msprop:Generator_ColumnPropNameInRow="Nom_Comercial" msprop:Generator_ColumnPropNameInTable="Nom_ComercialColumn" msprop:Generator_UserColumnName="Nom_Comercial">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Nom_Medida" msprop:Generator_ColumnVarNameInTable="columnNom_Medida" msprop:Generator_ColumnPropNameInRow="Nom_Medida" msprop:Generator_ColumnPropNameInTable="Nom_MedidaColumn" msprop:Generator_UserColumnName="Nom_Medida">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Presentacion" msprop:Generator_ColumnVarNameInTable="columnPresentacion" msprop:Generator_ColumnPropNameInRow="Presentacion" msprop:Generator_ColumnPropNameInTable="PresentacionColumn" msprop:Generator_UserColumnName="Presentacion">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Empaquetado" msprop:Generator_ColumnVarNameInTable="columnEmpaquetado" msprop:Generator_ColumnPropNameInRow="Empaquetado" msprop:Generator_ColumnPropNameInTable="EmpaquetadoColumn" msprop:Generator_UserColumnName="Empaquetado" type="xs:decimal" />
+              <xs:element name="precioVenta" msprop:Generator_ColumnVarNameInTable="columnprecioVenta" msprop:Generator_ColumnPropNameInRow="precioVenta" msprop:Generator_ColumnPropNameInTable="precioVentaColumn" msprop:Generator_UserColumnName="precioVenta" type="xs:decimal" />
+              <xs:element name="isDefaultSales" msprop:Generator_ColumnVarNameInTable="columnisDefaultSales" msprop:Generator_ColumnPropNameInRow="isDefaultSales" msprop:Generator_ColumnPropNameInTable="isDefaultSalesColumn" msprop:Generator_UserColumnName="isDefaultSales" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Cobros" />
+      <xs:field xpath="mstns:idCobro" />
+    </xs:unique>
+    <xs:unique name="ClienteName_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ClienteName" />
+      <xs:field xpath="mstns:idCliente" />
+    </xs:unique>
+    <xs:unique name="FacturaVentaClienteId_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FacturaVentaClienteId" />
+      <xs:field xpath="mstns:idFactVenta" />
+    </xs:unique>
+    <xs:unique name="FacturaVentaProducCateg_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FacturaVentaProducCateg" />
+      <xs:field xpath="mstns:idSubCategoria" />
+    </xs:unique>
+    <xs:unique name="FacturaVentaGroupByProduct_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FacturaVentaGroupByProduct" />
+      <xs:field xpath="mstns:idProducto" />
+    </xs:unique>
+    <xs:unique name="FacturaVentaGroupByIdProdcut_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FacturaVentaGroupByIdProdcut" />
+      <xs:field xpath="mstns:idFactVenta" />
+    </xs:unique>
+    <xs:unique name="FVGroupByUser_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:FVGroupByUser" />
+      <xs:field xpath="mstns:codUser" />
+    </xs:unique>
+    <xs:unique name="ChequeContab_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:ChequeContab" />
+      <xs:field xpath="mstns:idCajaDetailCheque" />
+    </xs:unique>
+    <xs:unique name="cheqResumencontab_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:cheqResumencontab" />
+      <xs:field xpath="mstns:idBanco" />
+    </xs:unique>
+    <xs:unique name="CheqNotFount_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:CheqNotFount" />
+      <xs:field xpath="mstns:idCajaDetailCheque" />
+    </xs:unique>
+    <xs:unique name="pcdGetListProductRentable_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:pcdGetListProductRentable" />
+      <xs:field xpath="mstns:idPresentacion" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,13 @@
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\DGVPrinterHelper\bin\Release\DGVPrinterHelper.dll.config
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\DGVPrinterHelper\bin\Release\DGVPrinterHelper.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\DGVPrinterHelper\bin\Release\DGVPrinterHelper.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\DGVPrinterHelper\obj\Release\DGVPrinterHelper.csprojResolveAssemblyReference.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\DGVPrinterHelper\obj\Release\DGVPrinterHelper.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\DGVPrinterHelper\obj\Release\DGVPrinterHelper.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\DGVPrinterHelper\obj\Release\DGVPrinterHelper.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\DGVPrinterHelper\bin\Release\DGVPrinterHelper.dll.config
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\DGVPrinterHelper\bin\Release\DGVPrinterHelper.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\DGVPrinterHelper\bin\Release\DGVPrinterHelper.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\DGVPrinterHelper\obj\Release\DGVPrinterHelper.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\DGVPrinterHelper\obj\Release\DGVPrinterHelper.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\DGVPrinterHelper\obj\Release\DGVPrinterHelper.pdb

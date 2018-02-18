@@ -1,0 +1,13 @@
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\BarcodeLib\bin\Release\Release Notes.txt
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\BarcodeLib\bin\Release\BarcodeLib.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\BarcodeLib\bin\Release\BarcodeLib.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\BarcodeLib\obj\Release\BarcodeLib.csprojResolveAssemblyReference.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\BarcodeLib\obj\Release\BarcodeLib.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\BarcodeLib\obj\Release\BarcodeLib.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\BarcodeLib\obj\Release\BarcodeLib.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\bin\Release\Release Notes.txt
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\bin\Release\BarcodeLib.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\bin\Release\BarcodeLib.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\Release\BarcodeLib.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\Release\BarcodeLib.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\Release\BarcodeLib.pdb

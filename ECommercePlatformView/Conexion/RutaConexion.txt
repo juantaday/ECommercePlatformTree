@@ -1,0 +1,1 @@
+Data Source=COMPUHELP_SYSTE\MSSQLSERVER2015; Initial Catalog=DBpanaderia;Integrated Security=true

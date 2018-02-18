@@ -1,0 +1,2136 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ECommercePlatformView
+</name>
+</assembly>
+<members>
+<member name="T:ECommercePlatformView.My.Resources.Resources">
+<summary>
+  Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ResourceManager">
+<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Culture">
+<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Acceso_no_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Acceso_ok_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Cancel_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Copy">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Delete_12x12">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Delete_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Inline_Edit">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Inline_Edit_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_New">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Printing_Print_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Printing_Print_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Save">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Save_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Save_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_SaveScript_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Action_Security_ChangePassword_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ActionsInDetailView">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ActionsInDetailView_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Add_64x64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.add_circle_Black_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.add_client_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Add_Folder_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Add_Folder_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.add_list_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Add_user">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.add_user_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.addBank">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.AddItem_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.AddItem_Black_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.AddList_20">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.AddList_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.addList_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.addListNew_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.almacen_icon_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Almacen_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Archiv_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Archiv128x128">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Arrow_Back_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Arrow_Forward_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.arrow_left_48x48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Articulos_72_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Atm_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Atm_Check_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Backup_Blue_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Banck_32x32_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Barcod_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.barcode_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.BarCodeScan_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.BarrCode_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.BO_Category_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.BO_User_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.business_Black_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Button_Refresh_Icon_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Caja_72_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Caja_regidter">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.calculadora_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.CalculateNow_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Calendar_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.calendar_list_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.camera_42">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.cancel_Edit_40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.cancel_file_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Cantidad_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Cantidad_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Card_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Carpeta">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Cash_Counter_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Cash_register_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.cashbox_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Category_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Category_TreeView24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Category_TreeView32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.change_passwor_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.changePassword_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.check_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.check_48png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.check_list_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.check_listx32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.check_not16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.checkbox_checked_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.checkbox_notChecked_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.clear_White_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.clearPassword_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Clien_72_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.clients">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Close_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.cobro_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.collapsible_down">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.collapsible_down_blue">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.commece_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.compra_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.compra_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Compuesto_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Computer_pngX24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.configura_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.confirCost_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Contact_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Contacts_24_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Contraint_Treeview_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Credid_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.credit_card48png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Credit_User_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Credit_User_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.CrossbandBox_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.debit_Client_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Delete_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Delete_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_64x64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_72">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_Black_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_card_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Delete_cliente_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Delete_Column_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_file_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Delete_Foto_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_red_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_red_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_user_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_user_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.delete_user_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Delete65x65">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.DeleteDate_20">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.DeleteDate_25">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.DeleteSheetRows_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Detail_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Detail_72">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Detail_Employee_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Detail_user_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.detail_user_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Details_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.details_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Details_Whit24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.deuda_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.document_excel_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Documento_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.down_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Down_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ECommercePlatform">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ECommercePlatformnNew">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Edd_client_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Edd65x65">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edid_pencil_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edid_pencil_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edir_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Edit">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edit_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Edit_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edit_black_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Edit_cart_Employee_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edit_file_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edit_list_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edit_list_321">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.edit_validat">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Editar_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.empaque_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Empaquetar">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Empleado_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Empleado_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Empleado_72">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Employee_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.EnviarRuta_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.esc_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.EviarList_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Exit_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Expant_Treeview_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Expant_Treeview_Black_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Factur_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.factura_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.feje_24pgn">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.file_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.fin_deudor_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.find_Black_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Find_Employee_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Find_Transpar_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.find_with_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.FindCustomers_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.FindCustomers_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.finDocument">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Flecha_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.folder_Balnce_Blue_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.folder_Blue_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.folder_invoices_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.folder_invoices_icon_125">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.formaPago">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Full_shopping_cart_Icon_96">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.FullStackedArea_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.google_maps_pin_locate_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Group_Black_Folder_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.hamburger_22">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.hamburger_22_Down_white">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.hamburger_22_white">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Herram_icon_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Herram_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Hiberna_x40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Home_Red_Icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.httpzcoolcomcnpicpngpng_7915png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ic_find_in_page">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ic_settings_Black_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ic_settings_white_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ic_shortcut_save">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Inventory_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.invoice_icon_125">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.invoice_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.invoice_x64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.invoice_x641">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Letrerito_32White">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Like_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.List_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.list_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ListPedido_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ListTerminal_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Located_48x48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Logo_CrediParra_200">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Logo_Parra_New_200">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.luggage18">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.maintenance_icon_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.men_punto_48x48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.MobilePhone2_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.modif_user_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Moneda_saldo_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Moneda_saldo_22">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Moneda_saldo_28">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Money_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Money_Calculator_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.MoneyAditional_32png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Monto_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Monto_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Move_next_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.MoveDown_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.MovePrevio_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.MoveUp_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.MultiSeclt">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.myCommerce_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.MySpliter">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.new_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.new_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.New_green_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.New_green_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.New_list65x65">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.new_people">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.New_People_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.NewPedidoAnual_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.newProvider_48_Gif">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.newSales_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.not_Filter_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.not_Filter_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.NoteSales_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.notLike_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.nuevo_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.NullDocument_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Number_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Numera_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Numeration_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.numeration_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Ofert_Promo_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Offers_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ok">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ok_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ok_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Ok_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Ok_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ok1_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.OnePicxel">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Onwer_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Open_">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.OpenTerminal_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.PackageProduct_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.PageInfo_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Pago_48gif">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Panel_660x40">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Panel_Setting_icon32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.PanelSettingicon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Payment_White_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.payPal_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Pencil_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Perdidas_32_Black">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.permiso_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Person">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Person_128_Won_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Person_128png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Person_20">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.person_Black_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.person_Black_321">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Person_Delete">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Person_Online">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Power_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Power_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Power_icon_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.PrecioProduct_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Present_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Previous">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Price_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.print_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Print_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printer_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printer_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printer_icon72x72">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printer_x64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printer_x71">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printerMatricial_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printers_axes">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.PrintList_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printMatrix_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printMatrix_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.printMatrix_ok_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Produc_Presenta">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Product_Icon_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Product_List">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Product_Presenta">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Product_return_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Product_sales_report_Icon_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.producto_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.producto_241">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Program_Group_Icon_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Proveedor">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Proveedor_450x270_Jpg">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Proveedorsicon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ProviderDetail_48_Gif">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Rates_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Rates_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Rates_Barr_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Rates_Client_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.RatesNot_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.refresh_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Refresh_32png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.refresh_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.refresh_Blavk_20">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Refresh_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.refressh">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Retencion_Iva_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Retencion_Renta_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Sales_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.SalesInvoice_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.SalesMy_32_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.SalesSummary_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Salir">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Save_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.save_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.save_as_64">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.save_Black_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.save_Black2_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.save_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Save_White_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Save2_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.saveAs_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Seguridad_48gif">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Segurity_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.select_">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.SelectAll_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.SelectTable_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Setting_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.SettingCurrency_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.settings_file_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Siguiente">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.spliterEcommerce">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.State_Validation_Information_48x48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.stock_Bodega_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.stock_Product_128">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.stock_Product_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.TextBox_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.TextBox2_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ticket">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Ticket_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Ticket_icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.toolbar_find">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.transfer_Banck_Person_White_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Transfer_Data_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Transfer_Product_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.transfer_White_black_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.TwoPixcel_16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Up2_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Update_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.update_reload_refresh_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Update_User">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.UpdateTable_16x16">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.UpdateTable_32x32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.user_bloqueo">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.User_delete">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.user_nothing_72">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.user_ok_femenino_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.user_ok_masculino_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Users_20">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Venta_32_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Venta_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.venta_48_gif">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.VentasCarro_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Villetes_28">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Villetes_44">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.WhereHouse_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.whereHouse_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.WhereHouse_Whit_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.whreHouse_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Zoom">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.zoom_green_48icon">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.zoom_Grin_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.zoom_icon_24">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Zoom_icon_48">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:ECommercePlatformView.MoneyDetail">
+<summary>
+MoneyDetail
+</summary>
+</member>
+<member name="M:ECommercePlatformView.MoneyDetail.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:ECommercePlatformView.ViewFaltantesSobrantes">
+<summary>
+ViewFaltantesSobrantes
+</summary>
+</member>
+<member name="M:ECommercePlatformView.ViewFaltantesSobrantes.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:ECommercePlatformView.ItemBebitEmployee">
+<summary>
+ItemBebitEmployee
+</summary>
+</member>
+<member name="M:ECommercePlatformView.ItemBebitEmployee.InitializeComponent">
+<summary>
+InitializeComponent
+</summary>
+</member>
+<member name="T:ECommercePlatformView.JSofwareCommerceDB02DataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:ECommercePlatformView.JSofwareCommerceDB02DataSet.GetListViewCodBarrDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:ECommercePlatformView.JSofwareCommerceDB02DataSet.GetListViewCodBarrRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:ECommercePlatformView.JSofwareCommerceDB02DataSet.GetListViewCodBarrRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.GetListViewCodBarrTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(ECommercePlatformView.JSofwareCommerceDB02DataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(ECommercePlatformView.JSofwareCommerceDB02DataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(ECommercePlatformView.JSofwareCommerceDB02DataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.TableAdapterManager.UpdateAll(ECommercePlatformView.JSofwareCommerceDB02DataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:ECommercePlatformView.JSofwareCommerceDB02DataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+<summary>
+GeneratedInternalTypeHelper
+</summary>
+</member>
+<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+<summary>
+CreateInstance
+</summary>
+</member>
+<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+<summary>
+GetPropertyValue
+</summary>
+</member>
+<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+<summary>
+SetPropertyValue
+</summary>
+</member>
+<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+<summary>
+CreateDelegate
+</summary>
+</member>
+<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+<summary>
+AddEventHandler
+</summary>
+</member>
+</members>
+</doc>

@@ -1,0 +1,17 @@
+C:\Users\Juan Taday\Source\Repos\Systema_Ventas02\LibPrintTicket\bin\Debug\LibPrintTicket.dll
+C:\Users\Juan Taday\Source\Repos\Systema_Ventas02\LibPrintTicket\bin\Debug\LibPrintTicket.pdb
+C:\Users\Juan Taday\Source\Repos\Systema_Ventas02\LibPrintTicket\obj\Debug\LibPrintTicket.csprojResolveAssemblyReference.cache
+C:\Users\Juan Taday\Source\Repos\Systema_Ventas02\LibPrintTicket\obj\Debug\LibPrintTicket.dll
+C:\Users\Juan Taday\Source\Repos\Systema_Ventas02\LibPrintTicket\obj\Debug\LibPrintTicket.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\LibPrintTicket\bin\Debug\LibPrintTicket.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\LibPrintTicket\bin\Debug\LibPrintTicket.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\LibPrintTicket\obj\Debug\LibPrintTicket.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\LibPrintTicket\obj\Debug\LibPrintTicket.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\LibPrintTicket\obj\Debug\LibPrintTicket.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatform\LibPrintTicket\obj\Debug\LibPrintTicket.csprojResolveAssemblyReference.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\bin\Debug\LibPrintTicket.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\bin\Debug\LibPrintTicket.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\obj\Debug\LibPrintTicket.csproj.CoreCompileInputs.cache
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\obj\Debug\LibPrintTicket.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\obj\Debug\LibPrintTicket.pdb
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\obj\Debug\LibPrintTicket.csprojResolveAssemblyReference.cache
