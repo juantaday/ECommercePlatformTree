@@ -22,7 +22,7 @@ namespace CADsisVenta
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="JSofwareCommerceDB02")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="JSofwareCommerceDB03")]
 	public partial class DataClassesDBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -210,6 +210,9 @@ namespace CADsisVenta
     partial void InsertVentas_Detail(Ventas_Detail instance);
     partial void UpdateVentas_Detail(Ventas_Detail instance);
     partial void DeleteVentas_Detail(Ventas_Detail instance);
+    partial void InsertProductExpiration(ProductExpiration instance);
+    partial void UpdateProductExpiration(ProductExpiration instance);
+    partial void DeleteProductExpiration(ProductExpiration instance);
     #endregion
 		
 		public DataClassesDBDataContext() : 
@@ -743,6 +746,14 @@ namespace CADsisVenta
 			get
 			{
 				return this.GetTable<Ventas_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProductExpiration> ProductExpiration
+		{
+			get
+			{
+				return this.GetTable<ProductExpiration>();
 			}
 		}
 		
@@ -2646,6 +2657,8 @@ namespace CADsisVenta
 		
 		private System.Nullable<bool> _Activo;
 		
+		private bool _ItIsExpirable;
+		
 		private EntitySet<InventoryDetail> _InventoryDetail;
 		
 		private EntitySet<ProductosStock> _ProductosStock;
@@ -2653,6 +2666,8 @@ namespace CADsisVenta
 		private EntitySet<RatesProductoDetail> _RatesProductoDetail;
 		
 		private EntitySet<ProductoPresentacion> _ProductoPresentacion;
+		
+		private EntitySet<ProductExpiration> _ProductExpiration;
 		
 		private EntityRef<ProductoSubCategoria> _ProductoSubCategoria;
 		
@@ -2692,6 +2707,8 @@ namespace CADsisVenta
     partial void OnFacturableChanged();
     partial void OnActivoChanging(System.Nullable<bool> value);
     partial void OnActivoChanged();
+    partial void OnItIsExpirableChanging(bool value);
+    partial void OnItIsExpirableChanged();
     #endregion
 		
 		public Productos()
@@ -2700,6 +2717,7 @@ namespace CADsisVenta
 			this._ProductosStock = new EntitySet<ProductosStock>(new Action<ProductosStock>(this.attach_ProductosStock), new Action<ProductosStock>(this.detach_ProductosStock));
 			this._RatesProductoDetail = new EntitySet<RatesProductoDetail>(new Action<RatesProductoDetail>(this.attach_RatesProductoDetail), new Action<RatesProductoDetail>(this.detach_RatesProductoDetail));
 			this._ProductoPresentacion = new EntitySet<ProductoPresentacion>(new Action<ProductoPresentacion>(this.attach_ProductoPresentacion), new Action<ProductoPresentacion>(this.detach_ProductoPresentacion));
+			this._ProductExpiration = new EntitySet<ProductExpiration>(new Action<ProductExpiration>(this.attach_ProductExpiration), new Action<ProductExpiration>(this.detach_ProductExpiration));
 			this._ProductoSubCategoria = default(EntityRef<ProductoSubCategoria>);
 			this._ProductoUndMin = default(EntityRef<ProductoUndMin>);
 			OnCreated();
@@ -3013,6 +3031,26 @@ namespace CADsisVenta
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItIsExpirable", DbType="Bit")]
+		public bool ItIsExpirable
+		{
+			get
+			{
+				return this._ItIsExpirable;
+			}
+			set
+			{
+				if ((this._ItIsExpirable != value))
+				{
+					this.OnItIsExpirableChanging(value);
+					this.SendPropertyChanging();
+					this._ItIsExpirable = value;
+					this.SendPropertyChanged("ItIsExpirable");
+					this.OnItIsExpirableChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Productos_InventoryDetail", Storage="_InventoryDetail", ThisKey="idProducto", OtherKey="idProducto")]
 		public EntitySet<InventoryDetail> InventoryDetail
 		{
@@ -3062,6 +3100,19 @@ namespace CADsisVenta
 			set
 			{
 				this._ProductoPresentacion.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Productos_ProductExpiration", Storage="_ProductExpiration", ThisKey="idProducto", OtherKey="idProducto")]
+		public EntitySet<ProductExpiration> ProductExpiration
+		{
+			get
+			{
+				return this._ProductExpiration;
+			}
+			set
+			{
+				this._ProductExpiration.Assign(value);
 			}
 		}
 		
@@ -3196,6 +3247,18 @@ namespace CADsisVenta
 		}
 		
 		private void detach_ProductoPresentacion(ProductoPresentacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Productos = null;
+		}
+		
+		private void attach_ProductExpiration(ProductExpiration entity)
+		{
+			this.SendPropertyChanging();
+			entity.Productos = this;
+		}
+		
+		private void detach_ProductExpiration(ProductExpiration entity)
 		{
 			this.SendPropertyChanging();
 			entity.Productos = null;
@@ -9087,6 +9150,8 @@ namespace CADsisVenta
 		
 		private EntitySet<VirtualBox> _VirtualBox;
 		
+		private EntitySet<ProductExpiration> _ProductExpiration;
+		
 		private EntityRef<Empleados> _Empleados;
 		
 		private EntityRef<Rates> _Rates;
@@ -9135,6 +9200,7 @@ namespace CADsisVenta
 			this._Terminal = new EntitySet<Terminal>(new Action<Terminal>(this.attach_Terminal), new Action<Terminal>(this.detach_Terminal));
 			this._FacturaVenta = new EntitySet<FacturaVenta>(new Action<FacturaVenta>(this.attach_FacturaVenta), new Action<FacturaVenta>(this.detach_FacturaVenta));
 			this._VirtualBox = new EntitySet<VirtualBox>(new Action<VirtualBox>(this.attach_VirtualBox), new Action<VirtualBox>(this.detach_VirtualBox));
+			this._ProductExpiration = new EntitySet<ProductExpiration>(new Action<ProductExpiration>(this.attach_ProductExpiration), new Action<ProductExpiration>(this.detach_ProductExpiration));
 			this._Empleados = default(EntityRef<Empleados>);
 			this._Rates = default(EntityRef<Rates>);
 			OnCreated();
@@ -9532,6 +9598,19 @@ namespace CADsisVenta
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bodegas_ProductExpiration", Storage="_ProductExpiration", ThisKey="idBodega", OtherKey="idBodega")]
+		public EntitySet<ProductExpiration> ProductExpiration
+		{
+			get
+			{
+				return this._ProductExpiration;
+			}
+			set
+			{
+				this._ProductExpiration.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Empleados_Bodegas", Storage="_Empleados", ThisKey="Resp1_idEmpleado", OtherKey="idEmpleado", IsForeignKey=true)]
 		public Empleados Empleados
 		{
@@ -9711,6 +9790,18 @@ namespace CADsisVenta
 		}
 		
 		private void detach_VirtualBox(VirtualBox entity)
+		{
+			this.SendPropertyChanging();
+			entity.Bodegas = null;
+		}
+		
+		private void attach_ProductExpiration(ProductExpiration entity)
+		{
+			this.SendPropertyChanging();
+			entity.Bodegas = this;
+		}
+		
+		private void detach_ProductExpiration(ProductExpiration entity)
 		{
 			this.SendPropertyChanging();
 			entity.Bodegas = null;
@@ -11834,7 +11925,7 @@ namespace CADsisVenta
 		
 		private string _Barcode;
 		
-		private bool _isDefaultSales;
+		private byte _isDefaultSales;
 		
 		private EntitySet<RatesPresentantionDetail> _RatesPresentantionDetail;
 		
@@ -11890,7 +11981,7 @@ namespace CADsisVenta
     partial void OnisPresentFactoryChanged();
     partial void OnBarcodeChanging(string value);
     partial void OnBarcodeChanged();
-    partial void OnisDefaultSalesChanging(bool value);
+    partial void OnisDefaultSalesChanging(byte value);
     partial void OnisDefaultSalesChanged();
     #endregion
 		
@@ -12222,7 +12313,7 @@ namespace CADsisVenta
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isDefaultSales", DbType="Bit NOT NULL")]
-		public bool isDefaultSales
+		public byte isDefaultSales
 		{
 			get
 			{
@@ -19017,6 +19108,246 @@ namespace CADsisVenta
 						this._idVenta = default(int);
 					}
 					this.SendPropertyChanged("Ventas");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductExpiration")]
+	public partial class ProductExpiration : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IDExpiration;
+		
+		private int _idFacturaCompra;
+		
+		private int _idBodega;
+		
+		private int _idProducto;
+		
+		private System.DateTime _DateExpirate;
+		
+		private EntityRef<Bodegas> _Bodegas;
+		
+		private EntityRef<Productos> _Productos;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDExpirationChanging(int value);
+    partial void OnIDExpirationChanged();
+    partial void OnidFacturaCompraChanging(int value);
+    partial void OnidFacturaCompraChanged();
+    partial void OnidBodegaChanging(int value);
+    partial void OnidBodegaChanged();
+    partial void OnidProductoChanging(int value);
+    partial void OnidProductoChanged();
+    partial void OnDateExpirateChanging(System.DateTime value);
+    partial void OnDateExpirateChanged();
+    #endregion
+		
+		public ProductExpiration()
+		{
+			this._Bodegas = default(EntityRef<Bodegas>);
+			this._Productos = default(EntityRef<Productos>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDExpiration", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IDExpiration
+		{
+			get
+			{
+				return this._IDExpiration;
+			}
+			set
+			{
+				if ((this._IDExpiration != value))
+				{
+					this.OnIDExpirationChanging(value);
+					this.SendPropertyChanging();
+					this._IDExpiration = value;
+					this.SendPropertyChanged("IDExpiration");
+					this.OnIDExpirationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFacturaCompra", DbType="Int NOT NULL")]
+		public int idFacturaCompra
+		{
+			get
+			{
+				return this._idFacturaCompra;
+			}
+			set
+			{
+				if ((this._idFacturaCompra != value))
+				{
+					this.OnidFacturaCompraChanging(value);
+					this.SendPropertyChanging();
+					this._idFacturaCompra = value;
+					this.SendPropertyChanged("idFacturaCompra");
+					this.OnidFacturaCompraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idBodega", DbType="Int NOT NULL")]
+		public int idBodega
+		{
+			get
+			{
+				return this._idBodega;
+			}
+			set
+			{
+				if ((this._idBodega != value))
+				{
+					if (this._Bodegas.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidBodegaChanging(value);
+					this.SendPropertyChanging();
+					this._idBodega = value;
+					this.SendPropertyChanged("idBodega");
+					this.OnidBodegaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProducto", DbType="Int NOT NULL")]
+		public int idProducto
+		{
+			get
+			{
+				return this._idProducto;
+			}
+			set
+			{
+				if ((this._idProducto != value))
+				{
+					if (this._Productos.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidProductoChanging(value);
+					this.SendPropertyChanging();
+					this._idProducto = value;
+					this.SendPropertyChanged("idProducto");
+					this.OnidProductoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateExpirate", DbType="Date NOT NULL")]
+		public System.DateTime DateExpirate
+		{
+			get
+			{
+				return this._DateExpirate;
+			}
+			set
+			{
+				if ((this._DateExpirate != value))
+				{
+					this.OnDateExpirateChanging(value);
+					this.SendPropertyChanging();
+					this._DateExpirate = value;
+					this.SendPropertyChanged("DateExpirate");
+					this.OnDateExpirateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bodegas_ProductExpiration", Storage="_Bodegas", ThisKey="idBodega", OtherKey="idBodega", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Bodegas Bodegas
+		{
+			get
+			{
+				return this._Bodegas.Entity;
+			}
+			set
+			{
+				Bodegas previousValue = this._Bodegas.Entity;
+				if (((previousValue != value) 
+							|| (this._Bodegas.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Bodegas.Entity = null;
+						previousValue.ProductExpiration.Remove(this);
+					}
+					this._Bodegas.Entity = value;
+					if ((value != null))
+					{
+						value.ProductExpiration.Add(this);
+						this._idBodega = value.idBodega;
+					}
+					else
+					{
+						this._idBodega = default(int);
+					}
+					this.SendPropertyChanged("Bodegas");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Productos_ProductExpiration", Storage="_Productos", ThisKey="idProducto", OtherKey="idProducto", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Productos Productos
+		{
+			get
+			{
+				return this._Productos.Entity;
+			}
+			set
+			{
+				Productos previousValue = this._Productos.Entity;
+				if (((previousValue != value) 
+							|| (this._Productos.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Productos.Entity = null;
+						previousValue.ProductExpiration.Remove(this);
+					}
+					this._Productos.Entity = value;
+					if ((value != null))
+					{
+						value.ProductExpiration.Add(this);
+						this._idProducto = value.idProducto;
+					}
+					else
+					{
+						this._idProducto = default(int);
+					}
+					this.SendPropertyChanged("Productos");
 				}
 			}
 		}

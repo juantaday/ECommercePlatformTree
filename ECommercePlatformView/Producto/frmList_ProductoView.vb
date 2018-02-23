@@ -13,6 +13,7 @@ Public Class frmList_ProductoView
 
     Protected Friend id_proveedor As Integer
     Protected Friend id_Producto As Integer
+    Public Property Nom_comercial As String
     Protected Friend id_Product_return As Integer
     Protected Friend flag As String
 
@@ -223,6 +224,7 @@ Public Class frmList_ProductoView
             Next
             If i = 1 Then
                 Me.id_Producto = RowSelect.Item(0).Cells(0).Value
+                Me.Nom_comercial = RowSelect.Item(0).Cells("Nom_Comun").Value.ToString()
                 Return True
             End If
             Return False
@@ -231,6 +233,8 @@ Public Class frmList_ProductoView
             Return False
         End Try
     End Function
+
+
 
     Private Sub ImprimirCodBarrToolStripMenuI_Click(sender As Object, e As EventArgs) Handles ImprimirCodBarrToolStripMenuI.Click
         If barCodeTextBox.Text.Length <> 0 Then
@@ -519,4 +523,15 @@ Public Class frmList_ProductoView
 
     End Sub
 
+    Private Sub ExpirateButton_Click(sender As Object, e As EventArgs) Handles ExpirateButton.Click
+        IsSelectedRow()
+        Try
+            Using newViewExpir As New frmAdminDateExpir(Me.id_Producto, Me.Nom_comercial)
+                newViewExpir.ShowDialog()
+
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
 End Class

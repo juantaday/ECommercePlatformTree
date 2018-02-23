@@ -15,6 +15,7 @@ Public Class frm_detalle
         Public ivaEstate As Boolean
         Public state As Boolean
         Public ivaDescription As String
+        Public AdminDatexpirate As Boolean
     End Structure
     Private Detalle As Detail
     Sub New(myPadre As MDI_AddProductos)
@@ -152,6 +153,8 @@ Public Class frm_detalle
             Dim Deft_idPresenVenta As Integer = 0
             Dim IvaPorcent As Double = 0
             Dim coduser As String = UsuarioActivo.codUser
+            Dim AdminDateExpirate? As Int16 = If(Me.AdminDateExpirateCheckBox.Checked, 1, 0)
+
 
             If (IvaCheckBox.Checked) Then
                 IvaPorcent = ivaPorcentaje
@@ -163,9 +166,9 @@ Public Class frm_detalle
             If myPadre.Operation = stateOperation.Insert Then ' si boy agregar
 
                 sql = "Insert into Productos(Nom_Comercial,Nom_Comun,Descripcion,Cant_minima,idUnidad,IdSubCategoria,Deft_idPresenCompra, "
-                sql = sql & "Deft_idPresenVenta,IvaPorcentaje,coduser,Facturable) "
+                sql = sql & "Deft_idPresenVenta,IvaPorcentaje,coduser,Facturable,ItIsExpirable) "
                 sql = sql & "Values('" & Nom_Comercial & "', '" & Nom_Comun & "','" & Descripcion & "', " & Cant_minima & ", " & idUnidad & ", " & IdSubCategoria & "," & Deft_idPresenCompra & ", "
-                sql = sql & "" & Deft_idPresenVenta & "," & IvaPorcent & ",'" & coduser & "'," & Facturable & ")"
+                sql = sql & "" & Deft_idPresenVenta & "," & IvaPorcent & ",'" & coduser & "'," & Facturable & "," & AdminDateExpirate & ")"
                 sql = sql & "SET @identity = SCOPE_IDENTITY() "
 
                 cmd.CommandText = sql
@@ -176,9 +179,10 @@ Public Class frm_detalle
                     Return True
                 End If
             ElseIf myPadre.Operation = stateOperation.Update Then ' para midificar
-                sql = "UPDATE Productos SET     Nom_Comercial='" & Nom_Comercial & "',Nom_Comun='" & Nom_Comun & "',Descripcion ='" & Descripcion & "',Cant_minima =" & Cant_minima & ", "
+                sql = "UPDATE Productos SET Nom_Comercial='" & Nom_Comercial & "',Nom_Comun='" & Nom_Comun & "',Descripcion ='" & Descripcion & "',Cant_minima =" & Cant_minima & ", "
                 sql = sql & "idUnidad =" & idUnidad & ", "
-                sql = sql & "IvaPorcentaje = " & IvaPorcent & " ,coduser='" & coduser & "',Facturable = " & Facturable & ", Activo = " & Activo & " "
+                sql = sql & "IvaPorcentaje = " & IvaPorcent & " ,coduser='" & coduser & "',Facturable = " & Facturable & ", Activo = " & Activo & ", "
+                sql = sql & "ItIsExpirable = " & AdminDateExpirate & ""
                 sql = sql & "WHERE   (idProducto =" & id_Producto & ") "
 
                 cmd.CommandText = sql
@@ -246,7 +250,8 @@ Public Class frm_detalle
                    .undMed = UndMedComBox.SelectedValue And
                    .Cant = CantidadMinNumeric.Value And
                    .ivaEstate = IvaCheckBox.Checked And
-                    .ivaDescription = ivaPreserminadoLinkLabel.Text Then
+                   .ivaDescription = ivaPreserminadoLinkLabel.Text And
+                   .AdminDatexpirate = AdminDateExpirateCheckBox.Checked Then
                     Return False
                 Else
                     Return True
@@ -390,6 +395,17 @@ Public Class frm_detalle
             End If
         End If
     End Sub
+
+    Private Sub AdminDateExpirateCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles AdminDateExpirateCheckBox.CheckedChanged
+        If cargado Then
+            If hayCambio() Then
+                AdminControlYes()
+            Else
+                AdminControlNot()
+            End If
+        End If
+    End Sub
+
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         Try
             If ValidateProducto() Then

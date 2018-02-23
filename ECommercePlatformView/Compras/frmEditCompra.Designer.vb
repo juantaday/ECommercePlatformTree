@@ -32,6 +32,12 @@ Partial Class frmEditCompra
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.IdClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idPresentClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductoClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CountClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UnitPriceClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalParcialClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ivaCheckBox = New System.Windows.Forms.CheckBox()
         Me.descCheckBox = New System.Windows.Forms.CheckBox()
@@ -39,12 +45,6 @@ Partial Class frmEditCompra
         Me.TotalTextBox = New System.Windows.Forms.TextBox()
         Me.PanelMenu = New System.Windows.Forms.Panel()
         Me.PegarButton = New System.Windows.Forms.Button()
-        Me.IdClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idPresentClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductoClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CountClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UnitPriceClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalParcialClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -56,7 +56,7 @@ Partial Class frmEditCompra
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.66534!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.33466!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
@@ -71,7 +71,7 @@ Partial Class frmEditCompra
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(684, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(683, 3)
         Me.Cancel_Button.Name = "Cancel_Button"
         Me.Cancel_Button.Size = New System.Drawing.Size(67, 23)
         Me.Cancel_Button.TabIndex = 1
@@ -80,7 +80,7 @@ Partial Class frmEditCompra
         'OK_Button
         '
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(586, 3)
+        Me.OK_Button.Location = New System.Drawing.Point(585, 3)
         Me.OK_Button.Name = "OK_Button"
         Me.OK_Button.Size = New System.Drawing.Size(67, 23)
         Me.OK_Button.TabIndex = 0
@@ -119,6 +119,57 @@ Partial Class frmEditCompra
         Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridView1.Size = New System.Drawing.Size(760, 308)
         Me.DataGridView1.TabIndex = 1
+        '
+        'IdClm
+        '
+        Me.IdClm.DataPropertyName = "ID"
+        Me.IdClm.HeaderText = "KeyCode"
+        Me.IdClm.Name = "IdClm"
+        '
+        'idPresentClm
+        '
+        Me.idPresentClm.DataPropertyName = "IdPresent"
+        Me.idPresentClm.HeaderText = "idPresent"
+        Me.idPresentClm.Name = "idPresentClm"
+        Me.idPresentClm.ReadOnly = True
+        '
+        'ProductoClm
+        '
+        Me.ProductoClm.DataPropertyName = "Producto"
+        Me.ProductoClm.HeaderText = "Producto"
+        Me.ProductoClm.Name = "ProductoClm"
+        Me.ProductoClm.ReadOnly = True
+        Me.ProductoClm.Width = 300
+        '
+        'CountClm
+        '
+        Me.CountClm.DataPropertyName = "Count"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.NullValue = "0"
+        Me.CountClm.DefaultCellStyle = DataGridViewCellStyle2
+        Me.CountClm.HeaderText = "Cantidad"
+        Me.CountClm.Name = "CountClm"
+        Me.CountClm.ReadOnly = True
+        '
+        'UnitPriceClm
+        '
+        Me.UnitPriceClm.DataPropertyName = "UnitPrice"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.NullValue = "0"
+        Me.UnitPriceClm.DefaultCellStyle = DataGridViewCellStyle3
+        Me.UnitPriceClm.HeaderText = "Precio unitario"
+        Me.UnitPriceClm.Name = "UnitPriceClm"
+        Me.UnitPriceClm.ReadOnly = True
+        '
+        'TotalParcialClm
+        '
+        Me.TotalParcialClm.DataPropertyName = "TotalParcial"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle4.NullValue = "0"
+        Me.TotalParcialClm.DefaultCellStyle = DataGridViewCellStyle4
+        Me.TotalParcialClm.HeaderText = "Sub Total"
+        Me.TotalParcialClm.Name = "TotalParcialClm"
+        Me.TotalParcialClm.ReadOnly = True
         '
         'FlowLayoutPanel1
         '
@@ -191,57 +242,6 @@ Partial Class frmEditCompra
         Me.PegarButton.TabIndex = 0
         Me.PegarButton.Text = "Pegar"
         Me.PegarButton.UseVisualStyleBackColor = True
-        '
-        'IdClm
-        '
-        Me.IdClm.DataPropertyName = "ID"
-        Me.IdClm.HeaderText = "KeyCode"
-        Me.IdClm.Name = "IdClm"
-        '
-        'idPresentClm
-        '
-        Me.idPresentClm.DataPropertyName = "IdPresent"
-        Me.idPresentClm.HeaderText = "idPresent"
-        Me.idPresentClm.Name = "idPresentClm"
-        Me.idPresentClm.ReadOnly = True
-        '
-        'ProductoClm
-        '
-        Me.ProductoClm.DataPropertyName = "Producto"
-        Me.ProductoClm.HeaderText = "Producto"
-        Me.ProductoClm.Name = "ProductoClm"
-        Me.ProductoClm.ReadOnly = True
-        Me.ProductoClm.Width = 300
-        '
-        'CountClm
-        '
-        Me.CountClm.DataPropertyName = "Count"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.NullValue = "0"
-        Me.CountClm.DefaultCellStyle = DataGridViewCellStyle2
-        Me.CountClm.HeaderText = "Cantidad"
-        Me.CountClm.Name = "CountClm"
-        Me.CountClm.ReadOnly = True
-        '
-        'UnitPriceClm
-        '
-        Me.UnitPriceClm.DataPropertyName = "UnitPrice"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.NullValue = "0"
-        Me.UnitPriceClm.DefaultCellStyle = DataGridViewCellStyle3
-        Me.UnitPriceClm.HeaderText = "Precio unitario"
-        Me.UnitPriceClm.Name = "UnitPriceClm"
-        Me.UnitPriceClm.ReadOnly = True
-        '
-        'TotalParcialClm
-        '
-        Me.TotalParcialClm.DataPropertyName = "TotalParcial"
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle4.NullValue = "0"
-        Me.TotalParcialClm.DefaultCellStyle = DataGridViewCellStyle4
-        Me.TotalParcialClm.HeaderText = "Sub Total"
-        Me.TotalParcialClm.Name = "TotalParcialClm"
-        Me.TotalParcialClm.ReadOnly = True
         '
         'frmEditCompra
         '

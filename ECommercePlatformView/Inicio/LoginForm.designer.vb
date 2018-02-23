@@ -64,7 +64,6 @@ Partial Class LoginForm
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTextBox.Size = New System.Drawing.Size(220, 26)
         Me.PasswordTextBox.TabIndex = 11
-        Me.PasswordTextBox.Text = "123"
         Me.PasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'UsernameTextBox
@@ -76,7 +75,6 @@ Partial Class LoginForm
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.Size = New System.Drawing.Size(220, 26)
         Me.UsernameTextBox.TabIndex = 9
-        Me.UsernameTextBox.Text = "JTADAYMA"
         Me.UsernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'PasswordLabel

@@ -65,8 +65,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Resources\ECommercePlatform.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -93,15 +92,21 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.Charts.v17.1.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.Printing.v17.1.Core.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Sparkline.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.Sparkline.v17.1.Core.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraBars.v17.1.dll</HintPath>
@@ -123,12 +128,17 @@
       <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraEditors.v17.1.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraGrid.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraPrinting.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.XtraPrinting.v17.1.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraScheduler.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="itextsharp">
       <HintPath>..\BarcodeDLL\itextsharp.dll</HintPath>
     </Reference>
@@ -160,6 +170,9 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ECommercePlatform\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -717,6 +730,7 @@
     <Compile Include="Models\ItemCajaStado.vb" />
     <Compile Include="Models\ItemOwner.vb" />
     <Compile Include="Models\ItemPerson.vb" />
+    <Compile Include="Models\ItemProductsPurchases.vb" />
     <Compile Include="Models\ItemSettingOptionPrint.vb" />
     <Compile Include="Models\ItemSobrantes.vb" />
     <Compile Include="Models\ItemViewVenta.vb" />
@@ -809,6 +823,18 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Producto\ClassProducto.vb" />
+    <Compile Include="Producto\Expiration\frmAddNewDateExpir.Designer.vb">
+      <DependentUpon>frmAddNewDateExpir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Expiration\frmAddNewDateExpir.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Expiration\frmAdminDateExpir.designer.vb">
+      <DependentUpon>frmAdminDateExpir.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Expiration\frmAdminDateExpir.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Producto\fproducto.vb" />
     <Compile Include="Producto\frmAdministrarPrecios.designer.vb">
       <DependentUpon>frmAdministrarPrecios.vb</DependentUpon>
@@ -1469,6 +1495,12 @@
     <EmbeddedResource Include="Producto\Ajustes\frmSubCategoryRates.resx">
       <DependentUpon>frmSubCategoryRates.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Expiration\frmAddNewDateExpir.resx">
+      <DependentUpon>frmAddNewDateExpir.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Expiration\frmAdminDateExpir.resx">
+      <DependentUpon>frmAdminDateExpir.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Producto\frmAdministrarPrecios.resx">
       <DependentUpon>frmAdministrarPrecios.vb</DependentUpon>
     </EmbeddedResource>
@@ -1764,6 +1796,7 @@
     <Content Include="Resources\AddItem_32x32.png" />
     <Content Include="Resources\AddItem_Black_32x32.png" />
     <Content Include="Resources\addListNew_48.png" />
+    <None Include="packages.config" />
     <None Include="Resources\AddList_32.png" />
     <None Include="Resources\AddList_20.png" />
     <Content Include="Resources\addList_48.png" />
@@ -1841,6 +1874,7 @@
     <Content Include="Resources\Contacts_24_png.png" />
     <Content Include="Resources\Contact_32x32.png" />
     <Content Include="Resources\Contraint_Treeview_24.png" />
+    <None Include="Resources\Count_20.png" />
     <Content Include="Resources\Credid_48.png" />
     <Content Include="Resources\credit_card48png.png" />
     <Content Include="Resources\Credit_User_24.png" />
@@ -1896,6 +1930,8 @@
     <Content Include="Resources\edit_file-64.png" />
     <Content Include="Resources\edit_list_32.png" />
     <Content Include="Resources\edit_list_321.png" />
+    <None Include="Resources\Edit_SubTotal_20.png" />
+    <None Include="Resources\Edit_UnitPrice_20.png" />
     <Content Include="Resources\edit_validat.png" />
     <Content Include="Resources\Empaquetar.png" />
     <Content Include="Resources\empaque_48.png" />
@@ -1910,6 +1946,7 @@
     <Content Include="Resources\Exit_icon.png" />
     <Content Include="Resources\Expant_Treeview_24.png" />
     <Content Include="Resources\Expant_Treeview_Black_24.png" />
+    <None Include="Resources\Expirate_32.png" />
     <Content Include="Resources\factura_32.png" />
     <Content Include="Resources\Factur_32.png" />
     <Content Include="Resources\feje_24pgn.png" />
@@ -2135,6 +2172,9 @@
     <Content Include="Resources\Venta_32_png.PNG" />
     <Content Include="Resources\Venta_48.png" />
     <Content Include="Resources\venta_48_gif.gif" />
+    <None Include="Resources\ViewList_48.bmp" />
+    <None Include="Resources\ViewList_48.png" />
+    <None Include="Resources\ViewBarr_48.png" />
     <Content Include="Resources\Villetes_28.png" />
     <Content Include="Resources\Villetes_44.png" />
     <Content Include="Resources\WhereHouse_24.png" />
@@ -2157,10 +2197,6 @@
       <Project>{f8646414-0c9c-49bb-9da3-3923bf78a398}</Project>
       <Name>BarcodeLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ECommercePlatformTwo\CADsisVenta\CADsisVenta.csproj">
-      <Project>{a8751b79-0344-46e3-99b8-9d92418ec0c5}</Project>
-      <Name>CADsisVenta</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ECommercePlatformTwo\DGVPrinterHelper\DGVPrinterHelper.csproj">
       <Project>{399aae71-3afc-4ff3-ada1-5cced6ed74d6}</Project>
       <Name>DGVPrinterHelper</Name>
@@ -2172,6 +2208,10 @@
     <ProjectReference Include="..\..\ECommercePlatformTwo\MultiColumnComboSuggestionBox\MultiColumnComboSuggestionBox.csproj">
       <Project>{f2127f73-480e-4841-944c-d1e9db1ebc25}</Project>
       <Name>MultiColumnComboSuggestionBox</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CADsisVenta\CADsisVenta.csproj">
+      <Project>{a8751b79-0344-46e3-99b8-9d92418ec0c5}</Project>
+      <Name>CADsisVenta</Name>
     </ProjectReference>
     <ProjectReference Include="..\ObjectListView\ObjectListView2012.csproj">
       <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>

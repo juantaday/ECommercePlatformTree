@@ -505,7 +505,7 @@ ControErr:
         MarcaDesmarcaTodo(False)
     End Sub
 
-    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles Cancel_Button.Click
         Me.Close()
     End Sub
 

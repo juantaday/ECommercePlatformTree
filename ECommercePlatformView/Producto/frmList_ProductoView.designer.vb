@@ -44,6 +44,7 @@ Partial Class frmList_ProductoView
         Me.menuNuevo = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuAdministra = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PanelAdmin = New System.Windows.Forms.Panel()
+        Me.ExpirateButton = New System.Windows.Forms.Button()
         Me.EtiquetasButton = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.EditPriceSalesButton = New System.Windows.Forms.Button()
@@ -243,6 +244,7 @@ Partial Class frmList_ProductoView
         'PanelAdmin
         '
         Me.PanelAdmin.BackColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(65, Byte), Integer))
+        Me.PanelAdmin.Controls.Add(Me.ExpirateButton)
         Me.PanelAdmin.Controls.Add(Me.EtiquetasButton)
         Me.PanelAdmin.Controls.Add(Me.Button1)
         Me.PanelAdmin.Controls.Add(Me.EditPriceSalesButton)
@@ -254,6 +256,20 @@ Partial Class frmList_ProductoView
         Me.PanelAdmin.Padding = New System.Windows.Forms.Padding(20, 2, 0, 2)
         Me.PanelAdmin.Size = New System.Drawing.Size(1094, 49)
         Me.PanelAdmin.TabIndex = 17
+        '
+        'ExpirateButton
+        '
+        Me.ExpirateButton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.ExpirateButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Expirate_32
+        Me.ExpirateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ExpirateButton.Location = New System.Drawing.Point(650, 2)
+        Me.ExpirateButton.Name = "ExpirateButton"
+        Me.ExpirateButton.Size = New System.Drawing.Size(122, 45)
+        Me.ExpirateButton.TabIndex = 4
+        Me.ExpirateButton.Text = "Expiración"
+        Me.ExpirateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.ExpirateButton, "Administrar fechas de caducidad")
+        Me.ExpirateButton.UseVisualStyleBackColor = True
         '
         'EtiquetasButton
         '
@@ -686,4 +702,5 @@ Partial Class frmList_ProductoView
     Friend WithEvents Label4 As Label
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents FacturaCompraDocumentoTableAdapter1 As CADsisVenta.DataSetComprasTableAdapters.FacturaCompraDocumentoTableAdapter
+    Friend WithEvents ExpirateButton As Button
 End Class

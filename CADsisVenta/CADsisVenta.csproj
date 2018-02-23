@@ -89,6 +89,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetEmployee.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSetExpirate..Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetExpirate..xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSetFacturaVenta.cs">
       <DependentUpon>DataSetFacturaVenta.xsd</DependentUpon>
     </Compile>
@@ -233,6 +238,17 @@
     </None>
     <None Include="DataSetEmployee.xss">
       <DependentUpon>DataSetEmployee.xsd</DependentUpon>
+    </None>
+    <None Include="DataSetExpirate..xsc">
+      <DependentUpon>DataSetExpirate..xsd</DependentUpon>
+    </None>
+    <None Include="DataSetExpirate..xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetExpirate..Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSetExpirate..xss">
+      <DependentUpon>DataSetExpirate..xsd</DependentUpon>
     </None>
     <None Include="DataSetFacturaVenta.xsc">
       <DependentUpon>DataSetFacturaVenta.xsd</DependentUpon>

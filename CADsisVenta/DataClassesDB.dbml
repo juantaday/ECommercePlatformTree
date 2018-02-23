@@ -1,5 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JSofwareCommerceDB02" Class="DataClassesDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=JSofwareCommerceDB02;Integrated Security=True" SettingsObjectName="CADsisVenta.Properties.Settings" SettingsPropertyName="JSofwareCommerceDB02ConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JSofwareCommerceDB03" Class="DataClassesDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" 
+ConnectionString="Data Source=.\sqlexpress;Initial 
+Catalog=JSofwareCommerceDB03;Integrated Security=True" 
+SettingsObjectName="CADsisVenta.Properties.Settings" 
+SettingsPropertyName="JsofConneccionString" 
+Provider="System.Data.SqlClient" />
   <Table Name="dbo.InventoryDetail" Member="InventoryDetail">
     <Type Name="InventoryDetail">
       <Column Name="IdInventoryDetail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -100,10 +105,12 @@
       <Column Name="fecha_reg" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Facturable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Activo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ItIsExpirable" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
       <Association Name="Productos_InventoryDetail" Member="InventoryDetail" ThisKey="idProducto" OtherKey="idProducto" Type="InventoryDetail" />
       <Association Name="Productos_ProductosStock" Member="ProductosStock" ThisKey="idProducto" OtherKey="idProducto" Type="ProductosStock" />
       <Association Name="Productos_RatesProductoDetail" Member="RatesProductoDetail" ThisKey="idProducto" OtherKey="idProducto" Type="RatesProductoDetail" />
       <Association Name="Productos_ProductoPresentacion" Member="ProductoPresentacion" ThisKey="idProducto" OtherKey="idProducto" Type="ProductoPresentacion" />
+      <Association Name="Productos_ProductExpiration" Member="ProductExpiration" ThisKey="idProducto" OtherKey="idProducto" Type="ProductExpiration" />
       <Association Name="ProductoSubCategoria_Productos" Member="ProductoSubCategoria" ThisKey="IdSubCategoria" OtherKey="idSubCategoria" Type="ProductoSubCategoria" IsForeignKey="true" />
       <Association Name="ProductoUndMin_Productos" Member="ProductoUndMin" ThisKey="idUnidad" OtherKey="idUnidad" Type="ProductoUndMin" IsForeignKey="true" />
     </Type>
@@ -413,6 +420,7 @@
       <Association Name="Bodegas_Terminal" Member="Terminal" ThisKey="idBodega" OtherKey="idBodega" Type="Terminal" />
       <Association Name="Bodegas_FacturaVenta" Member="FacturaVenta" ThisKey="idBodega" OtherKey="idBodega" Type="FacturaVenta" />
       <Association Name="Bodegas_VirtualBox" Member="VirtualBox" ThisKey="idBodega" OtherKey="idBodega" Type="VirtualBox" />
+      <Association Name="Bodegas_ProductExpiration" Member="ProductExpiration" ThisKey="idBodega" OtherKey="idBodega" Type="ProductExpiration" />
       <Association Name="Empleados_Bodegas" Member="Empleados" ThisKey="Resp1_idEmpleado" OtherKey="idEmpleado" Type="Empleados" IsForeignKey="true" />
       <Association Name="Rates_Bodegas" Member="Rates" ThisKey="idRates" OtherKey="idRates" Type="Rates" IsForeignKey="true" />
     </Type>
@@ -531,7 +539,7 @@
       <Column Name="PresentacionPrint" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="isPresentFactory" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Barcode" Type="System.String" DbType="Char(25)" CanBeNull="true" />
-      <Column Name="isDefaultSales" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isDefaultSales" Type="System.Byte" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="ProductoPresentacion_RatesPresentantionDetail" Member="RatesPresentantionDetail" ThisKey="idPresentacion" OtherKey="idPresentacion" Type="RatesPresentantionDetail" />
       <Association Name="ProductoPresentacion_Ofertas" Member="Ofertas" ThisKey="idPresentacion" OtherKey="idPresent" Type="Ofertas" />
       <Association Name="ProductoPresentacion_FacturaVentaDetail" Member="FacturaVentaDetail" ThisKey="idPresentacion" OtherKey="idPresent" Type="FacturaVentaDetail" />
@@ -849,6 +857,17 @@
       <Column Name="tarifa" Type="System.Decimal" DbType="Decimal(20,5)" CanBeNull="true" />
       <Association Name="ProductoPresentacion_Ventas_Detail" Member="ProductoPresentacion" ThisKey="idPresent" OtherKey="idPresentacion" Type="ProductoPresentacion" IsForeignKey="true" />
       <Association Name="Ventas_Ventas_Detail" Member="Ventas" ThisKey="idVenta" OtherKey="idVenta" Type="Ventas" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductExpiration" Member="ProductExpiration">
+    <Type Name="ProductExpiration">
+      <Column Name="IDExpiration" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idFacturaCompra" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idBodega" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idProducto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateExpirate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Bodegas_ProductExpiration" Member="Bodegas" ThisKey="idBodega" OtherKey="idBodega" Type="Bodegas" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Productos_ProductExpiration" Member="Productos" ThisKey="idProducto" OtherKey="idProducto" Type="Productos" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.getDateServer" Method="getDateServer">

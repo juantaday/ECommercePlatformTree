@@ -49,7 +49,7 @@ Partial Class frmPermisos
         Me.txtIdGrupo = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.AccepButton = New System.Windows.Forms.Button()
-        Me.CancelButton = New System.Windows.Forms.Button()
+        Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         CType(Me.dataGridGrupo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GrupList.SuspendLayout()
@@ -380,7 +380,6 @@ Partial Class frmPermisos
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(219, Byte), Integer))
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.AccepButton)
-        Me.Panel1.Controls.Add(Me.CancelButton)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(5, 387)
         Me.Panel1.Name = "Panel1"
@@ -393,26 +392,26 @@ Partial Class frmPermisos
         Me.AccepButton.Dock = System.Windows.Forms.DockStyle.Right
         Me.AccepButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AccepButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.AccepButton.Location = New System.Drawing.Point(572, 0)
+        Me.AccepButton.Location = New System.Drawing.Point(689, 0)
         Me.AccepButton.Name = "AccepButton"
         Me.AccepButton.Size = New System.Drawing.Size(117, 36)
         Me.AccepButton.TabIndex = 1
         Me.AccepButton.Text = "Aceptar"
         Me.AccepButton.UseVisualStyleBackColor = False
         '
-        'CancelButton
+        'Cancel_Button
         '
-        Me.CancelButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CancelButton.Dock = System.Windows.Forms.DockStyle.Right
-        Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.CancelButton.Location = New System.Drawing.Point(689, 0)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(117, 36)
-        Me.CancelButton.TabIndex = 0
-        Me.CancelButton.Text = "Cancelar"
-        Me.CancelButton.UseVisualStyleBackColor = False
+        Me.Cancel_Button.BackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(23, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Cancel_Button.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Cancel_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cancel_Button.ForeColor = System.Drawing.Color.FromArgb(CType(CType(5, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.Cancel_Button.Location = New System.Drawing.Point(689, 0)
+        Me.Cancel_Button.Name = "Cancel_Button"
+        Me.Cancel_Button.Size = New System.Drawing.Size(117, 36)
+        Me.Cancel_Button.TabIndex = 0
+        Me.Cancel_Button.Text = "Cancelar"
+        Me.Cancel_Button.UseVisualStyleBackColor = False
         '
         'Panel4
         '
@@ -431,7 +430,6 @@ Partial Class frmPermisos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(254, Byte), Integer), CType(CType(233, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.CancelButton = Me.CancelButton
         Me.ClientSize = New System.Drawing.Size(818, 430)
         Me.Controls.Add(Me.GropMunuList)
         Me.Controls.Add(Me.GrupList)
@@ -484,6 +482,6 @@ Partial Class frmPermisos
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents AccepButton As Button
-    Friend WithEvents CancelButton As Button
+    Friend WithEvents Cancel_Button As Button
     Friend WithEvents Panel4 As Panel
 End Class

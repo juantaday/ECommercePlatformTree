@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 
 ' Revisar los valores de los atributos del ensamblado
 
-<Assembly: AssemblyTitle("ECommercePlatformTree")>
+<Assembly: AssemblyTitle("ECommercePlatformThree")>
 <Assembly: AssemblyDescription("Sistema para el control de facturacion.")>
 <Assembly: AssemblyCompany("JMTSystemSofware")>
-<Assembly: AssemblyProduct("E-CommercePlatformTree")>
+<Assembly: AssemblyProduct("E-CommercePlatformThree")>
 <Assembly: AssemblyCopyright("JMTSystem © Hewlett-Packard 2018")>
 <Assembly: AssemblyTrademark("JMTSystemSofware")>
 

@@ -61,6 +61,7 @@ Partial Class frmAdquisicion
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.TotalEdidListButton = New System.Windows.Forms.Button()
         Me.PunitarioEddButton = New System.Windows.Forms.Button()
+        Me.EditCountListButton = New System.Windows.Forms.Button()
         Me.AddNewListButton = New System.Windows.Forms.Button()
         Me.TableMenu = New System.Windows.Forms.TableLayoutPanel()
         Me.TotalEditButton = New System.Windows.Forms.Button()
@@ -75,7 +76,6 @@ Partial Class frmAdquisicion
         Me.AtrasButton = New System.Windows.Forms.Button()
         Me.ActualizarButton = New System.Windows.Forms.Button()
         Me.PanelAddItems = New System.Windows.Forms.Panel()
-        Me.toolStripStatusLabel1 = New System.Windows.Forms.Label()
         Me.cmbItemProducto = New System.Windows.Forms.ComboBox()
         Me.btnAddListaProduc = New System.Windows.Forms.Button()
         Me.txtCantidad = New System.Windows.Forms.TextBox()
@@ -85,12 +85,13 @@ Partial Class frmAdquisicion
         Me.btnListProducto = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PanelTotal = New System.Windows.Forms.Panel()
+        Me.toolStripStatusLabel1 = New System.Windows.Forms.Label()
         Me.TotalGroupBox = New System.Windows.Forms.GroupBox()
         Me.RountIvaCheckBox = New System.Windows.Forms.CheckBox()
         Me.txtLugarDecimal = New System.Windows.Forms.NumericUpDown()
         Me.IsValitedUnitPriceCheckBox = New System.Windows.Forms.CheckBox()
-        Me.DescueCheckBox = New System.Windows.Forms.CheckBox()
-        Me.IvaCheckBox = New System.Windows.Forms.CheckBox()
+        Me.IsIncludeDiscountCheckBox = New System.Windows.Forms.CheckBox()
+        Me.IsIncludeIvaCheckBox = New System.Windows.Forms.CheckBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbxRedondSin = New System.Windows.Forms.CheckBox()
         Me.CalculaTotalBtn = New System.Windows.Forms.Button()
@@ -297,23 +298,36 @@ Partial Class frmAdquisicion
         Me.ListView1.AllColumns.Add(Me.IsIncludeIvaClm)
         Me.ListView1.AllColumns.Add(Me.IvaPercentClm)
         Me.ListView1.AllColumns.Add(Me.DateExpireClm)
-        Me.ListView1.CheckBoxes = True
+        Me.ListView1.AllowDrop = True
+        Me.ListView1.AlternateRowBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.IDClm, Me.IdPresentClm, Me.idProductoClm, Me.CodigoClm, Me.ProductoClm, Me.CountClm, Me.UnitPriceClm, Me.DiscountClm, Me.IvaClm, Me.TotalParcialClm, Me.IsIncludeIvaClm, Me.IvaPercentClm, Me.DateExpireClm})
+        Me.ListView1.Cursor = System.Windows.Forms.Cursors.Default
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.EmptyListMsg = "No hay informacion"
         Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListView1.FullRowSelect = True
         Me.ListView1.GridLines = True
+        Me.ListView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
+        Me.ListView1.HideSelection = False
+        Me.ListView1.HighlightBackgroundColor = System.Drawing.Color.Navy
+        Me.ListView1.HighlightForegroundColor = System.Drawing.Color.White
+        Me.ListView1.IncludeColumnHeadersInCopy = True
         Me.ListView1.LargeImageList = Me.imageList2
         Me.ListView1.Location = New System.Drawing.Point(0, 0)
         Me.ListView1.Name = "ListView1"
+        Me.ListView1.SelectColumnsOnRightClickBehaviour = BrightIdeasSoftware.ObjectListView.ColumnSelectBehaviour.Submenu
+        Me.ListView1.ShowCommandMenuOnRightClick = True
         Me.ListView1.ShowGroups = False
         Me.ListView1.ShowImagesOnSubItems = True
         Me.ListView1.ShowItemToolTips = True
         Me.ListView1.Size = New System.Drawing.Size(919, 408)
         Me.ListView1.SmallImageList = Me.imageList1
         Me.ListView1.TabIndex = 3
+        Me.ListView1.UnfocusedHighlightBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.ListView1.UnfocusedHighlightForegroundColor = System.Drawing.Color.Black
+        Me.ListView1.UseAlternatingBackColors = True
         Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.UseHotItem = True
         Me.ListView1.View = System.Windows.Forms.View.Details
         Me.ListView1.VirtualMode = True
         '
@@ -465,6 +479,7 @@ Partial Class frmAdquisicion
         Me.imageList1.Images.SetKeyName(16, "hidden")
         Me.imageList1.Images.SetKeyName(17, "temporary")
         Me.imageList1.Images.SetKeyName(18, "ok_16.png")
+        Me.imageList1.Images.SetKeyName(19, "isIva_16.png")
         '
         'PaneMove
         '
@@ -556,6 +571,7 @@ Partial Class frmAdquisicion
         Me.Panel5.BackColor = System.Drawing.Color.LimeGreen
         Me.Panel5.Controls.Add(Me.TotalEdidListButton)
         Me.Panel5.Controls.Add(Me.PunitarioEddButton)
+        Me.Panel5.Controls.Add(Me.EditCountListButton)
         Me.Panel5.Controls.Add(Me.AddNewListButton)
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel5.Location = New System.Drawing.Point(0, 147)
@@ -568,8 +584,9 @@ Partial Class frmAdquisicion
         '
         Me.TotalEdidListButton.Dock = System.Windows.Forms.DockStyle.Top
         Me.TotalEdidListButton.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TotalEdidListButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Edit_SubTotal_20
         Me.TotalEdidListButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.TotalEdidListButton.Location = New System.Drawing.Point(1, 56)
+        Me.TotalEdidListButton.Location = New System.Drawing.Point(1, 82)
         Me.TotalEdidListButton.Margin = New System.Windows.Forms.Padding(0)
         Me.TotalEdidListButton.Name = "TotalEdidListButton"
         Me.TotalEdidListButton.Size = New System.Drawing.Size(176, 26)
@@ -582,15 +599,31 @@ Partial Class frmAdquisicion
         '
         Me.PunitarioEddButton.Dock = System.Windows.Forms.DockStyle.Top
         Me.PunitarioEddButton.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PunitarioEddButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Edit_UnitPrice_20
         Me.PunitarioEddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.PunitarioEddButton.Location = New System.Drawing.Point(1, 29)
+        Me.PunitarioEddButton.Location = New System.Drawing.Point(1, 55)
         Me.PunitarioEddButton.Margin = New System.Windows.Forms.Padding(0)
         Me.PunitarioEddButton.Name = "PunitarioEddButton"
         Me.PunitarioEddButton.Size = New System.Drawing.Size(176, 27)
         Me.PunitarioEddButton.TabIndex = 18
-        Me.PunitarioEddButton.Text = "Modificar segun prec. Unitario"
+        Me.PunitarioEddButton.Text = "Modif. Precio Unt (List)"
         Me.ToolTip1.SetToolTip(Me.PunitarioEddButton, "Modificar todo el listado de la columna de precio unitario")
         Me.PunitarioEddButton.UseVisualStyleBackColor = True
+        '
+        'EditCountListButton
+        '
+        Me.EditCountListButton.Dock = System.Windows.Forms.DockStyle.Top
+        Me.EditCountListButton.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EditCountListButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Count_20
+        Me.EditCountListButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.EditCountListButton.Location = New System.Drawing.Point(1, 29)
+        Me.EditCountListButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.EditCountListButton.Name = "EditCountListButton"
+        Me.EditCountListButton.Size = New System.Drawing.Size(176, 26)
+        Me.EditCountListButton.TabIndex = 21
+        Me.EditCountListButton.Text = "Modificar cantidad (List)"
+        Me.ToolTip1.SetToolTip(Me.EditCountListButton, "Modificar todo el listado de la columna del precio total")
+        Me.EditCountListButton.UseVisualStyleBackColor = True
         '
         'AddNewListButton
         '
@@ -796,7 +829,6 @@ Partial Class frmAdquisicion
         'PanelAddItems
         '
         Me.PanelAddItems.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.PanelAddItems.Controls.Add(Me.toolStripStatusLabel1)
         Me.PanelAddItems.Controls.Add(Me.cmbItemProducto)
         Me.PanelAddItems.Controls.Add(Me.btnAddListaProduc)
         Me.PanelAddItems.Controls.Add(Me.txtCantidad)
@@ -811,16 +843,6 @@ Partial Class frmAdquisicion
         Me.PanelAddItems.Padding = New System.Windows.Forms.Padding(2)
         Me.PanelAddItems.Size = New System.Drawing.Size(1128, 45)
         Me.PanelAddItems.TabIndex = 2
-        '
-        'toolStripStatusLabel1
-        '
-        Me.toolStripStatusLabel1.AutoSize = True
-        Me.toolStripStatusLabel1.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.toolStripStatusLabel1.Location = New System.Drawing.Point(5, 3)
-        Me.toolStripStatusLabel1.Name = "toolStripStatusLabel1"
-        Me.toolStripStatusLabel1.Size = New System.Drawing.Size(44, 13)
-        Me.toolStripStatusLabel1.TabIndex = 14
-        Me.toolStripStatusLabel1.Text = "Label10"
         '
         'cmbItemProducto
         '
@@ -923,6 +945,7 @@ Partial Class frmAdquisicion
         'PanelTotal
         '
         Me.PanelTotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PanelTotal.Controls.Add(Me.toolStripStatusLabel1)
         Me.PanelTotal.Controls.Add(Me.TotalGroupBox)
         Me.PanelTotal.Controls.Add(Me.TableLayoutPanel2)
         Me.PanelTotal.Controls.Add(Me.Panel6)
@@ -934,14 +957,25 @@ Partial Class frmAdquisicion
         Me.PanelTotal.Size = New System.Drawing.Size(1128, 109)
         Me.PanelTotal.TabIndex = 18
         '
+        'toolStripStatusLabel1
+        '
+        Me.toolStripStatusLabel1.AutoSize = True
+        Me.toolStripStatusLabel1.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.toolStripStatusLabel1.Location = New System.Drawing.Point(3, 14)
+        Me.toolStripStatusLabel1.Name = "toolStripStatusLabel1"
+        Me.toolStripStatusLabel1.Size = New System.Drawing.Size(44, 13)
+        Me.toolStripStatusLabel1.TabIndex = 14
+        Me.toolStripStatusLabel1.Text = "Label10"
+        Me.toolStripStatusLabel1.Visible = False
+        '
         'TotalGroupBox
         '
         Me.TotalGroupBox.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalGroupBox.Controls.Add(Me.RountIvaCheckBox)
         Me.TotalGroupBox.Controls.Add(Me.txtLugarDecimal)
         Me.TotalGroupBox.Controls.Add(Me.IsValitedUnitPriceCheckBox)
-        Me.TotalGroupBox.Controls.Add(Me.DescueCheckBox)
-        Me.TotalGroupBox.Controls.Add(Me.IvaCheckBox)
+        Me.TotalGroupBox.Controls.Add(Me.IsIncludeDiscountCheckBox)
+        Me.TotalGroupBox.Controls.Add(Me.IsIncludeIvaCheckBox)
         Me.TotalGroupBox.Controls.Add(Me.Label1)
         Me.TotalGroupBox.Controls.Add(Me.cbxRedondSin)
         Me.TotalGroupBox.Controls.Add(Me.CalculaTotalBtn)
@@ -994,27 +1028,27 @@ Partial Class frmAdquisicion
         Me.IsValitedUnitPriceCheckBox.Text = "Calcular" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "de acuerdo" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "al" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "precio" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Uitario"
         Me.IsValitedUnitPriceCheckBox.UseVisualStyleBackColor = False
         '
-        'DescueCheckBox
+        'IsIncludeDiscountCheckBox
         '
-        Me.DescueCheckBox.AutoSize = True
-        Me.DescueCheckBox.BackColor = System.Drawing.Color.Aqua
-        Me.DescueCheckBox.Location = New System.Drawing.Point(189, 46)
-        Me.DescueCheckBox.Name = "DescueCheckBox"
-        Me.DescueCheckBox.Size = New System.Drawing.Size(95, 43)
-        Me.DescueCheckBox.TabIndex = 13
-        Me.DescueCheckBox.Text = "En el Sub total" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ya incluye" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Descuento"
-        Me.DescueCheckBox.UseVisualStyleBackColor = False
+        Me.IsIncludeDiscountCheckBox.AutoSize = True
+        Me.IsIncludeDiscountCheckBox.BackColor = System.Drawing.Color.Aqua
+        Me.IsIncludeDiscountCheckBox.Location = New System.Drawing.Point(189, 46)
+        Me.IsIncludeDiscountCheckBox.Name = "IsIncludeDiscountCheckBox"
+        Me.IsIncludeDiscountCheckBox.Size = New System.Drawing.Size(95, 43)
+        Me.IsIncludeDiscountCheckBox.TabIndex = 13
+        Me.IsIncludeDiscountCheckBox.Text = "En el Sub total" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ya incluye" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Descuento"
+        Me.IsIncludeDiscountCheckBox.UseVisualStyleBackColor = False
         '
-        'IvaCheckBox
+        'IsIncludeIvaCheckBox
         '
-        Me.IvaCheckBox.AutoSize = True
-        Me.IvaCheckBox.BackColor = System.Drawing.Color.Aqua
-        Me.IvaCheckBox.Location = New System.Drawing.Point(95, 46)
-        Me.IvaCheckBox.Name = "IvaCheckBox"
-        Me.IvaCheckBox.Size = New System.Drawing.Size(95, 43)
-        Me.IvaCheckBox.TabIndex = 12
-        Me.IvaCheckBox.Text = "En el Sub total" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ya incluye" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "IVA"
-        Me.IvaCheckBox.UseVisualStyleBackColor = False
+        Me.IsIncludeIvaCheckBox.AutoSize = True
+        Me.IsIncludeIvaCheckBox.BackColor = System.Drawing.Color.Aqua
+        Me.IsIncludeIvaCheckBox.Location = New System.Drawing.Point(95, 46)
+        Me.IsIncludeIvaCheckBox.Name = "IsIncludeIvaCheckBox"
+        Me.IsIncludeIvaCheckBox.Size = New System.Drawing.Size(95, 43)
+        Me.IsIncludeIvaCheckBox.TabIndex = 12
+        Me.IsIncludeIvaCheckBox.Text = "En el Sub total" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ya incluye" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "IVA"
+        Me.IsIncludeIvaCheckBox.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -1073,7 +1107,7 @@ Partial Class frmAdquisicion
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.06122!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.93877!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.DescBase0Text, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TotalBasText, 3, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Label26, 2, 2)
@@ -1101,12 +1135,12 @@ Partial Class frmAdquisicion
         '
         Me.DescBase0Text.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DescBase0Text.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DescBase0Text.Location = New System.Drawing.Point(61, 2)
+        Me.DescBase0Text.Location = New System.Drawing.Point(57, 2)
         Me.DescBase0Text.Margin = New System.Windows.Forms.Padding(0)
         Me.DescBase0Text.Multiline = True
         Me.DescBase0Text.Name = "DescBase0Text"
         Me.DescBase0Text.ReadOnly = True
-        Me.DescBase0Text.Size = New System.Drawing.Size(148, 32)
+        Me.DescBase0Text.Size = New System.Drawing.Size(140, 32)
         Me.DescBase0Text.TabIndex = 14
         Me.DescBase0Text.Text = "0"
         Me.DescBase0Text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1117,12 +1151,12 @@ Partial Class frmAdquisicion
         Me.TotalBasText.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalBasText.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalBasText.ForeColor = System.Drawing.Color.Navy
-        Me.TotalBasText.Location = New System.Drawing.Point(242, 69)
+        Me.TotalBasText.Location = New System.Drawing.Point(230, 69)
         Me.TotalBasText.Margin = New System.Windows.Forms.Padding(0)
         Me.TotalBasText.Multiline = True
         Me.TotalBasText.Name = "TotalBasText"
         Me.TotalBasText.ReadOnly = True
-        Me.TotalBasText.Size = New System.Drawing.Size(99, 34)
+        Me.TotalBasText.Size = New System.Drawing.Size(111, 34)
         Me.TotalBasText.TabIndex = 7
         Me.TotalBasText.Text = "0"
         Me.TotalBasText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1133,7 +1167,7 @@ Partial Class frmAdquisicion
         Me.Label26.AutoSize = True
         Me.Label26.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label26.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(213, 69)
+        Me.Label26.Location = New System.Drawing.Point(201, 69)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(25, 34)
         Me.Label26.TabIndex = 6
@@ -1147,7 +1181,7 @@ Partial Class frmAdquisicion
         Me.Label16.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.Location = New System.Drawing.Point(5, 69)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(52, 34)
+        Me.Label16.Size = New System.Drawing.Size(48, 34)
         Me.Label16.TabIndex = 4
         Me.Label16.Text = "Total"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1156,12 +1190,12 @@ Partial Class frmAdquisicion
         '
         Me.DescBase12Text.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DescBase12Text.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DescBase12Text.Location = New System.Drawing.Point(61, 35)
+        Me.DescBase12Text.Location = New System.Drawing.Point(57, 35)
         Me.DescBase12Text.Margin = New System.Windows.Forms.Padding(0)
         Me.DescBase12Text.Multiline = True
         Me.DescBase12Text.Name = "DescBase12Text"
         Me.DescBase12Text.ReadOnly = True
-        Me.DescBase12Text.Size = New System.Drawing.Size(148, 33)
+        Me.DescBase12Text.Size = New System.Drawing.Size(140, 33)
         Me.DescBase12Text.TabIndex = 3
         Me.DescBase12Text.Text = "0"
         Me.DescBase12Text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1172,7 +1206,7 @@ Partial Class frmAdquisicion
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(213, 35)
+        Me.Label11.Location = New System.Drawing.Point(201, 35)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(25, 33)
         Me.Label11.TabIndex = 2
@@ -1186,7 +1220,7 @@ Partial Class frmAdquisicion
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(5, 2)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 32)
+        Me.Label4.Size = New System.Drawing.Size(48, 32)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Exento"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1198,7 +1232,7 @@ Partial Class frmAdquisicion
         Me.Label6.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(5, 35)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 33)
+        Me.Label6.Size = New System.Drawing.Size(48, 33)
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Base Iva"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -1207,12 +1241,12 @@ Partial Class frmAdquisicion
         '
         Me.Bas12text.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Bas12text.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Bas12text.Location = New System.Drawing.Point(242, 35)
+        Me.Bas12text.Location = New System.Drawing.Point(230, 35)
         Me.Bas12text.Margin = New System.Windows.Forms.Padding(0)
         Me.Bas12text.Multiline = True
         Me.Bas12text.Name = "Bas12text"
         Me.Bas12text.ReadOnly = True
-        Me.Bas12text.Size = New System.Drawing.Size(99, 33)
+        Me.Bas12text.Size = New System.Drawing.Size(111, 33)
         Me.Bas12text.TabIndex = 1
         Me.Bas12text.Text = "0"
         Me.Bas12text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1222,12 +1256,12 @@ Partial Class frmAdquisicion
         '
         Me.Bas0text.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Bas0text.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Bas0text.Location = New System.Drawing.Point(242, 2)
+        Me.Bas0text.Location = New System.Drawing.Point(230, 2)
         Me.Bas0text.Margin = New System.Windows.Forms.Padding(0)
         Me.Bas0text.Multiline = True
         Me.Bas0text.Name = "Bas0text"
         Me.Bas0text.ReadOnly = True
-        Me.Bas0text.Size = New System.Drawing.Size(99, 32)
+        Me.Bas0text.Size = New System.Drawing.Size(111, 32)
         Me.Bas0text.TabIndex = 1
         Me.Bas0text.Text = "0"
         Me.Bas0text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1238,7 +1272,7 @@ Partial Class frmAdquisicion
         Me.Label5.AutoSize = True
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(213, 2)
+        Me.Label5.Location = New System.Drawing.Point(201, 2)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 32)
         Me.Label5.TabIndex = 0
@@ -1250,12 +1284,12 @@ Partial Class frmAdquisicion
         Me.TotalBase.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalBase.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalBase.ForeColor = System.Drawing.Color.Navy
-        Me.TotalBase.Location = New System.Drawing.Point(61, 69)
+        Me.TotalBase.Location = New System.Drawing.Point(57, 69)
         Me.TotalBase.Margin = New System.Windows.Forms.Padding(0)
         Me.TotalBase.Multiline = True
         Me.TotalBase.Name = "TotalBase"
         Me.TotalBase.ReadOnly = True
-        Me.TotalBase.Size = New System.Drawing.Size(148, 34)
+        Me.TotalBase.Size = New System.Drawing.Size(140, 34)
         Me.TotalBase.TabIndex = 5
         Me.TotalBase.Text = "0"
         Me.TotalBase.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1610,7 +1644,7 @@ Partial Class frmAdquisicion
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.68162!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.31839!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.btnCancelCompra, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnGuardarCompra, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label12, 0, 0)
@@ -1638,7 +1672,7 @@ Partial Class frmAdquisicion
         Me.btnGuardarCompra.BackColor = System.Drawing.Color.Navy
         Me.btnGuardarCompra.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGuardarCompra.ForeColor = System.Drawing.Color.White
-        Me.btnGuardarCompra.Location = New System.Drawing.Point(790, 4)
+        Me.btnGuardarCompra.Location = New System.Drawing.Point(784, 4)
         Me.btnGuardarCompra.Name = "btnGuardarCompra"
         Me.btnGuardarCompra.Size = New System.Drawing.Size(195, 35)
         Me.btnGuardarCompra.TabIndex = 13
@@ -1745,7 +1779,7 @@ Partial Class frmAdquisicion
         Me.TableLayoutPanel3.ColumnCount = 3
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.20454!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.79545!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.Button1, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label13, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnAcepProveedor, 1, 0)
@@ -1760,9 +1794,9 @@ Partial Class frmAdquisicion
         'Button1
         '
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.Location = New System.Drawing.Point(991, 3)
+        Me.Button1.Location = New System.Drawing.Point(985, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(128, 43)
+        Me.Button1.Size = New System.Drawing.Size(134, 43)
         Me.Button1.TabIndex = 13
         Me.Button1.Text = "Cancelar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -1784,9 +1818,9 @@ Partial Class frmAdquisicion
         Me.btnAcepProveedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAcepProveedor.Image = Global.ECommercePlatformView.My.Resources.Resources.VentasCarro_32
         Me.btnAcepProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAcepProveedor.Location = New System.Drawing.Point(786, 3)
+        Me.btnAcepProveedor.Location = New System.Drawing.Point(781, 3)
         Me.btnAcepProveedor.Name = "btnAcepProveedor"
-        Me.btnAcepProveedor.Size = New System.Drawing.Size(199, 43)
+        Me.btnAcepProveedor.Size = New System.Drawing.Size(198, 43)
         Me.btnAcepProveedor.TabIndex = 11
         Me.btnAcepProveedor.Text = "Agregar Articulos"
         Me.btnAcepProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1952,6 +1986,7 @@ Partial Class frmAdquisicion
         Me.PanelAddItems.ResumeLayout(False)
         Me.PanelAddItems.PerformLayout()
         Me.PanelTotal.ResumeLayout(False)
+        Me.PanelTotal.PerformLayout()
         Me.TotalGroupBox.ResumeLayout(False)
         Me.TotalGroupBox.PerformLayout()
         CType(Me.txtLugarDecimal, System.ComponentModel.ISupportInitialize).EndInit()
@@ -2063,7 +2098,7 @@ Partial Class frmAdquisicion
     Friend WithEvents MoveUPButton As Button
     Friend WithEvents PanelTotal As System.Windows.Forms.Panel
     Friend WithEvents TotalGroupBox As GroupBox
-    Friend WithEvents IvaCheckBox As CheckBox
+    Friend WithEvents IsIncludeIvaCheckBox As CheckBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Label11 As Label
     Friend WithEvents PaneTotal As System.Windows.Forms.Panel
@@ -2073,7 +2108,7 @@ Partial Class frmAdquisicion
     Friend WithEvents PanelAddItems As System.Windows.Forms.Panel
     Friend WithEvents Label7 As Label
     Friend WithEvents ActualizarButton As Button
-    Friend WithEvents DescueCheckBox As CheckBox
+    Friend WithEvents IsIncludeDiscountCheckBox As CheckBox
     Friend WithEvents TotalBasText As TextBox
     Friend WithEvents Label26 As Label
     Friend WithEvents Label16 As Label
@@ -2124,4 +2159,5 @@ Partial Class frmAdquisicion
     Friend WithEvents TotalEdidListButton As Button
     Friend WithEvents PunitarioEddButton As Button
     Friend WithEvents AddNewListButton As Button
+    Friend WithEvents EditCountListButton As Button
 End Class

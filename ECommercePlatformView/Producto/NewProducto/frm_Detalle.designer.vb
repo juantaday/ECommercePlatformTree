@@ -45,6 +45,7 @@ Partial Class frm_detalle
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ivaApliDesLabel = New System.Windows.Forms.Label()
         Me.StateCheckBox = New System.Windows.Forms.CheckBox()
+        Me.AdminDateExpirateCheckBox = New System.Windows.Forms.CheckBox()
         CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CantidadMinNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ivaGroupBox.SuspendLayout()
@@ -63,7 +64,7 @@ Partial Class frm_detalle
         Me.Nom_Comercialtxt.Location = New System.Drawing.Point(88, 21)
         Me.Nom_Comercialtxt.MaxLength = 40
         Me.Nom_Comercialtxt.Name = "Nom_Comercialtxt"
-        Me.Nom_Comercialtxt.Size = New System.Drawing.Size(476, 24)
+        Me.Nom_Comercialtxt.Size = New System.Drawing.Size(565, 24)
         Me.Nom_Comercialtxt.TabIndex = 0
         '
         'SigienteButton
@@ -72,7 +73,7 @@ Partial Class frm_detalle
         Me.SigienteButton.Cursor = System.Windows.Forms.Cursors.Default
         Me.SigienteButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SigienteButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.SigienteButton.Location = New System.Drawing.Point(16, 250)
+        Me.SigienteButton.Location = New System.Drawing.Point(105, 257)
         Me.SigienteButton.Name = "SigienteButton"
         Me.SigienteButton.Size = New System.Drawing.Size(0, 0)
         Me.SigienteButton.TabIndex = 8
@@ -164,7 +165,7 @@ Partial Class frm_detalle
         Me.Descriptext.Location = New System.Drawing.Point(116, 89)
         Me.Descriptext.Multiline = True
         Me.Descriptext.Name = "Descriptext"
-        Me.Descriptext.Size = New System.Drawing.Size(448, 87)
+        Me.Descriptext.Size = New System.Drawing.Size(537, 87)
         Me.Descriptext.TabIndex = 2
         '
         'NomComuntext
@@ -175,7 +176,7 @@ Partial Class frm_detalle
         Me.NomComuntext.Location = New System.Drawing.Point(102, 55)
         Me.NomComuntext.MaxLength = 19
         Me.NomComuntext.Name = "NomComuntext"
-        Me.NomComuntext.Size = New System.Drawing.Size(445, 24)
+        Me.NomComuntext.Size = New System.Drawing.Size(534, 24)
         Me.NomComuntext.TabIndex = 1
         '
         'NotifyIcon1
@@ -255,12 +256,24 @@ Partial Class frm_detalle
         Me.StateCheckBox.Text = "Habilitado"
         Me.StateCheckBox.UseVisualStyleBackColor = True
         '
+        'AdminDateExpirateCheckBox
+        '
+        Me.AdminDateExpirateCheckBox.AutoSize = True
+        Me.AdminDateExpirateCheckBox.Location = New System.Drawing.Point(329, 294)
+        Me.AdminDateExpirateCheckBox.Name = "AdminDateExpirateCheckBox"
+        Me.AdminDateExpirateCheckBox.Size = New System.Drawing.Size(178, 17)
+        Me.AdminDateExpirateCheckBox.TabIndex = 57
+        Me.AdminDateExpirateCheckBox.Text = "Administrar fecha de caducidad."
+        Me.ToolTip1.SetToolTip(Me.AdminDateExpirateCheckBox, "Controlar fecha de caducidad.")
+        Me.AdminDateExpirateCheckBox.UseVisualStyleBackColor = True
+        '
         'frm_detalle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Moccasin
-        Me.ClientSize = New System.Drawing.Size(588, 314)
+        Me.ClientSize = New System.Drawing.Size(677, 321)
+        Me.Controls.Add(Me.AdminDateExpirateCheckBox)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ivaGroupBox)
         Me.Controls.Add(Me.SaveButton)
@@ -309,4 +322,5 @@ Partial Class frm_detalle
     Friend WithEvents StateCheckBox As CheckBox
     Friend WithEvents ivaPreserminadoLinkLabel As LinkLabel
     Friend WithEvents ivaApliDesLabel As Label
+    Friend WithEvents AdminDateExpirateCheckBox As CheckBox
 End Class

@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.\SQLEXPRESS;Initial Catalog=JSofwareCommerceDB02;Persist Security In"& _ 
-            "fo=True;User ID=JsofUserAdmin;Password=1234567890")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.0.100;Initial Catalog=JSofwareCommerceDB03;Persist Security I"& _ 
+            "nfo=True;User ID=JsofUserAdmin;Password=1234567890")>  _
         Public ReadOnly Property JSofwareCommerceDB02ConnectionString() As String
             Get
                 Return CType(Me("JSofwareCommerceDB02ConnectionString"),String)

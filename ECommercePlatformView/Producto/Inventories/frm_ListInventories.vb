@@ -1,5 +1,6 @@
 ﻿Imports System.Data.Linq
 Imports CADsisVenta
+Imports CADsisVenta.DataSetSystem
 Imports CADsisVenta.DataSetSystemTableAdapters
 Imports DGVPrinterHelper
 
@@ -109,15 +110,15 @@ Public Class frm_ListInventories
 
     Private Sub Carga_bodega()
         Try
-            Dim dat As New BodegaSystemTableAdapter
-            Dim dt As New DataTable
-            dt = dat.GetData()
-            If dt.Rows.Count > 0 Then
-                ListBodegaComboBox.DataSource = dt
-                ListBodegaComboBox.DisplayMember = "Nom_Bodega"
-                ListBodegaComboBox.ValueMember = "idBodega"
-                ListBodegaComboBox.SelectedIndex = -1
-            End If
+            Using dat As New BodegaSystemTableAdapter
+                Using dt As New BodegaSystemDataTable
+                    dat.Fill(dt)
+                    ListBodegaComboBox.DataSource = dt.ToList()
+                    ListBodegaComboBox.DisplayMember = "Nom_Bodega"
+                    ListBodegaComboBox.ValueMember = "idBodega"
+                    ListBodegaComboBox.SelectedIndex = 0
+                End Using
+            End Using
         Catch ex As Exception
             MsgBox(ex.Message, vbCritical, "Error")
         End Try

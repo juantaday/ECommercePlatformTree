@@ -1,13 +1,17 @@
 ﻿Imports System.ComponentModel
 Imports System.Linq
+Imports System.Net
 Imports CADsisVenta
+Imports CADsisVenta.DataSetCompras
 
 Public Class frmEditCompra
     Private list As List(Of ItemAcquisition)
+    Private ListProductProvider As List(Of ItemProductsPurchases)
     Private IdProveedor As Integer
     Public dt As DataTable
     Private customersBindingSource As New Windows.Forms.BindingSource()
     Private customerList As BindingList(Of ItemAcquisition)
+    Private isLoated As Boolean
 
     Public Enum Estado
         Unitario = 0
@@ -22,10 +26,11 @@ Public Class frmEditCompra
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         customerList = New BindingList(Of ItemAcquisition)
+        ListProductProvider = New List(Of ItemProductsPurchases)
+
         For Each item In _list
             Me.customerList.Add(item)
         Next
-
         Me.IdProveedor = _idProveedor
     End Sub
 
@@ -167,6 +172,35 @@ Public Class frmEditCompra
         'Carga_Datos()
         IntializaDataVew()
         'Carga_Datos2()
+        Load_ProductList()
+        isLoated = True
+    End Sub
+    Private Sub Load_ProductList()
+        Try
+            Me.ListProductProvider.Clear()
+            Using db As New DataContext
+                Dim listData = (From p In db.Productos
+                                Join pp In db.ProductoPresentacion On p.idProducto Equals pp.idProducto)
+
+                For Each item In listData
+
+                    ListProductProvider.Add(New ItemProductsPurchases With
+                             {
+                              .CodProducto = item.pp.codProducto,
+                              .CostoTotal = item.pp.precioCompra,
+                              .idPresentacion = item.pp.idPresentacion,
+                              .idProducto = item.p.idProducto,
+                              .ItIsExpirable = item.p.ItIsExpirable,
+                              .ivaPorcentaje = item.p.ivaPorcentaje,
+                              .NomComercial = item.p.Nom_Comercial & " [" & item.pp.Presentacion & "]"
+                            })
+                Next
+
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub IntializaDataVew()
@@ -228,13 +262,14 @@ Public Class frmEditCompra
     End Sub
 
     Private Sub DataGridView1_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellValueChanged
-        If e.ColumnIndex = -1 Or e.RowIndex = -1 Then
+        If e.ColumnIndex = -1 Or e.RowIndex = -1 Or Not isLoated Then
             Return
         End If
-
         SumaTotal()
 
         Return
+
+
         Dim IvaPor As Double = 0
         Dim IvaReal As Double = 0
         Dim Ptotals As Double = 0
@@ -323,16 +358,16 @@ Public Class frmEditCompra
             End If
 
             Dim data As String() = Split(sql, vbNewLine)
-
-
             Dim columnEdit As String = String.Empty
             Select Case Flag.value__
                 Case Estado.Unitario
-                    columnEdit = "P/Unitario"
+                    columnEdit = UnitPriceClm.Name
                 Case Estado.Total
-                    columnEdit = "P/Total"
+                    columnEdit = TotalParcialClm.Name
                 Case Estado.AddNew
                     columnEdit = "idPresent"
+                Case Estado.EditCount
+                    columnEdit = CountClm.Name
             End Select
             If String.IsNullOrWhiteSpace(columnEdit) Then
                 Return
@@ -347,12 +382,12 @@ Public Class frmEditCompra
                                 .IdPresent = data(i)
                                  })
                     Next
-                    UpdateProductView()
+                    Update_controls()
                     Return
             End Select
 
-            For i = 0 To data.Length - 1
-                DataGridView1.Rows(i).Cells(DataGridView1.Columns(columnEdit).Index).Value = data(i)
+            For i = 0 To data.Count - 2
+                DataGridView1.Rows(i).Cells(columnEdit).Value = data(i).ToString
             Next
 
         Catch ex As Exception
@@ -360,32 +395,19 @@ Public Class frmEditCompra
         End Try
     End Sub
 
-    Private Sub UpdateProductView()
-        'Dim listData As IList
+    Private Sub Update_controls()
 
-        Try
-            Using db As New DataContext
-                Dim listData = (From p In db.Productos
-                                Join pp In db.ProductoPresentacion On p.idProducto Equals pp.idProducto).ToList()
-
-
-                If listData Is Nothing Then
-                    MsgBox("No puedo actualizar los datos ", MsgBoxStyle.Exclamation, "Importante")
-                    Return
-                End If
-
-                For Each row As DataGridViewRow In Me.DataGridView1.Rows
-                    Dim data = listData.Where(Function(x) x.pp.idPresentacion = row.Cells(idPresentClm.Index).Value).FirstOrDefault()
-                    If Not data Is Nothing Then
-                        row.Cells(ProductoClm.Index).Value = data.p.Nom_Comercial & " " & data.pp.PresentacionPrint
-                    End If
-                Next
-            End Using
-        Catch ex As Exception
-            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-        End Try
-
+        For Each item In Me.customerList
+            Dim data = Me.ListProductProvider.Where(Function(x) x.idPresentacion = item.IdPresent).FirstOrDefault()
+            If Not data Is Nothing Then
+                item.Producto = data.NomComercial
+                item.IdProducto = data.idProducto
+                item.Codigo = data.CodProducto
+                item.IvaPercent = data.ivaPorcentaje
+                item.IsExpirate = data.ItIsExpirable
+                item.UnitPrice = data.CostoTotal
+            End If
+        Next
     End Sub
-
 End Class
 

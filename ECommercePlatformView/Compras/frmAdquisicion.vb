@@ -76,6 +76,20 @@ Public Class frmAdquisicion
 
         ProductoClm.AspectGetter = Function(ByVal x As Object) (CType(x, ItemAcquisition)).Producto
 
+        ProductoClm.ImageGetter = Function(ByVal row As Object)
+                                      Dim p As ItemAcquisition = CType(row, ItemAcquisition)
+                                      If Not IsNothing(p) Then
+                                          If p.IvaPercent > 0 Then
+                                              Return 19
+                                          Else
+                                              Return -1
+                                          End If
+                                      Else
+                                          Return -1
+                                      End If
+                                  End Function
+
+
         DateExpireClm.DataType = GetType(Date)
         DateExpireClm.AspectGetter = Function(ByVal row As Object)
                                          Dim p As ItemAcquisition = CType(row, ItemAcquisition)
@@ -204,7 +218,7 @@ inicia:
                 Using dt As New ProductosByProviderDataTable
                     dat.Fill(dt, Me.id_proveedor)
                     Me.dt = dt
-                    ListProductProvider = dt.ToList
+                    ListProductProvider = dt.ToList()
                 End Using
             End Using
             With cmbItemProducto
@@ -227,18 +241,28 @@ inicia:
     Private Sub btnVerProducto_Click(sender As System.Object, e As System.EventArgs) Handles btnVerProducto.Click
         validaItem_Producto()
         If validado Then
-            Dim idProducto As Integer = cmbItemProducto.Items(cmbItemProducto.SelectedIndex).item("idProducto").ToString
-            Using adminProduct As New MDI_AddProductos(stateOperation.Update, idProducto, idProveedor:=id_proveedor)
+            Try
+                Dim idProducto As Integer = cmbItemProducto.Items(cmbItemProducto.SelectedIndex).item("idProducto").ToString
+                Dim idPresent As Integer = cmbItemProducto.Items(cmbItemProducto.SelectedIndex).item("idPresentacion").ToString
+                Using adminProduct As New MDI_AddProductos(stateOperation.Update, idProducto, idProveedor:=id_proveedor)
 
-                adminProduct.ShowDialog()
-                If adminProduct.DialogResult = DialogResult.OK Then
-                    Carga_Item_Productos(id_proveedor, adminProduct.IdPresent_SeCompra)
-                    cmbItemProducto.SelectedValue = adminProduct.IdPresent_SeCompra
-                    If Me.cmbItemProducto.SelectedIndex >= 0 Then
-                        txtCantidad.Focus()
+                    adminProduct.ShowDialog()
+                    If adminProduct.DialogResult = DialogResult.OK Then
+                        Carga_Item_Productos(id_proveedor, adminProduct.IdPresent_SeCompra)
+                        If adminProduct.IdPresent_SeCompra = 0 Then
+                            cmbItemProducto.SelectedValue = idPresent
+                        Else
+                            cmbItemProducto.SelectedValue = adminProduct.IdPresent_SeCompra
+                        End If
+                        If Me.cmbItemProducto.SelectedIndex >= 0 Then
+                            txtCantidad.Focus()
+                        End If
                     End If
-                End If
-            End Using
+                End Using
+            Catch ex As Exception
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            End Try
+
         End If
     End Sub
 
@@ -464,11 +488,14 @@ inicia:
 
             Cant = txtCantidad.Text
             PUnt = cmbItemProducto.Items(cmbItemProducto.SelectedIndex)("CostoTotal").ToString()
+            IvaPor = cmbItemProducto.Items(cmbItemProducto.SelectedIndex)("ivaPorcentaje").ToString()
             Ptotals = FormatNumber(Cant * PUnt, 5)
 
-            If IvaCheckBox.Checked Then
-                IvaReal = FormatNumber(Ptotals - (Ptotals / (1 + IvaPor)), 2)
+            If IsIncludeIvaCheckBox.Checked Then
+                IvaReal = FormatNumber(Ptotals - (FormatNumber(Ptotals / (1 + IvaPor), 5)), 5)
             Else
+                PUnt -= FormatNumber(PUnt - (FormatNumber(PUnt / (1 + IvaPor), 5)), 5)
+                Ptotals = FormatNumber(Cant * PUnt, 5)
                 IvaReal = Ptotals * IvaPor
             End If
 
@@ -481,7 +508,8 @@ inicia:
                 .Count = txtCantidad.Text,
                 .Codigo = cmbItemProducto.Items(cmbItemProducto.SelectedIndex)("codProducto").ToString(),
                 .IdProducto = cmbItemProducto.Items(cmbItemProducto.SelectedIndex)("idProducto").ToString(),
-                .IsIncludeIva = IvaCheckBox.Checked,
+                .IsIncludeIva = IsIncludeIvaCheckBox.Checked,
+                .IsRountIva = Me.RountIvaCheckBox.Checked,
                 .IsValitedUnitPrice = Me.IsValitedUnitPriceCheckBox.Checked,
                 .IsExpirate = cmbItemProducto.Items(cmbItemProducto.SelectedIndex)("ItIsExpirable").ToString(),'ItIsExpirable
                 .IvaPercent = cmbItemProducto.Items(cmbItemProducto.SelectedIndex)("ivaPorcentaje").ToString(),
@@ -553,7 +581,7 @@ inicia:
 
             'precio unitario  [3] CostoTotal
             PUnt = cmbItemProducto.Items(cmbItemProducto.SelectedIndex)("CostoTotal").ToString
-            If Not IvaCheckBox.Checked Then
+            If Not IsIncludeIvaCheckBox.Checked Then
                 PUnt = FormatNumber(PUnt / (1 + IvaPor), 5)
             End If
             Me.ListView1.Items.Item(Filas).SubItems.Add(PUnt)
@@ -563,7 +591,7 @@ inicia:
 
             'EL COSTO YA INCLUYE IVA
             Ptotals = FormatNumber(Cant * PUnt, 5)
-            If IvaCheckBox.Checked Then
+            If IsIncludeIvaCheckBox.Checked Then
                 'valor de iva  [5]
                 ListView1.Items.Item(Filas).SubItems.Add(FormatNumber(Ptotals - (Ptotals / (1 + IvaPor)), 2))
                 'P/Total   [6]
@@ -629,10 +657,10 @@ inicia:
             With ListView1
                 IvaPor = .Items(items).SubItems(IvaPercentClm.Index).Text
                 Ptotals = .Items(items).SubItems(TotalParcialClm.Index).Text
-                If Not DescueCheckBox.Checked Then
+                If Not IsIncludeDiscountCheckBox.Checked Then
                     Ptotals -= .Items(items).SubItems(DiscountClm.Index).Text
                 End If
-                If IvaCheckBox.Checked Then
+                If IsIncludeIvaCheckBox.Checked Then
                     .Items(items).SubItems(IvaClm.Index).Text = FormatNumber(Ptotals - (Ptotals / (1 + IvaPor)), 5)
                 Else
                     .Items(items).SubItems(IvaClm.Index).Text = FormatNumber(Ptotals * IvaPor, 5)
@@ -693,6 +721,7 @@ inicia:
 
             IvaReal = Aggregate item In listAcquisition
                           Into Sum(item.Iva)
+
             Bas0 = Aggregate item In listAcquisition
                        Where item.IvaPercent = 0
                           Into Sum(item.TotalParcial)
@@ -709,33 +738,38 @@ inicia:
                        Where item.IvaPercent > 0
                           Into Sum(item.Discount)
 
-            If Not DescueCheckBox.Checked Then
+            If Not IsIncludeDiscountCheckBox.Checked Then
                 Bas0 -= Desc0
                 Bas12 -= Desc12
             End If
 
 
-            If Not IvaCheckBox.Checked Then
-
+            If IsIncludeIvaCheckBox.Checked Then
+                Bas12 -= IvaReal
             End If
 
-            IvaReal = Aggregate item In listAcquisition
-                          Into Sum(item.Iva)
 
-            Bas0 = FormatNumber(Bas0, txtLugarDecimal.Text)
-            Bas12 = FormatNumber(Bas12, txtLugarDecimal.Text)
-            IvaReal = FormatNumber(IvaReal, txtLugarDecimal.Text)
+            IvaReal = FormatNumber(IvaReal, 2)
 
-            Bas0text.Text = FormatNumber(Bas0, txtLugarDecimal.Text)
-            Bas12text.Text = FormatNumber(Bas12, txtLugarDecimal.Text)
-            TotalBasText.Text = FormatNumber(Bas0 + Bas12, txtLugarDecimal.Text)
+            Bas0 = FormatNumber(Bas0, 2)
+
+            Bas12 = FormatNumber(Bas12, 2)
+
+            Desc0 = FormatNumber(Desc0, 2)
+
+            Desc12 = FormatNumber(Desc12, 2)
+
+
+            Bas0text.Text = FormatNumber(Bas0, 2)
+            Bas12text.Text = FormatNumber(Bas12, 2)
+            TotalBasText.Text = FormatNumber(Bas0 + Bas12, 2)
             ' en los detalles
             DescBase0Text.Text = "[" & Bas0 + Desc0 & "] - [Desc:" & Desc0 & "]"
             DescBase12Text.Text = "[" & Bas12 + Desc12 & "] - [Desc:" & Desc12 & "]"
             TotalBase.Text = "[" & Bas0 + Bas12 + Desc0 + Desc12 & "] - [Desc:" & Desc0 + Desc12 & "]"
             '-----total
-            IvaText.Text = FormatNumber(IvaReal, txtLugarDecimal.Text)
-            TotalPediText.Text = FormatNumber(Bas0 + Bas12 + IvaReal, txtLugarDecimal.Text)
+            IvaText.Text = FormatNumber(IvaReal, 2)
+            TotalPediText.Text = FormatNumber(Bas0 + Bas12 + IvaReal, 2)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -835,7 +869,7 @@ inicia:
                         cmd.Parameters("@DateExpire").Value = If(item.DateExpire = Date.MinValue, DBNull.Value, item.DateExpire)
 
 
-                        If IvaCheckBox.Checked Then
+                        If IsIncludeIvaCheckBox.Checked Then
                             cmd.Parameters("@SubTotal").Value = (Ptotals + Descuen) - IvaReal
                             cmd.Parameters("@Total").Value = Ptotals
                         Else
@@ -1011,8 +1045,8 @@ inicia:
                 End If
                 txtIdFormaPago.Text = 0
                 txtDetailpago.Text = ""
+                Me.ListView1.RemoveObjects(Me.listAcquisition)
                 Me.listAcquisition.Clear()
-                Me.ListView1.RefreshObjects(listAcquisition)
                 Inicia_Catalogo()
                 Me.FechaPedidoDatatime.Focus()
             End If
@@ -1105,7 +1139,7 @@ inicia:
                         sql = sql & "Teléfono:" & .dataListado.SelectedCells.Item(4).Value & vbNewLine
                         txtProveedorDetail.Text = sql
                         ListView1.Items.Clear()
-                        IvaCheckBox.Checked = .dataListado.SelectedCells.Item(5).Value
+                        IsIncludeIvaCheckBox.Checked = .dataListado.SelectedCells.Item(5).Value
                     End If
                     Me.FechaPedidoDatatime.Focus()
                 End With
@@ -1163,25 +1197,13 @@ inicia:
     End Sub
 
     Private Sub MoveDowButton_Click(sender As Object, e As EventArgs) Handles MoveDowButton.Click
-        If ListView1.Items.Count = 0 Then Return
-        If ListView1.SelectedItems.Count = 0 Then Return
-
-        Dim item As ListViewItem = ListView1.SelectedItems(0)
-        If item.Index = (ListView1.Items.Count - 1) Then
-            ListView1.Focus()
-            Return
-        End If
-        Dim pos As Integer = item.Index + 1
-        ListView1.Items.RemoveAt(item.Index)
-        ListView1.Items.Insert(pos, item)
-        ListView1.Focus()
-        ListView1.Items(pos).Selected = True
+    
     End Sub
 
-    Private Sub IvaCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles IvaCheckBox.CheckedChanged
+    Private Sub IvaCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles IsIncludeIvaCheckBox.CheckedChanged
 
         For Each item In Me.listAcquisition
-            item.IsIncludeIva = IvaCheckBox.Checked
+            item.IsIncludeIva = IsIncludeIvaCheckBox.Checked
         Next
         Me.ListView1.SetObjects(listAcquisition)
         ' Calcula_Total()
@@ -1195,8 +1217,8 @@ inicia:
             Using fornew As New frmEditCompra(Me.listAcquisition, Me.id_proveedor)
                 With fornew
                     ._flag = frmEditCompra.Estado.Unitario
-                    .ivaCheckBox.Checked = IvaCheckBox.Checked
-                    .descCheckBox.Checked = DescueCheckBox.Checked
+                    .ivaCheckBox.Checked = IsIncludeIvaCheckBox.Checked
+                    .descCheckBox.Checked = IsIncludeDiscountCheckBox.Checked
                     .ShowDialog()
                     If .DialogResult = DialogResult.OK Then
                         Copio_DatosdelLidtado(.DataGridView1)
@@ -1221,9 +1243,9 @@ inicia:
         End If
     End Sub
 
-    Private Sub DescueCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles DescueCheckBox.CheckedChanged
+    Private Sub DescueCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles IsIncludeDiscountCheckBox.CheckedChanged
         For Each item In Me.listAcquisition
-            If DescueCheckBox.Checked Then
+            If IsIncludeDiscountCheckBox.Checked Then
 
             End If
         Next
@@ -1249,8 +1271,8 @@ inicia:
             Using fornew As New frmEditCompra(Me.listAcquisition, Me.id_proveedor)
                 With fornew
                     ._flag = frmEditCompra.Estado.Total
-                    .ivaCheckBox.Checked = IvaCheckBox.Checked
-                    .descCheckBox.Checked = DescueCheckBox.Checked
+                    .ivaCheckBox.Checked = IsIncludeIvaCheckBox.Checked
+                    .descCheckBox.Checked = IsIncludeDiscountCheckBox.Checked
                     .ShowDialog()
                     If .DialogResult = DialogResult.OK Then
                         Copio_DatosdelLidtado(fornew.DataGridView1)
@@ -1274,6 +1296,7 @@ inicia:
             For Each item In Me.listAcquisition
                 Dim itemdata = lis.Where(Function(x) x.ID = item.ID).FirstOrDefault()
                 If Not itemdata Is Nothing Then
+                    item.Count = itemdata.Count
                     item.UnitPrice = itemdata.UnitPrice
                     item.TotalParcial = itemdata.TotalParcial
                 End If
@@ -1485,24 +1508,47 @@ inicia:
 
     Private Sub AddNewListButton_Click(sender As Object, e As EventArgs) Handles AddNewListButton.Click
         Try
-            For Each item In Me.listAcquisition
-                item.IsValitedUnitPrice = True
-            Next
             Using fornew As New frmEditCompra(Me.listAcquisition, Me.id_proveedor)
                 With fornew
                     ._flag = frmEditCompra.Estado.AddNew
-                    .ivaCheckBox.Checked = IvaCheckBox.Checked
-                    .descCheckBox.Checked = DescueCheckBox.Checked
+                    .ivaCheckBox.Checked = IsIncludeIvaCheckBox.Checked
+                    .descCheckBox.Checked = IsIncludeDiscountCheckBox.Checked
                     .ShowDialog()
                     If .DialogResult = DialogResult.OK Then
                         Me.listAcquisition.Clear()
-
                         For Each itm In .DataGridView1.DataSource
                             listAcquisition.Add(itm)
                         Next
-                        ActualizarButton.PerformClick()
+                        For Each itm In listAcquisition
+                            itm.IsIncludeIva = Me.IsIncludeIvaCheckBox.Checked
+                            itm.IsIncludeDiscount = Me.IsIncludeDiscountCheckBox.Checked
+                            itm.IsValitedUnitPrice = Me.IsValitedUnitPriceCheckBox.Checked
+                            itm.IsRountIva = Me.RountIvaCheckBox.Checked
+                            If Not IsIncludeIvaCheckBox.Checked Then
+                                IvaReal = FormatNumber(itm.UnitPrice - (FormatNumber(itm.UnitPrice / (1 + itm.IvaPercent), 5)), 5)
+                                itm.UnitPrice -= IvaReal
+                            End If
+                        Next
+                        Me.ListView1.SetObjects(Me.listAcquisition)
+                    End If
+                End With
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+
+    End Sub
+
+    Private Sub EditCountListButton_Click(sender As Object, e As EventArgs) Handles EditCountListButton.Click
+        Try
+            Using fornew As New frmEditCompra(Me.listAcquisition, Me.id_proveedor)
+                With fornew
+                    ._flag = frmEditCompra.Estado.EditCount
+                    .ivaCheckBox.Checked = IsIncludeIvaCheckBox.Checked
+                    .descCheckBox.Checked = IsIncludeDiscountCheckBox.Checked
+                    .ShowDialog()
+                    If .DialogResult = DialogResult.OK Then
                         Copio_DatosdelLidtado(.DataGridView1)
-                        Me.ListView1.RefreshObjects(Me.listAcquisition)
                     End If
                 End With
             End Using
@@ -1540,18 +1586,7 @@ inicia:
     End Sub
 
     Private Sub MoveUPButton_Click(sender As Object, e As EventArgs) Handles MoveUPButton.Click
-        If ListView1.Items.Count = 0 Then Return
-        If ListView1.SelectedItems.Count = 0 Then Return
-        Dim item As ListViewItem = ListView1.SelectedItems(0)
-        If item.Index = 0 Then
-            ListView1.Focus()
-            Return
-        End If
-        Dim pos As Integer = item.Index - 1
-        ListView1.Items.RemoveAt(item.Index)
-        ListView1.Items.Insert(pos, item)
-        ListView1.Focus()
-        ListView1.Items(pos).Selected = True
+
     End Sub
 
 
