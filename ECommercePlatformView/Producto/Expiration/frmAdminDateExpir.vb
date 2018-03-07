@@ -86,11 +86,11 @@ Public Class frmAdminDateExpir
                     ListBodegaComboBox.DataSource = dt.ToList()
                     ListBodegaComboBox.DisplayMember = "Nom_Bodega"
                     ListBodegaComboBox.ValueMember = "idBodega"
-                    ListBodegaComboBox.SelectedIndex = TerminalActivo.idBodega
+                    ListBodegaComboBox.SelectedValue = TerminalActivo.idBodega
                 End Using
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message, vbCritical, "Error")
+            MsgBox(ex.Message & " " & ex.StackTrace, vbCritical, "Error")
         End Try
     End Sub
 
@@ -585,7 +585,7 @@ Public Class frmAdminDateExpir
             Return
         End If
         Try
-            Dim item As ProductosRow = CType(Me.ListViewProducto.SelectedObject(), ProductosRow)
+            Dim item As ProductosRow = CType(Me.ListViewProducto.SelectedObject, ProductosRow)
             If item Is Nothing Then
                 MsgBox("Seleecion un producto en el listado de la parte izquierda.")
                 Return

@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports CADsisVenta
+Imports CADsisVenta.DataSetProductos
+Imports CADsisVenta.DataSetProductosTableAdapters
 
 Public Class frmAdministrarPrecios
     Dim selectIntem As Integer = -1
@@ -8,6 +10,9 @@ Public Class frmAdministrarPrecios
     Private stateLoad As stateLoad
     Private idProducto As Integer
     Private nomProducto As String
+    Private LoadtypeData As viewLoadReport
+    Private IdFacturCompra As Integer
+
     Sub New(stateLoad As stateLoad)
 
         ' Esta llamada es exigida por el diseñador.
@@ -15,45 +20,87 @@ Public Class frmAdministrarPrecios
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         Me.stateLoad = stateLoad
+    End Sub
+    Sub New(stateLoad As stateLoad, Load_data As viewLoadReport, idFacturCompra As Integer)
 
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.stateLoad = stateLoad
+        Me.LoadtypeData = Load_data
+        Me.IdFacturCompra = idFacturCompra
     End Sub
     Private Sub frmAdministrarPrecios_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Select Case stateLoad
-            Case stateLoad.Dialogo
-                ToolStripComboBox1.SelectedIndex = 0
-                Me.PanelControls.Controls.Clear()
-                Me.PanelControls.Controls.Add(PanelAdmininPrice())
-                PanelAdmininPrice.Dock = DockStyle.Left
-                detailButton.Visible = False
-                PanelFind.Visible = False
-                newButtonPrice.Visible = False
-                paneListView.Dock = DockStyle.Fill
-                Me.CancelButton = Me.cancel_Button
-                Me.Carga_datosAdminPrice()
-            Case stateLoad.List
-                Me.PanelControls.Controls.Clear()
-                ToolStripComboBox1.SelectedIndex = 0
+        Try
+            If Not IsNothing(Me.LoadtypeData) Then
+                Select Case LoadtypeData
+                    Case viewLoadReport.Select_Id
+                        ToolStripComboBox1.SelectedIndex = 0
+                        Me.PanelControls.Controls.Clear()
+                        Me.PanelControls.Controls.Add(PanelAdmininPrice())
+                        PanelAdmininPrice.Dock = DockStyle.Left
+                        detailButton.Visible = False
+                        PanelFind.Visible = False
+                        newButtonPrice.Visible = False
+                        paneListView.Dock = DockStyle.Fill
+                        Me.CancelButton = Me.cancel_Button
+                        Load_dataWith_Id(Me.IdFacturCompra)
+                        Return
+                End Select
+            End If
 
-                Me.PanelControls.Controls.Add(PanelAdmininPrice())
-                PanelAdmininPrice.Dock = DockStyle.Left
-                Me.PanelControls.Controls.Add(Me.PanelAdminState)
-                PanelAdminState.Dock = DockStyle.Left
-                Me.PanelControls.Controls.Add(Me.PanelFind)
-                PanelFind.Dock = DockStyle.Left
-                paneListView.Dock = DockStyle.Fill
-            Case Else
-                Me.PanelControls.Controls.Clear()
-                ToolStripComboBox1.SelectedIndex = 0
+            Select Case stateLoad
+                Case stateLoad.Dialogo
+                    ToolStripComboBox1.SelectedIndex = 0
+                    Me.PanelControls.Controls.Clear()
+                    Me.PanelControls.Controls.Add(PanelAdmininPrice())
+                    PanelAdmininPrice.Dock = DockStyle.Left
+                    detailButton.Visible = False
+                    PanelFind.Visible = False
+                    newButtonPrice.Visible = False
+                    paneListView.Dock = DockStyle.Fill
+                    Me.CancelButton = Me.cancel_Button
+                    Me.Carga_datosAdminPrice()
+                Case stateLoad.List
+                    Me.PanelControls.Controls.Clear()
+                    ToolStripComboBox1.SelectedIndex = 0
 
-                Me.PanelControls.Controls.Add(PanelAdmininPrice())
-                PanelAdmininPrice.Dock = DockStyle.Left
-                Me.PanelControls.Controls.Add(Me.PanelAdminState)
-                PanelAdminState.Dock = DockStyle.Left
-                Me.PanelControls.Controls.Add(Me.PanelFind)
-                PanelFind.Dock = DockStyle.Left
-                paneListView.Dock = DockStyle.Fill
-        End Select
+                    Me.PanelControls.Controls.Add(PanelAdmininPrice())
+                    PanelAdmininPrice.Dock = DockStyle.Left
+                    Me.PanelControls.Controls.Add(Me.PanelAdminState)
+                    PanelAdminState.Dock = DockStyle.Left
+                    Me.PanelControls.Controls.Add(Me.PanelFind)
+                    PanelFind.Dock = DockStyle.Left
+                    paneListView.Dock = DockStyle.Fill
+                Case Else
+                    Me.PanelControls.Controls.Clear()
+                    ToolStripComboBox1.SelectedIndex = 0
+
+                    Me.PanelControls.Controls.Add(PanelAdmininPrice())
+                    PanelAdmininPrice.Dock = DockStyle.Left
+                    Me.PanelControls.Controls.Add(Me.PanelAdminState)
+                    PanelAdminState.Dock = DockStyle.Left
+                    Me.PanelControls.Controls.Add(Me.PanelFind)
+                    PanelFind.Dock = DockStyle.Left
+                    paneListView.Dock = DockStyle.Fill
+            End Select
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        Finally
+            Cursor = Cursors.Default
+        End Try
     End Sub
+
+    Private Sub Load_dataWith_Id(idFacturCompra As Integer)
+        Using dat As New pcdGetListProductAdminPriceWithPurcharseTableAdapter
+            Using dt As New pcdGetListProductAdminPriceWithPurcharseDataTable
+                dat.Fill(dt, Me.IdFacturCompra, UsuarioActivo.codUser, TerminalActivo.codTerminal)
+                ViewAdminPrici(dt)
+            End Using
+        End Using
+    End Sub
+
     Public Function Carga_datosAdminPrice() As Boolean
         Dim dt As New DataTable
         Try
@@ -100,7 +147,11 @@ Public Class frmAdministrarPrecios
             Dim columnHeader0 As ColumnHeader
             Dim Grupo As Integer = 0
             Dim GrupoUltimo As Integer = 0
+
             If dt.Rows.Count Then
+                Dim view As DataView = New DataView(dt)
+                view.Sort = "Nom_Comercial, Empaquetado"
+                dt = view.ToTable
                 For i = 0 To dt.Rows.Count - 1
                     Grupo = dt(i)("idProducto").ToString
                     'creamos las columnas

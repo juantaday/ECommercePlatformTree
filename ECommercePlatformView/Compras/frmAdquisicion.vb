@@ -1382,8 +1382,6 @@ inicia:
         Dim lit As New List(Of ProductosByProviderRow)
         Try
             Dim response = GenerateSpliter(text)
-
-
             If response.IsSucces Then
                 Select Case response.Spliter.Count
                     Case 1
@@ -1392,9 +1390,10 @@ inicia:
                         Dim li1 = ListProductProvider.Where(Function(x) x.NomComercial.ToUpper().Contains(response.Spliter(0).ToUpper())).ToList()
                         lit = li1.Where(Function(x) x.NomComercial.ToUpper().Contains(response.Spliter(1).ToUpper())).ToList()
                     Case 3
-
+                        Dim li1 = ListProductProvider.Where(Function(x) x.NomComercial.ToUpper().Contains(response.Spliter(0).ToUpper())).ToList()
+                        Dim li2 = li1.Where(Function(x) x.NomComercial.ToUpper().Contains(response.Spliter(1).ToUpper())).ToList()
+                        lit = li2.Where(Function(x) x.NomComercial.ToUpper().Contains(response.Spliter(2).ToUpper())).ToList()
                     Case Else
-
 
                 End Select
             End If
@@ -1557,7 +1556,6 @@ inicia:
         End Try
 
     End Sub
-
     Private Sub AtrasButtonFactur_Click(sender As Object, e As EventArgs) Handles AtrasButtonFactur.Click
         tabcontrol.TabPages(0).Enabled = False
         tabcontrol.TabPages(1).Enabled = True

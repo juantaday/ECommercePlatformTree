@@ -26,7 +26,7 @@ namespace CADsisVenta.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=JSofwareCommerceDB03;Persist Security In" +
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\sqlexpress;Initial Catalog=JSofwareCommerceDB03;Persist Security In" +
             "fo=True;User ID=JsofUserAdmin;Password=1234567890")]
         public string JsofConneccionString {
             get {

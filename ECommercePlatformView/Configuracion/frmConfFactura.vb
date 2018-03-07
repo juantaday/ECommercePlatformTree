@@ -6,16 +6,20 @@ Public Class frmConfFactura
     Private idTerminal As Integer
     Private idTerminalConfig As Integer
     Private Sub frmConfFactura_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        idTerminal = GetIdTerminal(Dominio._HotName)
-        idTerminalConfig = 0
-        If Not (idTerminal = 0) Then
-            Carga_DocumentList()
-            Carga_Domicio()
-        Else
-            MsgBox("Registre este equipo mediante la opcion Herraminetas-Registro equipo ", MsgBoxStyle.Critical, "Importante")
-            Me.OK_Button.Enabled = False
-        End If
+        Try
+            idTerminal = GetIdTerminal(Dominio._HotName)
+            idTerminalConfig = 0
+            If Not (idTerminal = 0) Then
+                Carga_DocumentList()
+                Carga_Domicio()
+            Else
+                MsgBox("Registre este equipo mediante la opcion Herraminetas-Registro equipo ", MsgBoxStyle.Critical, "Importante")
+                Me.OK_Button.Enabled = False
+            End If
+            DocumentListBox_SelectedIndexChanged(DocumentListBox, New EventArgs)
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, vbCritical, "Error")
+        End Try
     End Sub
 
     Private Sub Carga_Domicio()

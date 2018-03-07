@@ -13,6 +13,7 @@ Public Class frmList_ProductoView
 
     Protected Friend id_proveedor As Integer
     Protected Friend id_Producto As Integer
+    Public Property id_Present As Integer
     Public Property Nom_comercial As String
     Protected Friend id_Product_return As Integer
     Protected Friend flag As String
@@ -116,8 +117,11 @@ Public Class frmList_ProductoView
     End Sub
 
     Private Sub btnOk_Click(sender As System.Object, e As System.EventArgs) Handles btnOk.Click
-        Me.DialogResult = DialogResult.OK
-        Me.Close()
+        If Me.IsSelectedRow() Then
+            Me.DialogResult = DialogResult.OK
+            Me.Close()
+        End If
+
     End Sub
     Private Sub datalistado_CellDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
         If datalistado.SelectedRows.Count = 1 Then
@@ -190,11 +194,8 @@ Public Class frmList_ProductoView
         End Try
     End Sub
 
-    Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles datalistado.CellClick
-        Me.id_Producto = 0
-        If Me.datalistado.SelectedRows.Count = 1 Then
-            Me.id_Producto = datalistado.SelectedCells.Item(datalistado.Columns("idProducto").Index).Value
-        End If
+    Private Sub datalistado_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -224,7 +225,9 @@ Public Class frmList_ProductoView
             Next
             If i = 1 Then
                 Me.id_Producto = RowSelect.Item(0).Cells(0).Value
+                Me.id_Present = RowSelect.Item(0).Cells("idPresentacion").Value.ToString()
                 Me.Nom_comercial = RowSelect.Item(0).Cells("Nom_Comun").Value.ToString()
+                '
                 Return True
             End If
             Return False

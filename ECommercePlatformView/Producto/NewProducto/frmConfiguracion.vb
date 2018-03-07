@@ -153,7 +153,7 @@ Public Class frmConfiguracion
         Try
             Using cnn As New SqlConnection(SimpleDataApp.Utility.GetConnectionString())
                 cnn.Open()
-                sql = "Select m.idProUndMed, m.Nom_Medida + ' ['+ p.Presentacion+']' as nombre,  
+                sql = "Select p.idPresentacion, m.idProUndMed, m.Nom_Medida + ' ['+ p.Presentacion+']' as nombre,  
                 m.Medida from ProductoPresentacion  as p 
                 inner Join ProductoUndMedida as m
                 On m.idProUndMed = p.idProUndMed
@@ -261,6 +261,9 @@ Public Class frmConfiguracion
         If validaDatos() Then
             If Update_SeCompra_SeVende() Then
                 If UpdateVerBodega() Then
+                    If myPadre.Id_Proveedor > 0 Then
+                        SaveDefaultProvider()
+                    End If
                     If myPadre.Estado And myPadre.lblProdcutodesc.Text.Contains("Agregando") Then
                         With myPadre
                             .menuDetalle.Enabled = True
@@ -293,27 +296,30 @@ Public Class frmConfiguracion
 
     Private Sub SaveDefaultProvider()
         Try
+            If seCompraCombobox.SelectedIndex = -1 Then
+                Return
+            End If
+            myPadre.IdPresent_SeCompra = seCompraCombobox.SelectedItem("idPresentacion").ToString()
+
             Using db As New DataContext
-                Dim idseCompar? As Integer = seCompraCombobox.SelectedValue
+                Dim productProvider = db.ProductoProveedor.Where(
+                    Function(x) x.idPresentacion = myPadre.IdPresent_SeCompra _
+                    And x.idProveedor = myPadre.Id_Proveedor).FirstOrDefault()
 
-                Dim idPresentacion? As Integer = db.ProductoPresentacion.Where(Function(x) x.idProducto = myPadre.Id_Producto And x.idProUndMed = idseCompar).FirstOrDefault().idPresentacion
-
-                myPadre.IdPresent_SeCompra = idPresentacion
-
-
-                Dim _ProductoProveedor As New ProductoProveedor With
-                {
-                    .CostoTotal = 0,
-                    .Fech_Compra = Date.Now(),
-                    .idPresentacion = idPresentacion,
-                    .idProveedor = myPadre.Id_Proveedor
-                }
-                db.ProductoProveedor.InsertOnSubmit(_ProductoProveedor)
-                db.SubmitChanges()
-
+                If productProvider Is Nothing Then
+                    Dim _ProductoProveedor As New ProductoProveedor With
+               {
+                   .CostoTotal = 0,
+                   .Fech_Compra = Date.Now(),
+                   .idPresentacion = myPadre.IdPresent_SeCompra,
+                   .idProveedor = myPadre.Id_Proveedor
+               }
+                    db.ProductoProveedor.InsertOnSubmit(_ProductoProveedor)
+                    db.SubmitChanges()
+                End If
             End Using
         Catch ex As Exception
-
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 

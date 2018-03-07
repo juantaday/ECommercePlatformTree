@@ -142,34 +142,32 @@
     <Reference Include="itextsharp">
       <HintPath>..\BarcodeDLL\itextsharp.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Design, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design.resources, Version=12.0.0.0, Culture=de, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.Design.resources.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.resources.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms.resources, Version=12.0.0.0, Culture=de, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ECommercePlatform\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.340.80\lib\net40\Microsoft.ReportViewer.WinForms.resources.dll</HintPath>
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.resources.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.SqlServer.Types, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\ECommercePlatform\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
@@ -208,7 +206,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Balance\frmBalanceGeneral.designer.vb">
       <DependentUpon>frmBalanceGeneral.vb</DependentUpon>
     </Compile>
@@ -522,6 +519,12 @@
     <Compile Include="Compras\frmImput_Consumo.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Compras\frmListFacturPurchases.Designer.vb">
+      <DependentUpon>frmListFacturPurchases.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\frmListFacturPurchases.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Compras\frmListPedido.Designer.vb">
       <DependentUpon>frmListPedido.vb</DependentUpon>
     </Compile>
@@ -703,11 +706,6 @@
     <Compile Include="Inicio\SplashScreen1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="JSofwareCommerceDB02DataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JSofwareCommerceDB02DataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Logica\AdminControles.vb" />
     <Compile Include="Logica\cModule.vb" />
     <Compile Include="Logica\detailControl.vb">
@@ -730,6 +728,7 @@
     <Compile Include="Models\ItemCajaStado.vb" />
     <Compile Include="Models\ItemOwner.vb" />
     <Compile Include="Models\ItemPerson.vb" />
+    <Compile Include="Models\ItemProductCombined.vb" />
     <Compile Include="Models\ItemProductsPurchases.vb" />
     <Compile Include="Models\ItemSettingOptionPrint.vb" />
     <Compile Include="Models\ItemSobrantes.vb" />
@@ -823,6 +822,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Producto\ClassProducto.vb" />
+    <Compile Include="Producto\Conbined\frmProductConbined.Designer.vb">
+      <DependentUpon>frmProductConbined.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Conbined\frmProductConbined.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Producto\Expiration\frmAddNewDateExpir.Designer.vb">
       <DependentUpon>frmAddNewDateExpir.vb</DependentUpon>
     </Compile>
@@ -1368,6 +1373,9 @@
     <EmbeddedResource Include="Compras\frmImput_Consumo.resx">
       <DependentUpon>frmImput_Consumo.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Compras\frmListFacturPurchases.resx">
+      <DependentUpon>frmListFacturPurchases.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmListPedido.resx">
       <DependentUpon>frmListPedido.vb</DependentUpon>
     </EmbeddedResource>
@@ -1494,6 +1502,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Ajustes\frmSubCategoryRates.resx">
       <DependentUpon>frmSubCategoryRates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Conbined\frmProductConbined.resx">
+      <DependentUpon>frmProductConbined.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Expiration\frmAddNewDateExpir.resx">
       <DependentUpon>frmAddNewDateExpir.vb</DependentUpon>
@@ -1706,17 +1717,6 @@
     <None Include="bin\Debug\ECommercePlatformView.exe.config" />
     <None Include="bin\Debug\ECommercePlatformView.vshost.exe.config" />
     <None Include="bin\Debug\ECommercePlatformView.vshost.exe.manifest" />
-    <None Include="JSofwareCommerceDB02DataSet.xsc">
-      <DependentUpon>JSofwareCommerceDB02DataSet.xsd</DependentUpon>
-    </None>
-    <None Include="JSofwareCommerceDB02DataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>JSofwareCommerceDB02DataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="JSofwareCommerceDB02DataSet.xss">
-      <DependentUpon>JSofwareCommerceDB02DataSet.xsd</DependentUpon>
-    </None>
     <None Include="My Project\app.manifest">
       <SubType>Designer</SubType>
     </None>
@@ -1796,6 +1796,22 @@
     <Content Include="Resources\AddItem_32x32.png" />
     <Content Include="Resources\AddItem_Black_32x32.png" />
     <Content Include="Resources\addListNew_48.png" />
+    <None Include="Resources\Count_201.png" />
+    <None Include="Resources\SettingRed_32.png" />
+    <Content Include="SqlServerTypes\Loader.cs" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
     <None Include="Resources\AddList_32.png" />
     <None Include="Resources\AddList_20.png" />
@@ -1992,6 +2008,7 @@
     <Content Include="Resources\Like_32.png" />
     <Content Include="Resources\list-48.png" />
     <Content Include="Resources\ListPedido_48.png" />
+    <None Include="Resources\ListPurcharses.png" />
     <Content Include="Resources\ListTerminal_48.png" />
     <Content Include="Resources\List_32x32.png" />
     <Content Include="Resources\list_48.png" />
@@ -2201,10 +2218,6 @@
       <Project>{399aae71-3afc-4ff3-ada1-5cced6ed74d6}</Project>
       <Name>DGVPrinterHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\ECommercePlatformTwo\LibPrintTicket\LibPrintTicket.csproj">
-      <Project>{6e9ce6bc-fa36-48fb-b592-56e4f440e61b}</Project>
-      <Name>LibPrintTicket</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\ECommercePlatformTwo\MultiColumnComboSuggestionBox\MultiColumnComboSuggestionBox.csproj">
       <Project>{f2127f73-480e-4841-944c-d1e9db1ebc25}</Project>
       <Name>MultiColumnComboSuggestionBox</Name>
@@ -2212,6 +2225,11 @@
     <ProjectReference Include="..\CADsisVenta\CADsisVenta.csproj">
       <Project>{a8751b79-0344-46e3-99b8-9d92418ec0c5}</Project>
       <Name>CADsisVenta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LibPrintTicket\LibPrintTicket.csproj">
+      <Project>{6e9ce6bc-fa36-48fb-b592-56e4f440e61b}</Project>
+      <Name>LibPrintTicket</Name>
+      <Private>True</Private>
     </ProjectReference>
     <ProjectReference Include="..\ObjectListView\ObjectListView2012.csproj">
       <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>

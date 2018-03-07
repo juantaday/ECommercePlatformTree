@@ -72,8 +72,9 @@ Partial Public Class WaitForTaskScreenWithCancellation
     Private Sub TaskCompleted()
         If InvokeRequired Then
             Me.Invoke(CType((Function()
-                                 Close()
+                                 Me.Close()
                                  Me.DialogResult = System.Windows.Forms.DialogResult.OK
+                                 Return vbOK
                              End Function), MethodInvoker))
         End If
         releaseCancellationTokenSource()
@@ -99,4 +100,5 @@ Partial Public Class WaitForTaskScreenWithCancellation
             MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
 End Class

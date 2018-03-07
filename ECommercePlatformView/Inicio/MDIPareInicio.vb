@@ -1073,4 +1073,28 @@ Salida:
             MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
+    Private Sub OrdenesDeCompraToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OrdenesDeCompraToolStripMenuItem.Click
+        Try
+            Dim listPurcharse As New frmListFacturPurchases()
+            With listPurcharse
+                .MdiParent = Me
+                .Show()
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub P_CompuestoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles P_CompuestoToolStripMenuItem.Click
+        Try
+            Dim listPurcharse As New frmProductConbined
+            With listPurcharse
+                .MdiParent = Me
+                .Show()
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
 End Class

@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaTableAdapter" GeneratorDataComponentClassName="FacturaVentaTableAdapter" Name="FacturaVenta" UserDataComponentName="FacturaVentaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[FacturaVenta] WHERE (([idFactVenta] = @Original_idFactVenta) AND ([Num_Factu] = @Original_Num_Factu) AND ([idCliente] = @Original_idCliente) AND ([idFormaPago] = @Original_idFormaPago) AND ([fechaDesde] = @Original_fechaDesde) AND ([fechaHasta] = @Original_fechaHasta) AND ((@IsNull_Base00Iva = 1 AND [Base00Iva] IS NULL) OR ([Base00Iva] = @Original_Base00Iva)) AND ((@IsNull_Base12Iva = 1 AND [Base12Iva] IS NULL) OR ([Base12Iva] = @Original_Base12Iva)) AND ((@IsNull_Iva = 1 AND [Iva] IS NULL) OR ([Iva] = @Original_Iva)) AND ((@IsNull_Total = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)) AND ([codUser] = @Original_codUser) AND ([Impreso] = @Original_Impreso) AND ([Estado] = @Original_Estado) AND ((@IsNull_idTypoDocument = 1 AND [idTypoDocument] IS NULL) OR ([idTypoDocument] = @Original_idTypoDocument)) AND ([OtroValor] = @Original_OtroValor) AND ([idBodega] = @Original_idBodega) AND ([codTerminal] = @Original_codTerminal))</CommandText>
@@ -141,7 +141,7 @@ SELECT idFactVenta, Num_Factu, idCliente, idFormaPago, fechaDesde, fechaHasta, B
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaDetailTableAdapter" GeneratorDataComponentClassName="FacturaVentaDetailTableAdapter" Name="FacturaVentaDetail" UserDataComponentName="FacturaVentaDetailTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.FacturaVentaDetail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.FacturaVentaDetail" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[FacturaVentaDetail] WHERE (([idFacturVentaDetail] = @Original_idFacturVentaDetail) AND ([idFacturaVenta] = @Original_idFacturaVenta) AND ([idPresent] = @Original_idPresent) AND ([Cantidad] = @Original_Cantidad) AND ((@IsNull_Prec_Venta = 1 AND [Prec_Venta] IS NULL) OR ([Prec_Venta] = @Original_Prec_Venta)) AND ([Iva] = @Original_Iva) AND ([Prec_Compra] = @Original_Prec_Compra) AND ([descuento] = @Original_descuento) AND ([tarifa] = @Original_tarifa))</CommandText>
@@ -243,7 +243,7 @@ inner join Productos as p  on p.idProducto  = pp.idProducto
 inner join ProductoUndMedida as pm on pm.idProUndMed  = pp.idProUndMed
 where((fd.idFacturaVenta=@IdFacturaVenta));</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdFacturaVenta" ColumnName="idFacturaVenta" DataSourceName="JSofwareCommerceDB02.dbo.FacturaVentaDetail" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdFacturaVenta" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idFacturaVenta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="IdFacturaVenta" ColumnName="idFacturaVenta" DataSourceName="dbo.FacturaVentaDetail" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdFacturaVenta" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idFacturaVenta" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -273,7 +273,7 @@ FROM  FacturaVenta AS f INNER JOIN
     stm.FormaPago AS fp ON f.idFormaPago = fp.idformaPago
 WHERE (f.idFactVenta = @idFacturaVenta); </CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="idFacturaVenta" ColumnName="idFactVenta" DataSourceName="JSofwareCommerceDB02.dbo.FacturaVenta" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idFacturaVenta" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idFactVenta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idFacturaVenta" ColumnName="idFactVenta" DataSourceName="dbo.FacturaVenta" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idFacturaVenta" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idFactVenta" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -310,8 +310,8 @@ s.ForeColor
 inner join stm.SettingDocument as s on s.IDPrintingTape  = o.IDPrintingTape
 where s.idBodega =@IdBodega  and s.idDocument=@IdDocument</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdBodega" ColumnName="idBodega" DataSourceName="JSofwareCommerceDB02.stm.SettingDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdBodega" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idBodega" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdDocument" ColumnName="idDocument" DataSourceName="JSofwareCommerceDB02.stm.SettingDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdDocument" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idDocument" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="IdBodega" ColumnName="idBodega" DataSourceName="stm.SettingDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdBodega" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idBodega" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="IdDocument" ColumnName="idDocument" DataSourceName="stm.SettingDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdDocument" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idDocument" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>

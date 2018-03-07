@@ -23,6 +23,7 @@
         Select_ = 0
         All = 1
         Latest = 2
+        Select_Id = 3
     End Enum
     Public StateOpenShow As stateOperation
 

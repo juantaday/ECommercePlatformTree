@@ -106,7 +106,7 @@
     Private Sub LoginForm_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         System.Windows.Forms.Application.EnableVisualStyles()
         Me.UsernameTextBox.CharacterCasing = CharacterCasing.Upper
-        ' Me.OK.PerformClick()
+        'Me.OK.PerformClick()
     End Sub
 
     Private Function Validar() As Boolean

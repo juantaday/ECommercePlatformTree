@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="prcGetDataReportDeudaClientTableAdapter" GeneratorDataComponentClassName="prcGetDataReportDeudaClientTableAdapter" Name="prcGetDataReportDeudaClient" UserDataComponentName="prcGetDataReportDeudaClientTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.prcGetDataReportDeudaClient" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.prcGetDataReportDeudaClient" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.prcGetDataReportDeudaClient</CommandText>
@@ -47,7 +47,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="prcBalanceLocalidadTableAdapter" GeneratorDataComponentClassName="prcBalanceLocalidadTableAdapter" Name="prcBalanceLocalidad" UserDataComponentName="prcBalanceLocalidadTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.prcBalanceLocalidad" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="GetData">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.prcBalanceLocalidad" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillData" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="FillData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="FillData">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.prcBalanceLocalidad</CommandText>
@@ -67,7 +67,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="prcBalanceTipoTableAdapter" GeneratorDataComponentClassName="prcBalanceTipoTableAdapter" Name="prcBalanceTipo" UserDataComponentName="prcBalanceTipoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.prcBalanceTipo" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="GetData">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB03.dbo.prcBalanceTipo" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.prcBalanceTipo</CommandText>
@@ -88,7 +88,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="getDataReportFacturTableAdapter" GeneratorDataComponentClassName="getDataReportFacturTableAdapter" Name="getDataReportFactur" UserDataComponentName="getDataReportFacturTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.getDataReportFacturLast" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByLast" GetMethodModifier="Public" GetMethodName="GetDataByLast" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByLast" UserSourceName="GetDataByLast">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.getDataReportFacturLast" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetDataByLast" GetMethodModifier="Public" GetMethodName="GetDataByLast" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetDataByLast" UserSourceName="GetDataByLast">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.getDataReportFacturLast</CommandText>
@@ -137,7 +137,7 @@
               <Mapping SourceColumn="dateRegister" DataSetColumn="dateRegister" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.getDataReportFactur" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="GetData">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.getDataReportFactur" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="GetData">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.getDataReportFactur</CommandText>
@@ -148,7 +148,7 @@
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.getDataReportFacturAll" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAll" GetMethodModifier="Public" GetMethodName="GetDataByAll" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAll" UserSourceName="GetDataByAll">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.getDataReportFacturAll" DbObjectType="StoredProcedure" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByAll" GetMethodModifier="Public" GetMethodName="GetDataByAll" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByAll" UserSourceName="GetDataByAll">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.getDataReportFacturAll</CommandText>
@@ -164,7 +164,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GetSalesByDateTableAdapter" GeneratorDataComponentClassName="GetSalesByDateTableAdapter" Name="GetSalesByDate" UserDataComponentName="GetSalesByDateTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.GetSalesByDate" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB03.dbo.GetSalesByDate" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.GetSalesByDate</CommandText>

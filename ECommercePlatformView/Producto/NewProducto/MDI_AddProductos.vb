@@ -165,7 +165,7 @@ Public Class MDI_AddProductos
         Dim myFormName As String = String.Empty
         Try
             Me.Cursor = Cursors.WaitCursor
-            Dim frmdetalla As New frm_detalle(Me)
+            Dim frmdetalla As New frm_detalle(Me, Me.Operation, Id_Producto, 1)
             myFormName = frmdetalla.Name
             If IsOpenMychildren(myFormName) Then
                 myFormName = Nothing
@@ -174,7 +174,6 @@ Public Class MDI_AddProductos
             With frmdetalla
                 myFormName = .Name
                 .MdiParent = Me
-                .id_Producto = Id_Producto
                 .WindowState = FormWindowState.Maximized
                 If Id_Producto > 0 Then
                     AtrasButton.Enabled = False
@@ -416,10 +415,12 @@ Public Class MDI_AddProductos
         If Estado Then
             If Id_Producto > 0 Then
                 If MsgBox("Está seguro de salir sin guardar ésta información", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2) = MsgBoxResult.Yes Then
+                    Me.Cursor = Cursors.WaitCursor
                     If Elimina_Producto(Id_Producto) Then
                         Id_Producto = 0
                         Close()
                     End If
+                    Me.Cursor = Cursors.Default
                 Else
                     e.Cancel = True
                 End If
@@ -558,6 +559,7 @@ Public Class MDI_AddProductos
 
     Private Sub MDI_AddProdcutos_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Try
+            Me.Cursor = Cursors.WaitCursor
             Using cnn As New SqlConnection(SimpleDataApp.Utility.GetConnectionString())
                 cnn.Open()
                 Using cmd As New SqlCommand("[dbo].[prcDeleteProducMalEnter]", cnn)
@@ -566,7 +568,10 @@ Public Class MDI_AddProductos
                 End Using
             End Using
         Catch ex As Exception
+            Me.Cursor = Cursors.Default
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            Me.Cursor = Cursors.Default
         End Try
     End Sub
 

@@ -1778,6 +1778,10 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\ECommercePlatformView\bin\
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\ECommercePlatformView\bin\Debug\ObjectListView.xml
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\ECommercePlatformView\obj\Debug\ECommercePlatformView.Form1.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Release Notes.txt
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ECommercePlatformView.exe.config
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ECommercePlatformView.exe
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ECommercePlatformView.pdb
@@ -1903,10 +1907,10 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\BarcodeLib.pdb
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DGVPrinterHelper.pdb
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DGVPrinterHelper.dll.config
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\LibPrintTicket.pdb
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiColumnComboSuggestionBox.pdb
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CADsisVenta.pdb
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CADsisVenta.dll.config
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\LibPrintTicket.pdb
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ObjectListView.pdb
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ObjectListView.xml
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.Data.v17.1.xml
@@ -2061,8 +2065,6 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-HANS\Microsoft.ReportViewer.Common.resources.dll
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-HANT\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
@@ -2073,8 +2075,6 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-HANS\Microsoft.ReportViewer.DataVisualization.resources.dll
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-HANT\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
@@ -2085,9 +2085,16 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-HANS\Microsoft.ReportViewer.Design.resources.dll
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-HANT\Microsoft.ReportViewer.Design.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\de\DevExpress.Xpo.v17.1.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\es\DevExpress.Xpo.v17.1.resources.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ja\DevExpress.Xpo.v17.1.resources.dll
@@ -2169,6 +2176,7 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.FrmFacturCompTypoDocument.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmImputData.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmImput_Consumo.resources
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmListFacturPurchases.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmListPedido.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmList_ProductoComprable.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmAddVirtualBox.resources
@@ -2210,6 +2218,7 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmProductoRates.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmSelectTypeRates.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmSubCategoryRates.resources
+C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmProductConbined.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmAddNewDateExpir.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmAdminDateExpir.resources
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmAdministrarPrecios.resources

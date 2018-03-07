@@ -54,6 +54,12 @@ Option Explicit On
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/additem_32x32.png"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/additem_black_32x32.png"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/addlistnew_48.png"),  _
+ Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/loader.cs"),  _
+ Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/readme.htm"),  _
+ Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/x64/msvcr120.dll"),  _
+ Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/x64/sqlserverspatial140.dll"),  _
+ Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/x86/msvcr120.dll"),  _
+ Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/x86/sqlserverspatial140.dll"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/addlist_48.png"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/add_64x64.png"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/add_circle_black_32.png"),  _

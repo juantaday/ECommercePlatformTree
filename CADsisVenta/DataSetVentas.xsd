@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CobrosTableAdapter" GeneratorDataComponentClassName="CobrosTableAdapter" Name="Cobros" UserDataComponentName="CobrosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Cobros" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.Cobros" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT idCobro, idFacturaVenta, idCliente, val_Factura, fech_Factura, stateCobro FROM dbo.Cobros</CommandText>
@@ -27,7 +27,7 @@
               <Mapping SourceColumn="stateCobro" DataSetColumn="stateCobro" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Cobros" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataDeuda" GetMethodModifier="Public" GetMethodName="GetDataDeuda" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataDeuda" UserSourceName="GetDataDeuda">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.Cobros" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataDeuda" GetMethodModifier="Public" GetMethodName="GetDataDeuda" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataDeuda" UserSourceName="GetDataDeuda">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT fech_Factura, idCliente, idCobro, idFacturaVenta, stateCobro, val_Factura FROM Cobros WHERE (stateCobro = 0)</CommandText>
@@ -72,7 +72,7 @@ order by c.Nombres
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ClienteNameTableAdapter" GeneratorDataComponentClassName="ClienteNameTableAdapter" Name="ClienteName" UserDataComponentName="ClienteNameTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        idCliente, Ruc_Ci, Nombres, telefono, Direccion
@@ -120,7 +120,7 @@ WHERE        (c.stateCobro = 0)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaCajaTableAdapter" GeneratorDataComponentClassName="FacturaVentaCajaTableAdapter" Name="FacturaVentaCaja" UserDataComponentName="FacturaVentaCajaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select codTerminal as Caja, sum (f.Total) as Total 
@@ -128,8 +128,8 @@ from facturaVenta  as f
 where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
 group by codTerminal</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -143,7 +143,7 @@ group by codTerminal</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaEmpleadoTableAdapter" GeneratorDataComponentClassName="FacturaVentaEmpleadoTableAdapter" Name="FacturaVentaEmpleado" UserDataComponentName="FacturaVentaEmpleadoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select codTerminal as Caja ,codUser as Empledo, sum (f.Total) as Total 
@@ -151,8 +151,8 @@ from facturaVenta  as f
 where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
 group by  codTerminal, codUser</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -167,7 +167,7 @@ group by  codTerminal, codUser</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaNumFacturTableAdapter" GeneratorDataComponentClassName="FacturaVentaNumFacturTableAdapter" Name="FacturaVentaNumFactur" UserDataComponentName="FacturaVentaNumFacturTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select codTerminal as Caja ,Num_Factu as [Numero de documento],sum (f.Total) as Total 
@@ -175,8 +175,8 @@ from facturaVenta  as f
 where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
 group by  codTerminal, Num_Factu</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -191,7 +191,7 @@ group by  codTerminal, Num_Factu</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaFechaTableAdapter" GeneratorDataComponentClassName="FacturaVentaFechaTableAdapter" Name="FacturaVentaFecha" UserDataComponentName="FacturaVentaFechaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select codTerminal as Caja,  convert (DATE,fechaDesde) as [Fecha de venta],sum (f.Total) as Total 
@@ -199,8 +199,8 @@ from facturaVenta  as f
 where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
 group by  codTerminal, convert (DATE,fechaDesde)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -215,7 +215,7 @@ group by  codTerminal, convert (DATE,fechaDesde)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaHoraTableAdapter" GeneratorDataComponentClassName="FacturaVentaHoraTableAdapter" Name="FacturaVentaHora" UserDataComponentName="FacturaVentaHoraTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.FacturaVenta" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select codTerminal as Caja,  convert (TIME,fechaDesde) as [Hora],sum (f.Total) as Total 
@@ -223,8 +223,8 @@ from facturaVenta  as f
 where ( (fechaDesde &gt; =@fechaIni)  AND (fechaDesde &lt;=@fechaFin))
 group by  codTerminal, convert (TIME,fechaDesde)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -239,7 +239,7 @@ group by  codTerminal, convert (TIME,fechaDesde)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaClienteFechAllTableAdapter" GeneratorDataComponentClassName="FacturaVentaClienteFechAllTableAdapter" Name="FacturaVentaClienteFechAll" UserDataComponentName="FacturaVentaClienteFechAllTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT  c.Ruc_Ci  as [Identidad], 
@@ -253,8 +253,8 @@ AND F.Estado  = 1)
 GROUP BY c.Ruc_Ci , c.Nombres, CONVERT(date,f.fechaDesde)
 ORDER BY C.Nombres</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -270,7 +270,7 @@ ORDER BY C.Nombres</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FacturaVentaClienteAllTableAdapter" GeneratorDataComponentClassName="FacturaVentaClienteAllTableAdapter" Name="FacturaVentaClienteAll" UserDataComponentName="FacturaVentaClienteAllTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.ClienteName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT  c.Ruc_Ci  as [Identidad], c.Nombres as [Cliente],
@@ -282,8 +282,8 @@ GROUP BY  c.Ruc_Ci , c.Nombres
 ORDER BY C.Nombres
 </CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -309,7 +309,7 @@ inner join FacturaVenta as f on fd.idFacturaVenta  = f.idFactVenta
 where f.idCliente  = @idCliente
 </CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="idCliente" ColumnName="idCliente" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCliente" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idCliente" ColumnName="idCliente" DataSourceName="dbo.FacturaVenta" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCliente" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCliente" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -337,9 +337,9 @@ where ((f.fechaDesde &gt; =@fechaIni AND f.fechaDesde &lt;= @fechaFin)
 and C.Idcliente =@IdCliente AND F.Estado  = 1)
 ORDER BY C.Nombres</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="IdCliente" ColumnName="idCliente" DataSourceName="JSofwareCommerceDB.dbo.ClienteName" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdCliente" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechaFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechaFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="IdCliente" ColumnName="idCliente" DataSourceName="dbo.ClienteName" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@IdCliente" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCliente" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -370,8 +370,8 @@ inner join FacturaVenta as f on f.idFactVenta  = fd.idFacturaVenta
 where (f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;= @fechFin)
 group by sc.idSubCategoria, ct.Nom_Categoria,sc.Nom_SubCategoria</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -400,8 +400,8 @@ inner join FacturaVenta as f on f.idFactVenta  = fd.idFacturaVenta
 where (f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;= @fechFin)
 group by p.idSubCategoria, p.Nom_Comercial,pp.Presentacion</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -433,8 +433,8 @@ where (f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;= @fechFin)
 group by p.Nom_Comercial,pp.Presentacion, p.idProducto
 order by p.Nom_Comercial </CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -466,8 +466,8 @@ where ((f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;=@fechFin))
 group by c.Ruc_Ci ,c.Nombres, pp.idProducto
 </CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -500,9 +500,9 @@ where ((f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;=@fechFin) and pp.idProd
 group by f.idFactVenta, f.Num_Factu , pp.Presentacion, c.Ruc_Ci ,c.Nombres, pp.idProducto
 </CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="idProdcut" ColumnName="idProducto" DataSourceName="JSofwareCommerceDB.dbo.ProductoPresentacion" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idProdcut" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idProducto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idProdcut" ColumnName="idProducto" DataSourceName="dbo.ProductoPresentacion" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idProdcut" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idProducto" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -522,7 +522,7 @@ group by f.idFactVenta, f.Num_Factu , pp.Presentacion, c.Ruc_Ci ,c.Nombres, pp.i
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FVGroupByUserTableAdapter" GeneratorDataComponentClassName="FVGroupByUserTableAdapter" Name="FVGroupByUser" UserDataComponentName="FVGroupByUserTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.UserName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.UserName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select [u].[login] as [codUser],
@@ -539,8 +539,8 @@ inner join UserName as U on u.[login] = f.codUser
 where ((f.fechaDesde&gt;=@fechIni and f.fechaDesde &lt;=@fechFin) and (f.Estado = 1))
 group by [u].[login],u.Ruc_Ci,u.Nombres,u.telefono</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="fechaDesde" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -574,8 +574,8 @@ c.Nombres as [Cliente],
  inner join ClienteName as c on f.idCliente  = c.idCliente 
  where ((f.fechaDesde &gt;=@fechIni and f.fechaDesde &lt;=@fechFin) and f.Estado = 1)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="Fecha venta" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="JSofwareCommerceDB.dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="Fecha venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechIni" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechIni" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="Fecha venta" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="fechFin" ColumnName="fechaDesde" DataSourceName="dbo.FacturaVenta" DataTypeServer="datetime2" DbType="AnsiString" Direction="Input" ParameterName="@fechFin" Precision="0" ProviderType="DateTime2" Scale="0" Size="6" SourceColumn="Fecha venta" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -613,8 +613,8 @@ c.Nombres as [Cliente],
   where c.idCajaStado=@idCajaStado AND B.idBanco=@idBanco
   order by B.nom_Banco,BD.num_Cuenta</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="JSofwareCommerceDB.dbo.CajaStado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="idBanco" ColumnName="idBanco" DataSourceName="JSofwareCommerceDB.dbo.Bancos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idBanco" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idBanco" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="dbo.CajaStado" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idBanco" ColumnName="idBanco" DataSourceName="dbo.Bancos" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idBanco" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idBanco" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -632,7 +632,7 @@ c.Nombres as [Cliente],
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cheqResumencontabTableAdapter" GeneratorDataComponentClassName="cheqResumencontabTableAdapter" Name="cheqResumencontab" UserDataComponentName="cheqResumencontabTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.Bancos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.Bancos" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT 
@@ -648,7 +648,7 @@ c.Nombres as [Cliente],
 where ((idCajaStado =@idCajaStado) and (cd.isArching =1))
 group by  b.idBanco,b.nom_Banco</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="JSofwareCommerceDB02.dbo.CajaDetailDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="dbo.CajaDetailDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -674,7 +674,7 @@ group by  b.idBanco,b.nom_Banco</CommandText>
   inner join CobroDetail as cdd on cdd.idCobroDetail = cd.idCobroDetail
   where idCajaStado =@idCajaStado and isArching = 0</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="JSofwareCommerceDB.dbo.CajaDetailDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="idCajaStado" ColumnName="idCajaStado" DataSourceName="dbo.CajaDetailDocument" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@idCajaStado" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="idCajaStado" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -688,7 +688,7 @@ group by  b.idBanco,b.nom_Banco</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="pcdGetListProductRentableTableAdapter" GeneratorDataComponentClassName="pcdGetListProductRentableTableAdapter" Name="pcdGetListProductRentable" UserDataComponentName="pcdGetListProductRentableTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.pcdGetListProductRentable" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.pcdGetListProductRentable" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.pcdGetListProductRentable</CommandText>
@@ -719,7 +719,7 @@ group by  b.idBanco,b.nom_Banco</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="pcdGetListProductVentaTableAdapter" GeneratorDataComponentClassName="pcdGetListProductVentaTableAdapter" Name="pcdGetListProductVenta" UserDataComponentName="pcdGetListProductVentaTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB02.dbo.pcdGetListProductVenta" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.pcdGetListProductVenta" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.pcdGetListProductVenta</CommandText>

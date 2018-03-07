@@ -59,7 +59,7 @@ Module fProducto
         End Try
     End Function
     Public Function Elimina_Producto(IdProducto As Integer)
-        sql = "Delete Productos Where idProducto = " & IdProducto & ""
+        sql = "Delete Productos Where idProducto =  " & IdProducto & ""
         conecta_sql()
         Try
             Using cmd As New SqlCommand(sql, Cnn_sql)
@@ -192,6 +192,9 @@ Module fProducto
     End Function
     Public Function CargaIva() As Double
         Try
+            If IsNothing(EcommerceActive) Then
+                Return 0
+            End If
             Return EcommerceActive.IvaPercent
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

@@ -1,10 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JSofwareCommerceDB03" Class="DataClassesDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" 
-ConnectionString="Data Source=.\sqlexpress;Initial 
-Catalog=JSofwareCommerceDB03;Integrated Security=True" 
-SettingsObjectName="CADsisVenta.Properties.Settings" 
-SettingsPropertyName="JsofConneccionString" 
-Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=JSofwareCommerceDB03;Persist Security Info=True;User ID=JsofUserAdmin" SettingsObjectName="CADsisVenta.Properties.Settings" SettingsPropertyName="JsofConneccionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.InventoryDetail" Member="InventoryDetail">
     <Type Name="InventoryDetail">
       <Column Name="IdInventoryDetail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -106,11 +101,13 @@ Provider="System.Data.SqlClient" />
       <Column Name="Facturable" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Activo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ItIsExpirable" Type="System.Boolean" DbType="Bit" CanBeNull="false" />
+      <Column Name="IdKind" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="Productos_InventoryDetail" Member="InventoryDetail" ThisKey="idProducto" OtherKey="idProducto" Type="InventoryDetail" />
       <Association Name="Productos_ProductosStock" Member="ProductosStock" ThisKey="idProducto" OtherKey="idProducto" Type="ProductosStock" />
       <Association Name="Productos_RatesProductoDetail" Member="RatesProductoDetail" ThisKey="idProducto" OtherKey="idProducto" Type="RatesProductoDetail" />
       <Association Name="Productos_ProductoPresentacion" Member="ProductoPresentacion" ThisKey="idProducto" OtherKey="idProducto" Type="ProductoPresentacion" />
       <Association Name="Productos_ProductExpiration" Member="ProductExpiration" ThisKey="idProducto" OtherKey="idProducto" Type="ProductExpiration" />
+      <Association Name="Productos_ProductCombined" Member="ProductCombined" ThisKey="idProducto" OtherKey="idProducto" Type="ProductCombined" />
       <Association Name="ProductoSubCategoria_Productos" Member="ProductoSubCategoria" ThisKey="IdSubCategoria" OtherKey="idSubCategoria" Type="ProductoSubCategoria" IsForeignKey="true" />
       <Association Name="ProductoUndMin_Productos" Member="ProductoUndMin" ThisKey="idUnidad" OtherKey="idUnidad" Type="ProductoUndMin" IsForeignKey="true" />
     </Type>
@@ -456,6 +453,7 @@ Provider="System.Data.SqlClient" />
       <Column Name="idDeclaracion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idBodega" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="state" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="FacturaCompra_FacturaCompra_Detail" Member="FacturaCompra_Detail" ThisKey="idFacturaCompra" OtherKey="idFacturaCompra" Type="FacturaCompra_Detail" />
       <Association Name="Bodegas_FacturaCompra" Member="Bodegas" ThisKey="idBodega" OtherKey="idBodega" Type="Bodegas" IsForeignKey="true" />
       <Association Name="FormaPago_FacturaCompra" Member="FormaPago" ThisKey="idFormaPago" OtherKey="idformaPago" Type="FormaPago" IsForeignKey="true" />
       <Association Name="Proveedores_FacturaCompra" Member="Proveedores" ThisKey="idProveedor" OtherKey="idProveedor" Type="Proveedores" IsForeignKey="true" />
@@ -539,7 +537,8 @@ Provider="System.Data.SqlClient" />
       <Column Name="PresentacionPrint" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="isPresentFactory" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="Barcode" Type="System.String" DbType="Char(25)" CanBeNull="true" />
-      <Column Name="isDefaultSales" Type="System.Byte" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="isDefaultSales" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="belongCombined" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="ProductoPresentacion_RatesPresentantionDetail" Member="RatesPresentantionDetail" ThisKey="idPresentacion" OtherKey="idPresentacion" Type="RatesPresentantionDetail" />
       <Association Name="ProductoPresentacion_Ofertas" Member="Ofertas" ThisKey="idPresentacion" OtherKey="idPresent" Type="Ofertas" />
       <Association Name="ProductoPresentacion_FacturaVentaDetail" Member="FacturaVentaDetail" ThisKey="idPresentacion" OtherKey="idPresent" Type="FacturaVentaDetail" />
@@ -547,6 +546,8 @@ Provider="System.Data.SqlClient" />
       <Association Name="ProductoPresentacion_ViewBarCodeTicket" Member="ViewBarCodeTicket" ThisKey="idPresentacion" OtherKey="IdPresent" Type="ViewBarCodeTicket" />
       <Association Name="ProductoPresentacion_ProductoProveedor" Member="ProductoProveedor" ThisKey="idPresentacion" OtherKey="idPresentacion" Type="ProductoProveedor" />
       <Association Name="ProductoPresentacion_Ventas_Detail" Member="Ventas_Detail" ThisKey="idPresentacion" OtherKey="idPresent" Type="Ventas_Detail" />
+      <Association Name="ProductoPresentacion_FacturaCompra_Detail" Member="FacturaCompra_Detail" ThisKey="idPresentacion" OtherKey="idPresent" Type="FacturaCompra_Detail" />
+      <Association Name="ProductoPresentacion_ProductCombined" Member="ProductCombined" ThisKey="idPresentacion" OtherKey="idPresent" Type="ProductCombined" />
       <Association Name="Productos_ProductoPresentacion" Member="Productos" ThisKey="idProducto" OtherKey="idProducto" Type="Productos" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="ProductoUndMedida_ProductoPresentacion" Member="ProductoUndMedida" ThisKey="idProUndReferen" OtherKey="idProUndMed" Type="ProductoUndMedida" IsForeignKey="true" />
       <Association Name="ProductoUndMedida_ProductoPresentacion1" Member="ProductoUndMedida1" ThisKey="idProUndMed" OtherKey="idProUndMed" Type="ProductoUndMedida" IsForeignKey="true" />
@@ -859,6 +860,20 @@ Provider="System.Data.SqlClient" />
       <Association Name="Ventas_Ventas_Detail" Member="Ventas" ThisKey="idVenta" OtherKey="idVenta" Type="Ventas" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.FacturaCompra_Detail" Member="FacturaCompra_Detail">
+    <Type Name="FacturaCompra_Detail">
+      <Column Name="idFacturaCompra_Detail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idFacturaCompra" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPresent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="cantidad" Type="System.Decimal" DbType="Decimal(25,5) NOT NULL" CanBeNull="false" />
+      <Column Name="descuento" Type="System.Decimal" DbType="Decimal(25,5) NOT NULL" CanBeNull="false" />
+      <Column Name="iva" Type="System.Decimal" DbType="Decimal(25,5) NOT NULL" CanBeNull="false" />
+      <Column Name="SubTotal" Type="System.Decimal" DbType="Decimal(25,5) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(25,5) NOT NULL" CanBeNull="false" />
+      <Association Name="FacturaCompra_FacturaCompra_Detail" Member="FacturaCompra" ThisKey="idFacturaCompra" OtherKey="idFacturaCompra" Type="FacturaCompra" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="ProductoPresentacion_FacturaCompra_Detail" Member="ProductoPresentacion" ThisKey="idPresent" OtherKey="idPresentacion" Type="ProductoPresentacion" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.ProductExpiration" Member="ProductExpiration">
     <Type Name="ProductExpiration">
       <Column Name="IDExpiration" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -868,6 +883,16 @@ Provider="System.Data.SqlClient" />
       <Column Name="DateExpirate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Association Name="Bodegas_ProductExpiration" Member="Bodegas" ThisKey="idBodega" OtherKey="idBodega" Type="Bodegas" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Productos_ProductExpiration" Member="Productos" ThisKey="idProducto" OtherKey="idProducto" Type="Productos" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductCombined" Member="ProductCombined">
+    <Type Name="ProductCombined">
+      <Column Name="idProductCombined" Storage="_ProductCombined1" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idProducto" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPresent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Cant_Conbined" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ProductoPresentacion_ProductCombined" Member="ProductoPresentacion" ThisKey="idPresent" OtherKey="idPresentacion" Type="ProductoPresentacion" IsForeignKey="true" />
+      <Association Name="Productos_ProductCombined" Member="Productos" ThisKey="idProducto" OtherKey="idProducto" Type="Productos" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.getDateServer" Method="getDateServer">

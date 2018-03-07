@@ -1,7 +1,5 @@
-﻿Imports System.Data.SqlClient
-Imports CADsisVenta
+﻿Imports CADsisVenta
 Imports CADsisVenta.DataSetEmployeeTableAdapters
-Imports CADsisVenta.DataSetEmployee
 Public Class frmList_Empleados
 
     Protected Friend idEmpleado As Integer
@@ -76,9 +74,7 @@ Public Class frmList_Empleados
         Me.DialogResult = DialogResult.No
         Me.Close()
     End Sub
-    Private Sub txtEmple_Busca_Leave(sender As Object, e As EventArgs)
-        Me.AcceptButton = Nothing
-    End Sub
+
 
     Private Sub frmList_Empleados_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         listPerson = New List(Of ItemPerson)
@@ -132,83 +128,6 @@ Public Class frmList_Empleados
         End Try
     End Sub
 
-    Sub rowPostPaint_HeaderCount(sender As Object, e As DataGridViewRowPostPaintEventArgs)
-        'set rowheader count
-        Dim grid As DataGridView = CType(sender, DataGridView)
-        Dim rowIdx As String = (e.RowIndex + 1).ToString()
-        Dim centerFormat = New StringFormat()
-        centerFormat.Alignment = StringAlignment.Center
-        centerFormat.LineAlignment = StringAlignment.Center
-        Dim headerBounds As Rectangle = New Rectangle(e.RowBounds.Left, e.RowBounds.Top,
-            grid.RowHeadersWidth, e.RowBounds.Height - sender.rows(e.RowIndex).DividerHeight)
-        e.Graphics.DrawString(rowIdx, grid.Font, SystemBrushes.ControlText,
-            headerBounds, centerFormat)
-    End Sub
-    Sub clearFields()
-        PanelView.Controls.Clear()
-        Refresh()
-    End Sub
-    Private Function Insert_Employee(idpersona As Integer, genero As String) As Boolean
-        Try
-            Dim repotTo As Nullable(Of Integer) = Nothing
-            Dim data As New EmpleadosTableAdapter
-            Dim respont As Integer
-            respont = data.Insert(idpersona, genero, "Empleado", 0, Date.Now, repotTo)
-            If respont > 0 Then
-                Return True
-            End If
-            Return False
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            Return False
-        End Try
-    End Function
-    Private Sub btnEliminarCliente_Click(sender As Object, e As EventArgs)
-        If (MsgBox("Está seguro de Eliminar?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation, "Responda")) = MsgBoxResult.Yes Then
-        End If
-    End Sub
-
-    Private Function Elimina_Empleado(ByVal idempleado As Integer) As Boolean
-        conecta_sql()
-
-        sql = "Delete Empleados from Empleados where idEmpleado = " & idempleado & " "
-        Try
-            Using cmd As New SqlCommand(sql, Cnn_sql)
-                cmd.CommandType = CommandType.Text
-                If cmd.ExecuteNonQuery Then
-                    Return True
-                Else
-                    Return False
-                End If
-
-            End Using
-        Catch ex As Exception
-            MsgBox(ex.Message + " en el Elimina_Empleado del " + Me.Name, MsgBoxStyle.Critical, "Error")
-            Return False
-        End Try
-
-    End Function
-
-    Private Function Elimina_Persona(ByVal idpersona As Integer) As Boolean
-        conecta_sql()
-
-        sql = "Delete personas from personas where idPersona = " & idpersona & ""
-        Try
-            Using cmd As New SqlCommand(sql, Cnn_sql)
-                cmd.CommandType = CommandType.Text
-                If cmd.ExecuteNonQuery Then
-                    Return True
-                Else
-                    Return False
-                End If
-
-            End Using
-
-        Catch ex As Exception
-            MsgBox(ex.Message + " en el Elimina_Persona del " + Me.Name, MsgBoxStyle.Critical, "Error")
-            Return False
-        End Try
-    End Function
 
     Private Sub btnEditarCliente_Click(sender As Object, e As EventArgs) Handles EdidEmployeeCliente.Click
         Using UpdateEmploye As New frmAdd_Personas(stateOperation.Update, Me.idPersona)
@@ -221,10 +140,6 @@ Public Class frmList_Empleados
                 End If
             End With
         End Using
-    End Sub
-
-    Private Sub datalistado_Leave(sender As Object, e As EventArgs)
-        Me.AcceptButton = Nothing
     End Sub
 
     Private Sub Carga_Image(sender As System.Windows.Forms.DataGridView, index As Integer)
@@ -266,57 +181,6 @@ Public Class frmList_Empleados
         End Try
     End Sub
 
-    Private Function Delete_Employee(idperson As Integer) As Boolean
-        Try
-            Dim data As New EmpleadosTableAdapter
-            Dim respont As Integer
-            respont = data.Insert(idPersona, String.Empty, "Empleado", 0, Date.Now, vbNull)
-            If respont > 0 Then
-                Return True
-            End If
-            Return False
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            Return False
-        End Try
-    End Function
-
-    Private Sub Selection_Row(iempl As Integer)
-        For index = 0 To dtg.RowCount - 1
-            If iempl = dtg.Rows(index).Cells(dtg.Columns("idEmpleado").Index).Value Then
-                dtg.Rows(index).Selected = True
-                Return
-            Else
-                If dtg.Rows(index).Selected Then
-                    dtg.Rows(index).Selected = False
-                End If
-            End If
-        Next
-    End Sub
-
-    Private Sub ReportToButton_Click(sender As Object, e As EventArgs)
-        Try
-            Dim reportTo As Nullable(Of Integer)
-            Using newListEm As New frmList_Empleados(stateClient.User)
-                With newListEm
-                    .ShowDialog()
-                    If .DialogResult = System.Windows.Forms.DialogResult.OK Then
-                        reportTo = .idEmpleado
-                        If reportTo > 0 Then
-                            Dim dat As New EmpleadosTableAdapter()
-                            If dat.UpdateReportTo(reportTo, idEmpleado) = 1 Then
-                                Load_DataEmployee()
-                            End If
-                            dat = Nothing
-                        End If
-                    End If
-                End With
-            End Using
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-
     Private Sub Carga_Detail(sender As System.Windows.Forms.DataGridView, index As Integer)
         Try
             Dim reportTo As String = String.Empty
@@ -336,39 +200,6 @@ Public Class frmList_Empleados
         End Try
     End Sub
 
-    Private Sub Carga_DerportTo(idempledo As Integer)
-        Try
-            Dim tap As New EmpleadoNameTableAdapter
-            Dim dt As New EmpleadoNameDataTable
-            tap.FillByIdEmpleado(dt, idempledo)
-            If Not IsNothing(dt) Then
-                If dt.Rows.Count > 0 Then
-                    sql = dt.Rows(0)("cargo") + ":" + vbNewLine
-                    sql = sql & dt.Rows(0)("Nombres") + vbNewLine
-                    sql = sql & "(" + dt.Rows(0)("Ruc_Ci") + ")"
-                End If
-                tap = Nothing
-                dt = Nothing
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-
-        End Try
-        Dim data As New EmpleadosTableAdapter
-    End Sub
-
-    Private Sub DeleteReportToButton_Click(sender As Object, e As EventArgs)
-        Try
-            Dim repotTo As Nullable(Of Integer) = Nothing
-            Dim dat As New EmpleadosTableAdapter()
-            If dat.UpdateReportTo(repotTo, idEmpleado) = 1 Then
-                Load_DataEmployee()
-            End If
-            dat = Nothing
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
 
     Private Sub EditDetailButton_Click(sender As Object, e As EventArgs) Handles EditDetailButton.Click
         Try
@@ -386,27 +217,6 @@ Public Class frmList_Empleados
         End Try
     End Sub
 
-    Private Sub UpdateDetailButton_Click(sender As Object, e As EventArgs)
-        Try
-
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-
-    End Sub
-
-    Private Sub CandelDeatilButton_Click(sender As Object, e As EventArgs)
-        If dtg.RowCount > 0 Then
-            EditDetailButton.Enabled = True
-        End If
-        dtg.Focus()
-        PanelList.Enabled = True
-        PanelBusq.Enabled = True
-    End Sub
-
-    Private Sub ToolStripButton2_Click(sender As Object, e As EventArgs)
-
-    End Sub
 
     Private Sub EditCardButton_Click(sender As Object, e As EventArgs) Handles EditCardButton.Click
         Try

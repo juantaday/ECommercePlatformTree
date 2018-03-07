@@ -37,13 +37,13 @@ Partial Class frmSetthingCommerce
         Me.SettingSalesComboBox = New System.Windows.Forms.ComboBox()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
         Me.PurchaseTabPage = New System.Windows.Forms.TabPage()
+        Me.EnableEditPurchaseCheckBox = New System.Windows.Forms.CheckBox()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.moneyColumnComboBox = New JTG.ColumnComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.EnableEditPurchaseCheckBox = New System.Windows.Forms.CheckBox()
         Me.PanelViewSetthing.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.PercentDecimalIvaNumericUpDown, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -218,6 +218,18 @@ Partial Class frmSetthingCommerce
         Me.PurchaseTabPage.Text = " Sección compras"
         Me.PurchaseTabPage.UseVisualStyleBackColor = True
         '
+        'EnableEditPurchaseCheckBox
+        '
+        Me.EnableEditPurchaseCheckBox.AutoSize = True
+        Me.EnableEditPurchaseCheckBox.Font = New System.Drawing.Font("Lucida Sans", 9.75!)
+        Me.EnableEditPurchaseCheckBox.ForeColor = System.Drawing.Color.DimGray
+        Me.EnableEditPurchaseCheckBox.Location = New System.Drawing.Point(7, 11)
+        Me.EnableEditPurchaseCheckBox.Name = "EnableEditPurchaseCheckBox"
+        Me.EnableEditPurchaseCheckBox.Size = New System.Drawing.Size(340, 19)
+        Me.EnableEditPurchaseCheckBox.TabIndex = 15
+        Me.EnableEditPurchaseCheckBox.Text = "Habilitar modificación rápida en precio de compra."
+        Me.EnableEditPurchaseCheckBox.UseVisualStyleBackColor = True
+        '
         'SaveButton
         '
         Me.SaveButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(34, Byte), Integer), CType(CType(36, Byte), Integer), CType(CType(38, Byte), Integer))
@@ -275,18 +287,6 @@ Partial Class frmSetthingCommerce
         Me.Label1.Size = New System.Drawing.Size(167, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Moneda predeterminada:"
-        '
-        'EnableEditPurchaseCheckBox
-        '
-        Me.EnableEditPurchaseCheckBox.AutoSize = True
-        Me.EnableEditPurchaseCheckBox.Font = New System.Drawing.Font("Lucida Sans", 9.75!)
-        Me.EnableEditPurchaseCheckBox.ForeColor = System.Drawing.Color.DimGray
-        Me.EnableEditPurchaseCheckBox.Location = New System.Drawing.Point(7, 11)
-        Me.EnableEditPurchaseCheckBox.Name = "EnableEditPurchaseCheckBox"
-        Me.EnableEditPurchaseCheckBox.Size = New System.Drawing.Size(340, 19)
-        Me.EnableEditPurchaseCheckBox.TabIndex = 15
-        Me.EnableEditPurchaseCheckBox.Text = "Habilitar modificación rápida en precio de compra."
-        Me.EnableEditPurchaseCheckBox.UseVisualStyleBackColor = True
         '
         'frmSetthingCommerce
         '

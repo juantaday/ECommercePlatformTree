@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsuariosTableAdapter" GeneratorDataComponentClassName="UsuariosTableAdapter" Name="Usuarios" UserDataComponentName="UsuariosTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Usuarios.*
@@ -30,7 +30,7 @@ FROM            Usuarios</CommandText>
               <Mapping SourceColumn="Iniciado" DataSetColumn="Iniciado" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIdPersona" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdPersona" GeneratorSourceName="FillByIdPersona" GetMethodModifier="Public" GetMethodName="GetDataByIdPersona" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdPersona" UserSourceName="FillByIdPersona">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIdPersona" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdPersona" GeneratorSourceName="FillByIdPersona" GetMethodModifier="Public" GetMethodName="GetDataByIdPersona" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdPersona" UserSourceName="FillByIdPersona">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Usuarios.*
@@ -42,7 +42,7 @@ WHERE ((IdPersona =@IdPersona))</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByLogin" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByLogin" GeneratorSourceName="FillByLogin" GetMethodModifier="Public" GetMethodName="GetDataByLogin" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByLogin" UserSourceName="FillByLogin">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.Usuarios" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByLogin" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByLogin" GeneratorSourceName="FillByLogin" GetMethodModifier="Public" GetMethodName="GetDataByLogin" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByLogin" UserSourceName="FillByLogin">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Usuarios.*
@@ -101,7 +101,7 @@ where [Login] =@Login;</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PersonasTableAdapter" GeneratorDataComponentClassName="PersonasTableAdapter" Name="Personas" UserDataComponentName="PersonasTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Personas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.Personas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [Personas] WHERE (([idPersona] = @Original_idPersona) AND ([Apellidos] = @Original_Apellidos) AND ([Nombre] = @Original_Nombre) AND ([Ruc_Ci] = @Original_Ruc_Ci) AND ((@IsNull_Direccion = 1 AND [Direccion] IS NULL) OR ([Direccion] = @Original_Direccion)) AND ((@IsNull_telefono = 1 AND [telefono] IS NULL) OR ([telefono] = @Original_telefono)) AND ([fecha_reg] = @Original_fecha_reg) AND ((@IsNull_mail = 1 AND [mail] IS NULL) OR ([mail] = @Original_mail)) AND ((@IsNull_fech_Naci = 1 AND [fech_Naci] IS NULL) OR ([fech_Naci] = @Original_fech_Naci)) AND ([genero] = @Original_genero) AND ((@IsNull_nota = 1 AND [nota] IS NULL) OR ([nota] = @Original_nota)) AND ((@IsNull_telef_casa = 1 AND [telef_casa] IS NULL) OR ([telef_casa] = @Original_telef_casa)) AND ((@IsNull_telef_ofic = 1 AND [telef_ofic] IS NULL) OR ([telef_ofic] = @Original_telef_ofic)))</CommandText>
@@ -218,7 +218,7 @@ SELECT idPersona, Apellidos, Nombre, Ruc_Ci, Direccion, telefono, fecha_reg, mai
               <Mapping SourceColumn="telef_ofic" DataSetColumn="telef_ofic" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.Personas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIdPersona" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdPersona" GeneratorSourceName="FillByIdPersona" GetMethodModifier="Public" GetMethodName="GetDataByIdPersona" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdPersona" UserSourceName="FillByIdPersona">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.Personas" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByIdPersona" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByIdPersona" GeneratorSourceName="FillByIdPersona" GetMethodModifier="Public" GetMethodName="GetDataByIdPersona" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByIdPersona" UserSourceName="FillByIdPersona">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Personas.*
@@ -234,7 +234,7 @@ WHERE ((IdPersona =@IdPersona))</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UserNameTableAdapter" GeneratorDataComponentClassName="UserNameTableAdapter" Name="UserName" UserDataComponentName="UserNameTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.UserName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.UserName" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        UserName.*
@@ -262,7 +262,7 @@ FROM            UserName</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UsuarioGrupoTableAdapter" GeneratorDataComponentClassName="UsuarioGrupoTableAdapter" Name="UsuarioGrupo" UserDataComponentName="UsuarioGrupoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="JSofwareCommerceDB.dbo.UsuarioGrupo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="JsofConneccionString (Settings)" DbObjectName="dbo.UsuarioGrupo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [UsuarioGrupo] WHERE (([Id_UserGrup] = @Original_Id_UserGrup) AND ([login] = @Original_login) AND ([idGrupo] = @Original_idGrupo))</CommandText>

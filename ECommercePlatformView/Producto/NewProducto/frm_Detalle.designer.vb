@@ -42,14 +42,18 @@ Partial Class frm_detalle
         Me.ivaGroupBox = New System.Windows.Forms.GroupBox()
         Me.ivaPreserminadoLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.AdminDateExpirateCheckBox = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ivaApliDesLabel = New System.Windows.Forms.Label()
         Me.StateCheckBox = New System.Windows.Forms.CheckBox()
-        Me.AdminDateExpirateCheckBox = New System.Windows.Forms.CheckBox()
+        Me.PanelFood = New System.Windows.Forms.Panel()
+        Me.Canel_Button = New System.Windows.Forms.Button()
+        Me.Ok_Button = New System.Windows.Forms.Button()
         CType(Me.ErrorIcono, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CantidadMinNumeric, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ivaGroupBox.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.PanelFood.SuspendLayout()
         Me.SuspendLayout()
         '
         'ErrorIcono
@@ -73,7 +77,7 @@ Partial Class frm_detalle
         Me.SigienteButton.Cursor = System.Windows.Forms.Cursors.Default
         Me.SigienteButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SigienteButton.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.SigienteButton.Location = New System.Drawing.Point(105, 257)
+        Me.SigienteButton.Location = New System.Drawing.Point(7, 125)
         Me.SigienteButton.Name = "SigienteButton"
         Me.SigienteButton.Size = New System.Drawing.Size(0, 0)
         Me.SigienteButton.TabIndex = 8
@@ -186,7 +190,7 @@ Partial Class frm_detalle
         '
         'SaveButton
         '
-        Me.SaveButton.Location = New System.Drawing.Point(4, 213)
+        Me.SaveButton.Location = New System.Drawing.Point(5, 131)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(0, 0)
         Me.SaveButton.TabIndex = 52
@@ -224,6 +228,17 @@ Partial Class frm_detalle
         Me.ivaPreserminadoLinkLabel.TabStop = True
         Me.ivaPreserminadoLinkLabel.Text = "IVA. predeterminado. "
         '
+        'AdminDateExpirateCheckBox
+        '
+        Me.AdminDateExpirateCheckBox.AutoSize = True
+        Me.AdminDateExpirateCheckBox.Location = New System.Drawing.Point(329, 294)
+        Me.AdminDateExpirateCheckBox.Name = "AdminDateExpirateCheckBox"
+        Me.AdminDateExpirateCheckBox.Size = New System.Drawing.Size(178, 17)
+        Me.AdminDateExpirateCheckBox.TabIndex = 57
+        Me.AdminDateExpirateCheckBox.Text = "Administrar fecha de caducidad."
+        Me.ToolTip1.SetToolTip(Me.AdminDateExpirateCheckBox, "Controlar fecha de caducidad.")
+        Me.AdminDateExpirateCheckBox.UseVisualStyleBackColor = True
+        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.ivaApliDesLabel)
@@ -256,23 +271,55 @@ Partial Class frm_detalle
         Me.StateCheckBox.Text = "Habilitado"
         Me.StateCheckBox.UseVisualStyleBackColor = True
         '
-        'AdminDateExpirateCheckBox
+        'PanelFood
         '
-        Me.AdminDateExpirateCheckBox.AutoSize = True
-        Me.AdminDateExpirateCheckBox.Location = New System.Drawing.Point(329, 294)
-        Me.AdminDateExpirateCheckBox.Name = "AdminDateExpirateCheckBox"
-        Me.AdminDateExpirateCheckBox.Size = New System.Drawing.Size(178, 17)
-        Me.AdminDateExpirateCheckBox.TabIndex = 57
-        Me.AdminDateExpirateCheckBox.Text = "Administrar fecha de caducidad."
-        Me.ToolTip1.SetToolTip(Me.AdminDateExpirateCheckBox, "Controlar fecha de caducidad.")
-        Me.AdminDateExpirateCheckBox.UseVisualStyleBackColor = True
+        Me.PanelFood.BackColor = System.Drawing.Color.Peru
+        Me.PanelFood.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelFood.Controls.Add(Me.Ok_Button)
+        Me.PanelFood.Controls.Add(Me.Canel_Button)
+        Me.PanelFood.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelFood.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PanelFood.Location = New System.Drawing.Point(0, 317)
+        Me.PanelFood.Name = "PanelFood"
+        Me.PanelFood.Padding = New System.Windows.Forms.Padding(2)
+        Me.PanelFood.Size = New System.Drawing.Size(677, 40)
+        Me.PanelFood.TabIndex = 58
+        Me.PanelFood.Visible = False
+        '
+        'Canel_Button
+        '
+        Me.Canel_Button.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(21, Byte), Integer))
+        Me.Canel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Canel_Button.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Canel_Button.ForeColor = System.Drawing.Color.White
+        Me.Canel_Button.Location = New System.Drawing.Point(592, 2)
+        Me.Canel_Button.Name = "Canel_Button"
+        Me.Canel_Button.Size = New System.Drawing.Size(81, 34)
+        Me.Canel_Button.TabIndex = 0
+        Me.Canel_Button.Text = "Cancelar"
+        Me.Canel_Button.UseVisualStyleBackColor = False
+        '
+        'Ok_Button
+        '
+        Me.Ok_Button.BackColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(44, Byte), Integer), CType(CType(21, Byte), Integer))
+        Me.Ok_Button.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Ok_Button.ForeColor = System.Drawing.Color.White
+        Me.Ok_Button.Location = New System.Drawing.Point(509, 2)
+        Me.Ok_Button.Name = "Ok_Button"
+        Me.Ok_Button.Size = New System.Drawing.Size(83, 34)
+        Me.Ok_Button.TabIndex = 1
+        Me.Ok_Button.Text = "Aceptar"
+        Me.Ok_Button.UseVisualStyleBackColor = False
         '
         'frm_detalle
         '
+        Me.AcceptButton = Me.Ok_Button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Moccasin
-        Me.ClientSize = New System.Drawing.Size(677, 321)
+        Me.CancelButton = Me.Canel_Button
+        Me.ClientSize = New System.Drawing.Size(677, 357)
+        Me.Controls.Add(Me.PanelFood)
         Me.Controls.Add(Me.AdminDateExpirateCheckBox)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ivaGroupBox)
@@ -297,6 +344,7 @@ Partial Class frm_detalle
         Me.ivaGroupBox.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.PanelFood.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -323,4 +371,7 @@ Partial Class frm_detalle
     Friend WithEvents ivaPreserminadoLinkLabel As LinkLabel
     Friend WithEvents ivaApliDesLabel As Label
     Friend WithEvents AdminDateExpirateCheckBox As CheckBox
+    Friend WithEvents Ok_Button As Button
+    Friend WithEvents Canel_Button As Button
+    Friend WithEvents PanelFood As Panel
 End Class

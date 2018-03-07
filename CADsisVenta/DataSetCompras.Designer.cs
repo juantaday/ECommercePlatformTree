@@ -11721,100 +11721,6 @@ namespace CADsisVenta.DataSetComprasTableAdapters {
             tableMapping.ColumnMappings.Add("Fecha_reg", "Fecha_reg");
             tableMapping.ColumnMappings.Add("TypoBodega", "TypoBodega");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Bodegas] WHERE (([idBodega] = @Original_idBodega) AND ([Nom_Bodega] = @Original_Nom_Bodega) AND ((@IsNull_Des_Bodega = 1 AND [Des_Bodega] IS NULL) OR ([Des_Bodega] = @Original_Des_Bodega)) AND ((@IsNull_Direc_Bodega = 1 AND [Direc_Bodega] IS NULL) OR ([Direc_Bodega] = @Original_Direc_Bodega)) AND ((@IsNull_Telef1_Bodega = 1 AND [Telef1_Bodega] IS NULL) OR ([Telef1_Bodega] = @Original_Telef1_Bodega)) AND ((@IsNull_Telef2_Bodega = 1 AND [Telef2_Bodega] IS NULL) OR ([Telef2_Bodega] = @Original_Telef2_Bodega)) AND ((@IsNull_Telef3_Bodega = 1 AND [Telef3_Bodega] IS NULL) OR ([Telef3_Bodega] = @Original_Telef3_Bodega)) AND ([Resp1_idEmpleado] = @Original_Resp1_idEmpleado) AND ((@IsNull_Resp2_idEmpleado = 1 AND [Resp2_idEmpleado] IS NULL) OR ([Resp2_idEmpleado] = @Original_Resp2_idEmpleado)) AND ((@IsNull_Resp3_idEmpleado = 1 AND [Resp3_idEmpleado] IS NULL) OR ([Resp3_idEmpleado] = @Original_Resp3_idEmpleado)) AND ([Fecha_Apertura] = @Original_Fecha_Apertura) AND ([Fecha_reg] = @Original_Fecha_reg))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idBodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nom_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nom_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Des_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Des_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Des_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Des_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Direc_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Direc_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Direc_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Direc_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Telef1_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef1_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telef1_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef1_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Telef2_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef2_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telef2_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef2_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Telef3_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef3_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telef3_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef3_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Resp1_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp1_idEmpleado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Resp2_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp2_idEmpleado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Resp2_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp2_idEmpleado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Resp3_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp3_idEmpleado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Resp3_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp3_idEmpleado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Apertura", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Apertura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_reg", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_reg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Bodegas] ([Nom_Bodega], [Des_Bodega], [Direc_Bodega], [Telef1_Bodega], [Telef2_Bodega], [Telef3_Bodega], [Resp1_idEmpleado], [Resp2_idEmpleado], [Resp3_idEmpleado], [Fecha_Apertura], [Fecha_reg]) VALUES (@Nom_Bodega, @Des_Bodega, @Direc_Bodega, @Telef1_Bodega, @Telef2_Bodega, @Telef3_Bodega, @Resp1_idEmpleado, @Resp2_idEmpleado, @Resp3_idEmpleado, @Fecha_Apertura, @Fecha_reg);
-SELECT idBodega, Nom_Bodega, Des_Bodega, Direc_Bodega, Telef1_Bodega, Telef2_Bodega, Telef3_Bodega, Resp1_idEmpleado, Resp2_idEmpleado, Resp3_idEmpleado, Fecha_Apertura, Fecha_reg FROM Bodegas WHERE (idBodega = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nom_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nom_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Des_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Des_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Direc_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Direc_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telef1_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef1_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telef2_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef2_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telef3_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef3_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Resp1_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp1_idEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Resp2_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp2_idEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Resp3_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp3_idEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Apertura", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Apertura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_reg", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_reg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Bodegas] SET [Nom_Bodega] = @Nom_Bodega, [Des_Bodega] = @Des_Bodega" +
-                ", [Direc_Bodega] = @Direc_Bodega, [Telef1_Bodega] = @Telef1_Bodega, [Telef2_Bode" +
-                "ga] = @Telef2_Bodega, [Telef3_Bodega] = @Telef3_Bodega, [Resp1_idEmpleado] = @Re" +
-                "sp1_idEmpleado, [Resp2_idEmpleado] = @Resp2_idEmpleado, [Resp3_idEmpleado] = @Re" +
-                "sp3_idEmpleado, [Fecha_Apertura] = @Fecha_Apertura, [Fecha_reg] = @Fecha_reg WHE" +
-                "RE (([idBodega] = @Original_idBodega) AND ([Nom_Bodega] = @Original_Nom_Bodega) " +
-                "AND ((@IsNull_Des_Bodega = 1 AND [Des_Bodega] IS NULL) OR ([Des_Bodega] = @Origi" +
-                "nal_Des_Bodega)) AND ((@IsNull_Direc_Bodega = 1 AND [Direc_Bodega] IS NULL) OR (" +
-                "[Direc_Bodega] = @Original_Direc_Bodega)) AND ((@IsNull_Telef1_Bodega = 1 AND [T" +
-                "elef1_Bodega] IS NULL) OR ([Telef1_Bodega] = @Original_Telef1_Bodega)) AND ((@Is" +
-                "Null_Telef2_Bodega = 1 AND [Telef2_Bodega] IS NULL) OR ([Telef2_Bodega] = @Origi" +
-                "nal_Telef2_Bodega)) AND ((@IsNull_Telef3_Bodega = 1 AND [Telef3_Bodega] IS NULL)" +
-                " OR ([Telef3_Bodega] = @Original_Telef3_Bodega)) AND ([Resp1_idEmpleado] = @Orig" +
-                "inal_Resp1_idEmpleado) AND ((@IsNull_Resp2_idEmpleado = 1 AND [Resp2_idEmpleado]" +
-                " IS NULL) OR ([Resp2_idEmpleado] = @Original_Resp2_idEmpleado)) AND ((@IsNull_Re" +
-                "sp3_idEmpleado = 1 AND [Resp3_idEmpleado] IS NULL) OR ([Resp3_idEmpleado] = @Ori" +
-                "ginal_Resp3_idEmpleado)) AND ([Fecha_Apertura] = @Original_Fecha_Apertura) AND (" +
-                "[Fecha_reg] = @Original_Fecha_reg));\r\nSELECT idBodega, Nom_Bodega, Des_Bodega, D" +
-                "irec_Bodega, Telef1_Bodega, Telef2_Bodega, Telef3_Bodega, Resp1_idEmpleado, Resp" +
-                "2_idEmpleado, Resp3_idEmpleado, Fecha_Apertura, Fecha_reg FROM Bodegas WHERE (id" +
-                "Bodega = @idBodega)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nom_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nom_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Des_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Des_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Direc_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Direc_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telef1_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef1_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telef2_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef2_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Telef3_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef3_Bodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Resp1_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp1_idEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Resp2_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp2_idEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Resp3_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp3_idEmpleado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_Apertura", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Apertura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Fecha_reg", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_reg", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idBodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idBodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nom_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nom_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Des_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Des_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Des_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Des_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Direc_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Direc_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Direc_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Direc_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Telef1_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef1_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telef1_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef1_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Telef2_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef2_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telef2_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef2_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Telef3_Bodega", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef3_Bodega", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Telef3_Bodega", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Telef3_Bodega", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Resp1_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp1_idEmpleado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Resp2_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp2_idEmpleado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Resp2_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp2_idEmpleado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Resp3_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp3_idEmpleado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Resp3_idEmpleado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Resp3_idEmpleado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_Apertura", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_Apertura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Fecha_reg", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Fecha_reg", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idBodega", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "idBodega", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11889,388 +11795,6 @@ SELECT idBodega, Nom_Bodega, Des_Bodega, Direc_Bodega, Telef1_Bodega, Telef2_Bod
             DataSetCompras.BodegasDataTable dataTable = new DataSetCompras.BodegasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSetCompras.BodegasDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSetCompras dataSet) {
-            return this.Adapter.Update(dataSet, "Bodegas");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_idBodega, string Original_Nom_Bodega, string Original_Des_Bodega, string Original_Direc_Bodega, string Original_Telef1_Bodega, string Original_Telef2_Bodega, string Original_Telef3_Bodega, int Original_Resp1_idEmpleado, global::System.Nullable<int> Original_Resp2_idEmpleado, global::System.Nullable<int> Original_Resp3_idEmpleado, System.DateTime Original_Fecha_Apertura, System.DateTime Original_Fecha_reg) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_idBodega));
-            if ((Original_Nom_Bodega == null)) {
-                throw new global::System.ArgumentNullException("Original_Nom_Bodega");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Nom_Bodega));
-            }
-            if ((Original_Des_Bodega == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Des_Bodega));
-            }
-            if ((Original_Direc_Bodega == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Direc_Bodega));
-            }
-            if ((Original_Telef1_Bodega == null)) {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Telef1_Bodega));
-            }
-            if ((Original_Telef2_Bodega == null)) {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Telef2_Bodega));
-            }
-            if ((Original_Telef3_Bodega == null)) {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((string)(Original_Telef3_Bodega));
-            }
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_Resp1_idEmpleado));
-            if ((Original_Resp2_idEmpleado.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[14].Value = ((int)(Original_Resp2_idEmpleado.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Resp3_idEmpleado.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[16].Value = ((int)(Original_Resp3_idEmpleado.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.DeleteCommand.Parameters[17].Value = ((System.DateTime)(Original_Fecha_Apertura));
-            this.Adapter.DeleteCommand.Parameters[18].Value = ((System.DateTime)(Original_Fecha_reg));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Nom_Bodega, string Des_Bodega, string Direc_Bodega, string Telef1_Bodega, string Telef2_Bodega, string Telef3_Bodega, int Resp1_idEmpleado, global::System.Nullable<int> Resp2_idEmpleado, global::System.Nullable<int> Resp3_idEmpleado, System.DateTime Fecha_Apertura, System.DateTime Fecha_reg) {
-            if ((Nom_Bodega == null)) {
-                throw new global::System.ArgumentNullException("Nom_Bodega");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Nom_Bodega));
-            }
-            if ((Des_Bodega == null)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Des_Bodega));
-            }
-            if ((Direc_Bodega == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Direc_Bodega));
-            }
-            if ((Telef1_Bodega == null)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Telef1_Bodega));
-            }
-            if ((Telef2_Bodega == null)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Telef2_Bodega));
-            }
-            if ((Telef3_Bodega == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Telef3_Bodega));
-            }
-            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(Resp1_idEmpleado));
-            if ((Resp2_idEmpleado.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Resp2_idEmpleado.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Resp3_idEmpleado.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(Resp3_idEmpleado.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((System.DateTime)(Fecha_Apertura));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((System.DateTime)(Fecha_reg));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Nom_Bodega, 
-                    string Des_Bodega, 
-                    string Direc_Bodega, 
-                    string Telef1_Bodega, 
-                    string Telef2_Bodega, 
-                    string Telef3_Bodega, 
-                    int Resp1_idEmpleado, 
-                    global::System.Nullable<int> Resp2_idEmpleado, 
-                    global::System.Nullable<int> Resp3_idEmpleado, 
-                    System.DateTime Fecha_Apertura, 
-                    System.DateTime Fecha_reg, 
-                    int Original_idBodega, 
-                    string Original_Nom_Bodega, 
-                    string Original_Des_Bodega, 
-                    string Original_Direc_Bodega, 
-                    string Original_Telef1_Bodega, 
-                    string Original_Telef2_Bodega, 
-                    string Original_Telef3_Bodega, 
-                    int Original_Resp1_idEmpleado, 
-                    global::System.Nullable<int> Original_Resp2_idEmpleado, 
-                    global::System.Nullable<int> Original_Resp3_idEmpleado, 
-                    System.DateTime Original_Fecha_Apertura, 
-                    System.DateTime Original_Fecha_reg, 
-                    int idBodega) {
-            if ((Nom_Bodega == null)) {
-                throw new global::System.ArgumentNullException("Nom_Bodega");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Nom_Bodega));
-            }
-            if ((Des_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Des_Bodega));
-            }
-            if ((Direc_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Direc_Bodega));
-            }
-            if ((Telef1_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Telef1_Bodega));
-            }
-            if ((Telef2_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Telef2_Bodega));
-            }
-            if ((Telef3_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Telef3_Bodega));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Resp1_idEmpleado));
-            if ((Resp2_idEmpleado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Resp2_idEmpleado.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((Resp3_idEmpleado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Resp3_idEmpleado.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Fecha_Apertura));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Fecha_reg));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_idBodega));
-            if ((Original_Nom_Bodega == null)) {
-                throw new global::System.ArgumentNullException("Original_Nom_Bodega");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_Nom_Bodega));
-            }
-            if ((Original_Des_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Des_Bodega));
-            }
-            if ((Original_Direc_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Direc_Bodega));
-            }
-            if ((Original_Telef1_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Telef1_Bodega));
-            }
-            if ((Original_Telef2_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Telef2_Bodega));
-            }
-            if ((Original_Telef3_Bodega == null)) {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_Telef3_Bodega));
-            }
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_Resp1_idEmpleado));
-            if ((Original_Resp2_idEmpleado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_Resp2_idEmpleado.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Resp3_idEmpleado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Resp3_idEmpleado.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
-            }
-            this.Adapter.UpdateCommand.Parameters[28].Value = ((System.DateTime)(Original_Fecha_Apertura));
-            this.Adapter.UpdateCommand.Parameters[29].Value = ((System.DateTime)(Original_Fecha_reg));
-            this.Adapter.UpdateCommand.Parameters[30].Value = ((int)(idBodega));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Nom_Bodega, 
-                    string Des_Bodega, 
-                    string Direc_Bodega, 
-                    string Telef1_Bodega, 
-                    string Telef2_Bodega, 
-                    string Telef3_Bodega, 
-                    int Resp1_idEmpleado, 
-                    global::System.Nullable<int> Resp2_idEmpleado, 
-                    global::System.Nullable<int> Resp3_idEmpleado, 
-                    System.DateTime Fecha_Apertura, 
-                    System.DateTime Fecha_reg, 
-                    int Original_idBodega, 
-                    string Original_Nom_Bodega, 
-                    string Original_Des_Bodega, 
-                    string Original_Direc_Bodega, 
-                    string Original_Telef1_Bodega, 
-                    string Original_Telef2_Bodega, 
-                    string Original_Telef3_Bodega, 
-                    int Original_Resp1_idEmpleado, 
-                    global::System.Nullable<int> Original_Resp2_idEmpleado, 
-                    global::System.Nullable<int> Original_Resp3_idEmpleado, 
-                    System.DateTime Original_Fecha_Apertura, 
-                    System.DateTime Original_Fecha_reg) {
-            return this.Update(Nom_Bodega, Des_Bodega, Direc_Bodega, Telef1_Bodega, Telef2_Bodega, Telef3_Bodega, Resp1_idEmpleado, Resp2_idEmpleado, Resp3_idEmpleado, Fecha_Apertura, Fecha_reg, Original_idBodega, Original_Nom_Bodega, Original_Des_Bodega, Original_Direc_Bodega, Original_Telef1_Bodega, Original_Telef2_Bodega, Original_Telef3_Bodega, Original_Resp1_idEmpleado, Original_Resp2_idEmpleado, Original_Resp3_idEmpleado, Original_Fecha_Apertura, Original_Fecha_reg, Original_idBodega);
         }
     }
     
@@ -16778,8 +16302,6 @@ order by p.Nom_Comercial";
         
         private UpdateOrderOption _updateOrder;
         
-        private BodegasTableAdapter _bodegasTableAdapter;
-        
         private ConsumoTableAdapter _consumoTableAdapter;
         
         private DeclaracionTableAdapter _declaracionTableAdapter;
@@ -16798,20 +16320,6 @@ order by p.Nom_Comercial";
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public BodegasTableAdapter BodegasTableAdapter {
-            get {
-                return this._bodegasTableAdapter;
-            }
-            set {
-                this._bodegasTableAdapter = value;
             }
         }
         
@@ -16876,10 +16384,6 @@ order by p.Nom_Comercial";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._bodegasTableAdapter != null) 
-                            && (this._bodegasTableAdapter.Connection != null))) {
-                    return this._bodegasTableAdapter.Connection;
-                }
                 if (((this._consumoTableAdapter != null) 
                             && (this._consumoTableAdapter.Connection != null))) {
                     return this._consumoTableAdapter.Connection;
@@ -16905,9 +16409,6 @@ order by p.Nom_Comercial";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._bodegasTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._consumoTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -16928,15 +16429,6 @@ order by p.Nom_Comercial";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateUpdatedRows(DataSetCompras dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bodegasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Bodegas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bodegasTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._productoProveedorTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.ProductoProveedor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -16974,14 +16466,6 @@ order by p.Nom_Comercial";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private int UpdateInsertedRows(DataSetCompras dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bodegasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Bodegas.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bodegasTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._productoProveedorTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.ProductoProveedor.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -17040,14 +16524,6 @@ order by p.Nom_Comercial";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._bodegasTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Bodegas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bodegasTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             return result;
         }
         
@@ -17086,11 +16562,6 @@ order by p.Nom_Comercial";
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._bodegasTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._bodegasTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Todos los TableAdapters administrados por un TableAdapterManager deben usar la mi" +
-                        "sma cadena de conexión.");
             }
             if (((this._consumoTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._consumoTableAdapter.Connection) == false))) {
@@ -17139,15 +16610,6 @@ order by p.Nom_Comercial";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._bodegasTableAdapter != null)) {
-                    revertConnections.Add(this._bodegasTableAdapter, this._bodegasTableAdapter.Connection);
-                    this._bodegasTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._bodegasTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._bodegasTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._bodegasTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._bodegasTableAdapter.Adapter);
-                    }
-                }
                 if ((this._consumoTableAdapter != null)) {
                     revertConnections.Add(this._consumoTableAdapter, this._consumoTableAdapter.Connection);
                     this._consumoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -17232,10 +16694,6 @@ order by p.Nom_Comercial";
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._bodegasTableAdapter != null)) {
-                    this._bodegasTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._bodegasTableAdapter]));
-                    this._bodegasTableAdapter.Transaction = null;
                 }
                 if ((this._consumoTableAdapter != null)) {
                     this._consumoTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._consumoTableAdapter]));

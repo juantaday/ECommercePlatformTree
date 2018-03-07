@@ -26,30 +26,30 @@ Partial Class FrmFacturCompProvider
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListProviderComboBox = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.TipoDocumentComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.LocalBodegaComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.FindProviderButton = New System.Windows.Forms.Button()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LocalBodegaComboBox = New System.Windows.Forms.ComboBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.FindButton = New System.Windows.Forms.Button()
         Me.PanePie = New System.Windows.Forms.Panel()
+        Me.Ok_Button = New System.Windows.Forms.Button()
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.TotalLabel = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PaneData = New System.Windows.Forms.Panel()
         Me.panelView = New System.Windows.Forms.Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Ok_Button = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanePie.SuspendLayout()
         Me.PaneData.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -89,6 +89,15 @@ Partial Class FrmFacturCompProvider
         Me.Panel1.Size = New System.Drawing.Size(832, 89)
         Me.Panel1.TabIndex = 6
         '
+        'TipoDocumentComboBox
+        '
+        Me.TipoDocumentComboBox.FormattingEnabled = True
+        Me.TipoDocumentComboBox.Location = New System.Drawing.Point(229, 33)
+        Me.TipoDocumentComboBox.Margin = New System.Windows.Forms.Padding(5)
+        Me.TipoDocumentComboBox.Name = "TipoDocumentComboBox"
+        Me.TipoDocumentComboBox.Size = New System.Drawing.Size(231, 24)
+        Me.TipoDocumentComboBox.TabIndex = 10
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -99,46 +108,17 @@ Partial Class FrmFacturCompProvider
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Tipos de documentos:"
         '
-        'TipoDocumentComboBox
+        'Panel2
         '
-        Me.TipoDocumentComboBox.FormattingEnabled = True
-        Me.TipoDocumentComboBox.Location = New System.Drawing.Point(229, 33)
-        Me.TipoDocumentComboBox.Margin = New System.Windows.Forms.Padding(5)
-        Me.TipoDocumentComboBox.Name = "TipoDocumentComboBox"
-        Me.TipoDocumentComboBox.Size = New System.Drawing.Size(231, 24)
-        Me.TipoDocumentComboBox.TabIndex = 10
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label2.Location = New System.Drawing.Point(5, 3)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(110, 17)
-        Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Local o bodega:"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.ECommercePlatformView.My.Resources.Resources.Proveedor_450x270_Jpg
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(82, 83)
-        Me.PictureBox1.TabIndex = 7
-        Me.PictureBox1.TabStop = False
-        '
-        'LocalBodegaComboBox
-        '
-        Me.LocalBodegaComboBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.LocalBodegaComboBox.FormattingEnabled = True
-        Me.LocalBodegaComboBox.Location = New System.Drawing.Point(115, 3)
-        Me.LocalBodegaComboBox.Margin = New System.Windows.Forms.Padding(5)
-        Me.LocalBodegaComboBox.Name = "LocalBodegaComboBox"
-        Me.LocalBodegaComboBox.Size = New System.Drawing.Size(218, 24)
-        Me.LocalBodegaComboBox.TabIndex = 8
+        Me.Panel2.Controls.Add(Me.Label1)
+        Me.Panel2.Controls.Add(Me.FindProviderButton)
+        Me.Panel2.Controls.Add(Me.Panel3)
+        Me.Panel2.Controls.Add(Me.ListProviderComboBox)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel2.Location = New System.Drawing.Point(493, 3)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(336, 83)
+        Me.Panel2.TabIndex = 8
         '
         'FindProviderButton
         '
@@ -152,6 +132,38 @@ Partial Class FrmFacturCompProvider
         Me.ToolTip1.SetToolTip(Me.FindProviderButton, "Buscar proveedor")
         Me.FindProviderButton.UseVisualStyleBackColor = True
         '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.Label2)
+        Me.Panel3.Controls.Add(Me.LocalBodegaComboBox)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Padding = New System.Windows.Forms.Padding(3)
+        Me.Panel3.Size = New System.Drawing.Size(336, 31)
+        Me.Panel3.TabIndex = 0
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label2.Location = New System.Drawing.Point(5, 3)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(110, 17)
+        Me.Label2.TabIndex = 9
+        Me.Label2.Text = "Local o bodega:"
+        '
+        'LocalBodegaComboBox
+        '
+        Me.LocalBodegaComboBox.Dock = System.Windows.Forms.DockStyle.Right
+        Me.LocalBodegaComboBox.FormattingEnabled = True
+        Me.LocalBodegaComboBox.Location = New System.Drawing.Point(115, 3)
+        Me.LocalBodegaComboBox.Margin = New System.Windows.Forms.Padding(5)
+        Me.LocalBodegaComboBox.Name = "LocalBodegaComboBox"
+        Me.LocalBodegaComboBox.Size = New System.Drawing.Size(218, 24)
+        Me.LocalBodegaComboBox.TabIndex = 8
+        '
         'LinkLabel1
         '
         Me.LinkLabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -164,6 +176,17 @@ Partial Class FrmFacturCompProvider
         Me.LinkLabel1.TabStop = True
         Me.LinkLabel1.Text = "Opciones de fecha:"
         Me.LinkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackgroundImage = Global.ECommercePlatformView.My.Resources.Resources.Proveedor_450x270_Jpg
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(82, 83)
+        Me.PictureBox1.TabIndex = 7
+        Me.PictureBox1.TabStop = False
         '
         'FindButton
         '
@@ -191,6 +214,18 @@ Partial Class FrmFacturCompProvider
         Me.PanePie.Name = "PanePie"
         Me.PanePie.Size = New System.Drawing.Size(832, 34)
         Me.PanePie.TabIndex = 1
+        '
+        'Ok_Button
+        '
+        Me.Ok_Button.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Ok_Button.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Ok_Button.ForeColor = System.Drawing.Color.White
+        Me.Ok_Button.Location = New System.Drawing.Point(587, 0)
+        Me.Ok_Button.Name = "Ok_Button"
+        Me.Ok_Button.Size = New System.Drawing.Size(146, 34)
+        Me.Ok_Button.TabIndex = 2
+        Me.Ok_Button.Text = "Cerrar"
+        Me.Ok_Button.UseVisualStyleBackColor = False
         '
         'CloseButton
         '
@@ -236,29 +271,6 @@ Partial Class FrmFacturCompProvider
         Me.panelView.Size = New System.Drawing.Size(832, 270)
         Me.panelView.TabIndex = 1
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Controls.Add(Me.FindProviderButton)
-        Me.Panel2.Controls.Add(Me.Panel3)
-        Me.Panel2.Controls.Add(Me.ListProviderComboBox)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(493, 3)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(336, 83)
-        Me.Panel2.TabIndex = 8
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.Label2)
-        Me.Panel3.Controls.Add(Me.LocalBodegaComboBox)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Padding = New System.Windows.Forms.Padding(3)
-        Me.Panel3.Size = New System.Drawing.Size(336, 31)
-        Me.Panel3.TabIndex = 0
-        '
         'Panel4
         '
         Me.Panel4.Controls.Add(Me.FindButton)
@@ -268,18 +280,6 @@ Partial Class FrmFacturCompProvider
         Me.Panel4.Padding = New System.Windows.Forms.Padding(3)
         Me.Panel4.Size = New System.Drawing.Size(832, 32)
         Me.Panel4.TabIndex = 2
-        '
-        'Ok_Button
-        '
-        Me.Ok_Button.BackColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Ok_Button.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Ok_Button.ForeColor = System.Drawing.Color.White
-        Me.Ok_Button.Location = New System.Drawing.Point(587, 0)
-        Me.Ok_Button.Name = "Ok_Button"
-        Me.Ok_Button.Size = New System.Drawing.Size(146, 34)
-        Me.Ok_Button.TabIndex = 2
-        Me.Ok_Button.Text = "Cerrar"
-        Me.Ok_Button.UseVisualStyleBackColor = False
         '
         'FrmFacturCompProvider
         '
@@ -295,13 +295,13 @@ Partial Class FrmFacturCompProvider
         Me.Text = "Compra de productos...."
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PanePie.ResumeLayout(False)
-        Me.PaneData.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanePie.ResumeLayout(False)
+        Me.PaneData.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.ResumeLayout(False)
 

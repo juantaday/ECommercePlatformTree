@@ -110,11 +110,11 @@ Public Class frmAddNewDateExpir
                     ListBodegaComboBox.DataSource = dt.ToList()
                     ListBodegaComboBox.DisplayMember = "Nom_Bodega"
                     ListBodegaComboBox.ValueMember = "idBodega"
-                    ListBodegaComboBox.SelectedIndex = TerminalActivo.idBodega
+                    ListBodegaComboBox.SelectedValue = TerminalActivo.idBodega
                 End Using
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message, vbCritical, "Error")
+            MsgBox(ex.Message & " " & ex.StackTrace, vbCritical, "Error")
         End Try
     End Sub
 

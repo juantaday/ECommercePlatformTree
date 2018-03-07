@@ -62,9 +62,9 @@
       <DependentUpon>DataClassesDB.dbml</DependentUpon>
     </Compile>
     <Compile Include="DataClassesDB.designer.cs">
+      <DependentUpon>DataClassesDB.dbml</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataClassesDB.dbml</DependentUpon>
     </Compile>
     <Compile Include="DataSetClientes.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -128,10 +128,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetProductos.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DataSetReport.cs">
-      <DependentUpon>DataSetReport.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="DataSetReport.Designer.cs">
+    <Compile Include="DataSetReport1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetReport.xsd</DependentUpon>
@@ -190,10 +187,11 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="ClassDiagram1.cd" />
     <None Include="DataClassesDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <SubType>Designer</SubType>
       <LastGenOutput>DataClassesDB.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="DataSetClientes.xsc">
       <DependentUpon>DataSetClientes.xsd</DependentUpon>
@@ -311,7 +309,7 @@
     <None Include="DataSetReport.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetReport.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSetReport1.Designer.cs</LastGenOutput>
     </None>
     <None Include="DataSetReport.xss">
       <DependentUpon>DataSetReport.xsd</DependentUpon>
@@ -400,15 +398,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="DataClassesDB.dbml.layout">
-      <DependentUpon>DataClassesDB.dbml</DependentUpon>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ECommercePlatform.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataClassesDB.dbml.layout">
+      <DependentUpon>DataClassesDB.dbml</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

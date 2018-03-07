@@ -38,13 +38,13 @@ Partial Class frmList_ProductoView
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.txtProduc_Select = New System.Windows.Forms.TextBox()
+        Me.ExpirateButton = New System.Windows.Forms.Button()
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.menuNuevo = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContextMenuAdministra = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.PanelAdmin = New System.Windows.Forms.Panel()
-        Me.ExpirateButton = New System.Windows.Forms.Button()
         Me.EtiquetasButton = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.EditPriceSalesButton = New System.Windows.Forms.Button()
@@ -198,6 +198,20 @@ Partial Class frmList_ProductoView
         Me.txtProduc_Select.TabIndex = 0
         Me.ToolTip1.SetToolTip(Me.txtProduc_Select, "Escribe el produco o odigos o barra de producto a buscar")
         '
+        'ExpirateButton
+        '
+        Me.ExpirateButton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.ExpirateButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Expirate_32
+        Me.ExpirateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ExpirateButton.Location = New System.Drawing.Point(650, 2)
+        Me.ExpirateButton.Name = "ExpirateButton"
+        Me.ExpirateButton.Size = New System.Drawing.Size(122, 45)
+        Me.ExpirateButton.TabIndex = 4
+        Me.ExpirateButton.Text = "Expiración"
+        Me.ExpirateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.ExpirateButton, "Administrar fechas de caducidad")
+        Me.ExpirateButton.UseVisualStyleBackColor = True
+        '
         'btnCancelar
         '
         Me.btnCancelar.Dock = System.Windows.Forms.DockStyle.Right
@@ -256,20 +270,6 @@ Partial Class frmList_ProductoView
         Me.PanelAdmin.Padding = New System.Windows.Forms.Padding(20, 2, 0, 2)
         Me.PanelAdmin.Size = New System.Drawing.Size(1094, 49)
         Me.PanelAdmin.TabIndex = 17
-        '
-        'ExpirateButton
-        '
-        Me.ExpirateButton.Dock = System.Windows.Forms.DockStyle.Left
-        Me.ExpirateButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Expirate_32
-        Me.ExpirateButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ExpirateButton.Location = New System.Drawing.Point(650, 2)
-        Me.ExpirateButton.Name = "ExpirateButton"
-        Me.ExpirateButton.Size = New System.Drawing.Size(122, 45)
-        Me.ExpirateButton.TabIndex = 4
-        Me.ExpirateButton.Text = "Expiración"
-        Me.ExpirateButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ToolTip1.SetToolTip(Me.ExpirateButton, "Administrar fechas de caducidad")
-        Me.ExpirateButton.UseVisualStyleBackColor = True
         '
         'EtiquetasButton
         '

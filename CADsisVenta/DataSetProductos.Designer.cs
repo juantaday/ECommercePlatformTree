@@ -26,6 +26,8 @@ namespace CADsisVenta {
         
         private ReturnViewInventoriesUpdateDataTable tableReturnViewInventoriesUpdate;
         
+        private pcdGetListProductAdminPriceWithPurcharseDataTable tablepcdGetListProductAdminPriceWithPurcharse;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57,6 +59,9 @@ namespace CADsisVenta {
                 if ((ds.Tables["ReturnViewInventoriesUpdate"] != null)) {
                     base.Tables.Add(new ReturnViewInventoriesUpdateDataTable(ds.Tables["ReturnViewInventoriesUpdate"]));
                 }
+                if ((ds.Tables["pcdGetListProductAdminPriceWithPurcharse"] != null)) {
+                    base.Tables.Add(new pcdGetListProductAdminPriceWithPurcharseDataTable(ds.Tables["pcdGetListProductAdminPriceWithPurcharse"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -82,6 +87,16 @@ namespace CADsisVenta {
         public ReturnViewInventoriesUpdateDataTable ReturnViewInventoriesUpdate {
             get {
                 return this.tableReturnViewInventoriesUpdate;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public pcdGetListProductAdminPriceWithPurcharseDataTable pcdGetListProductAdminPriceWithPurcharse {
+            get {
+                return this.tablepcdGetListProductAdminPriceWithPurcharse;
             }
         }
         
@@ -155,6 +170,9 @@ namespace CADsisVenta {
                 if ((ds.Tables["ReturnViewInventoriesUpdate"] != null)) {
                     base.Tables.Add(new ReturnViewInventoriesUpdateDataTable(ds.Tables["ReturnViewInventoriesUpdate"]));
                 }
+                if ((ds.Tables["pcdGetListProductAdminPriceWithPurcharse"] != null)) {
+                    base.Tables.Add(new pcdGetListProductAdminPriceWithPurcharseDataTable(ds.Tables["pcdGetListProductAdminPriceWithPurcharse"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -194,6 +212,12 @@ namespace CADsisVenta {
                     this.tableReturnViewInventoriesUpdate.InitVars();
                 }
             }
+            this.tablepcdGetListProductAdminPriceWithPurcharse = ((pcdGetListProductAdminPriceWithPurcharseDataTable)(base.Tables["pcdGetListProductAdminPriceWithPurcharse"]));
+            if ((initTable == true)) {
+                if ((this.tablepcdGetListProductAdminPriceWithPurcharse != null)) {
+                    this.tablepcdGetListProductAdminPriceWithPurcharse.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -206,11 +230,19 @@ namespace CADsisVenta {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableReturnViewInventoriesUpdate = new ReturnViewInventoriesUpdateDataTable();
             base.Tables.Add(this.tableReturnViewInventoriesUpdate);
+            this.tablepcdGetListProductAdminPriceWithPurcharse = new pcdGetListProductAdminPriceWithPurcharseDataTable();
+            base.Tables.Add(this.tablepcdGetListProductAdminPriceWithPurcharse);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeReturnViewInventoriesUpdate() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializepcdGetListProductAdminPriceWithPurcharse() {
             return false;
         }
         
@@ -271,6 +303,9 @@ namespace CADsisVenta {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void ReturnViewInventoriesUpdateRowChangeEventHandler(object sender, ReturnViewInventoriesUpdateRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void pcdGetListProductAdminPriceWithPurcharseRowChangeEventHandler(object sender, pcdGetListProductAdminPriceWithPurcharseRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -753,6 +788,464 @@ namespace CADsisVenta {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class pcdGetListProductAdminPriceWithPurcharseDataTable : global::System.Data.TypedTableBase<pcdGetListProductAdminPriceWithPurcharseRow> {
+            
+            private global::System.Data.DataColumn columnidProducto;
+            
+            private global::System.Data.DataColumn columnActivo;
+            
+            private global::System.Data.DataColumn columnidPresentacion;
+            
+            private global::System.Data.DataColumn columnNom_Comercial;
+            
+            private global::System.Data.DataColumn columnCompra;
+            
+            private global::System.Data.DataColumn columnVenta;
+            
+            private global::System.Data.DataColumn columnPresentación;
+            
+            private global::System.Data.DataColumn columnEmpaque;
+            
+            private global::System.Data.DataColumn columnPrecio_Compra;
+            
+            private global::System.Data.DataColumn columnPrecio_Venta;
+            
+            private global::System.Data.DataColumn _column__Utilidad;
+            
+            private global::System.Data.DataColumn _column__Rentabilidad;
+            
+            private global::System.Data.DataColumn columnOferta;
+            
+            private global::System.Data.DataColumn columnEmpaquetado;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public pcdGetListProductAdminPriceWithPurcharseDataTable() {
+                this.TableName = "pcdGetListProductAdminPriceWithPurcharse";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal pcdGetListProductAdminPriceWithPurcharseDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected pcdGetListProductAdminPriceWithPurcharseDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn idProductoColumn {
+                get {
+                    return this.columnidProducto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ActivoColumn {
+                get {
+                    return this.columnActivo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn idPresentacionColumn {
+                get {
+                    return this.columnidPresentacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Nom_ComercialColumn {
+                get {
+                    return this.columnNom_Comercial;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CompraColumn {
+                get {
+                    return this.columnCompra;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn VentaColumn {
+                get {
+                    return this.columnVenta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn PresentaciónColumn {
+                get {
+                    return this.columnPresentación;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EmpaqueColumn {
+                get {
+                    return this.columnEmpaque;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Precio_CompraColumn {
+                get {
+                    return this.columnPrecio_Compra;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn Precio_VentaColumn {
+                get {
+                    return this.columnPrecio_Venta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ___UtilidadColumn {
+                get {
+                    return this._column__Utilidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ___RentabilidadColumn {
+                get {
+                    return this._column__Rentabilidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn OfertaColumn {
+                get {
+                    return this.columnOferta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EmpaquetadoColumn {
+                get {
+                    return this.columnEmpaquetado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public pcdGetListProductAdminPriceWithPurcharseRow this[int index] {
+                get {
+                    return ((pcdGetListProductAdminPriceWithPurcharseRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event pcdGetListProductAdminPriceWithPurcharseRowChangeEventHandler pcdGetListProductAdminPriceWithPurcharseRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event pcdGetListProductAdminPriceWithPurcharseRowChangeEventHandler pcdGetListProductAdminPriceWithPurcharseRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event pcdGetListProductAdminPriceWithPurcharseRowChangeEventHandler pcdGetListProductAdminPriceWithPurcharseRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event pcdGetListProductAdminPriceWithPurcharseRowChangeEventHandler pcdGetListProductAdminPriceWithPurcharseRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddpcdGetListProductAdminPriceWithPurcharseRow(pcdGetListProductAdminPriceWithPurcharseRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public pcdGetListProductAdminPriceWithPurcharseRow AddpcdGetListProductAdminPriceWithPurcharseRow(bool Activo, string Nom_Comercial, string Compra, string Venta, string Presentación, string Empaque, decimal Precio_Compra, decimal Precio_Venta, decimal ___Utilidad, decimal ___Rentabilidad, string Oferta, decimal Empaquetado) {
+                pcdGetListProductAdminPriceWithPurcharseRow rowpcdGetListProductAdminPriceWithPurcharseRow = ((pcdGetListProductAdminPriceWithPurcharseRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Activo,
+                        null,
+                        Nom_Comercial,
+                        Compra,
+                        Venta,
+                        Presentación,
+                        Empaque,
+                        Precio_Compra,
+                        Precio_Venta,
+                        ___Utilidad,
+                        ___Rentabilidad,
+                        Oferta,
+                        Empaquetado};
+                rowpcdGetListProductAdminPriceWithPurcharseRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowpcdGetListProductAdminPriceWithPurcharseRow);
+                return rowpcdGetListProductAdminPriceWithPurcharseRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                pcdGetListProductAdminPriceWithPurcharseDataTable cln = ((pcdGetListProductAdminPriceWithPurcharseDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new pcdGetListProductAdminPriceWithPurcharseDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnidProducto = base.Columns["idProducto"];
+                this.columnActivo = base.Columns["Activo"];
+                this.columnidPresentacion = base.Columns["idPresentacion"];
+                this.columnNom_Comercial = base.Columns["Nom_Comercial"];
+                this.columnCompra = base.Columns["Compra"];
+                this.columnVenta = base.Columns["Venta"];
+                this.columnPresentación = base.Columns["Presentación"];
+                this.columnEmpaque = base.Columns["Empaque"];
+                this.columnPrecio_Compra = base.Columns["Precio Compra"];
+                this.columnPrecio_Venta = base.Columns["Precio Venta"];
+                this._column__Utilidad = base.Columns["$ Utilidad"];
+                this._column__Rentabilidad = base.Columns["% Rentabilidad"];
+                this.columnOferta = base.Columns["Oferta"];
+                this.columnEmpaquetado = base.Columns["Empaquetado"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnidProducto = new global::System.Data.DataColumn("idProducto", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidProducto);
+                this.columnActivo = new global::System.Data.DataColumn("Activo", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnActivo);
+                this.columnidPresentacion = new global::System.Data.DataColumn("idPresentacion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnidPresentacion);
+                this.columnNom_Comercial = new global::System.Data.DataColumn("Nom_Comercial", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNom_Comercial);
+                this.columnCompra = new global::System.Data.DataColumn("Compra", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompra);
+                this.columnVenta = new global::System.Data.DataColumn("Venta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVenta);
+                this.columnPresentación = new global::System.Data.DataColumn("Presentación", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPresentación);
+                this.columnEmpaque = new global::System.Data.DataColumn("Empaque", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmpaque);
+                this.columnPrecio_Compra = new global::System.Data.DataColumn("Precio Compra", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecio_Compra);
+                this.columnPrecio_Venta = new global::System.Data.DataColumn("Precio Venta", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrecio_Venta);
+                this._column__Utilidad = new global::System.Data.DataColumn("$ Utilidad", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this._column__Utilidad.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column__Utilidad");
+                this._column__Utilidad.ExtendedProperties.Add("Generator_UserColumnName", "$ Utilidad");
+                base.Columns.Add(this._column__Utilidad);
+                this._column__Rentabilidad = new global::System.Data.DataColumn("% Rentabilidad", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this._column__Rentabilidad.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_column__Rentabilidad");
+                this._column__Rentabilidad.ExtendedProperties.Add("Generator_UserColumnName", "% Rentabilidad");
+                base.Columns.Add(this._column__Rentabilidad);
+                this.columnOferta = new global::System.Data.DataColumn("Oferta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOferta);
+                this.columnEmpaquetado = new global::System.Data.DataColumn("Empaquetado", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmpaquetado);
+                this.columnidProducto.AutoIncrement = true;
+                this.columnidProducto.AutoIncrementSeed = -1;
+                this.columnidProducto.AutoIncrementStep = -1;
+                this.columnidProducto.AllowDBNull = false;
+                this.columnidProducto.ReadOnly = true;
+                this.columnidPresentacion.AutoIncrement = true;
+                this.columnidPresentacion.AutoIncrementSeed = -1;
+                this.columnidPresentacion.AutoIncrementStep = -1;
+                this.columnidPresentacion.AllowDBNull = false;
+                this.columnidPresentacion.ReadOnly = true;
+                this.columnNom_Comercial.AllowDBNull = false;
+                this.columnNom_Comercial.MaxLength = 50;
+                this.columnCompra.ReadOnly = true;
+                this.columnCompra.MaxLength = 25;
+                this.columnVenta.ReadOnly = true;
+                this.columnVenta.MaxLength = 25;
+                this.columnPresentación.AllowDBNull = false;
+                this.columnPresentación.MaxLength = 25;
+                this.columnEmpaque.MaxLength = 255;
+                this.columnPrecio_Compra.AllowDBNull = false;
+                this.columnPrecio_Venta.AllowDBNull = false;
+                this._column__Utilidad.ReadOnly = true;
+                this._column__Rentabilidad.ReadOnly = true;
+                this.columnOferta.ReadOnly = true;
+                this.columnOferta.MaxLength = 10;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public pcdGetListProductAdminPriceWithPurcharseRow NewpcdGetListProductAdminPriceWithPurcharseRow() {
+                return ((pcdGetListProductAdminPriceWithPurcharseRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new pcdGetListProductAdminPriceWithPurcharseRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(pcdGetListProductAdminPriceWithPurcharseRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.pcdGetListProductAdminPriceWithPurcharseRowChanged != null)) {
+                    this.pcdGetListProductAdminPriceWithPurcharseRowChanged(this, new pcdGetListProductAdminPriceWithPurcharseRowChangeEvent(((pcdGetListProductAdminPriceWithPurcharseRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.pcdGetListProductAdminPriceWithPurcharseRowChanging != null)) {
+                    this.pcdGetListProductAdminPriceWithPurcharseRowChanging(this, new pcdGetListProductAdminPriceWithPurcharseRowChangeEvent(((pcdGetListProductAdminPriceWithPurcharseRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.pcdGetListProductAdminPriceWithPurcharseRowDeleted != null)) {
+                    this.pcdGetListProductAdminPriceWithPurcharseRowDeleted(this, new pcdGetListProductAdminPriceWithPurcharseRowChangeEvent(((pcdGetListProductAdminPriceWithPurcharseRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.pcdGetListProductAdminPriceWithPurcharseRowDeleting != null)) {
+                    this.pcdGetListProductAdminPriceWithPurcharseRowDeleting(this, new pcdGetListProductAdminPriceWithPurcharseRowChangeEvent(((pcdGetListProductAdminPriceWithPurcharseRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemovepcdGetListProductAdminPriceWithPurcharseRow(pcdGetListProductAdminPriceWithPurcharseRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSetProductos ds = new DataSetProductos();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "pcdGetListProductAdminPriceWithPurcharseDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class ReturnViewInventoriesUpdateRow : global::System.Data.DataRow {
@@ -998,6 +1491,319 @@ namespace CADsisVenta {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class pcdGetListProductAdminPriceWithPurcharseRow : global::System.Data.DataRow {
+            
+            private pcdGetListProductAdminPriceWithPurcharseDataTable tablepcdGetListProductAdminPriceWithPurcharse;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal pcdGetListProductAdminPriceWithPurcharseRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablepcdGetListProductAdminPriceWithPurcharse = ((pcdGetListProductAdminPriceWithPurcharseDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int idProducto {
+                get {
+                    return ((int)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.idProductoColumn]));
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.idProductoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Activo {
+                get {
+                    try {
+                        return ((bool)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.ActivoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Activo\' de la tabla \'pcdGetListProductAdminPriceWithPurch" +
+                                "arse\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.ActivoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int idPresentacion {
+                get {
+                    return ((int)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.idPresentacionColumn]));
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.idPresentacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Nom_Comercial {
+                get {
+                    return ((string)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.Nom_ComercialColumn]));
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.Nom_ComercialColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Compra {
+                get {
+                    try {
+                        return ((string)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.CompraColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Compra\' de la tabla \'pcdGetListProductAdminPriceWithPurch" +
+                                "arse\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.CompraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Venta {
+                get {
+                    try {
+                        return ((string)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.VentaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Venta\' de la tabla \'pcdGetListProductAdminPriceWithPurcha" +
+                                "rse\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.VentaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Presentación {
+                get {
+                    return ((string)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.PresentaciónColumn]));
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.PresentaciónColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Empaque {
+                get {
+                    try {
+                        return ((string)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.EmpaqueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Empaque\' de la tabla \'pcdGetListProductAdminPriceWithPurc" +
+                                "harse\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.EmpaqueColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Precio_Compra {
+                get {
+                    return ((decimal)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.Precio_CompraColumn]));
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.Precio_CompraColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Precio_Venta {
+                get {
+                    return ((decimal)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.Precio_VentaColumn]));
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.Precio_VentaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal ___Utilidad {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.___UtilidadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'$ Utilidad\' de la tabla \'pcdGetListProductAdminPriceWithP" +
+                                "urcharse\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.___UtilidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal ___Rentabilidad {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.___RentabilidadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'% Rentabilidad\' de la tabla \'pcdGetListProductAdminPriceW" +
+                                "ithPurcharse\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.___RentabilidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Oferta {
+                get {
+                    try {
+                        return ((string)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.OfertaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Oferta\' de la tabla \'pcdGetListProductAdminPriceWithPurch" +
+                                "arse\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.OfertaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal Empaquetado {
+                get {
+                    try {
+                        return ((decimal)(this[this.tablepcdGetListProductAdminPriceWithPurcharse.EmpaquetadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Empaquetado\' de la tabla \'pcdGetListProductAdminPriceWith" +
+                                "Purcharse\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepcdGetListProductAdminPriceWithPurcharse.EmpaquetadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsActivoNull() {
+                return this.IsNull(this.tablepcdGetListProductAdminPriceWithPurcharse.ActivoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetActivoNull() {
+                this[this.tablepcdGetListProductAdminPriceWithPurcharse.ActivoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCompraNull() {
+                return this.IsNull(this.tablepcdGetListProductAdminPriceWithPurcharse.CompraColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCompraNull() {
+                this[this.tablepcdGetListProductAdminPriceWithPurcharse.CompraColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsVentaNull() {
+                return this.IsNull(this.tablepcdGetListProductAdminPriceWithPurcharse.VentaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetVentaNull() {
+                this[this.tablepcdGetListProductAdminPriceWithPurcharse.VentaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEmpaqueNull() {
+                return this.IsNull(this.tablepcdGetListProductAdminPriceWithPurcharse.EmpaqueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEmpaqueNull() {
+                this[this.tablepcdGetListProductAdminPriceWithPurcharse.EmpaqueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is___UtilidadNull() {
+                return this.IsNull(this.tablepcdGetListProductAdminPriceWithPurcharse.___UtilidadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set___UtilidadNull() {
+                this[this.tablepcdGetListProductAdminPriceWithPurcharse.___UtilidadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool Is___RentabilidadNull() {
+                return this.IsNull(this.tablepcdGetListProductAdminPriceWithPurcharse.___RentabilidadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void Set___RentabilidadNull() {
+                this[this.tablepcdGetListProductAdminPriceWithPurcharse.___RentabilidadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsOfertaNull() {
+                return this.IsNull(this.tablepcdGetListProductAdminPriceWithPurcharse.OfertaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetOfertaNull() {
+                this[this.tablepcdGetListProductAdminPriceWithPurcharse.OfertaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEmpaquetadoNull() {
+                return this.IsNull(this.tablepcdGetListProductAdminPriceWithPurcharse.EmpaquetadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEmpaquetadoNull() {
+                this[this.tablepcdGetListProductAdminPriceWithPurcharse.EmpaquetadoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1017,6 +1823,40 @@ namespace CADsisVenta {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public ReturnViewInventoriesUpdateRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class pcdGetListProductAdminPriceWithPurcharseRowChangeEvent : global::System.EventArgs {
+            
+            private pcdGetListProductAdminPriceWithPurcharseRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public pcdGetListProductAdminPriceWithPurcharseRowChangeEvent(pcdGetListProductAdminPriceWithPurcharseRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public pcdGetListProductAdminPriceWithPurcharseRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1226,6 +2066,226 @@ namespace CADsisVenta.DataSetProductosTableAdapters {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             DataSetProductos.ReturnViewInventoriesUpdateDataTable dataTable = new DataSetProductos.ReturnViewInventoriesUpdateDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class pcdGetListProductAdminPriceWithPurcharseTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public pcdGetListProductAdminPriceWithPurcharseTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "pcdGetListProductAdminPriceWithPurcharse";
+            tableMapping.ColumnMappings.Add("idProducto", "idProducto");
+            tableMapping.ColumnMappings.Add("Activo", "Activo");
+            tableMapping.ColumnMappings.Add("idPresentacion", "idPresentacion");
+            tableMapping.ColumnMappings.Add("Nom_Comercial", "Nom_Comercial");
+            tableMapping.ColumnMappings.Add("Compra", "Compra");
+            tableMapping.ColumnMappings.Add("Venta", "Venta");
+            tableMapping.ColumnMappings.Add("Presentación", "Presentación");
+            tableMapping.ColumnMappings.Add("Empaque", "Empaque");
+            tableMapping.ColumnMappings.Add("Precio Compra", "Precio Compra");
+            tableMapping.ColumnMappings.Add("Precio Venta", "Precio Venta");
+            tableMapping.ColumnMappings.Add("$ Utilidad", "$ Utilidad");
+            tableMapping.ColumnMappings.Add("% Rentabilidad", "% Rentabilidad");
+            tableMapping.ColumnMappings.Add("Oferta", "Oferta");
+            tableMapping.ColumnMappings.Add("Empaquetado", "Empaquetado");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::CADsisVenta.Properties.Settings.Default.JsofConneccionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "dbo.pcdGetListProductAdminPriceWithPurcharse";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idFacturaCompra", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codUser", global::System.Data.SqlDbType.Char, 8, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@codTerminal", global::System.Data.SqlDbType.Char, 8, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSetProductos.pcdGetListProductAdminPriceWithPurcharseDataTable dataTable, global::System.Nullable<int> idFacturaCompra, string codUser, string codTerminal) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((idFacturaCompra.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idFacturaCompra.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((codUser == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(codUser));
+            }
+            if ((codTerminal == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(codTerminal));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSetProductos.pcdGetListProductAdminPriceWithPurcharseDataTable GetData(global::System.Nullable<int> idFacturaCompra, string codUser, string codTerminal) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((idFacturaCompra.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(idFacturaCompra.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((codUser == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(codUser));
+            }
+            if ((codTerminal == null)) {
+                this.Adapter.SelectCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[3].Value = ((string)(codTerminal));
+            }
+            DataSetProductos.pcdGetListProductAdminPriceWithPurcharseDataTable dataTable = new DataSetProductos.pcdGetListProductAdminPriceWithPurcharseDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

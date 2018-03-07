@@ -82,6 +82,7 @@ Partial Class MDIPareInicio
         Me.KardexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FacturacionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenCompraNew = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OrdenesDeCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenDeTrabajoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OrdenCompraToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VentasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -168,9 +169,10 @@ Partial Class MDIPareInicio
         Me.MenuStrip1.GripMargin = New System.Windows.Forms.Padding(2)
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InicioToolStripMenuItem, Me.ArchivoToolStripMenuItem, Me.HerramientasToolStripMenuItem, Me.SettingToolStripMenuItem, Me.ListadosToolStripMenuItem, Me.ProductoToolStripMenuItem, Me.FacturacionToolStripMenuItem, Me.VentasToolStripMenuItem, Me.ConfiguracionToolStripMenuItem, Me.SeguridadToolStripMenuItem, Me.AcercaToolStripMenuItem})
+        Me.MenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(1263, 56)
+        Me.MenuStrip1.Size = New System.Drawing.Size(1263, 75)
         Me.MenuStrip1.Stretch = False
         Me.MenuStrip1.TabIndex = 10
         Me.MenuStrip1.Text = "Erramientas"
@@ -186,7 +188,7 @@ Partial Class MDIPareInicio
         Me.InicioToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.InicioToolStripMenuItem.Name = "InicioToolStripMenuItem"
         Me.InicioToolStripMenuItem.Padding = New System.Windows.Forms.Padding(0)
-        Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(68, 52)
+        Me.InicioToolStripMenuItem.Size = New System.Drawing.Size(68, 36)
         Me.InicioToolStripMenuItem.Text = "Inicio"
         '
         'MiEmpresaToolStripMenuItem1
@@ -224,7 +226,7 @@ Partial Class MDIPareInicio
         Me.ArchivoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.ArchivoToolStripMenuItem.Name = "ArchivoToolStripMenuItem"
         Me.ArchivoToolStripMenuItem.Padding = New System.Windows.Forms.Padding(0)
-        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(91, 52)
+        Me.ArchivoToolStripMenuItem.Size = New System.Drawing.Size(91, 36)
         Me.ArchivoToolStripMenuItem.Text = "Archivo"
         '
         'BalanceToolStripMenuItem
@@ -586,7 +588,7 @@ Partial Class MDIPareInicio
         '
         'FacturacionToolStripMenuItem
         '
-        Me.FacturacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenCompraNew, Me.OrdenDeTrabajoToolStripMenuItem, Me.OrdenCompraToolStripMenuItem})
+        Me.FacturacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenCompraNew, Me.OrdenesDeCompraToolStripMenuItem, Me.OrdenDeTrabajoToolStripMenuItem, Me.OrdenCompraToolStripMenuItem})
         Me.FacturacionToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FacturacionToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.compra_48
         Me.FacturacionToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -606,6 +608,14 @@ Partial Class MDIPareInicio
         Me.OrdenCompraNew.Tag = "1"
         Me.OrdenCompraNew.Text = "Nueva"
         '
+        'OrdenesDeCompraToolStripMenuItem
+        '
+        Me.OrdenesDeCompraToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.ListPurcharses
+        Me.OrdenesDeCompraToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.OrdenesDeCompraToolStripMenuItem.Name = "OrdenesDeCompraToolStripMenuItem"
+        Me.OrdenesDeCompraToolStripMenuItem.Size = New System.Drawing.Size(244, 54)
+        Me.OrdenesDeCompraToolStripMenuItem.Text = "Ordenes de compra"
+        '
         'OrdenDeTrabajoToolStripMenuItem
         '
         Me.OrdenDeTrabajoToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.NewPedidoAnual_48
@@ -623,7 +633,7 @@ Partial Class MDIPareInicio
         Me.OrdenCompraToolStripMenuItem.Name = "OrdenCompraToolStripMenuItem"
         Me.OrdenCompraToolStripMenuItem.Size = New System.Drawing.Size(244, 54)
         Me.OrdenCompraToolStripMenuItem.Tag = "3"
-        Me.OrdenCompraToolStripMenuItem.Text = "Orden de compra"
+        Me.OrdenCompraToolStripMenuItem.Text = "Ordens de pedidos"
         '
         'VentasToolStripMenuItem
         '
@@ -812,9 +822,9 @@ Partial Class MDIPareInicio
         'paneMuestra
         '
         Me.paneMuestra.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.paneMuestra.Location = New System.Drawing.Point(0, 86)
+        Me.paneMuestra.Location = New System.Drawing.Point(0, 105)
         Me.paneMuestra.Name = "paneMuestra"
-        Me.paneMuestra.Size = New System.Drawing.Size(1263, 213)
+        Me.paneMuestra.Size = New System.Drawing.Size(1263, 194)
         Me.paneMuestra.TabIndex = 14
         '
         'MenuStrip
@@ -823,7 +833,7 @@ Partial Class MDIPareInicio
         Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewMenu, Me.WindowsMenu, Me.EditarToolStripMenuItem, Me.ContadorBillteToolStripMenuItem})
-        Me.MenuStrip.Location = New System.Drawing.Point(0, 56)
+        Me.MenuStrip.Location = New System.Drawing.Point(0, 75)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(1263, 30)
@@ -930,7 +940,7 @@ Partial Class MDIPareInicio
         Me.MenuBarr.AutoSize = False
         Me.MenuBarr.BackColor = System.Drawing.Color.White
         Me.MenuBarr.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.I1ToolStripMenuItem, Me.I2ToolStripMenuItem, Me.I3ToolStripMenuItem, Me.I4ToolStripMenuItem, Me.I5ToolStripMenuItem, Me.I6ToolStripMenuItem, Me.I7ToolStripMenuItem, Me.I8ToolStripMenuItem, Me.I9ToolStripMenuItem, Me.I10ToolStripMenuItem, Me.I11ToolStripMenuItem, Me.I12ToolStripMenuItem, Me.I13ToolStripMenuItem, Me.I14ToolStripMenuItem, Me.I15ToolStripMenuItem, Me.I16ToolStripMenuItem, Me.I17ToolStripMenuItem, Me.I18ToolStripMenuItem, Me.I19ToolStripMenuItem})
-        Me.MenuBarr.Location = New System.Drawing.Point(0, 86)
+        Me.MenuBarr.Location = New System.Drawing.Point(0, 105)
         Me.MenuBarr.Name = "MenuBarr"
         Me.MenuBarr.Size = New System.Drawing.Size(1263, 30)
         Me.MenuBarr.TabIndex = 21
@@ -1196,4 +1206,5 @@ Partial Class MDIPareInicio
     Friend WithEvents EtiquetasCodigosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents MisLetreritosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SettingDocumentsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents OrdenesDeCompraToolStripMenuItem As ToolStripMenuItem
 End Class

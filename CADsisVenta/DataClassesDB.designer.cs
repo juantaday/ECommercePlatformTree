@@ -210,9 +210,15 @@ namespace CADsisVenta
     partial void InsertVentas_Detail(Ventas_Detail instance);
     partial void UpdateVentas_Detail(Ventas_Detail instance);
     partial void DeleteVentas_Detail(Ventas_Detail instance);
+    partial void InsertFacturaCompra_Detail(FacturaCompra_Detail instance);
+    partial void UpdateFacturaCompra_Detail(FacturaCompra_Detail instance);
+    partial void DeleteFacturaCompra_Detail(FacturaCompra_Detail instance);
     partial void InsertProductExpiration(ProductExpiration instance);
     partial void UpdateProductExpiration(ProductExpiration instance);
     partial void DeleteProductExpiration(ProductExpiration instance);
+    partial void InsertProductCombined(ProductCombined instance);
+    partial void UpdateProductCombined(ProductCombined instance);
+    partial void DeleteProductCombined(ProductCombined instance);
     #endregion
 		
 		public DataClassesDBDataContext() : 
@@ -749,11 +755,27 @@ namespace CADsisVenta
 			}
 		}
 		
+		public System.Data.Linq.Table<FacturaCompra_Detail> FacturaCompra_Detail
+		{
+			get
+			{
+				return this.GetTable<FacturaCompra_Detail>();
+			}
+		}
+		
 		public System.Data.Linq.Table<ProductExpiration> ProductExpiration
 		{
 			get
 			{
 				return this.GetTable<ProductExpiration>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProductCombined> ProductCombined
+		{
+			get
+			{
+				return this.GetTable<ProductCombined>();
 			}
 		}
 		
@@ -2659,6 +2681,8 @@ namespace CADsisVenta
 		
 		private bool _ItIsExpirable;
 		
+		private byte _IdKind;
+		
 		private EntitySet<InventoryDetail> _InventoryDetail;
 		
 		private EntitySet<ProductosStock> _ProductosStock;
@@ -2668,6 +2692,8 @@ namespace CADsisVenta
 		private EntitySet<ProductoPresentacion> _ProductoPresentacion;
 		
 		private EntitySet<ProductExpiration> _ProductExpiration;
+		
+		private EntitySet<ProductCombined> _ProductCombined;
 		
 		private EntityRef<ProductoSubCategoria> _ProductoSubCategoria;
 		
@@ -2709,6 +2735,8 @@ namespace CADsisVenta
     partial void OnActivoChanged();
     partial void OnItIsExpirableChanging(bool value);
     partial void OnItIsExpirableChanged();
+    partial void OnIdKindChanging(byte value);
+    partial void OnIdKindChanged();
     #endregion
 		
 		public Productos()
@@ -2718,6 +2746,7 @@ namespace CADsisVenta
 			this._RatesProductoDetail = new EntitySet<RatesProductoDetail>(new Action<RatesProductoDetail>(this.attach_RatesProductoDetail), new Action<RatesProductoDetail>(this.detach_RatesProductoDetail));
 			this._ProductoPresentacion = new EntitySet<ProductoPresentacion>(new Action<ProductoPresentacion>(this.attach_ProductoPresentacion), new Action<ProductoPresentacion>(this.detach_ProductoPresentacion));
 			this._ProductExpiration = new EntitySet<ProductExpiration>(new Action<ProductExpiration>(this.attach_ProductExpiration), new Action<ProductExpiration>(this.detach_ProductExpiration));
+			this._ProductCombined = new EntitySet<ProductCombined>(new Action<ProductCombined>(this.attach_ProductCombined), new Action<ProductCombined>(this.detach_ProductCombined));
 			this._ProductoSubCategoria = default(EntityRef<ProductoSubCategoria>);
 			this._ProductoUndMin = default(EntityRef<ProductoUndMin>);
 			OnCreated();
@@ -3051,6 +3080,26 @@ namespace CADsisVenta
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdKind", DbType="TinyInt NOT NULL")]
+		public byte IdKind
+		{
+			get
+			{
+				return this._IdKind;
+			}
+			set
+			{
+				if ((this._IdKind != value))
+				{
+					this.OnIdKindChanging(value);
+					this.SendPropertyChanging();
+					this._IdKind = value;
+					this.SendPropertyChanged("IdKind");
+					this.OnIdKindChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Productos_InventoryDetail", Storage="_InventoryDetail", ThisKey="idProducto", OtherKey="idProducto")]
 		public EntitySet<InventoryDetail> InventoryDetail
 		{
@@ -3113,6 +3162,19 @@ namespace CADsisVenta
 			set
 			{
 				this._ProductExpiration.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Productos_ProductCombined", Storage="_ProductCombined", ThisKey="idProducto", OtherKey="idProducto")]
+		public EntitySet<ProductCombined> ProductCombined
+		{
+			get
+			{
+				return this._ProductCombined;
+			}
+			set
+			{
+				this._ProductCombined.Assign(value);
 			}
 		}
 		
@@ -3259,6 +3321,18 @@ namespace CADsisVenta
 		}
 		
 		private void detach_ProductExpiration(ProductExpiration entity)
+		{
+			this.SendPropertyChanging();
+			entity.Productos = null;
+		}
+		
+		private void attach_ProductCombined(ProductCombined entity)
+		{
+			this.SendPropertyChanging();
+			entity.Productos = this;
+		}
+		
+		private void detach_ProductCombined(ProductCombined entity)
 		{
 			this.SendPropertyChanging();
 			entity.Productos = null;
@@ -9953,6 +10027,8 @@ namespace CADsisVenta
 		
 		private bool _state;
 		
+		private EntitySet<FacturaCompra_Detail> _FacturaCompra_Detail;
+		
 		private EntityRef<Bodegas> _Bodegas;
 		
 		private EntityRef<FormaPago> _FormaPago;
@@ -10009,6 +10085,7 @@ namespace CADsisVenta
 		
 		public FacturaCompra()
 		{
+			this._FacturaCompra_Detail = new EntitySet<FacturaCompra_Detail>(new Action<FacturaCompra_Detail>(this.attach_FacturaCompra_Detail), new Action<FacturaCompra_Detail>(this.detach_FacturaCompra_Detail));
 			this._Bodegas = default(EntityRef<Bodegas>);
 			this._FormaPago = default(EntityRef<FormaPago>);
 			this._Proveedores = default(EntityRef<Proveedores>);
@@ -10432,6 +10509,19 @@ namespace CADsisVenta
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FacturaCompra_FacturaCompra_Detail", Storage="_FacturaCompra_Detail", ThisKey="idFacturaCompra", OtherKey="idFacturaCompra")]
+		public EntitySet<FacturaCompra_Detail> FacturaCompra_Detail
+		{
+			get
+			{
+				return this._FacturaCompra_Detail;
+			}
+			set
+			{
+				this._FacturaCompra_Detail.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bodegas_FacturaCompra", Storage="_Bodegas", ThisKey="idBodega", OtherKey="idBodega", IsForeignKey=true)]
 		public Bodegas Bodegas
 		{
@@ -10586,6 +10676,18 @@ namespace CADsisVenta
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_FacturaCompra_Detail(FacturaCompra_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.FacturaCompra = this;
+		}
+		
+		private void detach_FacturaCompra_Detail(FacturaCompra_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.FacturaCompra = null;
 		}
 	}
 	
@@ -11925,7 +12027,9 @@ namespace CADsisVenta
 		
 		private string _Barcode;
 		
-		private byte _isDefaultSales;
+		private bool _isDefaultSales;
+		
+		private bool _belongCombined;
 		
 		private EntitySet<RatesPresentantionDetail> _RatesPresentantionDetail;
 		
@@ -11940,6 +12044,10 @@ namespace CADsisVenta
 		private EntitySet<ProductoProveedor> _ProductoProveedor;
 		
 		private EntitySet<Ventas_Detail> _Ventas_Detail;
+		
+		private EntitySet<FacturaCompra_Detail> _FacturaCompra_Detail;
+		
+		private EntitySet<ProductCombined> _ProductCombined;
 		
 		private EntityRef<Productos> _Productos;
 		
@@ -11981,8 +12089,10 @@ namespace CADsisVenta
     partial void OnisPresentFactoryChanged();
     partial void OnBarcodeChanging(string value);
     partial void OnBarcodeChanged();
-    partial void OnisDefaultSalesChanging(byte value);
+    partial void OnisDefaultSalesChanging(bool value);
     partial void OnisDefaultSalesChanged();
+    partial void OnbelongCombinedChanging(bool value);
+    partial void OnbelongCombinedChanged();
     #endregion
 		
 		public ProductoPresentacion()
@@ -11994,6 +12104,8 @@ namespace CADsisVenta
 			this._ViewBarCodeTicket = new EntitySet<ViewBarCodeTicket>(new Action<ViewBarCodeTicket>(this.attach_ViewBarCodeTicket), new Action<ViewBarCodeTicket>(this.detach_ViewBarCodeTicket));
 			this._ProductoProveedor = new EntitySet<ProductoProveedor>(new Action<ProductoProveedor>(this.attach_ProductoProveedor), new Action<ProductoProveedor>(this.detach_ProductoProveedor));
 			this._Ventas_Detail = new EntitySet<Ventas_Detail>(new Action<Ventas_Detail>(this.attach_Ventas_Detail), new Action<Ventas_Detail>(this.detach_Ventas_Detail));
+			this._FacturaCompra_Detail = new EntitySet<FacturaCompra_Detail>(new Action<FacturaCompra_Detail>(this.attach_FacturaCompra_Detail), new Action<FacturaCompra_Detail>(this.detach_FacturaCompra_Detail));
+			this._ProductCombined = new EntitySet<ProductCombined>(new Action<ProductCombined>(this.attach_ProductCombined), new Action<ProductCombined>(this.detach_ProductCombined));
 			this._Productos = default(EntityRef<Productos>);
 			this._ProductoUndMedida = default(EntityRef<ProductoUndMedida>);
 			this._ProductoUndMedida1 = default(EntityRef<ProductoUndMedida>);
@@ -12313,7 +12425,7 @@ namespace CADsisVenta
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isDefaultSales", DbType="Bit NOT NULL")]
-		public byte isDefaultSales
+		public bool isDefaultSales
 		{
 			get
 			{
@@ -12328,6 +12440,26 @@ namespace CADsisVenta
 					this._isDefaultSales = value;
 					this.SendPropertyChanged("isDefaultSales");
 					this.OnisDefaultSalesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_belongCombined", DbType="Bit NOT NULL")]
+		public bool belongCombined
+		{
+			get
+			{
+				return this._belongCombined;
+			}
+			set
+			{
+				if ((this._belongCombined != value))
+				{
+					this.OnbelongCombinedChanging(value);
+					this.SendPropertyChanging();
+					this._belongCombined = value;
+					this.SendPropertyChanged("belongCombined");
+					this.OnbelongCombinedChanged();
 				}
 			}
 		}
@@ -12420,6 +12552,32 @@ namespace CADsisVenta
 			set
 			{
 				this._Ventas_Detail.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductoPresentacion_FacturaCompra_Detail", Storage="_FacturaCompra_Detail", ThisKey="idPresentacion", OtherKey="idPresent")]
+		public EntitySet<FacturaCompra_Detail> FacturaCompra_Detail
+		{
+			get
+			{
+				return this._FacturaCompra_Detail;
+			}
+			set
+			{
+				this._FacturaCompra_Detail.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductoPresentacion_ProductCombined", Storage="_ProductCombined", ThisKey="idPresentacion", OtherKey="idPresent")]
+		public EntitySet<ProductCombined> ProductCombined
+		{
+			get
+			{
+				return this._ProductCombined;
+			}
+			set
+			{
+				this._ProductCombined.Assign(value);
 			}
 		}
 		
@@ -12624,6 +12782,30 @@ namespace CADsisVenta
 		}
 		
 		private void detach_Ventas_Detail(Ventas_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductoPresentacion = null;
+		}
+		
+		private void attach_FacturaCompra_Detail(FacturaCompra_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductoPresentacion = this;
+		}
+		
+		private void detach_FacturaCompra_Detail(FacturaCompra_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductoPresentacion = null;
+		}
+		
+		private void attach_ProductCombined(ProductCombined entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductoPresentacion = this;
+		}
+		
+		private void detach_ProductCombined(ProductCombined entity)
 		{
 			this.SendPropertyChanging();
 			entity.ProductoPresentacion = null;
@@ -19133,6 +19315,318 @@ namespace CADsisVenta
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.FacturaCompra_Detail")]
+	public partial class FacturaCompra_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idFacturaCompra_Detail;
+		
+		private int _idFacturaCompra;
+		
+		private int _idPresent;
+		
+		private decimal _cantidad;
+		
+		private decimal _descuento;
+		
+		private decimal _iva;
+		
+		private decimal _SubTotal;
+		
+		private decimal _Total;
+		
+		private EntityRef<FacturaCompra> _FacturaCompra;
+		
+		private EntityRef<ProductoPresentacion> _ProductoPresentacion;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidFacturaCompra_DetailChanging(int value);
+    partial void OnidFacturaCompra_DetailChanged();
+    partial void OnidFacturaCompraChanging(int value);
+    partial void OnidFacturaCompraChanged();
+    partial void OnidPresentChanging(int value);
+    partial void OnidPresentChanged();
+    partial void OncantidadChanging(decimal value);
+    partial void OncantidadChanged();
+    partial void OndescuentoChanging(decimal value);
+    partial void OndescuentoChanged();
+    partial void OnivaChanging(decimal value);
+    partial void OnivaChanged();
+    partial void OnSubTotalChanging(decimal value);
+    partial void OnSubTotalChanged();
+    partial void OnTotalChanging(decimal value);
+    partial void OnTotalChanged();
+    #endregion
+		
+		public FacturaCompra_Detail()
+		{
+			this._FacturaCompra = default(EntityRef<FacturaCompra>);
+			this._ProductoPresentacion = default(EntityRef<ProductoPresentacion>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFacturaCompra_Detail", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idFacturaCompra_Detail
+		{
+			get
+			{
+				return this._idFacturaCompra_Detail;
+			}
+			set
+			{
+				if ((this._idFacturaCompra_Detail != value))
+				{
+					this.OnidFacturaCompra_DetailChanging(value);
+					this.SendPropertyChanging();
+					this._idFacturaCompra_Detail = value;
+					this.SendPropertyChanged("idFacturaCompra_Detail");
+					this.OnidFacturaCompra_DetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFacturaCompra", DbType="Int NOT NULL")]
+		public int idFacturaCompra
+		{
+			get
+			{
+				return this._idFacturaCompra;
+			}
+			set
+			{
+				if ((this._idFacturaCompra != value))
+				{
+					if (this._FacturaCompra.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidFacturaCompraChanging(value);
+					this.SendPropertyChanging();
+					this._idFacturaCompra = value;
+					this.SendPropertyChanged("idFacturaCompra");
+					this.OnidFacturaCompraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPresent", DbType="Int NOT NULL")]
+		public int idPresent
+		{
+			get
+			{
+				return this._idPresent;
+			}
+			set
+			{
+				if ((this._idPresent != value))
+				{
+					if (this._ProductoPresentacion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidPresentChanging(value);
+					this.SendPropertyChanging();
+					this._idPresent = value;
+					this.SendPropertyChanged("idPresent");
+					this.OnidPresentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cantidad", DbType="Decimal(25,5) NOT NULL")]
+		public decimal cantidad
+		{
+			get
+			{
+				return this._cantidad;
+			}
+			set
+			{
+				if ((this._cantidad != value))
+				{
+					this.OncantidadChanging(value);
+					this.SendPropertyChanging();
+					this._cantidad = value;
+					this.SendPropertyChanged("cantidad");
+					this.OncantidadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descuento", DbType="Decimal(25,5) NOT NULL")]
+		public decimal descuento
+		{
+			get
+			{
+				return this._descuento;
+			}
+			set
+			{
+				if ((this._descuento != value))
+				{
+					this.OndescuentoChanging(value);
+					this.SendPropertyChanging();
+					this._descuento = value;
+					this.SendPropertyChanged("descuento");
+					this.OndescuentoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_iva", DbType="Decimal(25,5) NOT NULL")]
+		public decimal iva
+		{
+			get
+			{
+				return this._iva;
+			}
+			set
+			{
+				if ((this._iva != value))
+				{
+					this.OnivaChanging(value);
+					this.SendPropertyChanging();
+					this._iva = value;
+					this.SendPropertyChanged("iva");
+					this.OnivaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SubTotal", DbType="Decimal(25,5) NOT NULL")]
+		public decimal SubTotal
+		{
+			get
+			{
+				return this._SubTotal;
+			}
+			set
+			{
+				if ((this._SubTotal != value))
+				{
+					this.OnSubTotalChanging(value);
+					this.SendPropertyChanging();
+					this._SubTotal = value;
+					this.SendPropertyChanged("SubTotal");
+					this.OnSubTotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(25,5) NOT NULL")]
+		public decimal Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this.OnTotalChanging(value);
+					this.SendPropertyChanging();
+					this._Total = value;
+					this.SendPropertyChanged("Total");
+					this.OnTotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FacturaCompra_FacturaCompra_Detail", Storage="_FacturaCompra", ThisKey="idFacturaCompra", OtherKey="idFacturaCompra", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public FacturaCompra FacturaCompra
+		{
+			get
+			{
+				return this._FacturaCompra.Entity;
+			}
+			set
+			{
+				FacturaCompra previousValue = this._FacturaCompra.Entity;
+				if (((previousValue != value) 
+							|| (this._FacturaCompra.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FacturaCompra.Entity = null;
+						previousValue.FacturaCompra_Detail.Remove(this);
+					}
+					this._FacturaCompra.Entity = value;
+					if ((value != null))
+					{
+						value.FacturaCompra_Detail.Add(this);
+						this._idFacturaCompra = value.idFacturaCompra;
+					}
+					else
+					{
+						this._idFacturaCompra = default(int);
+					}
+					this.SendPropertyChanged("FacturaCompra");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductoPresentacion_FacturaCompra_Detail", Storage="_ProductoPresentacion", ThisKey="idPresent", OtherKey="idPresentacion", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public ProductoPresentacion ProductoPresentacion
+		{
+			get
+			{
+				return this._ProductoPresentacion.Entity;
+			}
+			set
+			{
+				ProductoPresentacion previousValue = this._ProductoPresentacion.Entity;
+				if (((previousValue != value) 
+							|| (this._ProductoPresentacion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProductoPresentacion.Entity = null;
+						previousValue.FacturaCompra_Detail.Remove(this);
+					}
+					this._ProductoPresentacion.Entity = value;
+					if ((value != null))
+					{
+						value.FacturaCompra_Detail.Add(this);
+						this._idPresent = value.idPresentacion;
+					}
+					else
+					{
+						this._idPresent = default(int);
+					}
+					this.SendPropertyChanged("ProductoPresentacion");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductExpiration")]
 	public partial class ProductExpiration : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -19341,6 +19835,222 @@ namespace CADsisVenta
 					if ((value != null))
 					{
 						value.ProductExpiration.Add(this);
+						this._idProducto = value.idProducto;
+					}
+					else
+					{
+						this._idProducto = default(int);
+					}
+					this.SendPropertyChanged("Productos");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductCombined")]
+	public partial class ProductCombined : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ProductCombined1;
+		
+		private int _idProducto;
+		
+		private int _idPresent;
+		
+		private int _Cant_Conbined;
+		
+		private EntityRef<ProductoPresentacion> _ProductoPresentacion;
+		
+		private EntityRef<Productos> _Productos;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidProductCombinedChanging(int value);
+    partial void OnidProductCombinedChanged();
+    partial void OnidProductoChanging(int value);
+    partial void OnidProductoChanged();
+    partial void OnidPresentChanging(int value);
+    partial void OnidPresentChanged();
+    partial void OnCant_ConbinedChanging(int value);
+    partial void OnCant_ConbinedChanged();
+    #endregion
+		
+		public ProductCombined()
+		{
+			this._ProductoPresentacion = default(EntityRef<ProductoPresentacion>);
+			this._Productos = default(EntityRef<Productos>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductCombined1", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idProductCombined
+		{
+			get
+			{
+				return this._ProductCombined1;
+			}
+			set
+			{
+				if ((this._ProductCombined1 != value))
+				{
+					this.OnidProductCombinedChanging(value);
+					this.SendPropertyChanging();
+					this._ProductCombined1 = value;
+					this.SendPropertyChanged("idProductCombined");
+					this.OnidProductCombinedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idProducto", DbType="Int NOT NULL")]
+		public int idProducto
+		{
+			get
+			{
+				return this._idProducto;
+			}
+			set
+			{
+				if ((this._idProducto != value))
+				{
+					if (this._Productos.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidProductoChanging(value);
+					this.SendPropertyChanging();
+					this._idProducto = value;
+					this.SendPropertyChanged("idProducto");
+					this.OnidProductoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPresent", DbType="Int NOT NULL")]
+		public int idPresent
+		{
+			get
+			{
+				return this._idPresent;
+			}
+			set
+			{
+				if ((this._idPresent != value))
+				{
+					if (this._ProductoPresentacion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidPresentChanging(value);
+					this.SendPropertyChanging();
+					this._idPresent = value;
+					this.SendPropertyChanged("idPresent");
+					this.OnidPresentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cant_Conbined", DbType="Int NOT NULL")]
+		public int Cant_Conbined
+		{
+			get
+			{
+				return this._Cant_Conbined;
+			}
+			set
+			{
+				if ((this._Cant_Conbined != value))
+				{
+					this.OnCant_ConbinedChanging(value);
+					this.SendPropertyChanging();
+					this._Cant_Conbined = value;
+					this.SendPropertyChanged("Cant_Conbined");
+					this.OnCant_ConbinedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductoPresentacion_ProductCombined", Storage="_ProductoPresentacion", ThisKey="idPresent", OtherKey="idPresentacion", IsForeignKey=true)]
+		public ProductoPresentacion ProductoPresentacion
+		{
+			get
+			{
+				return this._ProductoPresentacion.Entity;
+			}
+			set
+			{
+				ProductoPresentacion previousValue = this._ProductoPresentacion.Entity;
+				if (((previousValue != value) 
+							|| (this._ProductoPresentacion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProductoPresentacion.Entity = null;
+						previousValue.ProductCombined.Remove(this);
+					}
+					this._ProductoPresentacion.Entity = value;
+					if ((value != null))
+					{
+						value.ProductCombined.Add(this);
+						this._idPresent = value.idPresentacion;
+					}
+					else
+					{
+						this._idPresent = default(int);
+					}
+					this.SendPropertyChanged("ProductoPresentacion");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Productos_ProductCombined", Storage="_Productos", ThisKey="idProducto", OtherKey="idProducto", IsForeignKey=true)]
+		public Productos Productos
+		{
+			get
+			{
+				return this._Productos.Entity;
+			}
+			set
+			{
+				Productos previousValue = this._Productos.Entity;
+				if (((previousValue != value) 
+							|| (this._Productos.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Productos.Entity = null;
+						previousValue.ProductCombined.Remove(this);
+					}
+					this._Productos.Entity = value;
+					if ((value != null))
+					{
+						value.ProductCombined.Add(this);
 						this._idProducto = value.idProducto;
 					}
 					else

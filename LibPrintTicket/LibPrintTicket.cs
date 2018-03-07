@@ -409,12 +409,12 @@ namespace LibPrintTicket
             }
             public void AvanzaEncabezado()
             {
-                string avance = "\x1B" + "J" + "\x35";        //avanza 28 lines mínimas
+                string avance = "\x1B" + "J" + "\x40";        //avanza 28 lines mínimas
                 RawPrinterHelper.SendStringToPrinter(PrinterName, avance); // Retrocede
             }
             public void AvanzaPiePagina()
             {
-                string avance = "\x1B" + "J" + "\x9";        //avanza 15 lines mínimas
+                string avance = "\x1B" + "J" + "\x14";        //avanza 13 lines mínimas
                 RawPrinterHelper.SendStringToPrinter(PrinterName, avance); // Retrocede
             }
             public void Avanza2Lines()
