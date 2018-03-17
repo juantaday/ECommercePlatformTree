@@ -6,3 +6,7 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestion
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\obj\Release\MultiColumnComboSuggestionBox.csprojResolveAssemblyReference.cache
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\obj\Release\MultiColumnComboSuggestionBox.csproj.CoreCompileInputs.cache
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\MultiColumnComboSuggestionBox\obj\Release\MultiColumnComboSuggestionBox.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\bin\Release\MultiColumnComboSuggestionBox.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Release\MultiColumnComboSuggestionBox.csprojResolveAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Release\MultiColumnComboSuggestionBox.csproj.CoreCompileInputs.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Release\MultiColumnComboSuggestionBox.dll

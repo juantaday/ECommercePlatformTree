@@ -9,3 +9,9 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\bin\Release
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\obj\Release\LibPrintTicket.csproj.CoreCompileInputs.cache
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\obj\Release\LibPrintTicket.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\LibPrintTicket\obj\Release\LibPrintTicket.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\bin\Release\LibPrintTicket.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\bin\Release\LibPrintTicket.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.csprojResolveAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.csproj.CoreCompileInputs.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.pdb

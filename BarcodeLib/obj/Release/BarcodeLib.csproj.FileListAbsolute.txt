@@ -11,3 +11,10 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\bin\Release\Bar
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\Release\BarcodeLib.csproj.CoreCompileInputs.cache
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\Release\BarcodeLib.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\Release\BarcodeLib.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\bin\Release\Release Notes.txt
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\bin\Release\BarcodeLib.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\bin\Release\BarcodeLib.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\obj\Release\BarcodeLib.csprojResolveAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\obj\Release\BarcodeLib.csproj.CoreCompileInputs.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\obj\Release\BarcodeLib.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\obj\Release\BarcodeLib.pdb

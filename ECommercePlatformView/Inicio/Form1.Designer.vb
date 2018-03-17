@@ -51,8 +51,10 @@ Partial Class Form1
         Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.IvaPorcentClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ChartControl1 = New DevExpress.XtraCharts.ChartControl()
         CType(Me.FastObjectListView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ListView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ChartControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'FastObjectListView1
@@ -262,11 +264,22 @@ Partial Class Form1
         Me.IvaPorcentClm.Text = "ivaPorcent"
         Me.IvaPorcentClm.Width = 0
         '
+        'ChartControl1
+        '
+        Me.ChartControl1.DataBindings = Nothing
+        Me.ChartControl1.Legend.Name = "Default Legend"
+        Me.ChartControl1.Location = New System.Drawing.Point(583, 177)
+        Me.ChartControl1.Name = "ChartControl1"
+        Me.ChartControl1.SeriesSerializable = New DevExpress.XtraCharts.Series(-1) {}
+        Me.ChartControl1.Size = New System.Drawing.Size(101, 62)
+        Me.ChartControl1.TabIndex = 14
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(810, 416)
+        Me.Controls.Add(Me.ChartControl1)
         Me.Controls.Add(Me.ListView2)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.FastObjectListView1)
@@ -274,6 +287,7 @@ Partial Class Form1
         Me.Text = "Form1"
         CType(Me.FastObjectListView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ListView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ChartControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -307,4 +321,5 @@ Partial Class Form1
     Friend WithEvents ColumnHeader5 As ColumnHeader
     Friend WithEvents ColumnHeader6 As ColumnHeader
     Friend WithEvents IvaPorcentClm As ColumnHeader
+    Friend WithEvents ChartControl1 As DevExpress.XtraCharts.ChartControl
 End Class
