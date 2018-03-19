@@ -970,11 +970,11 @@ Partial Class frmVentas
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(5, 2)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(905, 15)
+        Me.Label1.Size = New System.Drawing.Size(984, 15)
         Me.Label1.TabIndex = 35
-        Me.Label1.Text = "[1]Agregar clientes; [F2]Elimina cliente; [F4]Productos;  [F5]Actualizar costo;  " &
-    "[F6]Eliminar ítem;  [F8]Cambiar cantidad; [F9]Cambiar presentación; [F12]Transfe" &
-    "rir venta " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label1.Text = "F1:Agregar clientes; F2:Elimina cliente; F3:Busca cliente; F4:Productos;  F5:Actu" &
+    "alizar costo;  F6:Eliminar ítem;  F8:Cambiar cantidad; F9:Cambiar presentación; " &
+    "F12:Transferir venta " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'GrupCliente
         '

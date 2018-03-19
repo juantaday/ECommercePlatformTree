@@ -1,7 +1,7 @@
-﻿using System.Data;
-
-namespace MultiColumnComboSuggestionBox
+﻿namespace MultiControls.Tools
 {
+    using System.Data;
+
     internal class GenerateDataTable : DataTable
     {
 

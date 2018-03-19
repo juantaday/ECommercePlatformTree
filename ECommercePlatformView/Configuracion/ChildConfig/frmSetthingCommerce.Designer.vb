@@ -39,7 +39,7 @@ Partial Class frmSetthingCommerce
         Me.PurchaseTabPage = New System.Windows.Forms.TabPage()
         Me.EnableEditPurchaseCheckBox = New System.Windows.Forms.CheckBox()
         Me.SaveButton = New System.Windows.Forms.Button()
-        Me.moneyColumnComboBox = New JTG.ColumnComboBox()
+        Me.moneyColumnComboBox = New MultiControls.Controls.ColumnComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -317,7 +317,7 @@ Partial Class frmSetthingCommerce
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents moneyColumnComboBox As JTG.ColumnComboBox
+    Friend WithEvents moneyColumnComboBox As MultiControls.Controls.ColumnComboBox
     Friend WithEvents SaveButton As Button
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents Panel2 As Panel

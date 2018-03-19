@@ -7,18 +7,17 @@
  * 
  *///==========================================================
 
-using System;
-using System.Collections;
-
 //Helper classes meant to speed up development 
-namespace JTG
+namespace MultiControls.Tools
 {
-	/// <summary>
-	/// Summary description for Class1.
-	/// </summary>
-	/// 
+    using System;
+    using System.Collections;
+    /// <summary>
+    /// Summary description for Class1.
+    /// </summary>
+    /// 
 
-	public class StringList
+    public class StringList
 	{
 		ArrayList m_alMain;
 		//constructor

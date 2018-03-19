@@ -9,14 +9,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ApplicationIcon>App.ico</ApplicationIcon>
     <AssemblyKeyContainerName />
-    <AssemblyName>MultiColumnComboSuggestionBox</AssemblyName>
+    <AssemblyName>MultiControls</AssemblyName>
     <AssemblyOriginatorKeyFile />
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>Library</OutputType>
-    <RootNamespace>MultiColumnComboSuggestionBox</RootNamespace>
+    <RootNamespace>MultiControls</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <StartupObject />
     <FileUpgradeFlags>
@@ -114,21 +114,38 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Class\ResponseSpliter.cs" />
-    <Compile Include="ColumnComboBox.cs">
+    <Compile Include="Controls\ComboBoxAutocompleteSuggestion.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ComboBoxAutocompleteSuggestion.cs">
+    <Compile Include="Controls\ColumnComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TextBoxButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Functions\getSpliter.cs" />
-    <Compile Include="GenerateDataTable.cs">
+    <Compile Include="Tools\GenerateDataTable.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\ListItemSuggestions.cs" />
-    <Compile Include="StringList.cs">
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\Class1.cs" />
+    <Compile Include="Tools\StringList.cs">
       <SubType>Code</SubType>
     </Compile>
     <Content Include="App.ico" />
+    <None Include="Resources\magnifier13.png" />
+    <None Include="Resources\ellipsis1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

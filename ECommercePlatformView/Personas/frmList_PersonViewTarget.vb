@@ -1,4 +1,5 @@
-﻿Imports CADsisVenta
+﻿Imports System.Security.Permissions
+Imports CADsisVenta
 Public Class frmList_PersonViewTarget
     Private stateLoad As stateLoad
     Protected Friend dtPersonas As New DataTable()
@@ -31,7 +32,7 @@ Public Class frmList_PersonViewTarget
             DeleteButton.Enabled = False
             PersonVisibleNemuClicLabel.Text = String.Empty
             '
-            TableLayout.SuspendLayout()
+            TableView.SuspendLayout()
             '
             Me.PanelMaster = New System.Windows.Forms.Panel()
             Me.PanelTible = New System.Windows.Forms.Panel()
@@ -47,7 +48,7 @@ Public Class frmList_PersonViewTarget
             Me.PicturImageTelf = New System.Windows.Forms.PictureBox()
             '
             ' añado el cuadro a la tabla
-            Me.TableLayout.Controls.Add(PanelMaster)
+            Me.TableView.Controls.Add(PanelMaster)
             '
             ' reinicio el diseño
             '
@@ -188,7 +189,7 @@ Public Class frmList_PersonViewTarget
             AddHandler PictureBox.Click, AddressOf PanelMas_Enter
             '
             'Actualiza el diseño
-            TableLayout.ResumeLayout(True)
+            TableView.ResumeLayout(True)
             PanelMaster.ResumeLayout(True)
             PanelTible.ResumeLayout(True)
             PanelCard.ResumeLayout(True)
@@ -200,7 +201,7 @@ Public Class frmList_PersonViewTarget
 
     Private Sub PanelMas_Enter(sender As Object, e As EventArgs)
         Try
-            For Each pane In TableLayout.Controls
+            For Each pane In TableView.Controls
                 If pane.name = "PanelMaster" Then
                     pane.BackColor = Color.GreenYellow
                 End If
@@ -228,8 +229,8 @@ Public Class frmList_PersonViewTarget
                 sql = panetitle.name
             Next
 
-            TableLayout.AutoScroll = True
-            TableLayout.ResumeLayout(False)
+            TableView.AutoScroll = True
+            TableView.ResumeLayout(False)
             PersonVisibleNemuClicLabel.Text = personLaber.Text ' Apellidos y nombres
             PersonVisibleNemuClicLabel.Tag = personLaber.Tag   ' ruc o cedula
             idPersona = pictureImage.Tag                       ' Id de la persona
@@ -241,10 +242,10 @@ Public Class frmList_PersonViewTarget
             If stateLoad = stateLoad.Dialogo Then
                 SelectPersonButton.Visible = True
                 SelectPersonButton.Enabled = True
+                SelectPersonButton.PerformClick()
             End If
-            SelectPersonButton.PerformClick()
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles FindButton.Click
@@ -282,14 +283,22 @@ Public Class frmList_PersonViewTarget
             Me.dtPersonas = ClsPerson.getDataLikePerson(st1, st2, st3)
             If Not IsNothing(dtPersonas) Then
                 InitializaView(Me.dtPersonas)
+                If Me.dtPersonas.Rows.Count = 1 Then
+                    sql = TableView.Controls(0).Controls(0).Name
+                    Dim resul As stateLoad = Me.stateLoad
+                    Me.stateLoad = stateLoad.List
+                    PanelMas_Enter(TableView.Controls(0).Controls(0), New EventArgs)
+                    Me.stateLoad = Me.stateLoad
+                    Me.SelectPersonButton.Focus()
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
     Private Sub InitializaView(dtPersonas As DataTable)
-        TableLayout.Controls.Clear()
-        TableLayout.ResumeLayout(True)
+        TableView.Controls.Clear()
+        TableView.ResumeLayout(True)
         minIndex = 0
         maxIndex = 0
         TotalIndexLabel.Text = String.Empty
@@ -313,14 +322,22 @@ Public Class frmList_PersonViewTarget
         End If
     End Sub
     Private Sub FindTextBox_TextChanged(sender As Object, e As EventArgs) Handles FindTextBox.TextChanged
+        If String.IsNullOrWhiteSpace(FindTextBox.Text) Then
+            FindTextBox.VisibleButton = False
+        Else
+            FindTextBox.VisibleButton = True
+        End If
+
         AcceptButton = Nothing
         If FindTextBox.TextLength > 2 Then
             AcceptButton = FindButton
         End If
     End Sub
 
+
+
     Private Sub NextLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles NextLinkLabel.LinkClicked
-        TableLayout.Controls.Clear()
+        TableView.Controls.Clear()
         PreviuLinkLabel.Enabled = True
         minIndex = maxIndex + 1
         If maxIndex > dtPersonas.Rows.Count - 1 Then
@@ -340,7 +357,7 @@ Public Class frmList_PersonViewTarget
     End Sub
 
     Private Sub PreviuLinkLabel_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles PreviuLinkLabel.LinkClicked
-        TableLayout.Controls.Clear()
+        TableView.Controls.Clear()
         NextLinkLabel.Enabled = True
         minIndex = (minIndex) - countIndexToPage
         If minIndex < 0 Then
@@ -390,6 +407,43 @@ Public Class frmList_PersonViewTarget
         End Try
     End Sub
 
+    <SecurityPermissionAttribute(SecurityAction.LinkDemand, Flags:=SecurityPermissionFlag.UnmanagedCode)>
+    Protected Overrides Function ProcessCmdKey(
+                    ByRef msg As Message,
+                    keyData As Keys) As Boolean
+
+        If Me.ActiveControl.Name.Equals("FindTextBox") And keyData = Keys.Tab Then
+            If Me.dtPersonas.Rows.Count > 0 Then
+                Dim reaspo As stateLoad = Me.stateLoad
+                Me.stateLoad = stateLoad.List
+                PanelMas_Enter(TableView.Controls(0).Controls(0), New EventArgs)
+                TableView.Controls(0).Controls(0).Focus()
+                Me.stateLoad = reaspo
+            End If
+            Return True
+        ElseIf Me.ActiveControl.Name.Equals("PicturePerson") And keyData = Keys.Tab Then
+            If Me.dtPersonas.Rows.Count = 1 Then
+                Dim reaspo As stateLoad = Me.stateLoad
+                Me.stateLoad = stateLoad.List
+                Me.FindTextBox.Focus()
+                Me.stateLoad = reaspo
+            Else
+                Dim reaspo As stateLoad = Me.stateLoad
+                Me.stateLoad = stateLoad.List
+                PanelMas_Enter(TableView.Controls(0).Controls(0), New EventArgs)
+                TableView.Controls(0).Controls(0).Focus()
+                Me.stateLoad = reaspo
+            End If
+            Return True
+        End If
+        Return False
+    End Function
+
+    Private Sub FindTextBox_ButtonClick(sender As Object, e As EventArgs) Handles FindTextBox.ButtonClick
+        FindTextBox.Text = String.Empty
+        FindTextBox.Focus()
+    End Sub
+
     Private Sub ViewButton_Click(sender As Object, e As EventArgs) Handles DetailsButton.Click
         Using EddPerson As New frmAdd_Personas(stateOperation.View, PersonClickNamaLabel.Tag)
             With EddPerson
@@ -419,7 +473,7 @@ Public Class frmList_PersonViewTarget
 
     Private Sub SelectPersonButton_Click(sender As Object, e As EventArgs) Handles SelectPersonButton.Click
         If idPersona > 0 Then
-            DialogResult = System.Windows.Forms.DialogResult.OK
+            Me.DialogResult = System.Windows.Forms.DialogResult.OK
             Me.Close()
         Else
             MsgBox("No se pudo determinar a la persona")

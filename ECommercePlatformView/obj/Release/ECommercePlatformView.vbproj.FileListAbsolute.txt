@@ -485,7 +485,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.ReportViewer.WinForms.resources.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.SqlServer.Types.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualBasic.PowerPacks.Vs.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\MultiColumnComboSuggestionBox.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\MultiControls.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\ObjectListView.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CrystalDecisions.ReportAppServer.DataDefModel.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CrystalDecisions.ReportAppServer.ClientDoc.dll

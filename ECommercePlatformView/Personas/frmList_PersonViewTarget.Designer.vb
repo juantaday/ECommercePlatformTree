@@ -31,21 +31,21 @@ Partial Class frmList_PersonViewTarget
         Me.AddNewButton = New System.Windows.Forms.Button()
         Me.PersonVisibleNemuClicLabel = New System.Windows.Forms.Label()
         Me.PanelBusqueda = New System.Windows.Forms.Panel()
-        Me.FindTextBox = New System.Windows.Forms.TextBox()
         Me.FindButton = New System.Windows.Forms.Button()
-        Me.TableLayout = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableView = New System.Windows.Forms.TableLayoutPanel()
         Me.PanelDatos = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PanelFood = New System.Windows.Forms.Panel()
         Me.TotalIndexLabel = New System.Windows.Forms.Label()
         Me.NextLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.PreviuLinkLabel = New System.Windows.Forms.LinkLabel()
         Me.PersonClickNamaLabel = New System.Windows.Forms.Label()
         Me.SelectPersonButton = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.FindTextBox = New MultiControls.Controls.TextBoxButton()
         Me.PanelMenu.SuspendLayout()
         Me.PanelBusqueda.SuspendLayout()
         Me.PanelDatos.SuspendLayout()
-        Me.Panel3.SuspendLayout()
+        Me.PanelFood.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panelpie
@@ -150,19 +150,11 @@ Partial Class frmList_PersonViewTarget
         Me.PanelBusqueda.Size = New System.Drawing.Size(978, 46)
         Me.PanelBusqueda.TabIndex = 0
         '
-        'FindTextBox
-        '
-        Me.FindTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FindTextBox.Location = New System.Drawing.Point(17, 11)
-        Me.FindTextBox.Name = "FindTextBox"
-        Me.FindTextBox.Size = New System.Drawing.Size(340, 26)
-        Me.FindTextBox.TabIndex = 0
-        '
         'FindButton
         '
         Me.FindButton.Image = Global.ECommercePlatformView.My.Resources.Resources.FindCustomers_32x32
         Me.FindButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.FindButton.Location = New System.Drawing.Point(363, 4)
+        Me.FindButton.Location = New System.Drawing.Point(407, 5)
         Me.FindButton.Name = "FindButton"
         Me.FindButton.Size = New System.Drawing.Size(102, 38)
         Me.FindButton.TabIndex = 2
@@ -170,32 +162,32 @@ Partial Class frmList_PersonViewTarget
         Me.FindButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.FindButton.UseVisualStyleBackColor = True
         '
-        'TableLayout
+        'TableView
         '
-        Me.TableLayout.AutoScroll = True
-        Me.TableLayout.AutoScrollMargin = New System.Drawing.Size(1, 1)
-        Me.TableLayout.AutoScrollMinSize = New System.Drawing.Size(12, 20)
-        Me.TableLayout.ColumnCount = 4
-        Me.TableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayout.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayout.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayout.Name = "TableLayout"
-        Me.TableLayout.Padding = New System.Windows.Forms.Padding(3)
-        Me.TableLayout.RowCount = 2
-        Me.TableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayout.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayout.Size = New System.Drawing.Size(970, 237)
-        Me.TableLayout.TabIndex = 0
+        Me.TableView.AutoScroll = True
+        Me.TableView.AutoScrollMargin = New System.Drawing.Size(1, 1)
+        Me.TableView.AutoScrollMinSize = New System.Drawing.Size(12, 20)
+        Me.TableView.ColumnCount = 4
+        Me.TableView.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableView.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableView.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableView.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableView.Location = New System.Drawing.Point(3, 3)
+        Me.TableView.Name = "TableView"
+        Me.TableView.Padding = New System.Windows.Forms.Padding(3)
+        Me.TableView.RowCount = 2
+        Me.TableView.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableView.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableView.Size = New System.Drawing.Size(970, 229)
+        Me.TableView.TabIndex = 0
         '
         'PanelDatos
         '
         Me.PanelDatos.BackColor = System.Drawing.Color.White
         Me.PanelDatos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PanelDatos.Controls.Add(Me.TableLayout)
-        Me.PanelDatos.Controls.Add(Me.Panel3)
+        Me.PanelDatos.Controls.Add(Me.TableView)
+        Me.PanelDatos.Controls.Add(Me.PanelFood)
         Me.PanelDatos.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelDatos.Location = New System.Drawing.Point(0, 85)
         Me.PanelDatos.Name = "PanelDatos"
@@ -203,26 +195,27 @@ Partial Class frmList_PersonViewTarget
         Me.PanelDatos.Size = New System.Drawing.Size(978, 273)
         Me.PanelDatos.TabIndex = 2
         '
-        'Panel3
+        'PanelFood
         '
-        Me.Panel3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.Panel3.Controls.Add(Me.TotalIndexLabel)
-        Me.Panel3.Controls.Add(Me.NextLinkLabel)
-        Me.Panel3.Controls.Add(Me.PreviuLinkLabel)
-        Me.Panel3.Controls.Add(Me.PersonClickNamaLabel)
-        Me.Panel3.Controls.Add(Me.SelectPersonButton)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel3.Location = New System.Drawing.Point(3, 240)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(970, 28)
-        Me.Panel3.TabIndex = 0
+        Me.PanelFood.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.PanelFood.Controls.Add(Me.TotalIndexLabel)
+        Me.PanelFood.Controls.Add(Me.NextLinkLabel)
+        Me.PanelFood.Controls.Add(Me.PreviuLinkLabel)
+        Me.PanelFood.Controls.Add(Me.PersonClickNamaLabel)
+        Me.PanelFood.Controls.Add(Me.SelectPersonButton)
+        Me.PanelFood.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.PanelFood.Location = New System.Drawing.Point(3, 232)
+        Me.PanelFood.Name = "PanelFood"
+        Me.PanelFood.Padding = New System.Windows.Forms.Padding(2)
+        Me.PanelFood.Size = New System.Drawing.Size(970, 36)
+        Me.PanelFood.TabIndex = 0
         '
         'TotalIndexLabel
         '
         Me.TotalIndexLabel.Dock = System.Windows.Forms.DockStyle.Left
-        Me.TotalIndexLabel.Location = New System.Drawing.Point(76, 0)
+        Me.TotalIndexLabel.Location = New System.Drawing.Point(78, 2)
         Me.TotalIndexLabel.Name = "TotalIndexLabel"
-        Me.TotalIndexLabel.Size = New System.Drawing.Size(315, 28)
+        Me.TotalIndexLabel.Size = New System.Drawing.Size(315, 32)
         Me.TotalIndexLabel.TabIndex = 4
         Me.TotalIndexLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -230,9 +223,9 @@ Partial Class frmList_PersonViewTarget
         '
         Me.NextLinkLabel.Dock = System.Windows.Forms.DockStyle.Left
         Me.NextLinkLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.NextLinkLabel.Location = New System.Drawing.Point(38, 0)
+        Me.NextLinkLabel.Location = New System.Drawing.Point(40, 2)
         Me.NextLinkLabel.Name = "NextLinkLabel"
-        Me.NextLinkLabel.Size = New System.Drawing.Size(38, 28)
+        Me.NextLinkLabel.Size = New System.Drawing.Size(38, 32)
         Me.NextLinkLabel.TabIndex = 3
         Me.NextLinkLabel.TabStop = True
         Me.NextLinkLabel.Text = ">>"
@@ -243,9 +236,9 @@ Partial Class frmList_PersonViewTarget
         '
         Me.PreviuLinkLabel.Dock = System.Windows.Forms.DockStyle.Left
         Me.PreviuLinkLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PreviuLinkLabel.Location = New System.Drawing.Point(0, 0)
+        Me.PreviuLinkLabel.Location = New System.Drawing.Point(2, 2)
         Me.PreviuLinkLabel.Name = "PreviuLinkLabel"
-        Me.PreviuLinkLabel.Size = New System.Drawing.Size(38, 28)
+        Me.PreviuLinkLabel.Size = New System.Drawing.Size(38, 32)
         Me.PreviuLinkLabel.TabIndex = 2
         Me.PreviuLinkLabel.TabStop = True
         Me.PreviuLinkLabel.Text = "<<"
@@ -255,9 +248,9 @@ Partial Class frmList_PersonViewTarget
         'PersonClickNamaLabel
         '
         Me.PersonClickNamaLabel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PersonClickNamaLabel.Location = New System.Drawing.Point(624, 0)
+        Me.PersonClickNamaLabel.Location = New System.Drawing.Point(622, 2)
         Me.PersonClickNamaLabel.Name = "PersonClickNamaLabel"
-        Me.PersonClickNamaLabel.Size = New System.Drawing.Size(243, 28)
+        Me.PersonClickNamaLabel.Size = New System.Drawing.Size(243, 32)
         Me.PersonClickNamaLabel.TabIndex = 1
         Me.PersonClickNamaLabel.Tag = "0"
         '
@@ -265,12 +258,22 @@ Partial Class frmList_PersonViewTarget
         '
         Me.SelectPersonButton.BackColor = System.Drawing.Color.Silver
         Me.SelectPersonButton.Dock = System.Windows.Forms.DockStyle.Right
-        Me.SelectPersonButton.Location = New System.Drawing.Point(867, 0)
+        Me.SelectPersonButton.Location = New System.Drawing.Point(865, 2)
         Me.SelectPersonButton.Name = "SelectPersonButton"
-        Me.SelectPersonButton.Size = New System.Drawing.Size(103, 28)
+        Me.SelectPersonButton.Size = New System.Drawing.Size(103, 32)
         Me.SelectPersonButton.TabIndex = 0
         Me.SelectPersonButton.Text = "Seleccionar.."
         Me.SelectPersonButton.UseVisualStyleBackColor = False
+        '
+        'FindTextBox
+        '
+        Me.FindTextBox.ButtonImage = Global.ECommercePlatformView.My.Resources.Resources.Action_Delete_16x16
+        Me.FindTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindTextBox.Location = New System.Drawing.Point(17, 11)
+        Me.FindTextBox.Name = "FindTextBox"
+        Me.FindTextBox.Size = New System.Drawing.Size(350, 26)
+        Me.FindTextBox.TabIndex = 0
+        Me.FindTextBox.VisibleButton = False
         '
         'frmList_PersonViewTarget
         '
@@ -287,14 +290,14 @@ Partial Class frmList_PersonViewTarget
         Me.PanelBusqueda.ResumeLayout(False)
         Me.PanelBusqueda.PerformLayout()
         Me.PanelDatos.ResumeLayout(False)
-        Me.Panel3.ResumeLayout(False)
+        Me.PanelFood.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents Panelpie As System.Windows.Forms.Panel
     Friend WithEvents PanelMenu As System.Windows.Forms.Panel
     Friend WithEvents PanelBusqueda As System.Windows.Forms.Panel
-    Friend WithEvents TableLayout As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TableView As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents PanelMaster As System.Windows.Forms.Panel
     Friend WithEvents PanelTible As System.Windows.Forms.Panel
     Friend WithEvents NomLabel As System.Windows.Forms.Label
@@ -306,7 +309,7 @@ Partial Class frmList_PersonViewTarget
     Friend WithEvents PanelCard As System.Windows.Forms.Panel
     Friend WithEvents cedulaLabel As System.Windows.Forms.Label
     Friend WithEvents PanelDatos As System.Windows.Forms.Panel
-    Friend WithEvents Panel3 As System.Windows.Forms.Panel
+    Friend WithEvents PanelFood As System.Windows.Forms.Panel
     Friend WithEvents FindButton As System.Windows.Forms.Button
     Friend WithEvents TotalIndexLabel As System.Windows.Forms.Label
     Friend WithEvents NextLinkLabel As System.Windows.Forms.LinkLabel
@@ -318,6 +321,6 @@ Partial Class frmList_PersonViewTarget
     Friend WithEvents DetailsButton As System.Windows.Forms.Button
     Friend WithEvents EditButton As System.Windows.Forms.Button
     Friend WithEvents AddNewButton As System.Windows.Forms.Button
-    Friend WithEvents FindTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents FindTextBox As MultiControls.Controls.TextBoxButton
     Friend WithEvents DeleteButton As System.Windows.Forms.Button
 End Class

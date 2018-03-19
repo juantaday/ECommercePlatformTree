@@ -29,7 +29,7 @@ Partial Class frmChildEmployeeAccount
         Me.AccuentPersonTextBox = New System.Windows.Forms.TextBox()
         Me.findButton = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ColumnComboBox1 = New JTG.ColumnComboBox()
+        Me.ColumnComboBox1 = New MultiControls.Controls.ColumnComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PanelViewAccountEmployee.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -143,6 +143,6 @@ Partial Class frmChildEmployeeAccount
     Friend WithEvents AccuentPersonTextBox As TextBox
     Friend WithEvents findButton As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents ColumnComboBox1 As JTG.ColumnComboBox
+    Friend WithEvents ColumnComboBox1 As MultiControls.Controls.ColumnComboBox
     Friend WithEvents Label1 As Label
 End Class

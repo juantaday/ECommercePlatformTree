@@ -2332,7 +2332,6 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Microsoft.ReportViewer.WinForms.resources.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Microsoft.SqlServer.Types.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiColumnComboSuggestionBox.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ObjectListView.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
@@ -2389,7 +2388,6 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\BarcodeLib.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DGVPrinterHelper.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DGVPrinterHelper.dll.config
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiColumnComboSuggestionBox.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CADsisVenta.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CADsisVenta.dll.config
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\LibPrintTicket.pdb
@@ -2743,3 +2741,6 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.exe
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.xml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Bunifu_UI_v1.5.3.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiControls.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiControls.pdb

@@ -27,7 +27,7 @@ Partial Class frmChilBanckDeposit
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.SubmitButton = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.ColumnComboBox1 = New JTG.ColumnComboBox()
+        Me.ColumnComboBox1 = New MultiControls.Controls.ColumnComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ResponsableDepositorTextBox = New System.Windows.Forms.TextBox()
@@ -141,7 +141,7 @@ Partial Class frmChilBanckDeposit
     End Sub
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents Label1 As Label
-    Friend WithEvents ColumnComboBox1 As JTG.ColumnComboBox
+    Friend WithEvents ColumnComboBox1 As MultiControls.Controls.ColumnComboBox
     Friend WithEvents Label2 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ResponsableDepositorTextBox As TextBox

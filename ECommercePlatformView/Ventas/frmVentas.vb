@@ -11,7 +11,7 @@ Public Class frmVentas
 
     Private ListVendiblescollection As List(Of PresentVendiblescollection)
     Private ListItemVenta As List(Of ItemViewVenta)
-
+    Private ListOfertas As List(Of Ofertas)
 
     Dim Cant, PUnt, Descuen, totalFact As Double
     Dim nonNumberEntered As Boolean = False
@@ -38,6 +38,8 @@ Public Class frmVentas
         Else
             ListItemVenta = New List(Of ItemViewVenta)
         End If
+        ListOfertas = New List(Of Ofertas)
+
     End Sub
 
     Private Sub frmDiario_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
@@ -209,7 +211,7 @@ Public Class frmVentas
 
                 End Select
 
-                        For Each item In myVendible
+                For Each item In myVendible
                     Me.ListVendiblescollection.Add(New PresentVendiblescollection(item.d.pp.idPresentacion,
                                                                                      item.d.pp.idProducto,
                                                                                      item.d.pp.codProducto,
@@ -225,6 +227,10 @@ Public Class frmVentas
                                                                                      item.d.pp.Empaquetado,
                                                                                      item.d.pp.isDefaultSales))
                 Next
+
+
+                Me.ListOfertas = (From o In db.Ofertas).ToList()
+
             End Using
             If ListVendiblescollection.Count > 0 Then
                 Dim iva = ListVendiblescollection.Where(Function(x) x.IvaPercent > 0).FirstOrDefault()
@@ -366,8 +372,8 @@ PintaRepedidas:
     Private Function CalOfertas(item As ItemViewVenta) As Boolean
         Try
             item.Discount = 0
-            Using db As New DataContext
-                Dim _ofertas = From o In db.Ofertas
+
+            Dim _ofertas = From o In ListOfertas
                                Where o.idPresent = item.IdPresent And o.CantOferta <= item.Cuantity
                 If _ofertas.Count > 0 Then
                     For Each itemOfer In _ofertas
@@ -390,7 +396,6 @@ Aplicando:
                     Beep()
                     Return True
                 End If
-            End Using
             Return True
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al calcular OFERTAS")
@@ -788,6 +793,8 @@ Aplicando:
             FindClienteButton.PerformClick()
         ElseIf e.KeyCode = Keys.F2 Then
             Call CargaConsumidFinal()
+        ElseIf e.KeyCode = Keys.F3 Then
+            Me.ListPersonButton.PerformClick()
         ElseIf e.KeyCode = Keys.F4 Then
             Me.btnActualiza.PerformClick()
         ElseIf e.KeyCode = Keys.F6 Then
@@ -1218,6 +1225,7 @@ Aplicando:
                             idcliente = ClsClientes.isClinteBypersonAdmin(idPersona)
                             Carga_Cliente(idcliente)
                             txtExploret.Focus()
+                            Return
                         End If
                         CedulaTextBox.Focus()
                     End With
@@ -1331,6 +1339,7 @@ Aplicando:
                         CedulaTextBox.Text = .PersonVisibleNemuClicLabel.Tag
                         NomClienteText.Text = .PersonVisibleNemuClicLabel.Text
                         txtExploret.Focus()
+                        Return
                     End If
                     CedulaTextBox.Focus()
                 End With
@@ -1743,6 +1752,10 @@ Aplicando:
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
     End Sub
 
     Private Sub ToolStripMenuItemCinco_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemCincoDolar.Click
