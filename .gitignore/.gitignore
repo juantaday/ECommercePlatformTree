@@ -286,3 +286,8 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# NVidia Nsight GPU debugger configuration file
+*.nvuser
+
+git rm --cached -r .vs/*

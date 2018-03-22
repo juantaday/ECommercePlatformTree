@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BD6C6F15-980C-4BDC-A541-A6A8D1592006}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Sub Main</StartupObject>
+    <StartupObject>ECommercePlatformView.My.MyApplication</StartupObject>
     <RootNamespace>ECommercePlatformView</RootNamespace>
     <AssemblyName>ECommercePlatformView</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -94,6 +94,7 @@
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v17.1.UI, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Office.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -615,6 +616,8 @@
     <Compile Include="Configuracion\Printers\frmSettingDocuments.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DataInternal\FileType.vb" />
+    <Compile Include="DataInternal\GetDateFile.vb" />
     <Compile Include="Empleados\frmAdd_Empleados.designer.vb">
       <DependentUpon>frmAdd_Empleados.vb</DependentUpon>
     </Compile>
@@ -1091,6 +1094,24 @@
     <Compile Include="ReportView\frmReportProforma.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Seguridad\UserControls\BackupGeneral.Designer.vb">
+      <DependentUpon>BackupGeneral.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\BackupGeneral.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\BackupMediaOption.Designer.vb">
+      <DependentUpon>BackupMediaOption.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\BackupMediaOption.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\BackupOverwrite.Designer.vb">
+      <DependentUpon>BackupOverwrite.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\BackupOverwrite.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Seguridad\fbackup.vb" />
     <Compile Include="Seguridad\frmAdd_Usuarios.designer.vb">
       <DependentUpon>frmAdd_Usuarios.vb</DependentUpon>
@@ -1098,11 +1119,17 @@
     <Compile Include="Seguridad\frmAdd_Usuarios.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Seguridad\frmbackup_Base.designer.vb">
-      <DependentUpon>frmbackup_Base.vb</DependentUpon>
+    <Compile Include="Seguridad\frmBackup.Designer.vb">
+      <DependentUpon>frmBackup.vb</DependentUpon>
     </Compile>
-    <Compile Include="Seguridad\frmbackup_Base.vb">
+    <Compile Include="Seguridad\frmBackup.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\frmbackup_Simple.designer.vb">
+      <DependentUpon>frmbackup_Simple.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\frmbackup_Simple.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Seguridad\frmChangePassword.Designer.vb">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
@@ -1133,6 +1160,18 @@
     </Compile>
     <Compile Include="Seguridad\frmUsuarios.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\OpenFilePersonalise.Designer.vb">
+      <DependentUpon>OpenFilePersonalise.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\OpenFilePersonalise.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\frmbackup_SimpleClearLog.designer.vb">
+      <DependentUpon>frmbackup_SimpleClearLog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\frmbackup_SimpleClearLog.vb">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="System\frmViewDataReset.Designer.vb">
       <DependentUpon>frmViewDataReset.vb</DependentUpon>
@@ -1648,11 +1687,23 @@
     <EmbeddedResource Include="ReportView\frmReportProforma.resx">
       <DependentUpon>frmReportProforma.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UserControls\BackupGeneral.resx">
+      <DependentUpon>BackupGeneral.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UserControls\BackupMediaOption.resx">
+      <DependentUpon>BackupMediaOption.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UserControls\BackupOverwrite.resx">
+      <DependentUpon>BackupOverwrite.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\frmAdd_Usuarios.resx">
       <DependentUpon>frmAdd_Usuarios.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Seguridad\frmbackup_Base.resx">
-      <DependentUpon>frmbackup_Base.vb</DependentUpon>
+    <EmbeddedResource Include="Seguridad\frmBackup.resx">
+      <DependentUpon>frmBackup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UserControls\frmbackup_Simple.resx">
+      <DependentUpon>frmbackup_Simple.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\frmChangePassword.resx">
       <DependentUpon>frmChangePassword.vb</DependentUpon>
@@ -1668,6 +1719,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\OpenFilePersonalise.resx">
+      <DependentUpon>OpenFilePersonalise.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UserControls\frmbackup_SimpleClearLog.resx">
+      <DependentUpon>frmbackup_SimpleClearLog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System\frmViewDataReset.resx">
       <DependentUpon>frmViewDataReset.vb</DependentUpon>
@@ -2244,9 +2301,9 @@
       <Project>{f2127f73-480e-4841-944c-d1e9db1ebc25}</Project>
       <Name>MultiColumnComboSuggestionBox</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ObjectListView\ObjectListView2012.csproj">
+    <ProjectReference Include="..\ObjectListView\ObjectListView.csproj">
       <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>
-      <Name>ObjectListView2012</Name>
+      <Name>ObjectListView</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -452,6 +452,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.Data.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.DataAccess.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.DataAccess.v17.1.UI.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.Images.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.Office.v17.1.Core.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.Printing.v17.1.Core.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.RichEdit.v17.1.Core.dll
@@ -866,13 +867,18 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmReportInventoriesUpdates.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmReportNotaVenta.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmReportProforma.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.BackupGeneral.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.BackupMediaOption.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.BackupOverwrite.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmAdd_Usuarios.resources
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmbackup_Base.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmBackup.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmbackup_Simple.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmChangePassword.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmList_Users.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmPermisos.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmPermososSpecial.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmUsuarios.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.OpenFilePersonalise.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmViewDataReset.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmDetailOrderVenta.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.FrmImputDate.resources

@@ -1,0 +1,10 @@
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\bin\Debug\ObjectListView.XML
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\bin\Debug\ObjectListView.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\bin\Debug\ObjectListView.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Debug\ObjectListView.csprojResolveAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Debug\BrightIdeasSoftware.Properties.Resources.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Debug\BrightIdeasSoftware.ColumnSelectionForm.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Debug\ObjectListView.csproj.GenerateResource.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Debug\ObjectListView.csproj.CoreCompileInputs.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Debug\ObjectListView.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Debug\ObjectListView.pdb

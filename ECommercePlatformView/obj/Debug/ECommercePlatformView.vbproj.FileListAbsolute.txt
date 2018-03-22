@@ -2290,6 +2290,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ECommercePlatformView.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ECommercePlatformView.xml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\BarcodeLib.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Bunifu_UI_v1.5.3.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CADsisVenta.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CrystalDecisions.ReportSource.dll
@@ -2299,6 +2300,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.Data.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.DataAccess.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.DataAccess.v17.1.UI.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.Images.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.Office.v17.1.Core.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.Printing.v17.1.Core.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.RichEdit.v17.1.Core.dll
@@ -2332,6 +2334,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Microsoft.ReportViewer.WinForms.resources.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Microsoft.SqlServer.Types.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Microsoft.VisualBasic.PowerPacks.Vs.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiControls.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ObjectListView.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
@@ -2386,11 +2389,12 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Microsoft.Build.Framework.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\VSLangProj2.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\BarcodeLib.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DGVPrinterHelper.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DGVPrinterHelper.dll.config
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CADsisVenta.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\CADsisVenta.dll.config
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DGVPrinterHelper.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DGVPrinterHelper.dll.config
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\LibPrintTicket.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiControls.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ObjectListView.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\ObjectListView.xml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\DevExpress.Data.v17.1.xml
@@ -2712,13 +2716,19 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmReportInventoriesUpdates.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmReportNotaVenta.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmReportProforma.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupGeneral.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupMediaOption.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupOverwrite.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmAdd_Usuarios.resources
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmbackup_Base.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmBackup.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmbackup_Simple.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmChangePassword.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmList_Users.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmPermisos.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmPermososSpecial.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmUsuarios.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.OpenFilePersonalise.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmbackup_SimpleClearLog.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmViewDataReset.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmDetailOrderVenta.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.FrmImputDate.resources
@@ -2741,6 +2751,3 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.exe
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.xml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\Bunifu_UI_v1.5.3.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiControls.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Debug\MultiControls.pdb

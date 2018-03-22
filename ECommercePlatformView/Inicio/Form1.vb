@@ -1,49 +1,150 @@
-﻿Imports BrightIdeasSoftware
+﻿Imports System.Data.SqlClient
 
 Public Class Form1
-    Dim masterList As List(Of Person)
+    ' Add this code to the form's class:
+    ' You need this delegate in order to display text from a thread
+    ' other than the form's thread. See the HandleCallback
+    ' procedure for more information.
+    ' This same delegate matches both the DisplayStatus 
+    ' and DisplayResults methods.
+    Private Delegate Sub DisplayInfoDelegate(ByVal Text As String)
+
+    ' This flag ensures that the user does not attempt
+    ' to restart the command or close the form while the 
+    ' asynchronous command is executing.
+    Private isExecuting As Boolean
+
+    ' This example maintains the connection object 
+    ' externally, so that it is available for closing.
+    Private connection As SqlConnection
+
+    Private Function GetConnectionString() As String
+        ' To avoid storing the connection string in your code,            
+        ' you can retrieve it from a configuration file. 
+
+        ' If you have not included "Asynchronous Processing=true" in the
+        ' connection string, the command is not able
+        ' to execute asynchronously.
+        Return "Data Source=192.168.0.100;Integrated Security=true;" &
+          "Initial Catalog=jsofwareCommerceDB03; Asynchronous Processing=true"
+    End Function
+
+    Private Sub DisplayStatus(ByVal Text As String)
+        Me.Label1.Text = Text
+    End Sub
+
+    Private Sub DisplayResults(ByVal Text As String)
+        Me.Label1.Text = Text
+        DisplayStatus("Ready")
+    End Sub
+
+    Private Sub Form1_FormClosing(ByVal sender As Object,
+        ByVal e As System.Windows.Forms.FormClosingEventArgs) _
+        Handles Me.FormClosing
+        If isExecuting Then
+            MessageBox.Show(Me, "Cannot close the form until " &
+                "the pending asynchronous command has completed. Please wait...")
+            e.Cancel = True
+        End If
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object,
+        ByVal e As System.EventArgs) Handles Button1.Click
+        If isExecuting Then
+            MessageBox.Show(Me,
+               "Already executing. Please wait until the current query " &
+                "has completed.")
+        Else
+            Dim command As SqlCommand
+            Try
+                DisplayResults("")
+                DisplayStatus("Connecting...")
+                connection = New SqlConnection(GetConnectionString())
+                ' To emulate a long-running query, wait for 
+                ' a few seconds before working with the data.
+                ' This command does not do much, but that's the point--
+                ' it does not change your data, in the long run.
+                Dim commandText As String =
+                    "WAITFOR DELAY '0:0:05';" &
+                    "UPDATE Production.Product SET ReorderPoint = ReorderPoint + 1 " &
+                    "WHERE ReorderPoint Is Not Null;" &
+                    "UPDATE Production.Product SET ReorderPoint = ReorderPoint - 1 " &
+                    "WHERE ReorderPoint Is Not Null"
+
+                command = New SqlCommand(commandText, connection)
+                connection.Open()
+
+                DisplayStatus("Executing...")
+                isExecuting = True
+                ' Although it is not required that you pass the 
+                ' SqlCommand object as the second parameter in the 
+                ' BeginExecuteNonQuery call, doing so makes it easier
+                ' to call EndExecuteNonQuery in the callback procedure.
+                Dim callback As New AsyncCallback(AddressOf HandleCallback)
+                command.BeginExecuteNonQuery(callback, command)
+
+            Catch ex As Exception
+                isExecuting = False
+                DisplayStatus(String.Format("Ready (last error: {0})", ex.Message))
+                If connection IsNot Nothing Then
+                    connection.Close()
+                End If
+            End Try
+        End If
+    End Sub
+
+    Private Sub HandleCallback(ByVal result As IAsyncResult)
+        Try
+            ' Retrieve the original command object, passed
+            ' to this procedure in the AsyncState property
+            ' of the IAsyncResult parameter.
+            Dim command As SqlCommand = CType(result.AsyncState, SqlCommand)
+            Dim rowCount As Integer = command.EndExecuteNonQuery(result)
+            Dim rowText As String = " rows affected."
+            If rowCount = 1 Then
+                rowText = " row affected."
+            End If
+            rowText = rowCount & rowText
+
+            ' You may not interact with the form and its contents
+            ' from a different thread, and this callback procedure
+            ' is all but guaranteed to be running from a different thread
+            ' than the form. Therefore you cannot simply call code that 
+            ' displays the results, like this:
+            ' DisplayResults(rowText)
+
+            ' Instead, you must call the procedure from the form's thread.
+            ' One simple way to accomplish this is to call the Invoke
+            ' method of the form, which calls the delegate you supply
+            ' from the form's thread. 
+            Dim del As New DisplayInfoDelegate(AddressOf DisplayResults)
+            Me.Invoke(del, rowText)
+
+        Catch ex As Exception
+            ' Because you are now running code in a separate thread, 
+            ' if you do not handle the exception here, none of your other
+            ' code catches the exception. Because none of your code
+            ' is on the call stack in this thread, there is nothing
+            ' higher up the stack to catch the exception if you do not 
+            ' handle it here. You can either log the exception or 
+            ' invoke a delegate (as in the non-error case in this 
+            ' example) to display the error on the form. In no case
+            ' can you simply display the error without executing a delegate
+            ' as in the Try block here. 
+
+            ' You can create the delegate instance as you 
+            ' invoke it, like this:
+            Me.Invoke(New DisplayInfoDelegate(AddressOf DisplayStatus),
+                String.Format("Ready(last error: {0}", ex.Message))
+        Finally
+            isExecuting = False
+            If connection IsNot Nothing Then
+                connection.Close()
+            End If
+        End Try
+    End Sub
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        masterList = New List(Of Person)
-        data()
-        initializaComun()
-
-        FastObjectListView1.SetObjects(masterList)
-    End Sub
-
-    Private Sub initializaComun()
-        FastObjectListView1.CheckBoxes = True
-        FastObjectListView1.TriStateCheckBoxes = True
-
-        olvColumn26.AspectGetter = Function(ByVal x As Object) (CType(x, Person)).CulinaryRating
-        olvColumn26.Renderer = New MultiImageRenderer(My.Resources.Action_Delete_16x16, 5, 0, 40)
-
-        olvColumn18.AspectGetter = Function(ByVal x As Object) (CType(x, Person)).Name
-
-        olvColumn31.AspectGetter = Function(ByVal row As Object)
-                                       If (CType(row, Person)).GetRate() < 100 Then Return "Little"
-                                       If (CType(row, Person)).GetRate() > 1000 Then Return "Lots"
-                                       Return "Medium"
-                                   End Function
-
-        olvColumn31.Renderer = New MappedImageRenderer(New Object() {"Little", My.Resources.Action_Delete_16x16, "Medium", My.Resources.Action_Printing_Print_16x16, "Lots", My.Resources.Action_Delete_12x12})
 
     End Sub
-
-    Private Sub data()
-
-        masterList.Add(New Person("Wilhelm Frat", "Gymnast", 21, New DateTime(1984, 9, 23), 45.67, False, "ak", "Aggressive, belligerent "))
-        masterList.Add(New Person("Alana Roderick", "Gymnast", 21, New DateTime(1974, 9, 23), 245.67, False, "gp", "Beautiful, exquisite"))
-        masterList.Add(New Person("Frank Price", "Dancer", 30, New DateTime(1965, 11, 1), 75.5, False, "ns", "Competitive, spirited"))
-        masterList.Add(New Person("Eric", "Half-a-bee", 1, New DateTime(1966, 10, 12), 12.25, True, "cp", "Diminutive, vertically challenged"))
-        masterList.Add(New Person("Nicola Scotts", "Nurse", 42, New DateTime(1965, 10, 29), 1245.7, False, "np", "Wise, fun, lovely"))
-        masterList.Add(New Person("Madalene Alright", "School Teacher", 21, New DateTime(1964, 9, 23), 145.67, False, "jr", "Extensive, dimensionally challenged"))
-        masterList.Add(New Person("Ned Peirce", "School Teacher", 21, New DateTime(1960, 1, 23), 145.67, False, "gab", "Fulsome, effusive"))
-        masterList.Add(New Person("Felicity Brown", "Economist", 30, New DateTime(1975, 1, 12), 175.5, False, "sp", "Gifted, exceptional"))
-        masterList.Add(New Person("Urny Unmin", "Economist", 41, New DateTime(1956, 9, 24), 212.25, True, "cr", "Heinous, aesthetically challenged"))
-        masterList.Add(New Person("Terrance Darby", "Singer", 35, New DateTime(1970, 9, 29), 1145, False, "mb", "Introverted, relationally challenged"))
-        masterList.Add(New Person("Phillip Nottingham", "Programmer", 27, New DateTime(1974, 8, 28), 245.7, False, "sj", "Jocular, gregarious"))
-        masterList.Add(New Person("Mister Null"))
-
-    End Sub
-
 End Class

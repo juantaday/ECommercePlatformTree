@@ -666,6 +666,97 @@
             <param name="cellText">The text of the cell we want to search</param>
             <returns>A list of character ranges indicating the matched substrings</returns>
         </member>
+        <member name="T:BrightIdeasSoftware.Helpers.MyFileSystemInfo">
+            <summary>
+            Standard .NET FileSystemInfos are always not equal to each other.
+            When we try to refresh a directory, our controls can't match up new
+            files with existing files. They are also sealed so we can't just subclass them.
+            This class is a wrapper around a FileSystemInfo that simply provides
+            equality.
+            </summary>
+        </member>
+        <member name="M:BrightIdeasSoftware.Helpers.MyFileSystemInfo.#ctor(System.IO.FileSystemInfo)">
+            <summary>
+            Standard .NET FileSystemInfos are always not equal to each other.
+            When we try to refresh a directory, our controls can't match up new
+            files with existing files. They are also sealed so we can't just subclass them.
+            This class is a wrapper around a FileSystemInfo that simply provides
+            equality.
+            </summary>
+        </member>
+        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "T:BrightIdeasSoftware.Helpers.SysImageListHelper" -->
+        <member name="M:BrightIdeasSoftware.Helpers.SysImageListHelper.#ctor(System.Windows.Forms.TreeView)">
+            <summary>
+            Create a SysImageListHelper that will fetch images for the given tree control
+            </summary>
+            <param name="treeView">The tree view that will use the images</param>
+        </member>
+        <member name="M:BrightIdeasSoftware.Helpers.SysImageListHelper.#ctor(System.Windows.Forms.ListView)">
+            <summary>
+            Create a SysImageListHelper that will fetch images for the given listview control.
+            </summary>
+            <param name="listView">The listview that will use the images</param>
+            <remarks>Listviews manage two image lists, but each item can only have one image index.
+            This means that the image for an item must occur at the same index in the two lists. 
+            SysImageListHelper instances handle this requirement. However, if the listview already
+            has image lists installed, they <b>must</b> be of the same length.</remarks>
+        </member>
+        <member name="M:BrightIdeasSoftware.Helpers.SysImageListHelper.GetImageIndex(System.String)">
+            <summary>
+            Return the index of the image that has the Shell Icon for the given file/directory.
+            </summary>
+            <param name="path">The full path to the file/directory</param>
+            <returns>The index of the image or -1 if something goes wrong.</returns>
+        </member>
+        <member name="T:BrightIdeasSoftware.Helpers.ShellUtilities">
+            <summary>
+            ShellUtilities contains routines to interact with the Windows Shell.
+            </summary>
+        </member>
+        <member name="M:BrightIdeasSoftware.Helpers.ShellUtilities.Execute(System.String)">
+            <summary>
+            Execute the default verb on the file or directory identified by the given path.
+            For documents, this will open them with their normal application. For executables,
+            this will cause them to run.
+            </summary>
+            <param name="path">The file or directory to be executed</param>
+            <returns>Values &lt; 31 indicate some sort of error. See ShellExecute() documentation for specifics.</returns>
+            <remarks>The same effect can be achieved by <code>System.Diagnostics.Process.Start(path)</code>.</remarks>
+        </member>
+        <member name="M:BrightIdeasSoftware.Helpers.ShellUtilities.Execute(System.String,System.String)">
+            <summary>
+            Execute the given operation on the file or directory identified by the given path.
+            Example operations are "edit", "print", "explore".
+            </summary>
+            <param name="path">The file or directory to be operated on</param>
+            <param name="operation">What operation should be performed</param>
+            <returns>Values &lt; 31 indicate some sort of error. See ShellExecute() documentation for specifics.</returns>
+        </member>
+        <member name="M:BrightIdeasSoftware.Helpers.ShellUtilities.GetFileType(System.String)">
+            <summary>
+            Get the string that describes the file's type.
+            </summary>
+            <param name="path">The file or directory whose type is to be fetched</param>
+            <returns>A string describing the type of the file, or an empty string if something goes wrong.</returns>
+        </member>
+        <member name="M:BrightIdeasSoftware.Helpers.ShellUtilities.GetFileIcon(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Return the icon for the given file/directory.
+            </summary>
+            <param name="path">The full path to the file whose icon is to be returned</param>
+            <param name="isSmallImage">True if the small (16x16) icon is required, otherwise the 32x32 icon will be returned</param>
+            <param name="useFileType">If this is true, only the file extension will be considered</param>
+            <returns>The icon of the given file, or null if something goes wrong</returns>
+        </member>
+        <member name="M:BrightIdeasSoftware.Helpers.ShellUtilities.GetSysImageIndex(System.String)">
+            <summary>
+            Return the index into the system image list of the image that represents the given file.
+            </summary>
+            <param name="path">The full path to the file or directory whose icon is required</param>
+            <returns>The index of the icon, or -1 if something goes wrong</returns>
+            <remarks>This is only useful if you are using the system image lists directly. Since there is
+            no way to do that in .NET, it isn't a very useful.</remarks>
+        </member>
         <member name="T:BrightIdeasSoftware.AspectGetterDelegate">
             <summary>
             These delegates are used to extract an aspect from a row object

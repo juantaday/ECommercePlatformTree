@@ -363,9 +363,9 @@ Public Class MDIPareInicio
 
     Private Sub RespaldarBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RespaldarBaseDeDatosToolStripMenuItem.Click
         Try
-            Using frmbackup_Base
-                frmbackup_Base.StartPosition = FormStartPosition.CenterParent
-                frmbackup_Base.ShowDialog()
+            Using frmBackup
+                frmBackup.StartPosition = FormStartPosition.CenterParent
+                frmBackup.ShowDialog()
             End Using
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")

@@ -10,6 +10,19 @@
         List = 1
         View = 2
     End Enum
+    Public Enum typeFile
+        Images = 0
+        Backup = 1
+        Text = 2
+        Data = 3
+    End Enum
+
+    Public Enum BackupType
+        Complit = 0
+        MassiveRecords = 1
+        Simple = 2
+    End Enum
+
     Public Enum stateClient
         Admin = 0
         User = 1

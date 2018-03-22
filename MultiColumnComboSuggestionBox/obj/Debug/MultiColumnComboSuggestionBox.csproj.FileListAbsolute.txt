@@ -20,11 +20,11 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestio
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.csproj.CoreCompileInputs.cache
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.dll
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.csproj.CoreCompileInputs.cache
-F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.csproj.GenerateResource.cache
-F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiControls.Properties.Resources.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\bin\Debug\MultiControls.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\bin\Debug\MultiControls.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.csprojResolveAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiControls.Properties.Resources.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.csproj.GenerateResource.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.csproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiControls.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiControls.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiColumnComboSuggestionBox\obj\Debug\MultiColumnComboSuggestionBox.csprojResolveAssemblyReference.cache

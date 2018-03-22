@@ -1556,6 +1556,9 @@ inicia:
         End Try
 
     End Sub
+
+
+
     Private Sub AtrasButtonFactur_Click(sender As Object, e As EventArgs) Handles AtrasButtonFactur.Click
         tabcontrol.TabPages(0).Enabled = False
         tabcontrol.TabPages(1).Enabled = True
