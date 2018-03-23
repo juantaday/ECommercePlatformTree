@@ -2751,3 +2751,5 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.exe
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.xml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.MyPreLoadders.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupViewRunning.resources

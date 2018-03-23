@@ -659,6 +659,12 @@
     <Compile Include="Facturacion\frmList_Facturas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HelpersControls\MyPreLoadders.Designer.vb">
+      <DependentUpon>MyPreLoadders.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HelpersControls\MyPreLoadders.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Inicio\AboutBox.designer.vb">
       <DependentUpon>AboutBox.vb</DependentUpon>
     </Compile>
@@ -1125,6 +1131,12 @@
     <Compile Include="Seguridad\frmBackup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Seguridad\UserControls\BackupViewRunning.Designer.vb">
+      <DependentUpon>BackupViewRunning.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\UserControls\BackupViewRunning.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Seguridad\UserControls\frmbackup_Simple.designer.vb">
       <DependentUpon>frmbackup_Simple.vb</DependentUpon>
     </Compile>
@@ -1477,6 +1489,9 @@
     <EmbeddedResource Include="Facturacion\frmList_Facturas.resx">
       <DependentUpon>frmList_Facturas.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HelpersControls\MyPreLoadders.resx">
+      <DependentUpon>MyPreLoadders.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio\AboutBox.resx">
       <DependentUpon>AboutBox.vb</DependentUpon>
     </EmbeddedResource>
@@ -1701,6 +1716,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\frmBackup.resx">
       <DependentUpon>frmBackup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\UserControls\BackupViewRunning.resx">
+      <DependentUpon>BackupViewRunning.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\UserControls\frmbackup_Simple.resx">
       <DependentUpon>frmbackup_Simple.vb</DependentUpon>

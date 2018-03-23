@@ -27,9 +27,8 @@ Partial Class BackupMediaOption
         Me.BunifuSeparator1 = New Bunifu.Framework.UI.BunifuSeparator()
         Me.SeparatorControl1 = New DevExpress.XtraEditors.SeparatorControl()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.NameBackupTextBox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.RadioGroup1 = New DevExpress.XtraEditors.RadioGroup()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
@@ -39,6 +38,7 @@ Partial Class BackupMediaOption
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.CompresionComboBox = New System.Windows.Forms.ComboBox()
+        Me.DescriptionTextBox = New System.Windows.Forms.RichTextBox()
         CType(Me.SeparatorControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,7 +69,7 @@ Partial Class BackupMediaOption
         Me.BunifuSeparator1.LineThickness = 1
         Me.BunifuSeparator1.Location = New System.Drawing.Point(95, 234)
         Me.BunifuSeparator1.Name = "BunifuSeparator1"
-        Me.BunifuSeparator1.Size = New System.Drawing.Size(486, 16)
+        Me.BunifuSeparator1.Size = New System.Drawing.Size(519, 16)
         Me.BunifuSeparator1.TabIndex = 3
         Me.BunifuSeparator1.Transparency = 255
         Me.BunifuSeparator1.Vertical = False
@@ -79,7 +79,7 @@ Partial Class BackupMediaOption
         Me.SeparatorControl1.BackColor = System.Drawing.Color.Gray
         Me.SeparatorControl1.Location = New System.Drawing.Point(203, 27)
         Me.SeparatorControl1.Name = "SeparatorControl1"
-        Me.SeparatorControl1.Size = New System.Drawing.Size(378, 1)
+        Me.SeparatorControl1.Size = New System.Drawing.Size(411, 1)
         Me.SeparatorControl1.TabIndex = 4
         '
         'Label3
@@ -91,12 +91,12 @@ Partial Class BackupMediaOption
         Me.Label3.TabIndex = 5
         Me.Label3.Text = "Nombre:"
         '
-        'TextBox1
+        'NameBackupTextBox
         '
-        Me.TextBox1.Location = New System.Drawing.Point(114, 51)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(467, 21)
-        Me.TextBox1.TabIndex = 6
+        Me.NameBackupTextBox.Location = New System.Drawing.Point(114, 51)
+        Me.NameBackupTextBox.Name = "NameBackupTextBox"
+        Me.NameBackupTextBox.Size = New System.Drawing.Size(500, 21)
+        Me.NameBackupTextBox.TabIndex = 6
         '
         'Label4
         '
@@ -106,13 +106,6 @@ Partial Class BackupMediaOption
         Me.Label4.Size = New System.Drawing.Size(75, 15)
         Me.Label4.TabIndex = 5
         Me.Label4.Text = "Descripción:"
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(114, 87)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(467, 21)
-        Me.TextBox2.TabIndex = 6
         '
         'Label5
         '
@@ -191,17 +184,27 @@ Partial Class BackupMediaOption
         '
         'CompresionComboBox
         '
+        Me.CompresionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CompresionComboBox.FormattingEnabled = True
         Me.CompresionComboBox.Items.AddRange(New Object() {"Usar la configuración predeterminada del servidor.", "Comprimir la copia de seguridad.", "No comprimir la copia de seguridad."})
         Me.CompresionComboBox.Location = New System.Drawing.Point(297, 261)
         Me.CompresionComboBox.Name = "CompresionComboBox"
-        Me.CompresionComboBox.Size = New System.Drawing.Size(284, 23)
+        Me.CompresionComboBox.Size = New System.Drawing.Size(317, 23)
         Me.CompresionComboBox.TabIndex = 13
+        '
+        'DescriptionTextBox
+        '
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(114, 82)
+        Me.DescriptionTextBox.Name = "DescriptionTextBox"
+        Me.DescriptionTextBox.Size = New System.Drawing.Size(500, 43)
+        Me.DescriptionTextBox.TabIndex = 14
+        Me.DescriptionTextBox.Text = ""
         '
         'BackupMediaOption
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.DescriptionTextBox)
         Me.Controls.Add(Me.CompresionComboBox)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label6)
@@ -209,11 +212,10 @@ Partial Class BackupMediaOption
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.RadioGroup1)
-        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.NameBackupTextBox)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.SeparatorControl1)
         Me.Controls.Add(Me.BunifuSeparator1)
@@ -221,7 +223,7 @@ Partial Class BackupMediaOption
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Name = "BackupMediaOption"
-        Me.Size = New System.Drawing.Size(600, 310)
+        Me.Size = New System.Drawing.Size(630, 310)
         CType(Me.SeparatorControl1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadioGroup1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -235,9 +237,8 @@ Partial Class BackupMediaOption
     Friend WithEvents BunifuSeparator1 As Bunifu.Framework.UI.BunifuSeparator
     Friend WithEvents SeparatorControl1 As DevExpress.XtraEditors.SeparatorControl
     Friend WithEvents Label3 As Label
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents NameBackupTextBox As TextBox
     Friend WithEvents Label4 As Label
-    Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents RadioGroup1 As DevExpress.XtraEditors.RadioGroup
     Friend WithEvents RadioButton1 As RadioButton
@@ -247,4 +248,5 @@ Partial Class BackupMediaOption
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label7 As Label
     Friend WithEvents CompresionComboBox As ComboBox
+    Friend WithEvents DescriptionTextBox As RichTextBox
 End Class

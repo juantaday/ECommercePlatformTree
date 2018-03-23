@@ -52,7 +52,7 @@ Partial Class BackupOverwrite
         Me.RadioGroup2.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.RadioGroup2.Properties.Appearance.Options.UseBackColor = True
         Me.RadioGroup2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.RadioGroup2.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Anexar al conjunto de copias de seguridad existente."), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Sobreescribir  todos los conjuntos de copias de seguridad existente.")})
+        Me.RadioGroup2.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(1, Short), "Anexar al conjunto de copias de seguridad existente."), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(2, Short), "Sobreescribir  todos los conjuntos de copias de seguridad existente.")})
         Me.RadioGroup2.Size = New System.Drawing.Size(467, 79)
         Me.RadioGroup2.TabIndex = 3
         '

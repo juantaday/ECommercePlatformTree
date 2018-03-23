@@ -1,14 +1,17 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class BackupGeneral
+    Private isLoadted As Boolean
     Public Files As List(Of FileTypes)
-    Sub New(_Files As List(Of FileTypes))
+    Private MyParent As frmBackup
+    Sub New(_Files As List(Of FileTypes), myparent As frmBackup)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         Files = _Files
+        Me.MyParent = myparent
     End Sub
     Sub New()
 
@@ -23,57 +26,29 @@ Public Class BackupGeneral
     End Sub
 
     Private Sub BackupGeneral_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.TypeCopySegurity.SelectedIndex = 0
+        Me.TypeBackupComboBox.SelectedIndex = 0
         Me.CopyToComboBox.SelectedIndex = 0
         For Each item In Files
             Me.ListFileBox.Items.Add(item.NameFile)
         Next
         LoadData()
-
+        isLoadted = True
     End Sub
 
     Private Sub LoadData()
-        Try
-            Using cnn As New SqlConnection(SimpleDataApp.Utility.GetConnectionString())
-                cnn.Open()
-                sql = "SELECT db.[name]
-                        ,db.recovery_model
-                           FROM sys.databases  as db
-                           WHERE name = 'jsofwareCommerceDB03'"
-                Using cmd As New SqlCommand(sql, cnn)
-                    Using dat As New SqlDataAdapter(cmd)
-                        Using dt As New DataTable
-                            If dat.Fill(dt) Then
-                                If dt.Rows.Count > 0 Then
-                                    Me.DataBaseTextBox.Text = dt.Rows(0)(0)
-                                    Select Case dt.Rows(0)(1)
-                                        Case 1
-                                            ModeRecoveryTextBox.Text = "Completa"
-                                        Case 2
-                                            ModeRecoveryTextBox.Text = "Registro masivo"
-                                        Case 3
-                                            ModeRecoveryTextBox.Text = "Simple"
-                                        Case Else
-                                            ModeRecoveryTextBox.Text = "No determinado..."
-                                    End Select
-                                End If
-                            End If
-
-
-                        End Using
-                    End Using
-
-                End Using
-            End Using
-
-        Catch ex As Exception
-            Me.Cursor = Cursors.Default
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        Finally
-            Me.Cursor = Cursors.Default
-        End Try
+        Me.DataBaseTextBox.Text = MyParent.DataBase
+        Select Case Me.MyParent.TypeCopySegurity
+            Case 1
+                ModeRecoveryTextBox.Text = "Completa"
+            Case 2
+                ModeRecoveryTextBox.Text = "Registro masivo"
+            Case 3
+                ModeRecoveryTextBox.Text = "Simple"
+            Case Else
+                ModeRecoveryTextBox.Text = "No determinado..."
+        End Select
+        TypeBackupComboBox.SelectedIndex = MyParent.TypeBackup
     End Sub
-
 
     Private Sub AddNewFileButton_Click(sender As Object, e As EventArgs) Handles AddNewFileButton.Click
         Using fil As New OpenFilePersonalise(
@@ -127,6 +102,12 @@ Public Class BackupGeneral
                   MsgBoxStyle.DefaultButton2,
                   "Responda.") = MsgBoxResult.Yes Then
             Me.ListFileBox.Items.Remove(Me.ListFileBox.SelectedItem)
+        End If
+    End Sub
+
+    Private Sub TypeBackupComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles TypeBackupComboBox.SelectedIndexChanged
+        If isLoadted Then
+            Me.MyParent.TypeBackup = TypeBackupComboBox.SelectedIndex
         End If
     End Sub
 End Class

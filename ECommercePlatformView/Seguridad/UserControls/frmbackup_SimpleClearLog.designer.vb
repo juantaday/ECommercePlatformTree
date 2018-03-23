@@ -56,7 +56,7 @@ Partial Class frmbackup_SimpleClearLog
         Me.fileNameTextBox.Location = New System.Drawing.Point(9, 228)
         Me.fileNameTextBox.Name = "fileNameTextBox"
         Me.fileNameTextBox.ReadOnly = True
-        Me.fileNameTextBox.Size = New System.Drawing.Size(570, 20)
+        Me.fileNameTextBox.Size = New System.Drawing.Size(590, 20)
         Me.fileNameTextBox.TabIndex = 2
         '
         'ProgressBar2
@@ -65,15 +65,15 @@ Partial Class frmbackup_SimpleClearLog
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ProgressBar2.Location = New System.Drawing.Point(10, 269)
         Me.ProgressBar2.Name = "ProgressBar2"
-        Me.ProgressBar2.Size = New System.Drawing.Size(569, 19)
+        Me.ProgressBar2.Size = New System.Drawing.Size(599, 19)
         Me.ProgressBar2.TabIndex = 6
         '
         'FileButton
         '
         Me.FileButton.Image = Global.ECommercePlatformView.My.Resources.Resources.zoom_green_48icon
-        Me.FileButton.Location = New System.Drawing.Point(496, 161)
+        Me.FileButton.Location = New System.Drawing.Point(520, 161)
         Me.FileButton.Name = "FileButton"
-        Me.FileButton.Size = New System.Drawing.Size(80, 61)
+        Me.FileButton.Size = New System.Drawing.Size(79, 61)
         Me.FileButton.TabIndex = 4
         Me.FileButton.UseVisualStyleBackColor = True
         '
@@ -91,11 +91,11 @@ Partial Class frmbackup_SimpleClearLog
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.Label1.Location = New System.Drawing.Point(26, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(450, 184)
+        Me.Label1.Size = New System.Drawing.Size(477, 184)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = ""
         '
-        'frmbackup_Simple
+        'frmbackup_SimpleClearLog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -105,8 +105,8 @@ Partial Class frmbackup_SimpleClearLog
         Me.Controls.Add(Me.fileNameTextBox)
         Me.Controls.Add(Me.btnbackup)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "frmbackup_Simple"
-        Me.Size = New System.Drawing.Size(600, 310)
+        Me.Name = "frmbackup_SimpleClearLog"
+        Me.Size = New System.Drawing.Size(630, 310)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

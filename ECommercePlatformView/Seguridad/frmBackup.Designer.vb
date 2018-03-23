@@ -38,14 +38,14 @@ Partial Class frmBackup
         Me.PreViewButton = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlElement2 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.SettingControls = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlElement4 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlElement3 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.PanelView = New System.Windows.Forms.Panel()
-        Me.AccordionControlElement4 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.AccordionControlElement3 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Panel1.SuspendLayout()
         Me.PanelLefth.SuspendLayout()
         CType(Me.AccordionControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -211,6 +211,19 @@ Partial Class frmBackup
         Me.SettingControls.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.SettingControls.Text = "Configuar"
         '
+        'AccordionControlElement4
+        '
+        Me.AccordionControlElement4.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AccordionControlElement3})
+        Me.AccordionControlElement4.Expanded = True
+        Me.AccordionControlElement4.Name = "AccordionControlElement4"
+        Me.AccordionControlElement4.Text = "Limpiar transacciones"
+        '
+        'AccordionControlElement3
+        '
+        Me.AccordionControlElement3.Name = "AccordionControlElement3"
+        Me.AccordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AccordionControlElement3.Text = "Detalle de limpiaza"
+        '
         'Panel4
         '
         Me.Panel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -268,19 +281,6 @@ Partial Class frmBackup
         Me.PanelView.Name = "PanelView"
         Me.PanelView.Size = New System.Drawing.Size(634, 314)
         Me.PanelView.TabIndex = 5
-        '
-        'AccordionControlElement4
-        '
-        Me.AccordionControlElement4.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AccordionControlElement3})
-        Me.AccordionControlElement4.Expanded = True
-        Me.AccordionControlElement4.Name = "AccordionControlElement4"
-        Me.AccordionControlElement4.Text = "Limpiar transacciones"
-        '
-        'AccordionControlElement3
-        '
-        Me.AccordionControlElement3.Name = "AccordionControlElement3"
-        Me.AccordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AccordionControlElement3.Text = "Detalle de limpiaza"
         '
         'frmBackup
         '

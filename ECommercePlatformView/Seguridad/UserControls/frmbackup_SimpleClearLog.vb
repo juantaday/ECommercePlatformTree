@@ -149,33 +149,6 @@ Public Class frmbackup_SimpleClearLog
         myParent.isClosable = Me.isExecuting
     End Sub
 
-
-    Public Async Function GetToken() As Task(Of Boolean)
-        Try
-            Using cnn As New SqlConnection(SimpleDataApp.Utility.GetConnectionString())
-                Await cnn.OpenAsync()
-                Using cmd As New SqlCommand(sql, cnn)
-
-                    cmd.CommandText = "backup_base"
-                    cmd.CommandType = CommandType.StoredProcedure
-                    cmd.Parameters.Add("@Direcions", SqlDbType.VarChar)
-                    cmd.Parameters.Add("@NameArchiv", SqlDbType.VarChar)
-
-                    cmd.Parameters("@Direcions").Value = NameArchiv
-                    cmd.Parameters("@NameArchiv").Value = "Esto es prueba"
-
-                    If Await cmd.ExecuteNonQueryAsync() Then
-                        Return True
-                    End If
-                End Using
-            End Using
-            Return False
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            Return False
-        End Try
-    End Function
-
     Private Sub FileButton_Click(sender As Object, e As EventArgs) Handles FileButton.Click
         Try
             ' Displays an OpenFileDialog so the user can select a Cursor.

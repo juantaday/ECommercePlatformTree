@@ -24,7 +24,7 @@ Partial Class BackupGeneral
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
-        Me.TypeCopySegurity = New System.Windows.Forms.ComboBox()
+        Me.TypeBackupComboBox = New System.Windows.Forms.ComboBox()
         Me.ModeRecoveryTextBox = New System.Windows.Forms.TextBox()
         Me.DataBaseTextBox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,7 +49,7 @@ Partial Class BackupGeneral
         '
         Me.GroupControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 9.0!)
         Me.GroupControl1.Appearance.Options.UseFont = True
-        Me.GroupControl1.Controls.Add(Me.TypeCopySegurity)
+        Me.GroupControl1.Controls.Add(Me.TypeBackupComboBox)
         Me.GroupControl1.Controls.Add(Me.ModeRecoveryTextBox)
         Me.GroupControl1.Controls.Add(Me.DataBaseTextBox)
         Me.GroupControl1.Controls.Add(Me.Label2)
@@ -62,16 +62,18 @@ Partial Class BackupGeneral
         Me.GroupControl1.TabIndex = 0
         Me.GroupControl1.Text = "Origen"
         '
-        'TypeCopySegurity
+        'TypeBackupComboBox
         '
-        Me.TypeCopySegurity.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.TypeBackupComboBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TypeCopySegurity.FormattingEnabled = True
-        Me.TypeCopySegurity.Items.AddRange(New Object() {"Completa", "Diferencial", "Registro de transacciones"})
-        Me.TypeCopySegurity.Location = New System.Drawing.Point(187, 93)
-        Me.TypeCopySegurity.Name = "TypeCopySegurity"
-        Me.TypeCopySegurity.Size = New System.Drawing.Size(358, 22)
-        Me.TypeCopySegurity.TabIndex = 3
+        Me.TypeBackupComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.TypeBackupComboBox.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.TypeBackupComboBox.FormattingEnabled = True
+        Me.TypeBackupComboBox.Items.AddRange(New Object() {"Completa", "Diferencial", "Registro de transacciones"})
+        Me.TypeBackupComboBox.Location = New System.Drawing.Point(187, 93)
+        Me.TypeBackupComboBox.Name = "TypeBackupComboBox"
+        Me.TypeBackupComboBox.Size = New System.Drawing.Size(358, 22)
+        Me.TypeBackupComboBox.TabIndex = 3
         '
         'ModeRecoveryTextBox
         '
@@ -222,7 +224,7 @@ Partial Class BackupGeneral
 
     Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents GroupControl2 As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents TypeCopySegurity As ComboBox
+    Friend WithEvents TypeBackupComboBox As ComboBox
     Friend WithEvents ModeRecoveryTextBox As TextBox
     Friend WithEvents DataBaseTextBox As TextBox
     Friend WithEvents Label2 As Label
