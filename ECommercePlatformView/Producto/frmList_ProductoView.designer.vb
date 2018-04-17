@@ -560,11 +560,11 @@ Partial Class frmList_ProductoView
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Source Sans Pro", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(1, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(65, Byte), Integer))
         Me.Label3.Location = New System.Drawing.Point(3, 1)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(158, 28)
+        Me.Label3.Size = New System.Drawing.Size(170, 26)
         Me.Label3.TabIndex = 0
         Me.Label3.Text = "Codigo de Barra"
         '

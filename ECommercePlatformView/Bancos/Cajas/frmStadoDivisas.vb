@@ -17,7 +17,8 @@ Public Class frmStadoDivisas
             End Using
 
             Dim rptInforme As New ReportDocument
-            rptInforme.Load(file_rptSaldoDivisas)
+            rptInforme = New rptSaldoDivisas
+            'rptInforme.Load(file_rptSaldoDivisas)
             rptInforme.Subreports(1).SetDataSource(dtTipo)
             rptInforme.Subreports(0).SetDataSource(dtLocalidad)
 

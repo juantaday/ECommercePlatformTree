@@ -26,6 +26,8 @@ Public Class BackupViewRunning
 
     Private Sub BackupViewRunning_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.BunifuCircleProgressbar1.StopRunnig()
+        Me.Button1.Height = 0
+        Me.Button1.Width = 0
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -94,9 +96,9 @@ Public Class BackupViewRunning
 
             For Each item In Me.MyParent.MyDirFiles
                 If String.IsNullOrEmpty(StringFiles) Then
-                    StringFiles = "TO DISK = '" & item.NameFile & "',"
+                    StringFiles = "TO DISK = '" & item.NameFile & "'"
                 Else
-                    StringFiles = StringFiles & "DISK = '" & item.NameFile & "'"
+                    StringFiles = StringFiles & ", DISK = '" & item.NameFile & "'"
                 End If
             Next
             Dim formater As String = String.Empty

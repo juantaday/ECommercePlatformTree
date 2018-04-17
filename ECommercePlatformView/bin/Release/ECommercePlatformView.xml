@@ -382,6 +382,11 @@ ECommercePlatformView
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.change_name_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ECommercePlatformView.My.Resources.Resources.change_passwor_32">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -438,6 +443,11 @@ ECommercePlatformView
 </summary>
 </member>
 <member name="P:ECommercePlatformView.My.Resources.Resources.Clien_72_png">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Client_32">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -677,6 +687,11 @@ ECommercePlatformView
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.DetailInvoice_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ECommercePlatformView.My.Resources.Resources.Details_24">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -883,6 +898,16 @@ ECommercePlatformView
 </summary>
 </member>
 <member name="P:ECommercePlatformView.My.Resources.Resources.factura_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Favority_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.FavorityDocumen_24">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -1183,6 +1208,11 @@ ECommercePlatformView
 </summary>
 </member>
 <member name="P:ECommercePlatformView.My.Resources.Resources.Monto_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Monto_48">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -1707,6 +1737,11 @@ ECommercePlatformView
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.ReValue_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ECommercePlatformView.My.Resources.Resources.Sales_32x32">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -1848,6 +1883,11 @@ ECommercePlatformView
 </summary>
 </member>
 <member name="P:ECommercePlatformView.My.Resources.Resources.stock_Product_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Tansfer_32">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
@@ -2080,36 +2120,6 @@ ItemBebitEmployee
 <member name="M:ECommercePlatformView.ItemBebitEmployee.InitializeComponent">
 <summary>
 InitializeComponent
-</summary>
-</member>
-<member name="T:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-<summary>
-GeneratedInternalTypeHelper
-</summary>
-</member>
-<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-<summary>
-CreateInstance
-</summary>
-</member>
-<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-<summary>
-GetPropertyValue
-</summary>
-</member>
-<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-<summary>
-SetPropertyValue
-</summary>
-</member>
-<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-<summary>
-CreateDelegate
-</summary>
-</member>
-<member name="M:ECommercePlatformView.XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-<summary>
-AddEventHandler
 </summary>
 </member>
 </members>

@@ -70,7 +70,29 @@ Public Class BackupGeneral
     End Sub
 
     Private Sub ViewDetailButton_Click(sender As Object, e As EventArgs) Handles ViewDetailButton.Click
+        Dim file As String = String.Empty
 
+        If Me.ListFileBox.SelectedItems.Count = 1 Then
+            file = ListFileBox.Text
+            For Each item In Me.Files
+                If True Then
+
+                End If
+            Next
+        End If
+
+        If Not String.IsNullOrEmpty(file) Then
+            Try
+                Using newView As New frmViewDetailBackupRestory(file)
+                    newView.Width = My.Computer.Screen.Bounds.Width * 0.95
+                    newView.StartPosition = FormStartPosition.CenterParent
+                    newView.ShowDialog()
+
+                End Using
+            Catch ex As Exception
+                MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
     End Sub
 
     Private Sub BackupGeneral_Leave(sender As Object, e As EventArgs) Handles MyBase.Leave

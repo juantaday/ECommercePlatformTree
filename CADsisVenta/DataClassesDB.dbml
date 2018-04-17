@@ -1,5 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="JSofwareCommerceDB03" Class="DataClassesDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=JSofwareCommerceDB03;Persist Security Info=True;User ID=JsofUserAdmin" SettingsObjectName="CADsisVenta.Properties.Settings" SettingsPropertyName="JsofConneccionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?>
+  <Database Name="JSofwareCommerceDB03" 
+            Class="DataClassesDBDataContext"
+    xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" 
+    ConnectionString="Data Source=.\sqlexpress;Initial Catalog=JSofwareCommerceDB03;Persist Security Info=True;User ID=JsofUserAdmin;Password=1234567890" 
+    SettingsObjectName="CADsisVenta.Properties.Settings" 
+    SettingsPropertyName="JsofConneccionString"
+    Provider="System.Data.SqlClient" />
   <Table Name="dbo.InventoryDetail" Member="InventoryDetail">
     <Type Name="InventoryDetail">
       <Column Name="IdInventoryDetail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -418,6 +425,8 @@
       <Association Name="Bodegas_FacturaVenta" Member="FacturaVenta" ThisKey="idBodega" OtherKey="idBodega" Type="FacturaVenta" />
       <Association Name="Bodegas_VirtualBox" Member="VirtualBox" ThisKey="idBodega" OtherKey="idBodega" Type="VirtualBox" />
       <Association Name="Bodegas_ProductExpiration" Member="ProductExpiration" ThisKey="idBodega" OtherKey="idBodega" Type="ProductExpiration" />
+      <Association Name="Bodegas_ProductTransfer" Member="ProductTransfer" ThisKey="idBodega" OtherKey="idbodegaDestino" Type="ProductTransfer" />
+      <Association Name="Bodegas_ProductTransfer1" Member="ProductTransfer1" ThisKey="idBodega" OtherKey="idBodegaOrigen" Type="ProductTransfer" />
       <Association Name="Empleados_Bodegas" Member="Empleados" ThisKey="Resp1_idEmpleado" OtherKey="idEmpleado" Type="Empleados" IsForeignKey="true" />
       <Association Name="Rates_Bodegas" Member="Rates" ThisKey="idRates" OtherKey="idRates" Type="Rates" IsForeignKey="true" />
     </Type>
@@ -548,6 +557,7 @@
       <Association Name="ProductoPresentacion_Ventas_Detail" Member="Ventas_Detail" ThisKey="idPresentacion" OtherKey="idPresent" Type="Ventas_Detail" />
       <Association Name="ProductoPresentacion_FacturaCompra_Detail" Member="FacturaCompra_Detail" ThisKey="idPresentacion" OtherKey="idPresent" Type="FacturaCompra_Detail" />
       <Association Name="ProductoPresentacion_ProductCombined" Member="ProductCombined" ThisKey="idPresentacion" OtherKey="idPresent" Type="ProductCombined" />
+      <Association Name="ProductoPresentacion_ProductTransfer_Detail" Member="ProductTransfer_Detail" ThisKey="idPresentacion" OtherKey="idPresent" Type="ProductTransfer_Detail" />
       <Association Name="Productos_ProductoPresentacion" Member="Productos" ThisKey="idProducto" OtherKey="idProducto" Type="Productos" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="ProductoUndMedida_ProductoPresentacion" Member="ProductoUndMedida" ThisKey="idProUndReferen" OtherKey="idProUndMed" Type="ProductoUndMedida" IsForeignKey="true" />
       <Association Name="ProductoUndMedida_ProductoPresentacion1" Member="ProductoUndMedida1" ThisKey="idProUndMed" OtherKey="idProUndMed" Type="ProductoUndMedida" IsForeignKey="true" />
@@ -893,6 +903,33 @@
       <Column Name="Cant_Conbined" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="ProductoPresentacion_ProductCombined" Member="ProductoPresentacion" ThisKey="idPresent" OtherKey="idPresentacion" Type="ProductoPresentacion" IsForeignKey="true" />
       <Association Name="Productos_ProductCombined" Member="Productos" ThisKey="idProducto" OtherKey="idProducto" Type="Productos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductTransfer" Member="ProductTransfer">
+    <Type Name="ProductTransfer">
+      <Column Name="IdTransfer" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DateTransfer" AutoSync="Never" Type="System.DateTime" DbType="DateTime NOT NULL" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameTranfer" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="codUser" Type="System.String" DbType="Char(8) NOT NULL" CanBeNull="false" />
+      <Column Name="idBodegaOrigen" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idbodegaDestino" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="totalPrecioCompra" Type="System.Decimal" DbType="Decimal(25,2) NOT NULL" CanBeNull="false" />
+      <Column Name="totalPrecioVenta" Type="System.Decimal" DbType="Decimal(25,2) NOT NULL" CanBeNull="false" />
+      <Association Name="ProductTransfer_ProductTransfer_Detail" Member="ProductTransfer_Detail" ThisKey="IdTransfer" OtherKey="IdTransfer" Type="ProductTransfer_Detail" />
+      <Association Name="Bodegas_ProductTransfer" Member="Bodegas" ThisKey="idbodegaDestino" OtherKey="idBodega" Type="Bodegas" IsForeignKey="true" />
+      <Association Name="Bodegas_ProductTransfer1" Member="Bodegas1" ThisKey="idBodegaOrigen" OtherKey="idBodega" Type="Bodegas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductTransfer_Detail" Member="ProductTransfer_Detail">
+    <Type Name="ProductTransfer_Detail">
+      <Column Name="idTransferDetail" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdTransfer" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idPresent" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="count_Tranfer" Type="System.Decimal" DbType="Decimal(25,5) NOT NULL" CanBeNull="false" />
+      <Column Name="PrecioCompra" Type="System.Decimal" DbType="Decimal(25,5) NOT NULL" CanBeNull="false" />
+      <Column Name="PrecioVenta" Type="System.Decimal" DbType="Decimal(25,5) NOT NULL" CanBeNull="false" />
+      <Association Name="ProductoPresentacion_ProductTransfer_Detail" Member="ProductoPresentacion" ThisKey="idPresent" OtherKey="idPresentacion" Type="ProductoPresentacion" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="ProductTransfer_ProductTransfer_Detail" Member="ProductTransfer" ThisKey="IdTransfer" OtherKey="IdTransfer" Type="ProductTransfer" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.getDateServer" Method="getDateServer">

@@ -125,7 +125,7 @@ Partial Class LoginForm
         Me.AcceptButton = Me.OK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.CornflowerBlue
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.CancelButton = Me.Cancel
         Me.ClientSize = New System.Drawing.Size(401, 192)
         Me.Controls.Add(Me.Cancel)

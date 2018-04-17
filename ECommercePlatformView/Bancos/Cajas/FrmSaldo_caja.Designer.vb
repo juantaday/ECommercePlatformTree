@@ -23,6 +23,7 @@ Partial Class FrmSaldo_caja
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmSaldo_caja))
         Me.NameCajaLabel = New System.Windows.Forms.Label()
         Me.CajaNameLabel = New System.Windows.Forms.Label()
         Me.PanelCajaDesck = New System.Windows.Forms.Panel()
@@ -37,7 +38,9 @@ Partial Class FrmSaldo_caja
         Me.ArqueoDeCajaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HibernarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EliminarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PrintToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.PanelCajaDesck.SuspendLayout()
         Me.PanelMaster.SuspendLayout()
         Me.PanelDetail.SuspendLayout()
@@ -72,15 +75,15 @@ Partial Class FrmSaldo_caja
         Me.PanelCajaDesck.Controls.Add(Me.CajaNameLabel)
         Me.PanelCajaDesck.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelCajaDesck.ForeColor = System.Drawing.Color.White
-        Me.PanelCajaDesck.Location = New System.Drawing.Point(0, 10)
+        Me.PanelCajaDesck.Location = New System.Drawing.Point(2, 12)
         Me.PanelCajaDesck.Name = "PanelCajaDesck"
-        Me.PanelCajaDesck.Size = New System.Drawing.Size(671, 29)
+        Me.PanelCajaDesck.Size = New System.Drawing.Size(667, 29)
         Me.PanelCajaDesck.TabIndex = 1
         '
         'MaxiDetailButton
         '
         Me.MaxiDetailButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MaxiDetailButton.Location = New System.Drawing.Point(627, 15)
+        Me.MaxiDetailButton.Location = New System.Drawing.Point(623, 15)
         Me.MaxiDetailButton.Margin = New System.Windows.Forms.Padding(3, 0, 3, 3)
         Me.MaxiDetailButton.Name = "MaxiDetailButton"
         Me.MaxiDetailButton.Size = New System.Drawing.Size(43, 14)
@@ -95,9 +98,9 @@ Partial Class FrmSaldo_caja
         Me.PanelMaster.Controls.Add(Me.PanelView)
         Me.PanelMaster.Controls.Add(Me.PanelDetail)
         Me.PanelMaster.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelMaster.Location = New System.Drawing.Point(0, 39)
+        Me.PanelMaster.Location = New System.Drawing.Point(2, 41)
         Me.PanelMaster.Name = "PanelMaster"
-        Me.PanelMaster.Size = New System.Drawing.Size(671, 243)
+        Me.PanelMaster.Size = New System.Drawing.Size(667, 239)
         Me.PanelMaster.TabIndex = 3
         '
         'PanelView
@@ -107,7 +110,7 @@ Partial Class FrmSaldo_caja
         Me.PanelView.Location = New System.Drawing.Point(0, 0)
         Me.PanelView.Margin = New System.Windows.Forms.Padding(5)
         Me.PanelView.Name = "PanelView"
-        Me.PanelView.Size = New System.Drawing.Size(524, 243)
+        Me.PanelView.Size = New System.Drawing.Size(520, 239)
         Me.PanelView.TabIndex = 1
         '
         'PanelDetail
@@ -116,9 +119,9 @@ Partial Class FrmSaldo_caja
         Me.PanelDetail.Controls.Add(Me.TitleDeatailInformationLabel)
         Me.PanelDetail.Controls.Add(Me.TitleDetailLabel)
         Me.PanelDetail.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PanelDetail.Location = New System.Drawing.Point(524, 0)
+        Me.PanelDetail.Location = New System.Drawing.Point(520, 0)
         Me.PanelDetail.Name = "PanelDetail"
-        Me.PanelDetail.Size = New System.Drawing.Size(147, 243)
+        Me.PanelDetail.Size = New System.Drawing.Size(147, 239)
         Me.PanelDetail.TabIndex = 0
         '
         'TitleDeatailInformationLabel
@@ -144,10 +147,10 @@ Partial Class FrmSaldo_caja
         'MenuStrip1
         '
         Me.MenuStrip1.AutoSize = False
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirCajaToolStripMenuItem, Me.ArqueoDeCajaToolStripMenuItem, Me.HibernarToolStripMenuItem, Me.EliminarToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AbrirCajaToolStripMenuItem, Me.ArqueoDeCajaToolStripMenuItem, Me.HibernarToolStripMenuItem, Me.EliminarToolStripMenuItem, Me.PrintToolStripMenuItem})
+        Me.MenuStrip1.Location = New System.Drawing.Point(2, 2)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(671, 10)
+        Me.MenuStrip1.Size = New System.Drawing.Size(667, 10)
         Me.MenuStrip1.TabIndex = 4
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -192,6 +195,22 @@ Partial Class FrmSaldo_caja
         Me.EliminarToolStripMenuItem.Size = New System.Drawing.Size(110, 6)
         Me.EliminarToolStripMenuItem.Text = "Eliminar"
         '
+        'PrintToolStripMenuItem
+        '
+        Me.PrintToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.printerMatricial_48
+        Me.PrintToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.PrintToolStripMenuItem.Name = "PrintToolStripMenuItem"
+        Me.PrintToolStripMenuItem.Size = New System.Drawing.Size(119, 6)
+        Me.PrintToolStripMenuItem.Text = "Imprimir.."
+        '
+        'PrintForm1
+        '
+        Me.PrintForm1.DocumentName = "document"
+        Me.PrintForm1.Form = Me
+        Me.PrintForm1.PrintAction = System.Drawing.Printing.PrintAction.PrintToPrinter
+        Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
+        Me.PrintForm1.PrintFileName = Nothing
+        '
         'FrmSaldo_caja
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -208,6 +227,7 @@ Partial Class FrmSaldo_caja
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmSaldo_caja"
+        Me.Padding = New System.Windows.Forms.Padding(2)
         Me.Text = "Saldo en caja."
         Me.PanelCajaDesck.ResumeLayout(False)
         Me.PanelCajaDesck.PerformLayout()
@@ -234,4 +254,6 @@ Partial Class FrmSaldo_caja
     Friend WithEvents ToolTip1 As ToolTip
     Friend WithEvents HibernarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EliminarToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PrintToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PrintForm1 As PowerPacks.Printing.PrintForm
 End Class

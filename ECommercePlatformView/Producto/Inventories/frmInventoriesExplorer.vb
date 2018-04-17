@@ -11,12 +11,14 @@ Public Class frmInventoriesExplorer
     Private idCategoria As Integer
     Private idSubCategoria As Integer
     Private NomBodega As String
+    Private mycolor As Color
     Private Sub frmStocProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Not (IsNothing(Me.MdiParent)) Then
             Carga_StockBodegas()
         ElseIf idProducto > 0 Then
             LoadProductSelect(idProducto)
         End If
+        mycolor = MenuStrip1.BackColor
     End Sub
 
     Private Sub Carga_StockBodegas()
@@ -410,7 +412,7 @@ Public Class frmInventoriesExplorer
                      .Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))}
                 linkLabe = link
             End If
-            
+
             'load de data
             Dim dat As New prcGetStocCategoriaTableAdapter
             Dim dt As DataTable = dat.GetData(idBodega)
@@ -642,6 +644,7 @@ Public Class frmInventoriesExplorer
         End Try
     End Sub
 End Class
+
 Public Class DataGridViewImageButtonSaveColumn
     Inherits DataGridViewButtonColumn
     Public Sub New()

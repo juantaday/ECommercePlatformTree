@@ -1,0 +1,7 @@
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\bin\x86\Release\Release Notes.txt
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\bin\x86\Release\BarcodeLib.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\bin\x86\Release\BarcodeLib.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\obj\x86\Release\BarcodeLib.csproj.CoreCompileInputs.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\obj\x86\Release\BarcodeLib.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\obj\x86\Release\BarcodeLib.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\BarcodeLib\obj\x86\Release\BarcodeLib.csprojResolveAssemblyReference.cache

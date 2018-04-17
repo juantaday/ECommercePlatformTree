@@ -363,12 +363,24 @@ Public Class MDIPareInicio
 
     Private Sub RespaldarBaseDeDatosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RespaldarBaseDeDatosToolStripMenuItem.Click
         Try
-            Using frmBackup
-                frmBackup.StartPosition = FormStartPosition.CenterParent
-                frmBackup.ShowDialog()
+
+            Using newform As New LoginForm(stateReturn._response, "Mantenimiento de base de datos")
+                newform.Text = "Validando usuario..."
+                newform.ShowDialog()
+                If Not newform.DialogResult = DialogResult.OK Then
+                    Return
+                End If
+            End Using
+            Me.Cursor = Cursors.WaitCursor
+            Using backup As New frmBackup()
+                backup.StartPosition = FormStartPosition.CenterParent
+                backup.ShowDialog()
             End Using
         Catch ex As Exception
+            Me.Cursor = Cursors.Default
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            Me.Cursor = Cursors.Default
         End Try
     End Sub
 
@@ -699,18 +711,7 @@ Public Class MDIPareInicio
         End Try
     End Sub
 
-    Private Sub StockDeProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockDeProductosToolStripMenuItem.Click
-        Try
-            Dim stocProductos As New frmInventoriesExplorer()
-            With stocProductos
-                .MdiParent = Me
-                .WindowState = FormWindowState.Maximized
-                .Show()
-            End With
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Error")
-        End Try
-    End Sub
+
 
     Private Sub ArqueoDeCajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ArqueoDeCajaToolStripMenuItem.Click
         Try
@@ -843,7 +844,7 @@ Salida:
 
     Private Sub ProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProductosToolStripMenuItem.Click
         Try
-            Dim Form = New frmList_ProductoView
+            Dim Form = New frmList_ProductoView(stateLoad.List)
             With Form
                 .flag = 2
                 .MdiParent = Me
@@ -884,7 +885,7 @@ Salida:
 
     Private Sub ListadoDeProductosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ListadoDeProductosToolStripMenuItem.Click
         Try
-            Dim NewListProdcut = New frmList_ProductoView
+            Dim NewListProdcut = New frmList_ProductoView(stateLoad.List)
             With NewListProdcut
                 .flag = 2
                 .MdiParent = Me
@@ -1095,6 +1096,30 @@ Salida:
             End With
         Catch ex As Exception
             MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub TransferenciaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TransferenciaToolStripMenuItem.Click
+        Try
+            Dim ViewTransfe As New frmViewTranfer()
+            ViewTransfe.Text = "Transferencias..."
+            ViewTransfe.MdiParent = Me
+            ViewTransfe.Show()
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub InventarioToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles InventarioToolStripMenuItem1.Click
+        Try
+            Dim stocProductos As New frmInventoriesExplorer()
+            With stocProductos
+                .MdiParent = Me
+                .WindowState = FormWindowState.Maximized
+                .Show()
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Error")
         End Try
     End Sub
 End Class

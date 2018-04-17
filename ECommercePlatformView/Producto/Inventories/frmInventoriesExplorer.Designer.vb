@@ -36,6 +36,10 @@ Partial Class frmInventoriesExplorer
         Me.NewListToolStrip = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateListToolStrip = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateOneProductToolStrip = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RevalorizarMercaderíaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CrearNuevaListaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModificarMedianteUnListaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ModificarSoloUnProductoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseButton = New System.Windows.Forms.Button()
         Me.TotalLabel = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
@@ -139,7 +143,7 @@ Partial Class frmInventoriesExplorer
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExplorarStockToolStrip, Me.UpdateStockToolStrip})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ExplorarStockToolStrip, Me.UpdateStockToolStrip, Me.RevalorizarMercaderíaToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(397, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(662, 24)
@@ -181,6 +185,35 @@ Partial Class frmInventoriesExplorer
         Me.UpdateOneProductToolStrip.Name = "UpdateOneProductToolStrip"
         Me.UpdateOneProductToolStrip.Size = New System.Drawing.Size(268, 22)
         Me.UpdateOneProductToolStrip.Text = "Modificar solo un producto."
+        '
+        'RevalorizarMercaderíaToolStripMenuItem
+        '
+        Me.RevalorizarMercaderíaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CrearNuevaListaToolStripMenuItem, Me.ModificarMedianteUnListaToolStripMenuItem, Me.ModificarSoloUnProductoToolStripMenuItem})
+        Me.RevalorizarMercaderíaToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.ReValue_32
+        Me.RevalorizarMercaderíaToolStripMenuItem.Name = "RevalorizarMercaderíaToolStripMenuItem"
+        Me.RevalorizarMercaderíaToolStripMenuItem.Size = New System.Drawing.Size(154, 20)
+        Me.RevalorizarMercaderíaToolStripMenuItem.Text = "Revalorizar mercadería"
+        '
+        'CrearNuevaListaToolStripMenuItem
+        '
+        Me.CrearNuevaListaToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.New_list65x65
+        Me.CrearNuevaListaToolStripMenuItem.Name = "CrearNuevaListaToolStripMenuItem"
+        Me.CrearNuevaListaToolStripMenuItem.Size = New System.Drawing.Size(219, 22)
+        Me.CrearNuevaListaToolStripMenuItem.Text = "Crear nueva lista"
+        '
+        'ModificarMedianteUnListaToolStripMenuItem
+        '
+        Me.ModificarMedianteUnListaToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.edit_list_32
+        Me.ModificarMedianteUnListaToolStripMenuItem.Name = "ModificarMedianteUnListaToolStripMenuItem"
+        Me.ModificarMedianteUnListaToolStripMenuItem.Size = New System.Drawing.Size(219, 22)
+        Me.ModificarMedianteUnListaToolStripMenuItem.Text = "Modificar mediante un lista"
+        '
+        'ModificarSoloUnProductoToolStripMenuItem
+        '
+        Me.ModificarSoloUnProductoToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Edit_32
+        Me.ModificarSoloUnProductoToolStripMenuItem.Name = "ModificarSoloUnProductoToolStripMenuItem"
+        Me.ModificarSoloUnProductoToolStripMenuItem.Size = New System.Drawing.Size(219, 22)
+        Me.ModificarSoloUnProductoToolStripMenuItem.Text = "Modificar solo un producto"
         '
         'CloseButton
         '
@@ -246,7 +279,7 @@ Partial Class frmInventoriesExplorer
         Me.Controls.Add(Me.PanePie)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmInventoriesExplorer"
-        Me.Text = "frmStocProductos"
+        Me.Text = "Stock prodcutos.."
         Me.PanelControl.ResumeLayout(False)
         Me.PanelControl.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -279,4 +312,8 @@ Partial Class frmInventoriesExplorer
     Friend WithEvents NewListToolStrip As ToolStripMenuItem
     Friend WithEvents UpdateListToolStrip As ToolStripMenuItem
     Friend WithEvents UpdateOneProductToolStrip As ToolStripMenuItem
+    Friend WithEvents RevalorizarMercaderíaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CrearNuevaListaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModificarMedianteUnListaToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ModificarSoloUnProductoToolStripMenuItem As ToolStripMenuItem
 End Class

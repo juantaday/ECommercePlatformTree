@@ -33,6 +33,7 @@ Partial Class frmSetthingCommerce
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.SalesTabPage = New System.Windows.Forms.TabPage()
+        Me.SettingDefaultPrinter = New Bunifu.Framework.UI.BunifuThinButton2()
         Me.RequestSalesAutorizeCheckBox = New System.Windows.Forms.CheckBox()
         Me.SettingSalesComboBox = New System.Windows.Forms.ComboBox()
         Me.BunifuCustomLabel1 = New Bunifu.Framework.UI.BunifuCustomLabel()
@@ -165,6 +166,7 @@ Partial Class frmSetthingCommerce
         '
         'SalesTabPage
         '
+        Me.SalesTabPage.Controls.Add(Me.SettingDefaultPrinter)
         Me.SalesTabPage.Controls.Add(Me.RequestSalesAutorizeCheckBox)
         Me.SalesTabPage.Controls.Add(Me.SettingSalesComboBox)
         Me.SalesTabPage.Controls.Add(Me.BunifuCustomLabel1)
@@ -175,6 +177,31 @@ Partial Class frmSetthingCommerce
         Me.SalesTabPage.TabIndex = 0
         Me.SalesTabPage.Text = " Sección ventas"
         Me.SalesTabPage.UseVisualStyleBackColor = True
+        '
+        'SettingDefaultPrinter
+        '
+        Me.SettingDefaultPrinter.ActiveBorderThickness = 1
+        Me.SettingDefaultPrinter.ActiveCornerRadius = 20
+        Me.SettingDefaultPrinter.ActiveFillColor = System.Drawing.Color.SeaGreen
+        Me.SettingDefaultPrinter.ActiveForecolor = System.Drawing.Color.White
+        Me.SettingDefaultPrinter.ActiveLineColor = System.Drawing.Color.SeaGreen
+        Me.SettingDefaultPrinter.BackColor = System.Drawing.Color.Transparent
+        Me.SettingDefaultPrinter.BackgroundImage = CType(resources.GetObject("SettingDefaultPrinter.BackgroundImage"), System.Drawing.Image)
+        Me.SettingDefaultPrinter.ButtonText = "Opiones avanzadas.."
+        Me.SettingDefaultPrinter.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.SettingDefaultPrinter.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SettingDefaultPrinter.ForeColor = System.Drawing.Color.SeaGreen
+        Me.SettingDefaultPrinter.IdleBorderThickness = 1
+        Me.SettingDefaultPrinter.IdleCornerRadius = 20
+        Me.SettingDefaultPrinter.IdleFillColor = System.Drawing.Color.White
+        Me.SettingDefaultPrinter.IdleForecolor = System.Drawing.Color.SeaGreen
+        Me.SettingDefaultPrinter.IdleLineColor = System.Drawing.Color.SeaGreen
+        Me.SettingDefaultPrinter.Location = New System.Drawing.Point(11, 121)
+        Me.SettingDefaultPrinter.Margin = New System.Windows.Forms.Padding(4)
+        Me.SettingDefaultPrinter.Name = "SettingDefaultPrinter"
+        Me.SettingDefaultPrinter.Size = New System.Drawing.Size(168, 34)
+        Me.SettingDefaultPrinter.TabIndex = 15
+        Me.SettingDefaultPrinter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'RequestSalesAutorizeCheckBox
         '
@@ -191,9 +218,9 @@ Partial Class frmSetthingCommerce
         'SettingSalesComboBox
         '
         Me.SettingSalesComboBox.FormattingEnabled = True
-        Me.SettingSalesComboBox.Location = New System.Drawing.Point(216, 36)
+        Me.SettingSalesComboBox.Location = New System.Drawing.Point(218, 36)
         Me.SettingSalesComboBox.Name = "SettingSalesComboBox"
-        Me.SettingSalesComboBox.Size = New System.Drawing.Size(412, 24)
+        Me.SettingSalesComboBox.Size = New System.Drawing.Size(410, 24)
         Me.SettingSalesComboBox.TabIndex = 13
         '
         'BunifuCustomLabel1
@@ -333,4 +360,5 @@ Partial Class frmSetthingCommerce
     Friend WithEvents RequestSalesAutorizeCheckBox As CheckBox
     Friend WithEvents ExecuteIvaConfigBunifuThinButton As Bunifu.Framework.UI.BunifuThinButton2
     Friend WithEvents EnableEditPurchaseCheckBox As CheckBox
+    Friend WithEvents SettingDefaultPrinter As Bunifu.Framework.UI.BunifuThinButton2
 End Class

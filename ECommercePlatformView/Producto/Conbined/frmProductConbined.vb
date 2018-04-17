@@ -153,7 +153,7 @@ Public Class frmProductConbined
     End Sub
     Private Function AddNewItemConbined() As Boolean
         Try
-            Using newlist As New frmList_ProductoView()
+            Using newlist As New frmList_ProductoView(stateLoad.Dialogo)
                 With newlist
                     .PanelAdmin.Visible = False
                     .SplitContainer1.Panel2.Visible = False
@@ -338,7 +338,7 @@ Public Class frmProductConbined
     End Function
 
     Private Function InsertInProdcutPresent() As Boolean
-        Dim transaction As System.Data.Common.DbTransaction
+        Dim transaction As System.Data.Common.DbTransaction = Nothing
         Try
 
             Dim lis As List(Of itemDeleteble) = New List(Of itemDeleteble)

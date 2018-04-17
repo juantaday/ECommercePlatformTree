@@ -30,6 +30,7 @@ Public Class FrmList_ClientRates
                            Group Join r In _rates On r.idCliente Equals c.idCliente
                            Into PetList = Group
                            From pet In PetList.DefaultIfEmpty()
+                           Where Not p.genero Is Nothing
                            Select p.idPersona, c.idCliente, idEmployee = 0, p.Apellidos, p.Nombre, p.Ruc_Ci, p.Direccion, p.telefono, p.mail,
                            idRates =
                                      If(pet Is Nothing, 0, pet.idRates),

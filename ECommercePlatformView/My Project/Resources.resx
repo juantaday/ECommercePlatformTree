@@ -136,6 +136,9 @@
   <data name="Hiberna_x40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Hiberna_x40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="configura_icon_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\configura_icon_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Delete_Foto_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete_Foto_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,12 +153,6 @@
   </data>
   <data name="MoneyAditional_32png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoneyAditional_32png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Like_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Like_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Flecha_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Flecha_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,9 +172,6 @@
   <data name="save_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Seguridad_48gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Seguridad_48gif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="ViewList_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ViewList_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -186,6 +180,9 @@
   </data>
   <data name="Pago_48gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pago_48gif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="collapsible_down_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\collapsible_down_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Program_Group_Icon_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Program_Group_Icon_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -204,6 +201,9 @@
   </data>
   <data name="cobro_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cobro_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DetailInvoice_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DetailInvoice_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Product_Presenta" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Product_Presenta.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -298,6 +298,9 @@
   <data name="Card_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Card_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ReValue_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReValue_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Money_Calculator_icon_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Money_Calculator_icon_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -309,6 +312,9 @@
   </data>
   <data name="new_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new-32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SettingRed_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SettingRed_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Rates_Client_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Rates_Client_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -355,17 +361,14 @@
   <data name="User_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clear_White_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clear_White_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Client_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Client_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Money_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Money_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settings_file_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settings_file_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Delete65x65" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete65x65.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ok_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ok_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -417,6 +420,9 @@
   </data>
   <data name="Logo_Parra_New_200" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo_Parra_New_200.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ListPurcharses" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ListPurcharses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="payPal_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\payPal_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -502,14 +508,11 @@
   <data name="addList_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addList_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="collapsible_down_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\collapsible_down_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Favority_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Favority_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Segurity_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Segurity_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Archiv_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Archiv_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Home_Red_Icon_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Home_Red_Icon_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -670,14 +673,17 @@
   <data name="details_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\details-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Ticket_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ticket-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PageInfo_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PageInfo_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="person_Black_321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\person_Black_321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Ticket_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ticket-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Empleado_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Empleado_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UpdateTable_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UpdateTable_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -706,6 +712,9 @@
   <data name="NullDocument_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NullDocument_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="MobilePhone2_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MobilePhone2_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="New_green_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\New_green_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -715,8 +724,8 @@
   <data name="factura_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\factura_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="configura_icon_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\configura_icon_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delete65x65" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete65x65.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ic_shortcut_save" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ic_shortcut_save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -735,9 +744,6 @@
   </data>
   <data name="Banck_32x32_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Banck_32x32_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow_left_48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow_left_48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TextBox2_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TextBox2_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -769,6 +775,9 @@
   <data name="Delete_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Delete_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Action_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Action_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="printMatrix_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\printMatrix_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -780,9 +789,6 @@
   </data>
   <data name="Barcod_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Barcod_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Person_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Person_20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -853,8 +859,8 @@
   <data name="calendar_list_icon_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_list_icon_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MobilePhone2_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MobilePhone2_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Computer_pngX24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Computer_pngX24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -949,6 +955,9 @@
   <data name="OpenTerminal_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OpenTerminal_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Credit_User_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Credit_User_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="not_Filter_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\not_Filter_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -991,9 +1000,6 @@
   <data name="ActionsInDetailView" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ActionsInDetailView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Empleado_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Empleado_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="clearPassword_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clearPassword_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1033,11 +1039,14 @@
   <data name="compra_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\compra_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Credit_User_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Credit_User_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Seguridad_48gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Seguridad_48gif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="WhereHouse_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\WhereHouse_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Monto_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Monto_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Transfer_Data_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Transfer_Data_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1063,8 +1072,8 @@
   <data name="check_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ListPurcharses" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ListPurcharses.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="newProvider_48_Gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newProvider_48_Gif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edir_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edir_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1120,8 +1129,8 @@
   <data name="Category_TreeView24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Category_TreeView24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Action_Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Action_Save.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Person_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Person_20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addBank" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addBank.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1129,8 +1138,8 @@
   <data name="cancel_file_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cancel_file-64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Computer_pngX24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Computer_pngX24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="permiso_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\permiso_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1180,8 +1189,14 @@
   <data name="Power_icon_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Power_icon_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="clear_White_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clear_White_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BarrCode_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BarrCode_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Clien_72_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Clien_72_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Category_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Category_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1249,6 +1264,9 @@
   <data name="MoveUp_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MoveUp_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FavorityDocumen_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FavorityDocumen_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Product_List" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Product_List.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1273,6 +1291,9 @@
   <data name="add_circle_Black_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_circle_Black_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="confirCost_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\confirCost_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="VentasCarro_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VentasCarro_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1291,8 +1312,8 @@
   <data name="checkbox_checked_16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checkbox_checked_16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="newProvider_48_Gif" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\newProvider_48_Gif.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Like_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Like_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OnePicxel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OnePicxel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1315,17 +1336,20 @@
   <data name="list_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\list_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="change_name_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\change_name_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Price_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Price_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Clien_72_png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Clien_72_png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="confirCost_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\confirCost_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="arrow_left_48x48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow_left_48x48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Refresh_icon_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Refresh_icon_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Archiv_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Archiv_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Present_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Present_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1333,7 +1357,7 @@
   <data name="Inventory_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Inventory_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SettingRed_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SettingRed_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Tansfer_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tansfer_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

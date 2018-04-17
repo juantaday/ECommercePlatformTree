@@ -146,7 +146,7 @@ Public Class MDI_AddProductos
 #End Region
 
     Private Sub ShowNewForm(ByVal sender As Object, ByVal e As EventArgs) Handles NewToolStripButton.Click
-        Using newfor As New frmList_ProductoView()
+        Using newfor As New frmList_ProductoView(stateLoad.List)
             With newfor
                 .flag = "Consulta"
                 .StartPosition = FormStartPosition.CenterScreen

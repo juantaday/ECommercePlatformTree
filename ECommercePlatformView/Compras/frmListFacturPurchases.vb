@@ -332,7 +332,7 @@
 
     Private Sub ChangedProductForSelect(idFacturaCompra_Detail As Integer)
         Try
-            Using newlist As New frmList_ProductoView()
+            Using newlist As New frmList_ProductoView(stateLoad.Dialogo)
                 With newlist
                     .PanelAdmin.Visible = False
                     .SplitContainer1.Panel2.Visible = False

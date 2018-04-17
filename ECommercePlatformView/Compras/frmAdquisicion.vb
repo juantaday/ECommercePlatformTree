@@ -436,8 +436,6 @@ inicia:
         End If
     End Sub
 
-
-
     Private Sub menuDescuento_Click(sender As Object, e As System.EventArgs) Handles menuDescuento.Click
         If ListView1.SelectedIndices.Count = 1 Then
             Dim discount? As Double = CType(ListView1.SelectedObject, ItemAcquisition).Discount
@@ -459,6 +457,10 @@ inicia:
         End If
 
     End Sub
+
+
+
+
     Private Sub Cambiatotal()
         If ListView1.SelectedIndices.Count = 1 Then
             Using Form As New frmImputData()
@@ -651,25 +653,6 @@ inicia:
         End Try
     End Function
 
-    Private Sub Calcula_Linea(ByVal items As Integer)
-        'EL COSTO TOTAL ES LA QUE NO SE BA HA CAMBIAR
-        Try
-            With ListView1
-                IvaPor = .Items(items).SubItems(IvaPercentClm.Index).Text
-                Ptotals = .Items(items).SubItems(TotalParcialClm.Index).Text
-                If Not IsIncludeDiscountCheckBox.Checked Then
-                    Ptotals -= .Items(items).SubItems(DiscountClm.Index).Text
-                End If
-                If IsIncludeIvaCheckBox.Checked Then
-                    .Items(items).SubItems(IvaClm.Index).Text = FormatNumber(Ptotals - (Ptotals / (1 + IvaPor)), 5)
-                Else
-                    .Items(items).SubItems(IvaClm.Index).Text = FormatNumber(Ptotals * IvaPor, 5)
-                End If
-            End With
-        Catch ex As Exception
-            MsgBox(ex.Message + "en el Calculando_Precios_Linea", MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
     Private Sub txtCantidad_GotFocus(sender As Object, e As System.EventArgs) Handles txtCantidad.GotFocus
         txtCantidad.Select(0, Len(txtCantidad.Text))
     End Sub
@@ -1138,6 +1121,8 @@ inicia:
                         sql = sql & "Representante :" & .dataListado.SelectedCells.Item(3).Value & vbNewLine
                         sql = sql & "Teléfono:" & .dataListado.SelectedCells.Item(4).Value & vbNewLine
                         txtProveedorDetail.Text = sql
+
+                        Carga_Item_Productos(id_proveedor)
                         ListView1.Items.Clear()
                         IsIncludeIvaCheckBox.Checked = .dataListado.SelectedCells.Item(5).Value
                     End If
@@ -1557,7 +1542,9 @@ inicia:
 
     End Sub
 
+    Private Sub IsValitedUnitPriceCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles IsValitedUnitPriceCheckBox.CheckedChanged
 
+    End Sub
 
     Private Sub AtrasButtonFactur_Click(sender As Object, e As EventArgs) Handles AtrasButtonFactur.Click
         tabcontrol.TabPages(0).Enabled = False

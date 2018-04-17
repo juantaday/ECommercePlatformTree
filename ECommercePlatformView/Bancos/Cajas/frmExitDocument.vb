@@ -1,6 +1,7 @@
 ﻿Imports CADsisVenta
 Public Class frmExitDocument
-    Private ListDocument As List(Of DocumentInTerminal)
+    Protected Friend ListDocument As List(Of DocumentInTerminal)
+
     Private TotalValue As Double
 
     Protected Friend idbodega As Integer
@@ -35,7 +36,7 @@ Public Class frmExitDocument
                                     Join caj In db.CajaDetailDocument On doc.idCobroDocumento Equals caj.idCobroDocumento
                                     Join cue In db.BancosCuentas On doc.idBancoDetail Equals cue.idBancoCuenta
                                     Join ban In db.Bancos On cue.idBanco Equals ban.idBanco
-                                    Where caj.idCajaStado = Me.IdCajaStado
+                                    Where caj.idCajaStado = Me.IdCajaStado And caj.isArching = 0
                                     Select caj.idCajaDetailCheque, ban.nom_Banco, cue.num_Cuenta, doc.Num_Documento, cob.val_Cobro
 
                 For Each item In myListDomunet
@@ -156,7 +157,7 @@ Public Class frmExitDocument
     End Sub
     Private Sub ViewSelect()
         Try
-            Dim total As Double = 0
+            Me.MontoDivisa = 0
 
             If IsNothing(ListDocument) Then
                 Return
@@ -167,10 +168,11 @@ Public Class frmExitDocument
                                    Into Sum(sel.val_Cobro)
 
             If Not IsNothing(_TotalSelect) Then
-                total = _TotalSelect
+                Me.MontoDivisa = _TotalSelect
             End If
 
-            Me.totalSelectLabel.Text = total.ToString("C2")
+            Me.totalSelectLabel.Text = Me.MontoDivisa.ToString("C2")
+
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try

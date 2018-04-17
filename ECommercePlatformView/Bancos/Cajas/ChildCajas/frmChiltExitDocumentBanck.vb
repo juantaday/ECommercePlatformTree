@@ -6,7 +6,9 @@ Public Class frmChiltExitDocumentBanck
     Private IdEmployeeDepositor As Integer
     Private MyParent As frmExitDocument
 
-    Public Sub New(ByVal myParent As frmExitDocument, ByVal idCajaStado As Integer, ByVal idFormaPago As Integer, Monto As Double)
+    Public Sub New(ByVal myParent As frmExitDocument,
+                   ByVal idCajaStado As Integer, ByVal idFormaPago As Integer,
+                   Monto As Double)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
@@ -160,8 +162,16 @@ Public Class frmChiltExitDocumentBanck
         End Try
     End Function
     Private Function SaveTranfer(idBancocuenta As Integer?, _userAurization As String, _destino As String) As Boolean
+
+        Dim transaction As System.Data.Common.DbTransaction = Nothing
         Try
+
+
             Using db As New DataContext
+                db.Connection.Open()
+                transaction = db.Connection.BeginTransaction()
+                db.Transaction = transaction
+
                 Dim _saldo As Double? = (From s In db.Cajas
                                          Where s.idCajaStado = Me.IdCajaStado
                                          Order By s.idCaja Descending
@@ -182,12 +192,25 @@ Public Class frmChiltExitDocumentBanck
                 }
                 db.Cajas.InsertOnSubmit(_Cajas)
                 db.SubmitChanges()
+
+                For Each item In MyParent.ListDocument.Where(Function(x) x.IsSelected)
+                    Dim cheq = (From d In db.CajaDetailDocument
+                                Where d.idCajaDetailCheque = item.idCajaDetailCheque).FirstOrDefault()
+                    If Not IsNothing(cheq) Then
+                        cheq.isArching = 1
+                    End If
+                Next
+                db.SubmitChanges()
                 MyParent.IdCaja = _Cajas.idCaja
+                transaction.Commit()
                 Return True
             End Using
 
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "error")
+            If Not IsNothing(transaction) Then
+                transaction.Rollback()
+            End If
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "error")
             Return False
         End Try
     End Function

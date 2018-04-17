@@ -1,4 +1,4 @@
-﻿Imports CADsisVenta
+﻿Imports BrightIdeasSoftware
 
 Public Class frmVentas
     'Para sumar totales
@@ -39,8 +39,32 @@ Public Class frmVentas
             ListItemVenta = New List(Of ItemViewVenta)
         End If
         ListOfertas = New List(Of Ofertas)
-
+        InitializeComponests()
     End Sub
+    Private Sub InitializeComponests()
+        Dim rbd As RowBorderDecoration = New RowBorderDecoration()
+        rbd.BorderPen = New Pen(Color.FromArgb(128, Color.LightSeaGreen), 1)
+        rbd.BoundsPadding = New Size(1, 1)
+        rbd.CornerRounding = 4.0F
+
+        ''// Put the decoration onto the hot item
+        Me.ObjectListView1.HotItemStyle = New HotItemStyle()
+        Me.ObjectListView1.HotItemStyle.Decoration = rbd
+
+        TotalPriceClm.ImageGetter = Function(ByVal row As Object)
+                                        Dim p As ItemViewVenta = CType(row, ItemViewVenta)
+                                        If Not IsNothing(p) Then
+                                            If p.TotalPrice = 0 Then
+                                                Return 0
+                                            Else
+                                                Return -1
+                                            End If
+                                        Else
+                                            Return -1
+                                        End If
+                                    End Function
+    End Sub
+
 
     Private Sub frmDiario_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Try
@@ -57,10 +81,8 @@ Public Class frmVentas
 
             'borra tafira
             Load_Data()
-            For Each item In ListItemVenta
-                Me.ListView1.Items.Add(setListViewItem(item))
-            Next
-            If ListView1.Items.Count > 0 Then
+            Me.ObjectListView1.SetObjects(Me.ListItemVenta)
+            If Me.ListItemVenta.Count > 0 Then
                 SumatoriaTotal()
             End If
         Catch ex As Exception
@@ -109,51 +131,12 @@ Public Class frmVentas
 
     Private Sub SumatoriaTotal()
         Try
-
-            Dim i As Int32 = 0
-            For Each item As ItemViewVenta In ListItemVenta
-                ListView1.Items(i).UseItemStyleForSubItems = False
-                If item.TotalPrice = 0 Then
-                    ListView1.Items(i).SubItems(PTotalClm.Index).BackColor = Color.Red
-                    ListView1.Items(i).SubItems(PTotalClm.Index).ForeColor = Color.White
-                Else
-                    ListView1.Items(i).SubItems(PTotalClm.Index).BackColor = Color.White
-                    ListView1.Items(i).SubItems(PTotalClm.Index).ForeColor = Color.Black
-                End If
-                i += 1
-            Next
             Call MostrarTotal()
         Catch ex As Exception
+            Cursor = Cursors.Default
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
-    Private Function setListViewItem(item As ItemViewVenta) As ListViewItem
-        Dim myItem As New ListViewItem
-        Try
-            With myItem
-                .Text = item.IdPresent
-                .SubItems.Add(item.IdProducto)
-                .SubItems.Add(item.CodProducto)
-                .SubItems.Add(item.Nom_Comercial)
-                .SubItems.Add(item.PresentationPrint)
-                .SubItems.Add(item.Cuantity.ToString("N2"))
-                .SubItems.Add(item.UnitPrice.ToString("C4"))
-                .SubItems.Add(item.PartialPrice.ToString("C3"))
-                .SubItems.Add(item.Discount.ToString("C2"))
-                .SubItems.Add(item.Rates.ToString("C2"))
-                .SubItems.Add(item.IvaPercent.ToString("P2"))
-                .SubItems.Add(item.PriceVat.ToString("C2"))
-                .SubItems.Add(item.LastPurchasePrice.ToString("C5"))
-                .SubItems.Add(item.AveragePrice.ToString("C5"))
-                .SubItems.Add(item.TotalPrice.ToString("C2"))
-            End With
-            Return myItem
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            Return myItem
-        End Try
-    End Function
-
     Private Function Carga_Item_ProductoIdPresent() As Boolean
         Try
             If IsNothing(ListVendiblescollection) Then
@@ -298,33 +281,36 @@ Public Class frmVentas
 Agrega_Item:
             'Buscamos si ya emos ingreasado el idPresentacion para modificar la cantidad *********************************************************************
             Dim i As Integer = 0
-            For Each item As ItemViewVenta In ListItemVenta
-                If item.IdPresent = listData.FirstOrDefault().IdPresent Then
-                    item.Cuantity += Cantidad
-                    item.UnitPrice = listData.FirstOrDefault().PrecioVenta
-                    If Me.idRates > 0 Then
-                        If item.Cuantity >= listData.FirstOrDefault().FromC Then
-                            If Me.RatesTyPe Then
-                                item.Discount = Redondear((item.Cuantity * item.UnitPrice) * listData.FirstOrDefault().RatesPercent, 2, True)
-                            Else
-                                item.Rates = Redondear((item.Cuantity * item.UnitPrice) * listData.FirstOrDefault().RatesPercent, 2, True)
-                            End If
+            Dim item = Me.ListItemVenta.Where(Function(x) x.IdPresent =
+                       listData.FirstOrDefault().IdPresent).FirstOrDefault()
+            ' modificao y salgo....
+            If Not IsNothing(item) Then
+                Dim index = ObjectListView1.IndexOf(item)
+
+                item.Cuantity += Cantidad
+                item.UnitPrice = listData.FirstOrDefault().PrecioVenta
+                If Me.idRates > 0 Then
+                    If item.Cuantity >= listData.FirstOrDefault().FromC Then
+                        If Me.RatesTyPe Then
+                            item.Discount = Redondear((item.Cuantity * item.UnitPrice) * listData.FirstOrDefault().RatesPercent, 2, True)
+                        Else
+                            item.Rates = Redondear((item.Cuantity * item.UnitPrice) * listData.FirstOrDefault().RatesPercent, 2, True)
                         End If
                     End If
-                    'ulltima cantidad
-                    counUltimo = item.Cuantity
-                    nameProductUltimo = item.Nom_Comercial
-                    itemUltimoIngreso = i
-
-                    If Not (Me.idRates > 0) Then
-                        CalOfertas(item)
-                    End If
-                    Me.ListView1.Items(i) = setListViewItem(item)
-                    Return True
                 End If
-                i += 1
-            Next
-            'si no encontro en el listado
+                'ulltima cantidad
+                counUltimo = item.Cuantity
+                nameProductUltimo = item.Nom_Comercial
+                itemUltimoIngreso = index
+
+                If Not (Me.idRates > 0) Then
+                    CalOfertas(item)
+                End If
+                Me.ObjectListView1.SetObjects(Me.ListItemVenta)
+                Return True
+            End If
+
+            ' a qui se agraga  un nuevo producto (solo si no encontre)
             If Me.idRates > 0 Then
                 If Cantidad >= listData.FirstOrDefault().FromC Then
                     If Me.RatesTyPe Then
@@ -356,16 +342,15 @@ CalculaOfertas:
             'add to view
             counUltimo = item2.Cuantity
             nameProductUltimo = item2.Nom_Comercial
-            itemUltimoIngreso = ListView1.Items.Count
-            Me.ListView1.Items.Add(setListViewItem(item2))
-
+            itemUltimoIngreso = Me.ListItemVenta.Count - 1
+            Me.ObjectListView1.SetObjects(ListItemVenta)
 
 PintaRepedidas:
             'PintaRepetido(fila, Color.Bisque)
 
             Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al calcular los costos")
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error al calcular los costos")
             Return False
         End Try
     End Function
@@ -374,30 +359,31 @@ PintaRepedidas:
             item.Discount = 0
 
             Dim _ofertas = From o In ListOfertas
-                               Where o.idPresent = item.IdPresent And o.CantOferta <= item.Cuantity
-                If _ofertas.Count > 0 Then
-                    For Each itemOfer In _ofertas
-                        'si el valor de oferta es mayo de 0 para que no produsca erro al dividir
-                        If itemOfer.valor_Oferta > 0 Then
-                            If itemOfer.Caducidad = True Then
-                                Dim ahora As Date = FormatDateTime(Now(), DateFormat.ShortDate)
-                                If Date.Parse(itemOfer.fech_Caduce) >= Date.Parse(ahora) Then
-                                    GoTo Aplicando
-                                End If
-                            Else
+                           Where o.idPresent = item.IdPresent And o.CantOferta <= item.Cuantity
+            If _ofertas.Count > 0 Then
+                For Each itemOfer In _ofertas
+                    'si el valor de oferta es mayo de 0 para que no produsca erro al dividir
+                    If itemOfer.valor_Oferta > 0 Then
+                        If itemOfer.Caducidad = True Then
+                            Dim ahora As Date = FormatDateTime(Now(), DateFormat.ShortDate)
+                            If Date.Parse(itemOfer.fech_Caduce) >= Date.Parse(ahora) Then
                                 GoTo Aplicando
                             End If
+                        Else
+                            GoTo Aplicando
                         End If
-                    Next
-                    Return True
+                    End If
+                Next
+                Return True
 Aplicando:
-                    'bamos aplicar el descuento ******************************************************************************************
-                    item.Discount = Redondear((item.Cuantity * item.UnitPrice) * _ofertas.FirstOrDefault().valor_Oferta, 2, True)
-                    Beep()
-                    Return True
-                End If
+                'bamos aplicar el descuento ******************************************************************************************
+                item.Discount = Redondear((item.Cuantity * item.UnitPrice) * _ofertas.FirstOrDefault().valor_Oferta, 2, True)
+                Beep()
+                Return True
+            End If
             Return True
         Catch ex As Exception
+            Me.Cursor = Cursors.Default
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al calcular OFERTAS")
             Return False
         End Try
@@ -430,10 +416,10 @@ Aplicando:
             SumatoriaTotal()
             txtCantidad.Text = 0
             txtExploret.Text = ""
-            ListView1.MultiSelect = False
-            ListView1.Items(itemUltimoIngreso).EnsureVisible()
-            ListView1.Items(itemUltimoIngreso).Selected = True
-            ListView1.MultiSelect = True
+            ObjectListView1.MultiSelect = False
+            ObjectListView1.Items(itemUltimoIngreso).EnsureVisible()
+            ObjectListView1.Items(itemUltimoIngreso).Selected = True
+            ObjectListView1.MultiSelect = True
             txtExploret.Focus()
             ProformaButton.Enabled = True
             PanefinalizFactur.Enabled = False
@@ -487,20 +473,6 @@ Aplicando:
         End Try
 
     End Sub
-    Private Sub PintaRepetido(Filas As Integer, myColor As Color)
-        Try
-            With ListView1
-                .Items(Filas).UseItemStyleForSubItems = False
-                For i = 0 To .Items(Filas).SubItems.Count - 1
-                    .Items(Filas).SubItems(i).BackColor = myColor
-                    .Items(Filas).SubItems(i).ForeColor = Color.Blue
-                Next
-                .Items(Filas).UseItemStyleForSubItems = True
-            End With
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
 
     Private Sub txtCantidad_GotFocus(sender As Object, e As System.EventArgs) Handles txtCantidad.GotFocus
         sender.Select(0, Len(sender.Text))
@@ -513,12 +485,8 @@ Aplicando:
 
 
     Private Sub txtCantidad_TextChanged(sender As System.Object, e As System.EventArgs) Handles txtCantidad.TextChanged
-        SetDefaulBnt(Me.btnAgregar)
+        Me.AcceptButton = Me.btnAgregar
     End Sub
-    Private Sub SetDefaulBnt(ByVal btn As Button)
-        Me.AcceptButton = btn
-    End Sub
-
     Private Sub LostDefaulBnt(ByVal myDefaultBtn As Button)
         Me.AcceptButton = Nothing
     End Sub
@@ -578,24 +546,29 @@ Aplicando:
         btnDeleteItems.PerformClick()
     End Sub
 
-    Private Sub ListView1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ListView1.SelectedIndexChanged
-        If Me.ListView1.SelectedItems.Count = 1 Then
-            btnEditCant.Enabled = True
-            btnPacketProdcut.Enabled = True
-            btnUp.Enabled = True
-            btnDow.Enabled = True
-        Else
-            btnEditCant.Enabled = False
-            btnPacketProdcut.Enabled = False
-            btnUp.Enabled = False
-            btnDow.Enabled = False
-        End If
-        'para boton eliminar
-        If ListView1.SelectedItems.Count > 0 Then
-            btnDeleteItems.Enabled = True
-        Else
-            btnDeleteItems.Enabled = False
-        End If
+    Private Sub ObjectListView1_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles ObjectListView1.SelectedIndexChanged
+        Try
+            If Me.ObjectListView1.SelectedObjects.Count = 1 Then
+                btnEditCant.Enabled = True
+                btnPacketProdcut.Enabled = True
+                btnUp.Enabled = True
+                btnDow.Enabled = True
+            Else
+                btnEditCant.Enabled = False
+                btnPacketProdcut.Enabled = False
+                btnUp.Enabled = False
+                btnDow.Enabled = False
+            End If
+            'para boton eliminar
+            If Me.ObjectListView1.SelectedObjects.Count > 0 Then
+                btnDeleteItems.Enabled = True
+            Else
+                btnDeleteItems.Enabled = False
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
 
     End Sub
 
@@ -603,14 +576,20 @@ Aplicando:
         btnEditCant.PerformClick()
     End Sub
 
-
-
     Private Sub menuPTotal_Click(sender As Object, e As System.EventArgs) Handles menuPTotal.Click
         Try
-            If Not (Me.ListView1.SelectedItems.Count = 1) Then
+            If Not (Me.ObjectListView1.SelectedObjects.Count = 1) Then
                 Return
             End If
-            Dim i As Int32 = Me.ListView1.SelectedItems(0).Index
+
+            Dim item = CType(ObjectListView1.SelectedObject, ItemViewVenta)
+            Dim index As Integer = 0
+
+            If IsNothing(item) Then
+                Return
+            End If
+            index = ObjectListView1.IndexOf(item)
+
             Using newform As New LoginForm(stateReturn._response, "Ventas")
                 With newform
                     .Text = "Validando para midificar"
@@ -618,40 +597,34 @@ Aplicando:
                     If .DialogResult = DialogResult.OK Then
                         Using newfom2 As New frmImputData()
                             With newfom2
-                                .txtNumber.Value = Me.ListView1.SelectedItems(0).SubItems(PTotalClm.Index).Text
+                                .txtNumber.Value = item.TotalPrice
                                 .ShowDialog()
                                 If .DialogResult = DialogResult.OK Then
-                                    Dim item As ItemViewVenta
-                                    item = ListItemVenta.Where(Function(x) x.IdPresent = Me.ListView1.SelectedItems(0).Text).FirstOrDefault
                                     item.UnitPrice = (.txtNumber.Value - item.Discount + item.Rates) / item.Cuantity
-                                    ListView1.Items(i) = setListViewItem(item)
+                                    Me.ObjectListView1.SetObjects(Me.ListItemVenta)
+                                    Me.ObjectListView1.SelectObject(item, True)
                                 End If
                             End With
-
                         End Using
                     End If
                 End With
             End Using
         Catch ex As Exception
+            Me.Cursor = DefaultCursor
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
         End Try
     End Sub
 
     Private Sub btnClose_Click(sender As System.Object, e As System.EventArgs) Handles btnClose.Click
-        If Me.ListView1.Items.Count > 0 Then
-            If MsgBox("Existe informacion sin guardar. Desea salir de todas maneras", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Alerta") = MsgBoxResult.Yes Then
-                Me.Close()
-            Else
-                Exit Sub
-            End If
-        End If
         Me.Close()
     End Sub
 
     Private Sub frmVentaDiario_FormClosing(sender As System.Object, e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
-        If Me.ListView1.Items.Count > 0 Then
-
-            If MsgBox("Existe informacion sin guardar. Desea salir de todas maneras", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Alerta") = MsgBoxResult.Yes Then
+        If Me.ListItemVenta.Count > 0 Then
+            If MsgBox("Existe información sin guardar." & vbCrLf &
+                      "Desea salir de todas maneras", MsgBoxStyle.Exclamation +
+                      MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Alerta") = MsgBoxResult.Yes Then
             Else
                 e.Cancel = True
             End If
@@ -659,37 +632,46 @@ Aplicando:
     End Sub
     Private Sub btnPacketProdcut_Click(sender As Object, e As EventArgs) Handles btnPacketProdcut.Click
         Try
-            If ListView1.SelectedItems.Count = 0 Then
+            If Not ObjectListView1.SelectedObjects.Count = 1 Then
                 Return
             End If
-            Dim _idPresent As Integer = ListView1.SelectedItems.Item(0).Text
+
+            Dim itemSelect = CType(ObjectListView1.SelectedObject, ItemViewVenta)
+
+            If IsNothing(itemSelect) Then
+                Return
+            End If
+
+            Dim index = ObjectListView1.IndexOf(itemSelect)
+
             Using fornew As New frmProductoPresentacion()
                 With fornew
                     .flag = "Operando"
-                    .lblProducto.Text = ListView1.SelectedItems.Item(0).SubItems(NomcomercialClm.Index).Text
-                    .idproducto = ListView1.SelectedItems.Item(0).SubItems(idProductoClm.Index).Text
+                    .lblProducto.Text = itemSelect.Nom_Comercial
+                    .idproducto = itemSelect.IdProducto
                     .ShowDialog()
                     If .DialogResult = DialogResult.OK Then
-                        Dim i As Integer = ListView1.SelectedItems.Item(0).Index
-                        Dim item As ItemViewVenta = ListItemVenta.Where(Function(x) x.IdPresent = _idPresent).FirstOrDefault()
-                        Dim listData As PresentVendiblescollection = Me.ListVendiblescollection.Where(Function(x) x.IdPresent = .idpresentacion).FirstOrDefault()
+
+                        Dim listData As PresentVendiblescollection =
+                              Me.ListVendiblescollection.Where(Function(x) x.IdPresent = .idpresentacion).FirstOrDefault()
                         If listData.IdPresent = .idpresentacion Then
-                            item.AveragePrice = listData.PrecioCompra
-                            item.CodProducto = listData.CodProducto
-                            item.IdPresent = listData.IdPresent
-                            item.IdProducto = listData.IdProducto
-                            item.IvaPercent = listData.IvaPercent
-                            item.LastPurchasePrice = listData.PrecioCompra
-                            item.Nom_Comercial = listData.NomComercial
-                            item.PresentationPrint = listData.PresentationPrint
-                            item.UnitPrice = listData.PrecioVenta
+                            itemSelect.AveragePrice = listData.PrecioCompra
+                            itemSelect.CodProducto = listData.CodProducto
+                            itemSelect.IdPresent = listData.IdPresent
+                            itemSelect.IdProducto = listData.IdProducto
+                            itemSelect.IvaPercent = listData.IvaPercent
+                            itemSelect.LastPurchasePrice = listData.PrecioCompra
+                            itemSelect.Nom_Comercial = listData.NomComercial
+                            itemSelect.PresentationPrint = listData.PresentationPrint
+                            itemSelect.UnitPrice = listData.PrecioVenta
                         End If
                         If Me.idRates > 0 Then
-                            Me.ApplicationRates(item)
+                            Me.ApplicationRates(itemSelect)
                         Else
-                            CalOfertas(item)
+                            CalOfertas(itemSelect)
                         End If
-                        Me.ListView1.Items(i) = setListViewItem(item)
+                        Me.ObjectListView1.SetObjects(Me.ListItemVenta)
+                        Me.ObjectListView1.SelectedIndex = index
                         SumatoriaTotal()
                     End If
                 End With
@@ -698,93 +680,94 @@ Aplicando:
         Catch ex As Exception
             MsgBox(ex.Message + " " + ex.Source.ToString, MsgBoxStyle.Critical, "Error")
         Finally
-            ListView1.Focus()
+            Me.ObjectListView1.Focus()
         End Try
     End Sub
     Private Sub btnDeleteItems_Click(sender As Object, e As EventArgs) Handles btnDeleteItems.Click
         Try
-            Dim SelectItems As ListView.SelectedListViewItemCollection =
-                           ListView1.SelectedItems
-            If IsNothing(SelectItems) OrElse SelectItems.Count = 0 Then
+
+            If Me.ObjectListView1.SelectedObjects.Count = 0 Then
                 MsgBox(msgSelect_list, MsgBoxStyle.Exclamation, "Importante")
                 Return
             End If
 
+            Dim isConfirmate As Boolean
             If EcommerceActive.RequestSalesAuthorization Then
                 Using newform As New LoginForm(stateReturn._response, "Ventas")
                     With newform
                         .Text = "Validando para Eliminar.."
                         .ShowDialog()
                         If .DialogResult = DialogResult.OK Then
-
-                            If MsgBox("Está seguro de eliminar Items seleccionados.?",
-                                                 MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Responda") = MsgBoxResult.Yes Then
-                                For Each item As ListViewItem In SelectItems
-                                    For Each itemVent As ItemViewVenta In ListItemVenta.Where(Function(x) x.IdPresent = item.Text).ToList
-                                        ListItemVenta.Remove(itemVent)
-                                    Next
-                                    item.Remove()
-                                Next
-                                SumatoriaTotal()
-                            End If
+                            isConfirmate = True
                         End If
                     End With
                 End Using
             Else
+                isConfirmate = True
+            End If
+            If isConfirmate Then
                 If MsgBox("Está seguro de eliminar Items seleccionados.?",
-                                          MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2, "Responda") = MsgBoxResult.Yes Then
-                    For Each item As ListViewItem In SelectItems
-                        For Each itemVent As ItemViewVenta In ListItemVenta.Where(Function(x) x.IdPresent = item.Text).ToList
-                            ListItemVenta.Remove(itemVent)
-                        Next
-                        item.Remove()
+                                         MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo +
+                                         MsgBoxStyle.DefaultButton2, "Responda") = MsgBoxResult.Yes Then
+
+
+                    For Each item In Me.ObjectListView1.SelectedObjects
+                        Dim obj = CType(item, ItemViewVenta)
+                        If Not IsNothing(obj) Then
+                            Me.ListItemVenta.Remove(obj)
+                        End If
                     Next
                     SumatoriaTotal()
+                    Me.ObjectListView1.SetObjects(Me.ListItemVenta)
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
     Private Sub btnEditLine_Click(sender As Object, e As EventArgs) Handles btnEditCant.Click
         Try
-            If Not ListView1.SelectedItems.Count = 1 Then
+            If Not ObjectListView1.SelectedObjects.Count = 1 Then
                 MsgBox("Seleccione uno del listado", MsgBoxStyle.Exclamation, "Importante")
                 Return
             End If
 
-            Dim i As Int32 = ListView1.SelectedItems(0).Index
-            If ListView1.SelectedItems.Count = 1 Then
-                Using newform As New frmImputData()
-                    With newform
-                        .txtNumber.Value = ListView1.SelectedItems(0).SubItems(5).Text
-                        .ShowDialog()
-                        If .DialogResult = DialogResult.OK Then
-                            If .txtNumber.Value = 0 Then
-                                MsgBox("No se puede modificar la canidad a cero, puede tomar la opción de Eliminar", MsgBoxStyle.Exclamation, "Aviso")
-                                Return
-                            Else
-                                Dim item As ItemViewVenta = ListItemVenta.Where(Function(x) x.IdPresent = ListView1.SelectedItems(0).Text).FirstOrDefault()
-                                If Not IsNothing(item) Then
-                                    item.Cuantity = .txtNumber.Value
-                                    If Me.idRates > 0 Then
-                                        Me.ApplicationRates(item)
-                                    Else
-                                        CalOfertas(item)
-                                    End If
-                                    Me.ListView1.Items(i) = setListViewItem(item)
-                                    SumatoriaTotal()
-                                End If
-                            End If
-                        End If
-                    End With
-                End Using
+            Dim itemSelect = CType(Me.ObjectListView1.SelectedObject, ItemViewVenta)
+            If IsNothing(itemSelect) Then
+                Return
             End If
+
+
+            Dim index = ObjectListView1.IndexOf(itemSelect)
+
+            Using newform As New frmImputData()
+                With newform
+                    .txtNumber.Value = itemSelect.Cuantity
+                    .ShowDialog()
+                    If .DialogResult = DialogResult.OK Then
+                        If .txtNumber.Value = 0 Then
+                            MsgBox("No se puede modificar la canidad a cero." & vbCrLf &
+                                   "Puede tomar la opción de Eliminar..", MsgBoxStyle.Exclamation, "Aviso")
+                            Return
+                        Else
+                            itemSelect.Cuantity = .txtNumber.Value
+                            If Me.idRates > 0 Then
+                                Me.ApplicationRates(itemSelect)
+                            Else
+                                CalOfertas(itemSelect)
+                            End If
+                            Me.ObjectListView1.SetObjects(Me.ListItemVenta)
+                            Me.ObjectListView1.SelectedIndex = index
+                            SumatoriaTotal()
+                        End If
+                    End If
+                End With
+            End Using
         Catch ex As Exception
-            MsgBox(ex.Message + " en le btnEditLine_Click del  " + Name, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         Finally
-            ListView1.Focus()
+            Me.ObjectListView1.Focus()
         End Try
     End Sub
 
@@ -841,23 +824,29 @@ Aplicando:
 
     Private Sub btnUp_Click(sender As Object, e As EventArgs) Handles btnUp.Click
         Try
-            If ListView1.SelectedItems.Count = 0 Then
+            If Not ObjectListView1.SelectedObjects.Count = 1 Then
                 Return
             End If
 
-            Dim item As ListViewItem = ListView1.SelectedItems(0)
-            If item.Index = 0 Then
-                ListView1.Focus()
+            Dim item As ItemViewVenta = CType(ObjectListView1.SelectedObject, ItemViewVenta)
+            If IsNothing(item) Then
+                Return
+            End If
+            Dim index = ObjectListView1.IndexOf(item)
+
+            If index = 0 Then
+                ObjectListView1.Focus()
                 Return
             End If
 
-            Dim pos As Integer = item.Index - 1
-            ListView1.Items.RemoveAt(item.Index)
 
-            ListView1.Items.Insert(pos, item)
+            Dim pos As Integer = index - 1
+            Me.ListItemVenta.RemoveAt(index)
+            Me.ListItemVenta.Insert(pos, item)
 
-            ListView1.Focus()
-            ListView1.Items(pos).Selected = True
+            ObjectListView1.SetObjects(Me.ListItemVenta)
+            ObjectListView1.SelectObject(item, True)
+            ObjectListView1.Focus()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -865,23 +854,30 @@ Aplicando:
 
     Private Sub btnDow_Click(sender As Object, e As EventArgs) Handles btnDow.Click
         Try
-            If ListView1.SelectedItems.Count = 0 Then
-                Return
-            End If
-            Dim item As ListViewItem = ListView1.SelectedItems(0)
-            If item.Index = (ListView1.Items.Count - 1) Then
-                ListView1.Focus()
+            If Not ObjectListView1.SelectedObjects.Count = 1 Then
                 Return
             End If
 
-            Dim pos As Integer = item.Index + 1
+            Dim item As ItemViewVenta = CType(ObjectListView1.SelectedObject, ItemViewVenta)
+            If IsNothing(item) Then
+                Return
+            End If
+            Dim index = ObjectListView1.IndexOf(item)
 
-            ListView1.Items.RemoveAt(item.Index)
+            If index = (ObjectListView1.GetItemCount - 1) Then
+                ObjectListView1.Focus()
+                Return
+            End If
 
-            ListView1.Items.Insert(pos, item)
+            Dim pos As Integer = index + 1
 
-            ListView1.Focus()
-            ListView1.Items(pos).Selected = True
+            Me.ListItemVenta.RemoveAt(index)
+            Me.ListItemVenta.Insert(pos, item)
+
+            ObjectListView1.SetObjects(Me.ListItemVenta)
+            ObjectListView1.SelectObject(item, True)
+            ObjectListView1.Focus()
+
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -896,12 +892,12 @@ Aplicando:
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         Finally
-            ListView1.Focus()
+            Me.ObjectListView1.Focus()
             Me.Cursor = Cursors.Default
         End Try
     End Sub
     Private Sub menuPTotal_Paint(sender As Object, e As PaintEventArgs) Handles menuPTotal.Paint
-        If ListView1.SelectedItems.Count = 1 Then
+        If ObjectListView1.SelectedObjects.Count = 1 Then
             sender.enabled = True
         Else
             sender.enabled = False
@@ -909,14 +905,14 @@ Aplicando:
     End Sub
 
     Private Sub menuCantidad_Paint(sender As Object, e As PaintEventArgs) Handles menuCantidad.Paint
-        If ListView1.SelectedItems.Count = 1 Then
+        If ObjectListView1.SelectedObjects.Count = 1 Then
             sender.enabled = True
         Else
             sender.enabled = False
         End If
     End Sub
     Private Sub menuEliminar_Paint(sender As Object, e As PaintEventArgs) Handles menuEliminar.Paint
-        If ListView1.SelectedItems.Count > 0 Then
+        If Me.ObjectListView1.SelectedObjects.Count > 0 Then
             sender.enabled = True
         Else
             sender.enabled = False
@@ -961,7 +957,7 @@ Aplicando:
         End Try
 
         Try
-            If Me.ListView1.Items.Count > 0 Then
+            If Me.ObjectListView1.Items.Count > 0 Then
                 Using fornew As New frmFormaPago()
                     FacturVenta.OtroValor = 0
                     With fornew
@@ -994,15 +990,7 @@ Aplicando:
             Return False
         End Try
     End Function
-    Private Sub btnBorraCliente_Click(sender As Object, e As EventArgs)
-        If MsgBox("Está seguro de borra el cliente", MsgBoxStyle.Exclamation + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2) = MsgBoxResult.Yes Then
-            Call CargaConsumidFinal()
-        End If
-    End Sub
 
-    Private Sub btnbodega_Click(sender As Object, e As EventArgs)
-
-    End Sub
     Private Sub btnOtroValor_Click(sender As Object, e As EventArgs) Handles btnOtroValor.Click
         '  Me.ContextMenuOtroValor.Show()
     End Sub
@@ -1047,7 +1035,7 @@ Aplicando:
     End Sub
     Private Function PreviewFactura() As Boolean
         Try
-            If Not Me.ListView1.Items.Count > 0 Then
+            If Not Me.ObjectListView1.Items.Count > 0 Then
                 MsgBox("No hay información para guardar", MsgBoxStyle.Exclamation, "Error")
                 Return False
             End If
@@ -1100,7 +1088,7 @@ Aplicando:
         responTerminal = Nothing
 
         If Genera_Venta() Then
-            ListView1.Items.Clear()
+            ObjectListView1.ClearObjects()
             ListItemVenta.Clear()
             Me.UltimoIngresoLabel.Text = String.Empty
             MostrarTotal()
@@ -1445,7 +1433,6 @@ Aplicando:
     Private Function ApplicationRates(ByVal _idRates As Integer) As Boolean
         Try
             Me.idRates = _idRates
-            Dim i As Int32 = 0
 
             For Each item As ItemViewVenta In ListItemVenta
                 Dim listData = (From l In ListVendiblescollection
@@ -1472,13 +1459,14 @@ Aplicando:
                         CalOfertas(item)
                     End If
                 End If
-                Me.ListView1.Items(i) = setListViewItem(item)
-                i += 1
             Next
             Return True
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Me.Cursor = Cursors.Default
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
             Return False
+        Finally
+            Me.ObjectListView1.SetObjects(Me.ListItemVenta)
         End Try
     End Function
 
@@ -1652,7 +1640,7 @@ Aplicando:
         Try
             If PerfilesSalida("Cheque") Then
 
-                Using frmExltmoney As New frmExitMoney(TerminalActivo.idBodega, 0,
+                Using frmExltmoney As New frmExitDocument(TerminalActivo.idBodega, 0,
                                    TerminalActivo.idCajaStado, Pagos.idformaPago)
                     With frmExltmoney
                         .ShowDialog()
@@ -1754,10 +1742,41 @@ Aplicando:
         End Try
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub txtFindInAdd_TextChanged(sender As Object, e As EventArgs) Handles txtFindInAdd.TextChanged
+        txtFindInAdd.VisibleButton = Not String.IsNullOrWhiteSpace(txtFindInAdd.Text)
+        Me.TimedFilter(Me.ObjectListView1, txtFindInAdd.Text)
+    End Sub
+    Private Sub TimedFilter(ByVal olv As ObjectListView, ByVal txt As String)
+        Me.TimedFilter(olv, txt, 0)
+    End Sub
+    Private Sub TimedFilter(ByVal olv As ObjectListView, ByVal txt As String, ByVal matchKind As Integer)
+        Dim filter As TextMatchFilter = Nothing
+        If Not String.IsNullOrEmpty(txt) Then
+            Select Case matchKind
+                Case 0
+                    filter = TextMatchFilter.Contains(olv, txt)
+                Case 1
+                    filter = TextMatchFilter.Prefix(olv, txt)
+                Case 2
+                    filter = TextMatchFilter.Regex(olv, txt)
+            End Select
+        End If
 
+        If filter Is Nothing Then olv.DefaultRenderer = Nothing Else olv.DefaultRenderer = New HighlightTextRenderer(filter)
+        Dim highlightingRenderer As HighlightTextRenderer = TryCast(olv.GetColumn(0).Renderer, HighlightTextRenderer)
+        If highlightingRenderer IsNot Nothing Then highlightingRenderer.Filter = filter
+        Dim stopWatch As Stopwatch = New Stopwatch()
+        stopWatch.Start()
+        olv.AdditionalFilter = filter
+        stopWatch.[Stop]()
+        Dim objects As IList = TryCast(olv.Objects, IList)
+        If objects Is Nothing Then Me.Text = String.Format("Filtered in {0}ms", stopWatch.ElapsedMilliseconds) Else Me.Text = String.Format("Filtered {0} items down to {1} items in {2}ms", objects.Count, olv.Items.Count, stopWatch.ElapsedMilliseconds)
     End Sub
 
+
+    Private Sub txtFindInAdd_ButtonClick(sender As Object, e As EventArgs) Handles txtFindInAdd.ButtonClick
+        txtFindInAdd.Text = String.Empty
+    End Sub
     Private Sub ToolStripMenuItemCinco_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemCincoDolar.Click
         OtroValorSelect(DirectCast(sender, ToolStripMenuItem).Text)
     End Sub
@@ -1767,4 +1786,5 @@ Aplicando:
     Private Sub ToolStripMenuItemOtras_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemOtraValor.Click
         OtroValorSelect(DirectCast(sender, ToolStripMenuItem).Text)
     End Sub
+
 End Class

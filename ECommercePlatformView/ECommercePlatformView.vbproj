@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BD6C6F15-980C-4BDC-A541-A6A8D1592006}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>ECommercePlatformView.My.MyApplication</StartupObject>
+    <StartupObject>Sub Main</StartupObject>
     <RootNamespace>ECommercePlatformView</RootNamespace>
     <AssemblyName>ECommercePlatformView</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <MyType>WindowsForms</MyType>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
@@ -51,6 +51,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>ECommercePlatformView.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -65,7 +66,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\ECommercePlatform.ico</ApplicationIcon>
+    <ApplicationIcon>ECommercePlatformThree.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -585,6 +586,12 @@
     <Compile Include="Configuracion\frmMyCommerce.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Configuracion\Printers\frmDefaultDocuments.Designer.vb">
+      <DependentUpon>frmDefaultDocuments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Configuracion\Printers\frmDefaultDocuments.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Configuracion\Printers\frmOptionPrint.designer.vb">
       <DependentUpon>frmOptionPrint.vb</DependentUpon>
     </Compile>
@@ -677,11 +684,17 @@
     <Compile Include="Inicio\ContagFrm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio\fInicio.vb" />
+    <Compile Include="Inicio\FInicio.vb" />
     <Compile Include="Inicio\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
     <Compile Include="Inicio\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inicio\Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio\Form2.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio\frmPanel.designer.vb">
@@ -691,6 +704,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inicio\FunInicio.vb" />
+    <Compile Include="Inicio\TrialClass.vb" />
     <Compile Include="Inicio\WaitForTaskScreenWithCancellation.Designer.vb">
       <DependentUpon>WaitForTaskScreenWithCancellation.vb</DependentUpon>
     </Compile>
@@ -737,10 +751,12 @@
     <Compile Include="Models\DebitEmployee.vb" />
     <Compile Include="Models\ItemAcquisition.vb" />
     <Compile Include="Models\ItemCajaStado.vb" />
+    <Compile Include="Models\ItemCheqNotFount.vb" />
     <Compile Include="Models\ItemOwner.vb" />
     <Compile Include="Models\ItemPerson.vb" />
     <Compile Include="Models\ItemProductCombined.vb" />
     <Compile Include="Models\ItemProductsPurchases.vb" />
+    <Compile Include="Models\ItemProductTranfer.vb" />
     <Compile Include="Models\ItemSettingOptionPrint.vb" />
     <Compile Include="Models\ItemSobrantes.vb" />
     <Compile Include="Models\ItemViewVenta.vb" />
@@ -852,10 +868,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Producto\fproducto.vb" />
-    <Compile Include="Producto\frmAdministrarPrecios.designer.vb">
+    <Compile Include="Producto\Ajustes\frmAdministrarPrecios.designer.vb">
       <DependentUpon>frmAdministrarPrecios.vb</DependentUpon>
     </Compile>
-    <Compile Include="Producto\frmAdministrarPrecios.vb">
+    <Compile Include="Producto\Ajustes\frmAdministrarPrecios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Producto\frmAdminOfertas.Designer.vb">
@@ -918,6 +934,12 @@
     <Compile Include="Producto\Inventories\frm_ListInventories.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Producto\Inventories\frm_ListRevalueProduct.Designer.vb">
+      <DependentUpon>frm_ListRevalueProduct.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Inventories\frm_ListRevalueProduct.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Producto\NewProducto\frmBarrCode.Designer.vb">
       <DependentUpon>frmBarrCode.vb</DependentUpon>
     </Compile>
@@ -964,6 +986,18 @@
       <DependentUpon>MDI_AddProductos.vb</DependentUpon>
     </Compile>
     <Compile Include="Producto\NewProducto\MDI_AddProductos.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Transfer\frmCahgedNameTranfer.Designer.vb">
+      <DependentUpon>frmCahgedNameTranfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Transfer\frmCahgedNameTranfer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Transfer\frmViewTranfer.Designer.vb">
+      <DependentUpon>frmViewTranfer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Transfer\frmViewTranfer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Producto\ViewBarCode\frmViewBarcodeList.Designer.vb">
@@ -1098,6 +1132,12 @@
       <DependentUpon>frmReportProforma.vb</DependentUpon>
     </Compile>
     <Compile Include="ReportView\frmReportProforma.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Seguridad\frmViewDetailBackupRestory.Designer.vb">
+      <DependentUpon>frmViewDetailBackupRestory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Seguridad\frmViewDetailBackupRestory.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Seguridad\UserControls\BackupGeneral.Designer.vb">
@@ -1456,6 +1496,9 @@
     <EmbeddedResource Include="Configuracion\frmMyCommerce.resx">
       <DependentUpon>frmMyCommerce.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuracion\Printers\frmDefaultDocuments.resx">
+      <DependentUpon>frmDefaultDocuments.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Configuracion\Printers\frmOptionPrint.resx">
       <DependentUpon>frmOptionPrint.vb</DependentUpon>
     </EmbeddedResource>
@@ -1501,6 +1544,9 @@
     <EmbeddedResource Include="Inicio\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Inicio\Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio\frmPanel.resx">
       <DependentUpon>frmPanel.vb</DependentUpon>
     </EmbeddedResource>
@@ -1519,7 +1565,6 @@
     <EmbeddedResource Include="Logica\MasterControl.resx">
       <DependentUpon>MasterControl.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -1568,7 +1613,7 @@
     <EmbeddedResource Include="Producto\Expiration\frmAdminDateExpir.resx">
       <DependentUpon>frmAdminDateExpir.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Producto\frmAdministrarPrecios.resx">
+    <EmbeddedResource Include="Producto\Ajustes\frmAdministrarPrecios.resx">
       <DependentUpon>frmAdministrarPrecios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\frmAdminOfertas.resx">
@@ -1601,6 +1646,9 @@
     <EmbeddedResource Include="Producto\Inventories\frm_ListInventories.resx">
       <DependentUpon>frm_ListInventories.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Inventories\frm_ListRevalueProduct.resx">
+      <DependentUpon>frm_ListRevalueProduct.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Producto\NewProducto\frmBarrCode.resx">
       <DependentUpon>frmBarrCode.vb</DependentUpon>
     </EmbeddedResource>
@@ -1624,6 +1672,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\NewProducto\MDI_AddProductos.resx">
       <DependentUpon>MDI_AddProductos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Transfer\frmCahgedNameTranfer.resx">
+      <DependentUpon>frmCahgedNameTranfer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Transfer\frmViewTranfer.resx">
+      <DependentUpon>frmViewTranfer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\ViewBarCode\frmViewBarcodeList.resx">
       <DependentUpon>frmViewBarcodeList.vb</DependentUpon>
@@ -1701,6 +1755,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportView\frmReportProforma.resx">
       <DependentUpon>frmReportProforma.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguridad\frmViewDetailBackupRestory.resx">
+      <DependentUpon>frmViewDetailBackupRestory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Seguridad\UserControls\BackupGeneral.resx">
       <DependentUpon>BackupGeneral.vb</DependentUpon>
@@ -1832,6 +1889,7 @@
   <ItemGroup>
     <Content Include="bin\Debug\ECommercePlatformView.vshost.exe" />
     <Content Include="Conexion\RutaConexion.txt" />
+    <Content Include="ECommercePlatformThree.ico" />
     <Content Include="obj\Debug\ECommercePlatformView.vbproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\TempPE\CrystalReport1.vb.dll" />
     <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
@@ -1875,6 +1933,14 @@
     <Content Include="Resources\addListNew_48.png" />
     <None Include="Resources\Count_201.png" />
     <None Include="Resources\SettingRed_32.png" />
+    <None Include="Resources\Client_32.png" />
+    <None Include="Resources\Monto_48.png" />
+    <None Include="Resources\FavorityDocumen_24.png" />
+    <None Include="Resources\DetailInvoice_32.png" />
+    <None Include="Resources\change_name_32.png" />
+    <None Include="Resources\Favority_32.png" />
+    <None Include="Resources\ReValue_32.png" />
+    <None Include="Resources\Tansfer_32.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -2315,9 +2381,9 @@
       <Project>{6e9ce6bc-fa36-48fb-b592-56e4f440e61b}</Project>
       <Name>LibPrintTicket</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MultiColumnComboSuggestionBox\MultiColumnComboSuggestionBox.csproj">
+    <ProjectReference Include="..\MultiControls\MultiControls.csproj">
       <Project>{f2127f73-480e-4841-944c-d1e9db1ebc25}</Project>
-      <Name>MultiColumnComboSuggestionBox</Name>
+      <Name>MultiControls</Name>
     </ProjectReference>
     <ProjectReference Include="..\ObjectListView\ObjectListView.csproj">
       <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>

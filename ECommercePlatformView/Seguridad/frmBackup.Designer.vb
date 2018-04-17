@@ -39,7 +39,7 @@ Partial Class frmBackup
         Me.AccordionControlElement2 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.SettingControls = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlElement4 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.AccordionControlElement3 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.CleraDataBaseButton = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -213,16 +213,16 @@ Partial Class frmBackup
         '
         'AccordionControlElement4
         '
-        Me.AccordionControlElement4.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AccordionControlElement3})
+        Me.AccordionControlElement4.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.CleraDataBaseButton})
         Me.AccordionControlElement4.Expanded = True
         Me.AccordionControlElement4.Name = "AccordionControlElement4"
         Me.AccordionControlElement4.Text = "Limpiar transacciones"
         '
-        'AccordionControlElement3
+        'CleraDataBaseButton
         '
-        Me.AccordionControlElement3.Name = "AccordionControlElement3"
-        Me.AccordionControlElement3.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AccordionControlElement3.Text = "Detalle de limpiaza"
+        Me.CleraDataBaseButton.Name = "CleraDataBaseButton"
+        Me.CleraDataBaseButton.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.CleraDataBaseButton.Text = "Detalle de limpiaza"
         '
         'Panel4
         '
@@ -336,5 +336,5 @@ Partial Class frmBackup
     Friend WithEvents PropertiesClm As BrightIdeasSoftware.OLVColumn
     Friend WithEvents Label2 As Label
     Friend WithEvents AccordionControlElement4 As DevExpress.XtraBars.Navigation.AccordionControlElement
-    Friend WithEvents AccordionControlElement3 As DevExpress.XtraBars.Navigation.AccordionControlElement
+    Friend WithEvents CleraDataBaseButton As DevExpress.XtraBars.Navigation.AccordionControlElement
 End Class

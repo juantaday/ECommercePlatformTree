@@ -2,10 +2,12 @@
 Imports CADsisVenta
 Imports CADsisVenta.DataSetMonedas
 Imports CADsisVenta.DataSetMonedasTableAdapters
+Imports CADsisVenta.DataSetVentas
 Imports ECommercePlatformView.FrmMonedas
 
 Public Class frmCajaDetail
     Protected Friend idCajaStado As Integer
+    Protected Friend ListCheqNotFount As List(Of ItemCheqNotFount)
     Private totalSaldoEfectivo As Double
     Private totalArqueoEfectivo As Double
     Private cuenta As String
@@ -20,6 +22,7 @@ Public Class frmCajaDetail
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
+        ListCheqNotFount = New List(Of ItemCheqNotFount)
         Me.idCajaStado = idCajaStado
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
         totalDifereniaEfectivo = 0
@@ -75,6 +78,7 @@ Public Class frmCajaDetail
                 db.Transaction = transaction
 
                 Try
+
                     Dim _dateTimeclose = db.getDateServer.FirstOrDefault.Column1
                     If IsNothing(_dateTimeclose) Then
                         _dateTimeclose = DateTime.Now
@@ -91,6 +95,7 @@ Public Class frmCajaDetail
                         item.dateEnd = _dateTimeclose
                         response = True
                     Next
+
                     If CargarAComboBox.Text.Contains("Por cobrar a trabajador.") And response Then
                         Dim newSaldo As Double = 0
                         Dim _Person = From p In db.Personas
@@ -165,6 +170,26 @@ Public Class frmCajaDetail
                             }
                     db.Cajas.InsertOnSubmit(_Cajas)
                     db.SubmitChanges()
+
+                    'arqueo de documentos  cheques  y  bouches  .......
+                    Dim archingdocument = From d In db.CajaDetailDocument
+                                          Where d.idCajaStado = Me.idCajaStado And d.isArching = 0
+
+                    For Each item In archingdocument
+                        If Not IsNothing(Me.ListCheqNotFount) Then
+                            For Each index In Me.ListCheqNotFount
+                                If item.idCajaDetailCheque = index.idCajaDetailCheque Then
+                                    item.isArching = 0
+                                Else
+                                    item.isArching = 1
+                                End If
+                            Next
+                        Else
+                            item.isArching = 1
+                        End If
+                    Next
+                    db.SubmitChanges()
+
                     transaction.Commit()
                     Return True
                 Catch ex2 As Exception
@@ -323,7 +348,7 @@ Public Class frmCajaDetail
 
     Private Sub Carga_Cheche(p1 As Integer)
         Try
-            Dim forms As New frmChequeContab()
+            Dim forms As New frmChequeContab(Me)
             Dim palecheche As New System.Windows.Forms.Panel
             SplitContainer1.Panel2.Controls.Clear()
             If forms.Load_Cheque(idCajaStado) Then

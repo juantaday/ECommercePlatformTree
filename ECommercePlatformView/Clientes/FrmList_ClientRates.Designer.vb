@@ -22,7 +22,6 @@ Partial Class FrmList_ClientRates
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.PanelMenu = New System.Windows.Forms.Panel()
         Me.PrintAllButton = New System.Windows.Forms.Button()
         Me.Save_Button = New System.Windows.Forms.Button()
@@ -33,21 +32,6 @@ Partial Class FrmList_ClientRates
         Me.OkButton = New System.Windows.Forms.Button()
         Me.closeButton = New System.Windows.Forms.Button()
         Me.dtg = New System.Windows.Forms.DataGridView()
-        Me.PanelView = New System.Windows.Forms.Panel()
-        Me.PanelSetting = New System.Windows.Forms.Panel()
-        Me.QuitFilterButton = New System.Windows.Forms.Button()
-        Me.CreditButton = New System.Windows.Forms.Button()
-        Me.SetRatesButton = New System.Windows.Forms.Button()
-        Me.PanelFind = New System.Windows.Forms.Panel()
-        Me.FindTextBox = New System.Windows.Forms.TextBox()
-        Me.FindButton = New System.Windows.Forms.Button()
-        Me.SettingButton = New System.Windows.Forms.Button()
-        Me.DeleteRatesButton = New System.Windows.Forms.Button()
-        Me.CheckBoxSeelct = New System.Windows.Forms.CheckBox()
-        Me.ContextMenuAdd_new = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.RatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.NotRatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SelectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.idPersonaClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.idClienteclm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApellidosClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -61,6 +45,21 @@ Partial Class FrmList_ClientRates
         Me.idRatesClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DescriptionClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TarifaClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PanelView = New System.Windows.Forms.Panel()
+        Me.PanelSetting = New System.Windows.Forms.Panel()
+        Me.QuitFilterButton = New System.Windows.Forms.Button()
+        Me.CreditButton = New System.Windows.Forms.Button()
+        Me.SetRatesButton = New System.Windows.Forms.Button()
+        Me.PanelFind = New System.Windows.Forms.Panel()
+        Me.FindTextBox = New System.Windows.Forms.TextBox()
+        Me.FindButton = New System.Windows.Forms.Button()
+        Me.SettingButton = New System.Windows.Forms.Button()
+        Me.DeleteRatesButton = New System.Windows.Forms.Button()
+        Me.CheckBoxSeelct = New System.Windows.Forms.CheckBox()
+        Me.ContextMenuAdd_new = New System.Windows.Forms.ContextMenuStrip()
+        Me.RatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.NotRatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SelectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PanelMenu.SuspendLayout()
         Me.Panelfoot.SuspendLayout()
         CType(Me.dtg, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -189,6 +188,105 @@ Partial Class FrmList_ClientRates
         Me.dtg.Size = New System.Drawing.Size(1066, 330)
         Me.dtg.TabIndex = 20
         '
+        'idPersonaClm
+        '
+        Me.idPersonaClm.DataPropertyName = "IdPersona"
+        Me.idPersonaClm.HeaderText = "id Persona"
+        Me.idPersonaClm.Name = "idPersonaClm"
+        Me.idPersonaClm.ReadOnly = True
+        Me.idPersonaClm.Visible = False
+        '
+        'idClienteclm
+        '
+        Me.idClienteclm.DataPropertyName = "IdCliente"
+        Me.idClienteclm.HeaderText = "id Cliente"
+        Me.idClienteclm.Name = "idClienteclm"
+        Me.idClienteclm.ReadOnly = True
+        Me.idClienteclm.Visible = False
+        '
+        'ApellidosClm
+        '
+        Me.ApellidosClm.DataPropertyName = "Apellido"
+        Me.ApellidosClm.HeaderText = "Apellido"
+        Me.ApellidosClm.Name = "ApellidosClm"
+        Me.ApellidosClm.ReadOnly = True
+        Me.ApellidosClm.Visible = False
+        '
+        'NombreClm
+        '
+        Me.NombreClm.DataPropertyName = "Nombre"
+        Me.NombreClm.HeaderText = "Nombre"
+        Me.NombreClm.Name = "NombreClm"
+        Me.NombreClm.ReadOnly = True
+        Me.NombreClm.Visible = False
+        '
+        'IsSelectClm
+        '
+        Me.IsSelectClm.DataPropertyName = "IsSelect"
+        Me.IsSelectClm.HeaderText = " "
+        Me.IsSelectClm.Name = "IsSelectClm"
+        Me.IsSelectClm.Width = 20
+        '
+        'Ruc_CiClm
+        '
+        Me.Ruc_CiClm.DataPropertyName = "Ruc_Ci"
+        Me.Ruc_CiClm.HeaderText = "Ruc (o )C.I."
+        Me.Ruc_CiClm.Name = "Ruc_CiClm"
+        Me.Ruc_CiClm.ReadOnly = True
+        '
+        'ClienteClm
+        '
+        Me.ClienteClm.DataPropertyName = "FullName"
+        Me.ClienteClm.HeaderText = "Cliente"
+        Me.ClienteClm.Name = "ClienteClm"
+        Me.ClienteClm.ReadOnly = True
+        Me.ClienteClm.Width = 250
+        '
+        'DireccionClm
+        '
+        Me.DireccionClm.DataPropertyName = "Direccion"
+        Me.DireccionClm.HeaderText = "Dirección"
+        Me.DireccionClm.Name = "DireccionClm"
+        Me.DireccionClm.ReadOnly = True
+        Me.DireccionClm.Visible = False
+        '
+        'telefonoClm
+        '
+        Me.telefonoClm.DataPropertyName = "Telefono"
+        Me.telefonoClm.HeaderText = "Télefono"
+        Me.telefonoClm.Name = "telefonoClm"
+        Me.telefonoClm.ReadOnly = True
+        '
+        'mailClm
+        '
+        Me.mailClm.DataPropertyName = "mail"
+        Me.mailClm.HeaderText = "E-mail"
+        Me.mailClm.Name = "mailClm"
+        Me.mailClm.ReadOnly = True
+        '
+        'idRatesClm
+        '
+        Me.idRatesClm.DataPropertyName = "idRates"
+        Me.idRatesClm.HeaderText = "id Rates"
+        Me.idRatesClm.Name = "idRatesClm"
+        Me.idRatesClm.ReadOnly = True
+        Me.idRatesClm.Visible = False
+        '
+        'DescriptionClm
+        '
+        Me.DescriptionClm.DataPropertyName = "Description"
+        Me.DescriptionClm.HeaderText = "Descripción tarifa"
+        Me.DescriptionClm.Name = "DescriptionClm"
+        Me.DescriptionClm.ReadOnly = True
+        Me.DescriptionClm.Visible = False
+        '
+        'TarifaClm
+        '
+        Me.TarifaClm.DataPropertyName = "Tarifa"
+        Me.TarifaClm.HeaderText = "Tarifa"
+        Me.TarifaClm.Name = "TarifaClm"
+        Me.TarifaClm.ReadOnly = True
+        '
         'PanelView
         '
         Me.PanelView.BackColor = System.Drawing.Color.LightGreen
@@ -223,7 +321,7 @@ Partial Class FrmList_ClientRates
         Me.QuitFilterButton.Dock = System.Windows.Forms.DockStyle.Left
         Me.QuitFilterButton.Image = Global.ECommercePlatformView.My.Resources.Resources.not_Filter_16
         Me.QuitFilterButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.QuitFilterButton.Location = New System.Drawing.Point(508, 2)
+        Me.QuitFilterButton.Location = New System.Drawing.Point(591, 2)
         Me.QuitFilterButton.Name = "QuitFilterButton"
         Me.QuitFilterButton.Size = New System.Drawing.Size(144, 35)
         Me.QuitFilterButton.TabIndex = 5
@@ -240,7 +338,7 @@ Partial Class FrmList_ClientRates
         Me.CreditButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.CreditButton.Location = New System.Drawing.Point(460, 2)
         Me.CreditButton.Name = "CreditButton"
-        Me.CreditButton.Size = New System.Drawing.Size(48, 35)
+        Me.CreditButton.Size = New System.Drawing.Size(131, 35)
         Me.CreditButton.TabIndex = 10
         Me.CreditButton.Text = "Determinar " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "monto crédito."
         Me.CreditButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -366,105 +464,6 @@ Partial Class FrmList_ClientRates
         Me.SelectToolStripMenuItem.Name = "SelectToolStripMenuItem"
         Me.SelectToolStripMenuItem.Size = New System.Drawing.Size(238, 30)
         Me.SelectToolStripMenuItem.Text = "Filtrar los seleccionados."
-        '
-        'idPersonaClm
-        '
-        Me.idPersonaClm.DataPropertyName = "IdPersona"
-        Me.idPersonaClm.HeaderText = "id Persona"
-        Me.idPersonaClm.Name = "idPersonaClm"
-        Me.idPersonaClm.ReadOnly = True
-        Me.idPersonaClm.Visible = False
-        '
-        'idClienteclm
-        '
-        Me.idClienteclm.DataPropertyName = "IdCliente"
-        Me.idClienteclm.HeaderText = "id Cliente"
-        Me.idClienteclm.Name = "idClienteclm"
-        Me.idClienteclm.ReadOnly = True
-        Me.idClienteclm.Visible = False
-        '
-        'ApellidosClm
-        '
-        Me.ApellidosClm.DataPropertyName = "Apellido"
-        Me.ApellidosClm.HeaderText = "Apellido"
-        Me.ApellidosClm.Name = "ApellidosClm"
-        Me.ApellidosClm.ReadOnly = True
-        Me.ApellidosClm.Visible = False
-        '
-        'NombreClm
-        '
-        Me.NombreClm.DataPropertyName = "Nombre"
-        Me.NombreClm.HeaderText = "Nombre"
-        Me.NombreClm.Name = "NombreClm"
-        Me.NombreClm.ReadOnly = True
-        Me.NombreClm.Visible = False
-        '
-        'IsSelectClm
-        '
-        Me.IsSelectClm.DataPropertyName = "IsSelect"
-        Me.IsSelectClm.HeaderText = " "
-        Me.IsSelectClm.Name = "IsSelectClm"
-        Me.IsSelectClm.Width = 20
-        '
-        'Ruc_CiClm
-        '
-        Me.Ruc_CiClm.DataPropertyName = "Ruc_Ci"
-        Me.Ruc_CiClm.HeaderText = "Ruc (o )C.I."
-        Me.Ruc_CiClm.Name = "Ruc_CiClm"
-        Me.Ruc_CiClm.ReadOnly = True
-        '
-        'ClienteClm
-        '
-        Me.ClienteClm.DataPropertyName = "FullName"
-        Me.ClienteClm.HeaderText = "Cliente"
-        Me.ClienteClm.Name = "ClienteClm"
-        Me.ClienteClm.ReadOnly = True
-        Me.ClienteClm.Width = 250
-        '
-        'DireccionClm
-        '
-        Me.DireccionClm.DataPropertyName = "Direccion"
-        Me.DireccionClm.HeaderText = "Dirección"
-        Me.DireccionClm.Name = "DireccionClm"
-        Me.DireccionClm.ReadOnly = True
-        Me.DireccionClm.Visible = False
-        '
-        'telefonoClm
-        '
-        Me.telefonoClm.DataPropertyName = "Telefono"
-        Me.telefonoClm.HeaderText = "Télefono"
-        Me.telefonoClm.Name = "telefonoClm"
-        Me.telefonoClm.ReadOnly = True
-        '
-        'mailClm
-        '
-        Me.mailClm.DataPropertyName = "mail"
-        Me.mailClm.HeaderText = "E-mail"
-        Me.mailClm.Name = "mailClm"
-        Me.mailClm.ReadOnly = True
-        '
-        'idRatesClm
-        '
-        Me.idRatesClm.DataPropertyName = "idRates"
-        Me.idRatesClm.HeaderText = "id Rates"
-        Me.idRatesClm.Name = "idRatesClm"
-        Me.idRatesClm.ReadOnly = True
-        Me.idRatesClm.Visible = False
-        '
-        'DescriptionClm
-        '
-        Me.DescriptionClm.DataPropertyName = "Description"
-        Me.DescriptionClm.HeaderText = "Descripción tarifa"
-        Me.DescriptionClm.Name = "DescriptionClm"
-        Me.DescriptionClm.ReadOnly = True
-        Me.DescriptionClm.Visible = False
-        '
-        'TarifaClm
-        '
-        Me.TarifaClm.DataPropertyName = "Tarifa"
-        Me.TarifaClm.HeaderText = "Tarifa"
-        Me.TarifaClm.Name = "TarifaClm"
-        Me.TarifaClm.ReadOnly = True
         '
         'FrmList_ClientRates
         '

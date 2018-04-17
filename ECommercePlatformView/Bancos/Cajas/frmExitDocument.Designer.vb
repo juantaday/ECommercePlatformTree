@@ -184,7 +184,7 @@ Partial Class frmExitDocument
         Me.GroupBox1.Size = New System.Drawing.Size(378, 93)
         Me.GroupBox1.TabIndex = 7
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Opciones de ingreso"
+        Me.GroupBox1.Text = "Opciones de destino"
         '
         'RadioButton3
         '
@@ -201,9 +201,9 @@ Partial Class frmExitDocument
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.Location = New System.Drawing.Point(6, 41)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(82, 19)
+        Me.RadioButton2.Size = New System.Drawing.Size(91, 19)
         Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.Text = "Caja chica"
+        Me.RadioButton2.Text = "Caja virtual.."
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
         'DepositorBanckRadioButton
@@ -230,10 +230,10 @@ Partial Class frmExitDocument
         '
         Me.totalSelectLabel.AutoSize = True
         Me.totalSelectLabel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.totalSelectLabel.Font = New System.Drawing.Font("Source Sans Pro ExtraLight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.totalSelectLabel.Location = New System.Drawing.Point(289, 0)
+        Me.totalSelectLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.totalSelectLabel.Location = New System.Drawing.Point(282, 0)
         Me.totalSelectLabel.Name = "totalSelectLabel"
-        Me.totalSelectLabel.Size = New System.Drawing.Size(89, 30)
+        Me.totalSelectLabel.Size = New System.Drawing.Size(96, 29)
         Me.totalSelectLabel.TabIndex = 9
         Me.totalSelectLabel.Text = "12.25  $"
         '
@@ -241,10 +241,10 @@ Partial Class frmExitDocument
         '
         Me.Label4.AutoSize = True
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Label4.Font = New System.Drawing.Font("Source Sans Pro ExtraLight", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(0, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(249, 30)
+        Me.Label4.Size = New System.Drawing.Size(261, 29)
         Me.Label4.TabIndex = 0
         Me.Label4.Text = "Destino del documento"
         '
@@ -299,7 +299,7 @@ Partial Class frmExitDocument
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.Name = "frmExitDocument"
-        Me.Text = "Saluda de documentos"
+        Me.Text = "Salida de documentos"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)

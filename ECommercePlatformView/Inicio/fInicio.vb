@@ -20,6 +20,17 @@ Module fInicio
     Public Sub Main()
         Try
 
+            'Application.EnableVisualStyles()
+            'Application.SetCompatibleTextRenderingDefault(False)
+            'UsuarioActivo.codUser = "JTADAYMA"
+            'TerminalActivo.codTerminal = "SOFWARE1"
+
+            'Application.DoEvents()
+            'Using aplication As New frmViewTranfer
+            '    aplication.ShowDialog()
+            'End Using
+            'Return
+
 
             Application.EnableVisualStyles()
             Application.SetCompatibleTextRenderingDefault(False)

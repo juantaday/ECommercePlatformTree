@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 
 Public Class frmbackup_SimpleClearLog
     Private myParent As frmBackup
@@ -19,9 +20,8 @@ Public Class frmbackup_SimpleClearLog
     End Sub
 
     Private Sub btnbackup_Click(sender As Object, e As EventArgs) Handles btnbackup.Click
-
-        If fileNameTextBox.Text.Length = 0 Or NameArchiv.ToString.Length = 0 Then
-            MessageBox.Show("Debe seleccionar la rura del arcchivo", "Importante", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        If String.IsNullOrEmpty(myParent.DataBase) Then
+            MsgBox("No se pudo determinar la base de datos a la que esta conectado.", MsgBoxStyle.Exclamation, "Alerta..")
             Return
         End If
 
@@ -36,25 +36,17 @@ Public Class frmbackup_SimpleClearLog
                 DisplayResults("/Initialize")
                 DisplayStatus("Connecting...")
                 connection = New SqlConnection(SimpleDataApp.Utility.GetConnectionString())
-                ' To emulate a long-running query, wait for 
-                ' a few seconds before working with the data.
-                ' This command does not do much, but that's the point--
-                ' it does not change your data, in the long run.
 
+                command = New SqlCommand()
+                command.Connection = connection
 
-                command = New SqlCommand("backup_base", connection)
-                command.CommandType = CommandType.StoredProcedure
+                command.CommandType = CommandType.Text
 
-                command.CommandType = CommandType.StoredProcedure
-                command.Parameters.Add("@Direcions", SqlDbType.VarChar)
-                command.Parameters.Add("@NameArchiv", SqlDbType.VarChar)
-                command.Parameters.Add("@ResultID", SqlDbType.Int)
-
-                command.Parameters("@Direcions").Value = NameArchiv
-                command.Parameters("@NameArchiv").Value = "Esto es una prueba "
-                command.Parameters("@ResultID").Direction = ParameterDirection.Output
-
-
+                sql = "ALTER DATABASE  " & myParent.DataBase & "  
+                        set recovery simple;
+                        dbcc SHRINKfile('" & myParent.DataBase & "_LDF', truncateonly);
+                        ALTER DATABASE " & myParent.DataBase & " set recovery full;"
+                command.CommandText = sql
                 connection.Open()
 
                 DisplayStatus("Executing...")
@@ -85,10 +77,9 @@ Public Class frmbackup_SimpleClearLog
             ' of the IAsyncResult parameter.
             Dim command As SqlCommand = CType(result.AsyncState, SqlCommand)
             Dim rowCount As Integer = command.EndExecuteNonQuery(result)
-            Dim resultInfo As Integer = Integer.Parse(command.Parameters("@ResultID").Value)
-
             Dim rowText() As String = {}
-            If resultInfo = 1 Then
+
+            If rowCount <> 0 Then
                 rowText = {"Operacion Exitosa/Finally"}
             Else
                 rowText = {"/Finally"}
@@ -142,41 +133,27 @@ Public Class frmbackup_SimpleClearLog
         Dim mesa() As String = Split(Text, "/")
         Me.Label1.Text = mesa(0)
         If mesa(1) = "Initialize" Then
-            Me.ProgressBar2.Style = ProgressBarStyle.Marquee
+            Me.BunifuCircleProgressbar1.StartRunnig()
         ElseIf mesa(1) = "Finally" Then
-            Me.ProgressBar2.Style = ProgressBarStyle.Blocks
+            Me.BunifuCircleProgressbar1.StopRunnig()
         End If
         myParent.isClosable = Me.isExecuting
     End Sub
 
-    Private Sub FileButton_Click(sender As Object, e As EventArgs) Handles FileButton.Click
-        Try
-            ' Displays an OpenFileDialog so the user can select a Cursor.
-            Dim openFileDialog1 As New OpenFileDialog
-
-            openFileDialog1.Filter = "Cursor Files|*.bak"
-            openFileDialog1.Title = "Selecione la direccion del respaldo"
-
-            ' Show the Dialog.
-            ' If the user clicked OK in the dialog and 
-            ' a .CUR file was selected, open it.
-            Using file As New OpenFilePersonalise(typeFile.Backup, Me.NameArchiv)
-                If file.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
-                    fileNameTextBox.Text = file.FullName
-                    NameArchiv = file.FullName
-                End If
-            End Using
-
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-
-    End Sub
-
     Private Sub frmbackup_Simple_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.fileNameTextBox.Text = NameArchiv
+        Me.btnbackup.Width = 0
+        Me.btnbackup.Height = 0
+        Me.BunifuCircleProgressbar1.StopRunnig()
+        sql = "Es muy importante antes de realizar la limpieza de " &
+                "tatos de LOG de transaccione, hacer una copia de seguridad de esta." & vbCrLf & vbCrLf
+        sql = sql & "Una vez echan y la copia de seguridad y puesta a buen recaudo, proceda hacer la limpieza." & vbCrLf & vbCrLf
+
+        sql = sql & "Base de batos : " & myParent.DataBase
+        sql = sql & vbCrLf & vbCrLf
+        sql = sql & "Suerte…."
+
+        Me.Label1.Text = sql
+
     End Sub
 
 

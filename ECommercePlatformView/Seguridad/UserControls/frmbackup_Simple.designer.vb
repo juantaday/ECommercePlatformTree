@@ -91,6 +91,7 @@ Partial Class frmbackup_Simple
         Me.Label1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.Label1.Location = New System.Drawing.Point(26, 22)
         Me.Label1.Name = "Label1"
+        Me.Label1.ReadOnly = True
         Me.Label1.Size = New System.Drawing.Size(450, 184)
         Me.Label1.TabIndex = 8
         Me.Label1.Text = ""

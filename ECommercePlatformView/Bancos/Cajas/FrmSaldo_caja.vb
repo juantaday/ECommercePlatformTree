@@ -1,12 +1,19 @@
-﻿Imports CADsisVenta.DataSetMonedasTableAdapters
+﻿Imports System.Drawing.Printing
+Imports CADsisVenta.DataSetMonedasTableAdapters
 Imports CADsisVenta.DataSetSystemTableAdapters
+Imports Microsoft.VisualBasic.PowerPacks.Printing
 
 Public Class FrmSaldo_caja
     Protected Friend codTerminal As String
     Protected Friend idTerminal As Integer
+    Public prtSettings As PrinterSettings
+
     Private idCajaStado As Integer
     Private msgSelect As String
     Private isVisibleMenu As Boolean
+    Private total_saldo As Double
+
+
     Public Sub New(idCajaStado As Integer, ByVal isVisibleMenu As Boolean)
 
         ' Esta llamada es exigida por el diseñador.
@@ -22,8 +29,6 @@ Public Class FrmSaldo_caja
             'cod 0 not terminal
             Not_Data(1)
             Return
-        Else
-            NameCajaLabel.Text = "Estado de caja: " + codTerminal
         End If
         Carga_Datos(Me.idCajaStado)
         Me.AbrirCajaToolStripMenuItem.Enabled = isVisibleMenu
@@ -34,7 +39,7 @@ Public Class FrmSaldo_caja
         Dim listAdap As New CajaStadoTableAdapter
         Dim listDetail As New SaldoCajaTableAdapter
         Dim _saldo As Double = 0
-
+        total_saldo = 0
 
         PanelView.Controls.Clear()
         Try
@@ -54,9 +59,12 @@ Public Class FrmSaldo_caja
                 dt.Columns.Add(colSaldos)
                 For Each rowSaldo As DataRow In dt.Rows
                     rowSaldo("Saldo") = (rowSaldo("SaldoInicial") + rowSaldo("Debe")) - rowSaldo("Haber")
-                    _saldo += rowSaldo("Saldo")
+                    If Not rowSaldo("formaPago").ToString() = "Crédito" Then
+                        _saldo += rowSaldo("Saldo")
+                    End If
                 Next
                 If dt.Rows.Count > 0 Then
+                    total_saldo += _saldo
                     Inicializa_Controls()
                     sql = "Abierto/ Operación N°:" & row("idCajaStado")
                     If (row("isAllUser")) Then
@@ -89,9 +97,12 @@ Public Class FrmSaldo_caja
                 dt.Columns.Add(colSaldos)
                 For Each rowSaldo As DataRow In dt.Rows
                     rowSaldo("Saldo") = (rowSaldo("SaldoInicial") + rowSaldo("Debe")) - rowSaldo("Haber")
-                    _saldo += rowSaldo("Saldo")
+                    If Not rowSaldo("formaPago").ToString() = "Crédito" Then
+                        _saldo += rowSaldo("Saldo")
+                    End If
                 Next
                 If dt.Rows.Count > 0 Then
+                    total_saldo += _saldo
                     Inicializa_Controls()
                     sql = "Hibernado(suspendido)/ Operación N°:" & row("idCajaStado")
                     If (row("isAllUser")) Then
@@ -112,11 +123,17 @@ Public Class FrmSaldo_caja
             Return
 
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         Finally
             ArqueoDeCajaToolStripMenuItem.Enabled = False
             HibernarToolStripMenuItem.Enabled = False
             EliminarToolStripMenuItem.Enabled = False
+
+            NameCajaLabel.Text =
+                String.Format("Estado de caja {0}; Saldo total: {1}",
+                              codTerminal, total_saldo.ToString("C2"))
+
+
             If PanelView.Controls.Count = 0 Then
                 NameCajaLabel.AutoSize = False
                 NameCajaLabel.Height = 20
@@ -513,6 +530,43 @@ Public Class FrmSaldo_caja
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+    Private Sub PrintToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PrintToolStripMenuItem.Click
+        If Not SeleccionarImpresora() Then
+            Return
+        End If
+
+        Me.PrintForm1.Form = Me
+        Me.PrintForm1.PrinterSettings = prtSettings
+        Me.PrintForm1.PrintAction = Printing.PrintAction.PrintToPreview
+        Me.PrintForm1.Print()
+    End Sub
+
+    Public Function SeleccionarImpresora() As Boolean
+        Dim prtDialog As New PrintDialog
+        If prtSettings Is Nothing Then
+            prtSettings = New PrinterSettings
+        End If
+
+        With prtDialog
+            .AllowPrintToFile = False
+            .AllowSelection = False
+            .AllowSomePages = False
+            .PrintToFile = False
+            .ShowHelp = False
+            .ShowNetwork = True
+
+            .PrinterSettings = prtSettings
+
+            If .ShowDialog() = DialogResult.OK Then
+                prtSettings = .PrinterSettings
+                Return True
+            Else
+                Return False
+            End If
+
+        End With
+    End Function
+
     Friend WithEvents PanelData As System.Windows.Forms.Panel
     Friend WithEvents PanelTop As System.Windows.Forms.Panel
     Friend WithEvents PanelLeft As System.Windows.Forms.Panel
@@ -522,5 +576,4 @@ Public Class FrmSaldo_caja
     Friend WithEvents LinkLabelNew As System.Windows.Forms.LinkLabel
     Friend WithEvents LabelTotal_op As System.Windows.Forms.Label
     Friend WithEvents itemCheckBox As System.Windows.Forms.CheckBox
-
 End Class

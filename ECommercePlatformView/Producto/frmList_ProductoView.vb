@@ -18,6 +18,19 @@ Public Class frmList_ProductoView
     Protected Friend id_Product_return As Integer
     Protected Friend flag As String
 
+    Private Operation As stateLoad
+    Sub New(ByVal operation As stateLoad)
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.Operation = operation
+        If Me.Operation = stateLoad.Dialogo Then
+            Me.CancelButton = btnCancelar
+        End If
+    End Sub
+
     Private Sub btnBuscar_Click(sender As System.Object, e As System.EventArgs) Handles btnBuscar.Click
         Try
             isLoated = False
@@ -61,6 +74,9 @@ Public Class frmList_ProductoView
 
                             clm = .Columns("Nom_Comun")
                             clm.Visible = False
+
+                            clm = .Columns("PresentacionPrint")
+                            clm.HeaderText = "Presentación"
 
                             clm = .Columns("Barcode")
                             clm.Visible = False
@@ -117,11 +133,15 @@ Public Class frmList_ProductoView
     End Sub
 
     Private Sub btnOk_Click(sender As System.Object, e As System.EventArgs) Handles btnOk.Click
-        If Me.IsSelectedRow() Then
+        If Me.Operation = stateLoad.Dialogo Then
             Me.DialogResult = DialogResult.OK
             Me.Close()
+        Else
+            If Me.IsSelectedRow() Then
+                Me.DialogResult = DialogResult.OK
+                Me.Close()
+            End If
         End If
-
     End Sub
     Private Sub datalistado_CellDoubleClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles datalistado.CellDoubleClick
         If datalistado.SelectedRows.Count = 1 Then
@@ -224,10 +244,10 @@ Public Class frmList_ProductoView
                 i += 1
             Next
             If i = 1 Then
-                Me.id_Producto = RowSelect.Item(0).Cells(0).Value
+                Me.id_Producto = RowSelect.Item(0).Cells("idProducto").Value.ToString()
                 Me.id_Present = RowSelect.Item(0).Cells("idPresentacion").Value.ToString()
                 Me.Nom_comercial = RowSelect.Item(0).Cells("Nom_Comun").Value.ToString()
-                '
+
                 Return True
             End If
             Return False
@@ -311,6 +331,10 @@ Public Class frmList_ProductoView
         If isLoated Then
             Try
                 If datalistado.SelectedRows.Count = 1 Then
+                    Me.id_Producto = datalistado.SelectedRows(0).Cells("idProducto").Value.ToString()
+                    Me.id_Present = datalistado.SelectedRows(0).Cells("idPresentacion").Value.ToString()
+                    Me.Nom_comercial = datalistado.SelectedRows(0).Cells("Nom_Comun").Value.ToString()
+
                     If datalistado.SelectedRows(0).Cells("Barcode").Value.ToString().Length > 0 Then
                         DrawCodBarr()
                     Else
@@ -533,6 +557,23 @@ Public Class frmList_ProductoView
                 newViewExpir.ShowDialog()
 
             End Using
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub datalistado_KeyDown(sender As Object, e As KeyEventArgs) Handles datalistado.KeyDown
+        Try
+            If e.KeyCode = Keys.Enter Then
+                e.SuppressKeyPress = False
+                If datalistado.SelectedRows.Count = 1 Then
+                    If Me.Operation = stateLoad.Dialogo Then
+                        btnOk.PerformClick()
+                    End If
+                End If
+            ElseIf e.KeyCode = Keys.Back Or e.KeyCode = Keys.Tab Then
+                txtProduc_Select.Focus()
+            End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try

@@ -38,6 +38,13 @@ Partial Class frmList_Facturas
         Me.printMatricialButton = New System.Windows.Forms.Button()
         Me.viewReportButton = New System.Windows.Forms.Button()
         Me.PrintSelectButton = New System.Windows.Forms.Button()
+        Me.ChangedClientButton = New System.Windows.Forms.Button()
+        Me.EnviarVentasButton = New System.Windows.Forms.Button()
+        Me.ViewListFavorityButton = New System.Windows.Forms.Button()
+        Me.BackArrow_Button = New System.Windows.Forms.Button()
+        Me.FavorityButton = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.OperacionNumLabel = New System.Windows.Forms.Label()
         Me.ListViewCabecera = New System.Windows.Forms.ListView()
         Me.IdFactureColum = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.FacturColum = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -93,7 +100,6 @@ Partial Class frmList_Facturas
         Me.PanelControls = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.OperacionNumLabel = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.User_operaLabel = New System.Windows.Forms.Label()
         Me.saveDevolucionButton = New System.Windows.Forms.Button()
@@ -119,6 +125,12 @@ Partial Class frmList_Facturas
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel6 = New System.Windows.Forms.Panel()
         Me.TotalDevolverLabel = New System.Windows.Forms.Label()
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.PanelData = New System.Windows.Forms.Panel()
+        Me.PanelFavority = New System.Windows.Forms.Panel()
+        Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.paneTitulo.SuspendLayout()
         Me.PanePie.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -143,6 +155,8 @@ Partial Class frmList_Facturas
         Me.Panel5.SuspendLayout()
         Me.Panel4.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        Me.PanelFavority.SuspendLayout()
+        Me.Panel8.SuspendLayout()
         Me.SuspendLayout()
         '
         'lblTitle
@@ -154,9 +168,9 @@ Partial Class frmList_Facturas
         Me.lblTitle.Location = New System.Drawing.Point(0, 0)
         Me.lblTitle.Margin = New System.Windows.Forms.Padding(3)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(574, 36)
+        Me.lblTitle.Size = New System.Drawing.Size(433, 36)
         Me.lblTitle.TabIndex = 20
-        Me.lblTitle.Text = "Facturas, notas de venta y proformas"
+        Me.lblTitle.Text = "Facturas y notas de ventas.."
         Me.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'Timer1
@@ -182,7 +196,7 @@ Partial Class frmList_Facturas
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(74, 0)
+        Me.Label1.Location = New System.Drawing.Point(77, 3)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(115, 16)
         Me.Label1.TabIndex = 75
@@ -195,9 +209,9 @@ Partial Class frmList_Facturas
         Me.btnSelectAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnSelectAll.Image = Global.ECommercePlatformView.My.Resources.Resources.SelectAll_16x16
         Me.btnSelectAll.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSelectAll.Location = New System.Drawing.Point(3, 3)
+        Me.btnSelectAll.Location = New System.Drawing.Point(137, 3)
         Me.btnSelectAll.Name = "btnSelectAll"
-        Me.btnSelectAll.Size = New System.Drawing.Size(114, 25)
+        Me.btnSelectAll.Size = New System.Drawing.Size(114, 32)
         Me.btnSelectAll.TabIndex = 24
         Me.btnSelectAll.Text = "Seleccionar todo"
         Me.btnSelectAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -207,7 +221,7 @@ Partial Class frmList_Facturas
         'detailButton
         '
         Me.detailButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.detailButton.Location = New System.Drawing.Point(550, 22)
+        Me.detailButton.Location = New System.Drawing.Point(545, 22)
         Me.detailButton.Name = "detailButton"
         Me.detailButton.Size = New System.Drawing.Size(66, 19)
         Me.detailButton.TabIndex = 27
@@ -295,6 +309,108 @@ Partial Class frmList_Facturas
         Me.ToolTip1.SetToolTip(Me.PrintSelectButton, "Imprimir en ticket.")
         Me.PrintSelectButton.UseVisualStyleBackColor = True
         '
+        'ChangedClientButton
+        '
+        Me.ChangedClientButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ChangedClientButton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.ChangedClientButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Client_32
+        Me.ChangedClientButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ChangedClientButton.Location = New System.Drawing.Point(385, 0)
+        Me.ChangedClientButton.Name = "ChangedClientButton"
+        Me.ChangedClientButton.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.ChangedClientButton.Size = New System.Drawing.Size(45, 42)
+        Me.ChangedClientButton.TabIndex = 30
+        Me.ChangedClientButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.ChangedClientButton, "Cambiar Cliente...")
+        Me.ChangedClientButton.UseVisualStyleBackColor = True
+        '
+        'EnviarVentasButton
+        '
+        Me.EnviarVentasButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.EnviarVentasButton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.EnviarVentasButton.Image = Global.ECommercePlatformView.My.Resources.Resources.SalesMy_32_png
+        Me.EnviarVentasButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.EnviarVentasButton.Location = New System.Drawing.Point(430, 0)
+        Me.EnviarVentasButton.Name = "EnviarVentasButton"
+        Me.EnviarVentasButton.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.EnviarVentasButton.Size = New System.Drawing.Size(52, 42)
+        Me.EnviarVentasButton.TabIndex = 31
+        Me.EnviarVentasButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.EnviarVentasButton, "Enviar a ventas para editar..")
+        Me.EnviarVentasButton.UseVisualStyleBackColor = True
+        '
+        'ViewListFavorityButton
+        '
+        Me.ViewListFavorityButton.Image = Global.ECommercePlatformView.My.Resources.Resources.FavorityDocumen_24
+        Me.ViewListFavorityButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ViewListFavorityButton.Location = New System.Drawing.Point(3, 3)
+        Me.ViewListFavorityButton.Name = "ViewListFavorityButton"
+        Me.ViewListFavorityButton.Size = New System.Drawing.Size(128, 32)
+        Me.ViewListFavorityButton.TabIndex = 25
+        Me.ViewListFavorityButton.Text = "Mis favoritos.."
+        Me.ViewListFavorityButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ViewListFavorityButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.ToolTip1.SetToolTip(Me.ViewListFavorityButton, "Mis documentos favoritos...")
+        Me.ViewListFavorityButton.UseVisualStyleBackColor = True
+        '
+        'BackArrow_Button
+        '
+        Me.BackArrow_Button.BackColor = System.Drawing.Color.White
+        Me.BackArrow_Button.Dock = System.Windows.Forms.DockStyle.Left
+        Me.BackArrow_Button.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BackArrow_Button.Image = Global.ECommercePlatformView.My.Resources.Resources.Arrow_Back_48
+        Me.BackArrow_Button.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BackArrow_Button.Location = New System.Drawing.Point(15, 2)
+        Me.BackArrow_Button.Name = "BackArrow_Button"
+        Me.BackArrow_Button.Size = New System.Drawing.Size(67, 41)
+        Me.BackArrow_Button.TabIndex = 3
+        Me.BackArrow_Button.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.BackArrow_Button, "Ir al listado general..")
+        Me.BackArrow_Button.UseVisualStyleBackColor = False
+        '
+        'FavorityButton
+        '
+        Me.FavorityButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.FavorityButton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.FavorityButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Favority_32
+        Me.FavorityButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.FavorityButton.Location = New System.Drawing.Point(482, 0)
+        Me.FavorityButton.Name = "FavorityButton"
+        Me.FavorityButton.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.FavorityButton.Size = New System.Drawing.Size(35, 42)
+        Me.FavorityButton.TabIndex = 32
+        Me.FavorityButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.FavorityButton, "Agregar a mis documentos favoritos..")
+        Me.FavorityButton.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Image = Global.ECommercePlatformView.My.Resources.Resources.change_name_32
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(241, 2)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(155, 41)
+        Me.Button2.TabIndex = 0
+        Me.Button2.Text = "Cambiar nombre "
+        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.Button2, "Enviar a documento favoritos...")
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'OperacionNumLabel
+        '
+        Me.OperacionNumLabel.AutoSize = True
+        Me.OperacionNumLabel.Dock = System.Windows.Forms.DockStyle.Right
+        Me.OperacionNumLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OperacionNumLabel.Location = New System.Drawing.Point(531, 3)
+        Me.OperacionNumLabel.Name = "OperacionNumLabel"
+        Me.OperacionNumLabel.Size = New System.Drawing.Size(16, 17)
+        Me.OperacionNumLabel.TabIndex = 82
+        Me.OperacionNumLabel.Text = ".."
+        Me.ToolTip1.SetToolTip(Me.OperacionNumLabel, ".")
+        '
         'ListViewCabecera
         '
         Me.ListViewCabecera.CheckBoxes = True
@@ -306,7 +422,7 @@ Partial Class frmList_Facturas
         Me.ListViewCabecera.HideSelection = False
         Me.ListViewCabecera.Location = New System.Drawing.Point(0, 0)
         Me.ListViewCabecera.Name = "ListViewCabecera"
-        Me.ListViewCabecera.Size = New System.Drawing.Size(618, 416)
+        Me.ListViewCabecera.Size = New System.Drawing.Size(613, 177)
         Me.ListViewCabecera.TabIndex = 66
         Me.ListViewCabecera.UseCompatibleStateImageBehavior = False
         Me.ListViewCabecera.View = System.Windows.Forms.View.Details
@@ -396,7 +512,7 @@ Partial Class frmList_Facturas
         Me.ListViewDetail.GridLines = True
         Me.ListViewDetail.Location = New System.Drawing.Point(0, 20)
         Me.ListViewDetail.Name = "ListViewDetail"
-        Me.ListViewDetail.Size = New System.Drawing.Size(310, 350)
+        Me.ListViewDetail.Size = New System.Drawing.Size(307, 111)
         Me.ListViewDetail.SmallImageList = Me.ImageList1
         Me.ListViewDetail.TabIndex = 67
         Me.ListViewDetail.UseCompatibleStateImageBehavior = False
@@ -531,9 +647,9 @@ Partial Class frmList_Facturas
         Me.paneTitulo.BackColor = System.Drawing.Color.Gainsboro
         Me.paneTitulo.Controls.Add(Me.lblTitle)
         Me.paneTitulo.Dock = System.Windows.Forms.DockStyle.Top
-        Me.paneTitulo.Location = New System.Drawing.Point(0, 0)
+        Me.paneTitulo.Location = New System.Drawing.Point(3, 3)
         Me.paneTitulo.Name = "paneTitulo"
-        Me.paneTitulo.Size = New System.Drawing.Size(1215, 39)
+        Me.paneTitulo.Size = New System.Drawing.Size(1209, 39)
         Me.paneTitulo.TabIndex = 77
         '
         'PanePie
@@ -543,9 +659,9 @@ Partial Class frmList_Facturas
         Me.PanePie.Controls.Add(Me.lbltotalFactur)
         Me.PanePie.Controls.Add(Me.lblNoInforcion)
         Me.PanePie.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PanePie.Location = New System.Drawing.Point(0, 564)
+        Me.PanePie.Location = New System.Drawing.Point(3, 561)
         Me.PanePie.Name = "PanePie"
-        Me.PanePie.Size = New System.Drawing.Size(1215, 42)
+        Me.PanePie.Size = New System.Drawing.Size(1209, 42)
         Me.PanePie.TabIndex = 78
         '
         'btnClose
@@ -556,7 +672,7 @@ Partial Class frmList_Facturas
         Me.btnClose.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClose.Image = Global.ECommercePlatformView.My.Resources.Resources.Close_32x32
         Me.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(1133, 0)
+        Me.btnClose.Location = New System.Drawing.Point(1127, 0)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(82, 42)
         Me.btnClose.TabIndex = 33
@@ -589,13 +705,14 @@ Partial Class frmList_Facturas
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.FlowLayoutPanel1.Controls.Add(Me.ViewListFavorityButton)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnSelectAll)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnNoselect)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnCopy)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 39)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 42)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1215, 32)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1209, 38)
         Me.FlowLayoutPanel1.TabIndex = 79
         '
         'btnNoselect
@@ -604,9 +721,9 @@ Partial Class frmList_Facturas
         Me.btnNoselect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnNoselect.Image = Global.ECommercePlatformView.My.Resources.Resources.SelectTable_16x16
         Me.btnNoselect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnNoselect.Location = New System.Drawing.Point(123, 3)
+        Me.btnNoselect.Location = New System.Drawing.Point(257, 3)
         Me.btnNoselect.Name = "btnNoselect"
-        Me.btnNoselect.Size = New System.Drawing.Size(143, 25)
+        Me.btnNoselect.Size = New System.Drawing.Size(143, 32)
         Me.btnNoselect.TabIndex = 24
         Me.btnNoselect.Text = "No seleccionar ninguno"
         Me.btnNoselect.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -616,9 +733,9 @@ Partial Class frmList_Facturas
         '
         Me.btnCopy.Image = Global.ECommercePlatformView.My.Resources.Resources.Action_Copy
         Me.btnCopy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnCopy.Location = New System.Drawing.Point(272, 3)
+        Me.btnCopy.Location = New System.Drawing.Point(406, 3)
         Me.btnCopy.Name = "btnCopy"
-        Me.btnCopy.Size = New System.Drawing.Size(60, 25)
+        Me.btnCopy.Size = New System.Drawing.Size(60, 32)
         Me.btnCopy.TabIndex = 11
         Me.btnCopy.Text = "Copiar"
         Me.btnCopy.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -633,9 +750,9 @@ Partial Class frmList_Facturas
         Me.FlowLayoutPanel4.Controls.Add(Me.bntBuscar)
         Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(0, 71)
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(3, 80)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(1215, 33)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(1209, 33)
         Me.FlowLayoutPanel4.TabIndex = 81
         '
         'PanelImputDate
@@ -692,7 +809,7 @@ Partial Class frmList_Facturas
         Me.PaneCentral.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PaneCentral.Location = New System.Drawing.Point(0, 0)
         Me.PaneCentral.Name = "PaneCentral"
-        Me.PaneCentral.Size = New System.Drawing.Size(618, 460)
+        Me.PaneCentral.Size = New System.Drawing.Size(613, 221)
         Me.PaneCentral.TabIndex = 82
         '
         'PanelView
@@ -701,7 +818,7 @@ Partial Class frmList_Facturas
         Me.PanelView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelView.Location = New System.Drawing.Point(0, 44)
         Me.PanelView.Name = "PanelView"
-        Me.PanelView.Size = New System.Drawing.Size(618, 416)
+        Me.PanelView.Size = New System.Drawing.Size(613, 177)
         Me.PanelView.TabIndex = 68
         '
         'Panel1
@@ -714,11 +831,14 @@ Partial Class frmList_Facturas
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(618, 44)
+        Me.Panel1.Size = New System.Drawing.Size(613, 44)
         Me.Panel1.TabIndex = 67
         '
         'PanelControls
         '
+        Me.PanelControls.Controls.Add(Me.FavorityButton)
+        Me.PanelControls.Controls.Add(Me.EnviarVentasButton)
+        Me.PanelControls.Controls.Add(Me.ChangedClientButton)
         Me.PanelControls.Controls.Add(Me.printTicket)
         Me.PanelControls.Controls.Add(Me.devolucionButton)
         Me.PanelControls.Controls.Add(Me.anulaButton)
@@ -729,7 +849,7 @@ Partial Class frmList_Facturas
         Me.PanelControls.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelControls.Location = New System.Drawing.Point(33, 0)
         Me.PanelControls.Name = "PanelControls"
-        Me.PanelControls.Size = New System.Drawing.Size(482, 42)
+        Me.PanelControls.Size = New System.Drawing.Size(511, 42)
         Me.PanelControls.TabIndex = 28
         '
         'Panel3
@@ -753,24 +873,13 @@ Partial Class frmList_Facturas
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Padding = New System.Windows.Forms.Padding(3)
-        Me.Panel2.Size = New System.Drawing.Size(593, 40)
+        Me.Panel2.Size = New System.Drawing.Size(589, 40)
         Me.Panel2.TabIndex = 68
-        '
-        'OperacionNumLabel
-        '
-        Me.OperacionNumLabel.AutoSize = True
-        Me.OperacionNumLabel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.OperacionNumLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OperacionNumLabel.Location = New System.Drawing.Point(480, 3)
-        Me.OperacionNumLabel.Name = "OperacionNumLabel"
-        Me.OperacionNumLabel.Size = New System.Drawing.Size(51, 17)
-        Me.OperacionNumLabel.TabIndex = 82
-        Me.OperacionNumLabel.Text = "Label4"
         '
         'Panel7
         '
         Me.Panel7.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel7.Location = New System.Drawing.Point(531, 3)
+        Me.Panel7.Location = New System.Drawing.Point(547, 3)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(20, 34)
         Me.Panel7.TabIndex = 84
@@ -779,11 +888,11 @@ Partial Class frmList_Facturas
         '
         Me.User_operaLabel.AutoSize = True
         Me.User_operaLabel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.User_operaLabel.Location = New System.Drawing.Point(551, 3)
+        Me.User_operaLabel.Location = New System.Drawing.Point(567, 3)
         Me.User_operaLabel.Name = "User_operaLabel"
-        Me.User_operaLabel.Size = New System.Drawing.Size(39, 13)
+        Me.User_operaLabel.Size = New System.Drawing.Size(19, 13)
         Me.User_operaLabel.TabIndex = 83
-        Me.User_operaLabel.Text = "Label4"
+        Me.User_operaLabel.Text = "...."
         '
         'saveDevolucionButton
         '
@@ -831,8 +940,7 @@ Partial Class frmList_Facturas
         '
         'SplitContainer1
         '
-        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 104)
+        Me.SplitContainer1.Location = New System.Drawing.Point(3, 334)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -843,8 +951,8 @@ Partial Class frmList_Facturas
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.PaneDetalle)
         Me.SplitContainer1.Panel2.Margin = New System.Windows.Forms.Padding(3)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1215, 460)
-        Me.SplitContainer1.SplitterDistance = 618
+        Me.SplitContainer1.Size = New System.Drawing.Size(1206, 221)
+        Me.SplitContainer1.SplitterDistance = 613
         Me.SplitContainer1.TabIndex = 82
         '
         'PaneDetalle
@@ -854,7 +962,7 @@ Partial Class frmList_Facturas
         Me.PaneDetalle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PaneDetalle.Location = New System.Drawing.Point(0, 0)
         Me.PaneDetalle.Name = "PaneDetalle"
-        Me.PaneDetalle.Size = New System.Drawing.Size(593, 460)
+        Me.PaneDetalle.Size = New System.Drawing.Size(589, 221)
         Me.PaneDetalle.TabIndex = 0
         '
         'PanelViewDevol
@@ -865,7 +973,7 @@ Partial Class frmList_Facturas
         Me.PanelViewDevol.Location = New System.Drawing.Point(0, 40)
         Me.PanelViewDevol.Name = "PanelViewDevol"
         Me.PanelViewDevol.Padding = New System.Windows.Forms.Padding(3)
-        Me.PanelViewDevol.Size = New System.Drawing.Size(593, 420)
+        Me.PanelViewDevol.Size = New System.Drawing.Size(589, 181)
         Me.PanelViewDevol.TabIndex = 69
         '
         'SplitContainer2
@@ -881,8 +989,8 @@ Partial Class frmList_Facturas
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.Panel4)
-        Me.SplitContainer2.Size = New System.Drawing.Size(587, 370)
-        Me.SplitContainer2.SplitterDistance = 310
+        Me.SplitContainer2.Size = New System.Drawing.Size(583, 131)
+        Me.SplitContainer2.SplitterDistance = 307
         Me.SplitContainer2.TabIndex = 83
         '
         'Panel5
@@ -892,7 +1000,7 @@ Partial Class frmList_Facturas
         Me.Panel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel5.Location = New System.Drawing.Point(0, 0)
         Me.Panel5.Name = "Panel5"
-        Me.Panel5.Size = New System.Drawing.Size(310, 370)
+        Me.Panel5.Size = New System.Drawing.Size(307, 131)
         Me.Panel5.TabIndex = 71
         '
         'Label3
@@ -913,7 +1021,7 @@ Partial Class frmList_Facturas
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(0, 0)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(273, 370)
+        Me.Panel4.Size = New System.Drawing.Size(272, 131)
         Me.Panel4.TabIndex = 70
         '
         'ListViewDevueltos
@@ -925,7 +1033,7 @@ Partial Class frmList_Facturas
         Me.ListViewDevueltos.GridLines = True
         Me.ListViewDevueltos.Location = New System.Drawing.Point(0, 20)
         Me.ListViewDevueltos.Name = "ListViewDevueltos"
-        Me.ListViewDevueltos.Size = New System.Drawing.Size(273, 350)
+        Me.ListViewDevueltos.Size = New System.Drawing.Size(272, 111)
         Me.ListViewDevueltos.TabIndex = 68
         Me.ListViewDevueltos.UseCompatibleStateImageBehavior = False
         Me.ListViewDevueltos.View = System.Windows.Forms.View.Details
@@ -987,10 +1095,10 @@ Partial Class frmList_Facturas
         Me.Panel6.Controls.Add(Me.lblCountItem)
         Me.Panel6.Controls.Add(Me.TotalDevolverLabel)
         Me.Panel6.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel6.Location = New System.Drawing.Point(3, 373)
+        Me.Panel6.Location = New System.Drawing.Point(3, 134)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Padding = New System.Windows.Forms.Padding(5)
-        Me.Panel6.Size = New System.Drawing.Size(587, 44)
+        Me.Panel6.Size = New System.Drawing.Size(583, 44)
         Me.Panel6.TabIndex = 84
         '
         'TotalDevolverLabel
@@ -999,10 +1107,76 @@ Partial Class frmList_Facturas
         Me.TotalDevolverLabel.Dock = System.Windows.Forms.DockStyle.Right
         Me.TotalDevolverLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalDevolverLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TotalDevolverLabel.Location = New System.Drawing.Point(582, 5)
+        Me.TotalDevolverLabel.Location = New System.Drawing.Point(578, 5)
         Me.TotalDevolverLabel.Name = "TotalDevolverLabel"
         Me.TotalDevolverLabel.Size = New System.Drawing.Size(0, 24)
         Me.TotalDevolverLabel.TabIndex = 25
+        '
+        'NotifyIcon1
+        '
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
+        Me.NotifyIcon1.Text = "NotifyIcon1"
+        Me.NotifyIcon1.Visible = True
+        '
+        'PanelData
+        '
+        Me.PanelData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelData.Location = New System.Drawing.Point(17, 119)
+        Me.PanelData.Name = "PanelData"
+        Me.PanelData.Size = New System.Drawing.Size(65, 26)
+        Me.PanelData.TabIndex = 83
+        '
+        'PanelFavority
+        '
+        Me.PanelFavority.Controls.Add(Me.Panel8)
+        Me.PanelFavority.Location = New System.Drawing.Point(103, 119)
+        Me.PanelFavority.Name = "PanelFavority"
+        Me.PanelFavority.Size = New System.Drawing.Size(921, 142)
+        Me.PanelFavority.TabIndex = 84
+        '
+        'Panel8
+        '
+        Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel8.Controls.Add(Me.Button4)
+        Me.Panel8.Controls.Add(Me.Button2)
+        Me.Panel8.Controls.Add(Me.Button3)
+        Me.Panel8.Controls.Add(Me.BackArrow_Button)
+        Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel8.Location = New System.Drawing.Point(0, 0)
+        Me.Panel8.Name = "Panel8"
+        Me.Panel8.Padding = New System.Windows.Forms.Padding(15, 2, 2, 2)
+        Me.Panel8.Size = New System.Drawing.Size(921, 47)
+        Me.Panel8.TabIndex = 0
+        '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.White
+        Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Image = Global.ECommercePlatformView.My.Resources.Resources.Delete_32
+        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button4.Location = New System.Drawing.Point(396, 2)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(177, 41)
+        Me.Button4.TabIndex = 2
+        Me.Button4.Text = "Retirar de esta lista"
+        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button4.UseVisualStyleBackColor = False
+        '
+        'Button3
+        '
+        Me.Button3.BackColor = System.Drawing.Color.White
+        Me.Button3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Image = Global.ECommercePlatformView.My.Resources.Resources.DetailInvoice_32
+        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button3.Location = New System.Drawing.Point(82, 2)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(159, 41)
+        Me.Button3.TabIndex = 1
+        Me.Button3.Text = "Ver el documento"
+        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button3.UseVisualStyleBackColor = False
         '
         'frmList_Facturas
         '
@@ -1011,6 +1185,8 @@ Partial Class frmList_Facturas
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.CancelButton = Me.btnClose
         Me.ClientSize = New System.Drawing.Size(1215, 606)
+        Me.Controls.Add(Me.PanelFavority)
+        Me.Controls.Add(Me.PanelData)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Controls.Add(Me.FlowLayoutPanel4)
         Me.Controls.Add(Me.FlowLayoutPanel1)
@@ -1018,6 +1194,7 @@ Partial Class frmList_Facturas
         Me.Controls.Add(Me.paneTitulo)
         Me.Controls.Add(Me.Label1)
         Me.Name = "frmList_Facturas"
+        Me.Padding = New System.Windows.Forms.Padding(3)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Lista de facturas, notas de venta, proformas."
         Me.paneTitulo.ResumeLayout(False)
@@ -1053,6 +1230,8 @@ Partial Class frmList_Facturas
         Me.Panel4.PerformLayout()
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
+        Me.PanelFavority.ResumeLayout(False)
+        Me.Panel8.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1152,4 +1331,16 @@ Partial Class frmList_Facturas
     Friend WithEvents Label4 As Label
     Friend WithEvents DateTimePickerStar As DateTimePicker
     Friend WithEvents DateTimePickerEnd As DateTimePicker
+    Friend WithEvents ChangedClientButton As Button
+    Friend WithEvents NotifyIcon1 As NotifyIcon
+    Friend WithEvents EnviarVentasButton As Button
+    Friend WithEvents ViewListFavorityButton As Button
+    Friend WithEvents PanelData As Panel
+    Friend WithEvents PanelFavority As Panel
+    Friend WithEvents Panel8 As Panel
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button4 As Button
+    Friend WithEvents BackArrow_Button As Button
+    Friend WithEvents FavorityButton As Button
 End Class

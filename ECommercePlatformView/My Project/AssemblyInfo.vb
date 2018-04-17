@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 ' Revisar los valores de los atributos del ensamblado
 
 <Assembly: AssemblyTitle("ECommercePlatformThree")>
-<Assembly: AssemblyDescription("Sistema para el control de facturacion.")>
-<Assembly: AssemblyCompany("JMTSystemSofware")>
-<Assembly: AssemblyProduct("E-CommercePlatformThree")>
+<Assembly: AssemblyDescription("Sistema para el control de facturación.")>
+<Assembly: AssemblyCompany("JMT System Software")>
+<Assembly: AssemblyProduct("ECommercePlatformThree")>
 <Assembly: AssemblyCopyright("JMTSystem © Hewlett-Packard 2018")>
 <Assembly: AssemblyTrademark("JMTSystemSofware")>
 
@@ -32,6 +32,6 @@ Imports System.Runtime.InteropServices
 ' mediante el carácter '*', como se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.1.3.4")>
-<Assembly: AssemblyFileVersion("1.1.3.4")>
+<Assembly: AssemblyVersion("1.1.3.5")>
+<Assembly: AssemblyFileVersion("1.1.3.5")>
 <Assembly: NeutralResourcesLanguage("en-US")>

@@ -30,11 +30,11 @@ Public Class Form1
     End Function
 
     Private Sub DisplayStatus(ByVal Text As String)
-        Me.Label1.Text = Text
+
     End Sub
 
     Private Sub DisplayResults(ByVal Text As String)
-        Me.Label1.Text = Text
+
         DisplayStatus("Ready")
     End Sub
 
@@ -49,7 +49,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object,
-        ByVal e As System.EventArgs) Handles Button1.Click
+        ByVal e As System.EventArgs)
         If isExecuting Then
             MessageBox.Show(Me,
                "Already executing. Please wait until the current query " &

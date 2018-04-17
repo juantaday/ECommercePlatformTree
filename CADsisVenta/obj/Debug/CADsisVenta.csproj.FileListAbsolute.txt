@@ -65,4 +65,3 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\bin\Debug\CADsisVe
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.csproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.csprojResolveAssemblyReference.cache

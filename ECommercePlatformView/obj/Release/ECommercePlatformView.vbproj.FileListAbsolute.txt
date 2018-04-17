@@ -801,6 +801,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.Frm_DetailEcommerce.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmConfFactura.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmMyCommerce.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmDefaultDocuments.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmOptionPrint.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmRegistroEquipo.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frm_registerInTerminal.resources
@@ -812,6 +813,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmList_Empleados.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmList_EmployeeDebit.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmList_Facturas.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.MyPreLoadders.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.AboutBox.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.ContagFrm.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.Form1.resources
@@ -847,6 +849,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmListInventoriesUpdate.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmUpdateInventotyOneProduct.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frm_ListInventories.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frm_ListRevalueProduct.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmBarrCode.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmConfiguracion.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmIvaDialog.resources
@@ -855,6 +858,8 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frm_Presentacion.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frm_Proveedor.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.MDI_AddProductos.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmCahgedNameTranfer.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmViewTranfer.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmViewBarcodeList.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.FrmViewSalesSing.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmAdd_Proveedor.resources
@@ -867,11 +872,13 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmReportInventoriesUpdates.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmReportNotaVenta.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmReportProforma.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmViewDetailBackupRestory.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.BackupGeneral.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.BackupMediaOption.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.BackupOverwrite.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmAdd_Usuarios.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmBackup.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.BackupViewRunning.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmbackup_Simple.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmChangePassword.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmList_Users.resources
@@ -879,6 +886,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmPermososSpecial.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmUsuarios.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.OpenFilePersonalise.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmbackup_SimpleClearLog.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmViewDataReset.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmDetailOrderVenta.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.FrmImputDate.resources
@@ -895,9 +903,9 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmZonas.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmZonasDescrip.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.vbproj.GenerateResource.cache
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.exe.licenses
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.vbproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.vbproj.CopyComplete
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.exe
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.xml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.Form2.resources

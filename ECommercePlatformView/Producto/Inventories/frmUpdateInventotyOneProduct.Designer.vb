@@ -26,16 +26,18 @@ Partial Class frmUpdateInventotyOneProduct
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.AffectTextBox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.StockTextBox = New System.Windows.Forms.TextBox()
+        Me.AffectTextBox = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.MedidaStockTextBox = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.nom_ComercialTextBox = New System.Windows.Forms.TextBox()
         Me.NewStockTextBox = New System.Windows.Forms.NumericUpDown()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.pvpTextBox = New System.Windows.Forms.TextBox()
+        Me.nom_ComercialTextBox = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.DescriptionBodegaLabel = New System.Windows.Forms.Label()
@@ -44,8 +46,6 @@ Partial Class frmUpdateInventotyOneProduct
         Me.ListBodegaComboBox = New System.Windows.Forms.ComboBox()
         Me.ObservationRichTextBox = New System.Windows.Forms.RichTextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.pvpTextBox = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.NewStockTextBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -123,23 +123,6 @@ Partial Class frmUpdateInventotyOneProduct
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(435, 217)
         Me.TableLayoutPanel2.TabIndex = 1
         '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(3, 168)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(125, 20)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Monto afectado:"
-        '
-        'AffectTextBox
-        '
-        Me.AffectTextBox.Location = New System.Drawing.Point(143, 171)
-        Me.AffectTextBox.Name = "AffectTextBox"
-        Me.AffectTextBox.ReadOnly = True
-        Me.AffectTextBox.Size = New System.Drawing.Size(289, 26)
-        Me.AffectTextBox.TabIndex = 9
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -149,15 +132,6 @@ Partial Class frmUpdateInventotyOneProduct
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Nuevo stock"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(3, 96)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(99, 40)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Cantidad en stock:"
-        '
         'StockTextBox
         '
         Me.StockTextBox.Location = New System.Drawing.Point(143, 99)
@@ -165,6 +139,14 @@ Partial Class frmUpdateInventotyOneProduct
         Me.StockTextBox.ReadOnly = True
         Me.StockTextBox.Size = New System.Drawing.Size(289, 26)
         Me.StockTextBox.TabIndex = 5
+        '
+        'AffectTextBox
+        '
+        Me.AffectTextBox.Location = New System.Drawing.Point(143, 171)
+        Me.AffectTextBox.Name = "AffectTextBox"
+        Me.AffectTextBox.ReadOnly = True
+        Me.AffectTextBox.Size = New System.Drawing.Size(289, 26)
+        Me.AffectTextBox.TabIndex = 9
         '
         'Label2
         '
@@ -175,6 +157,15 @@ Partial Class frmUpdateInventotyOneProduct
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Medida en stock:"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(3, 96)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(99, 40)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Cantidad en stock:"
+        '
         'MedidaStockTextBox
         '
         Me.MedidaStockTextBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -183,24 +174,6 @@ Partial Class frmUpdateInventotyOneProduct
         Me.MedidaStockTextBox.ReadOnly = True
         Me.MedidaStockTextBox.Size = New System.Drawing.Size(289, 26)
         Me.MedidaStockTextBox.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(77, 20)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Producto:"
-        '
-        'nom_ComercialTextBox
-        '
-        Me.nom_ComercialTextBox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.nom_ComercialTextBox.Location = New System.Drawing.Point(143, 3)
-        Me.nom_ComercialTextBox.Name = "nom_ComercialTextBox"
-        Me.nom_ComercialTextBox.ReadOnly = True
-        Me.nom_ComercialTextBox.Size = New System.Drawing.Size(289, 26)
-        Me.nom_ComercialTextBox.TabIndex = 1
         '
         'NewStockTextBox
         '
@@ -212,6 +185,50 @@ Partial Class frmUpdateInventotyOneProduct
         Me.NewStockTextBox.ReadOnly = True
         Me.NewStockTextBox.Size = New System.Drawing.Size(235, 26)
         Me.NewStockTextBox.TabIndex = 5
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(3, 168)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(125, 20)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Monto afectado:"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(77, 20)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Producto:"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(3, 64)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(128, 20)
+        Me.Label8.TabIndex = 11
+        Me.Label8.Text = "Precio Promedio:"
+        '
+        'pvpTextBox
+        '
+        Me.pvpTextBox.Location = New System.Drawing.Point(143, 67)
+        Me.pvpTextBox.Name = "pvpTextBox"
+        Me.pvpTextBox.ReadOnly = True
+        Me.pvpTextBox.Size = New System.Drawing.Size(289, 26)
+        Me.pvpTextBox.TabIndex = 10
+        '
+        'nom_ComercialTextBox
+        '
+        Me.nom_ComercialTextBox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.nom_ComercialTextBox.Location = New System.Drawing.Point(143, 3)
+        Me.nom_ComercialTextBox.Name = "nom_ComercialTextBox"
+        Me.nom_ComercialTextBox.ReadOnly = True
+        Me.nom_ComercialTextBox.Size = New System.Drawing.Size(289, 26)
+        Me.nom_ComercialTextBox.TabIndex = 1
         '
         'Panel1
         '
@@ -278,11 +295,12 @@ Partial Class frmUpdateInventotyOneProduct
         Me.ObservationRichTextBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ObservationRichTextBox.BackColor = System.Drawing.Color.White
         Me.ObservationRichTextBox.Enabled = False
         Me.ObservationRichTextBox.Location = New System.Drawing.Point(461, 108)
         Me.ObservationRichTextBox.Name = "ObservationRichTextBox"
         Me.ObservationRichTextBox.ReadOnly = True
-        Me.ObservationRichTextBox.Size = New System.Drawing.Size(416, 212)
+        Me.ObservationRichTextBox.Size = New System.Drawing.Size(400, 190)
         Me.ObservationRichTextBox.TabIndex = 1
         Me.ObservationRichTextBox.Text = ""
         '
@@ -295,23 +313,6 @@ Partial Class frmUpdateInventotyOneProduct
         Me.Label7.Size = New System.Drawing.Size(279, 20)
         Me.Label7.TabIndex = 4
         Me.Label7.Text = "Motivo por la que se actualiza el stock."
-        '
-        'pvpTextBox
-        '
-        Me.pvpTextBox.Location = New System.Drawing.Point(143, 67)
-        Me.pvpTextBox.Name = "pvpTextBox"
-        Me.pvpTextBox.ReadOnly = True
-        Me.pvpTextBox.Size = New System.Drawing.Size(289, 26)
-        Me.pvpTextBox.TabIndex = 10
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(3, 64)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(128, 20)
-        Me.Label8.TabIndex = 11
-        Me.Label8.Text = "Precio Promedio:"
         '
         'frmUpdateInventotyOneProduct
         '

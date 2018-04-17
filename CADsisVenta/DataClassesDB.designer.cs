@@ -219,6 +219,12 @@ namespace CADsisVenta
     partial void InsertProductCombined(ProductCombined instance);
     partial void UpdateProductCombined(ProductCombined instance);
     partial void DeleteProductCombined(ProductCombined instance);
+    partial void InsertProductTransfer(ProductTransfer instance);
+    partial void UpdateProductTransfer(ProductTransfer instance);
+    partial void DeleteProductTransfer(ProductTransfer instance);
+    partial void InsertProductTransfer_Detail(ProductTransfer_Detail instance);
+    partial void UpdateProductTransfer_Detail(ProductTransfer_Detail instance);
+    partial void DeleteProductTransfer_Detail(ProductTransfer_Detail instance);
     #endregion
 		
 		public DataClassesDBDataContext() : 
@@ -776,6 +782,22 @@ namespace CADsisVenta
 			get
 			{
 				return this.GetTable<ProductCombined>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProductTransfer> ProductTransfer
+		{
+			get
+			{
+				return this.GetTable<ProductTransfer>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ProductTransfer_Detail> ProductTransfer_Detail
+		{
+			get
+			{
+				return this.GetTable<ProductTransfer_Detail>();
 			}
 		}
 		
@@ -9226,6 +9248,10 @@ namespace CADsisVenta
 		
 		private EntitySet<ProductExpiration> _ProductExpiration;
 		
+		private EntitySet<ProductTransfer> _ProductTransfer;
+		
+		private EntitySet<ProductTransfer> _ProductTransfer1;
+		
 		private EntityRef<Empleados> _Empleados;
 		
 		private EntityRef<Rates> _Rates;
@@ -9275,6 +9301,8 @@ namespace CADsisVenta
 			this._FacturaVenta = new EntitySet<FacturaVenta>(new Action<FacturaVenta>(this.attach_FacturaVenta), new Action<FacturaVenta>(this.detach_FacturaVenta));
 			this._VirtualBox = new EntitySet<VirtualBox>(new Action<VirtualBox>(this.attach_VirtualBox), new Action<VirtualBox>(this.detach_VirtualBox));
 			this._ProductExpiration = new EntitySet<ProductExpiration>(new Action<ProductExpiration>(this.attach_ProductExpiration), new Action<ProductExpiration>(this.detach_ProductExpiration));
+			this._ProductTransfer = new EntitySet<ProductTransfer>(new Action<ProductTransfer>(this.attach_ProductTransfer), new Action<ProductTransfer>(this.detach_ProductTransfer));
+			this._ProductTransfer1 = new EntitySet<ProductTransfer>(new Action<ProductTransfer>(this.attach_ProductTransfer1), new Action<ProductTransfer>(this.detach_ProductTransfer1));
 			this._Empleados = default(EntityRef<Empleados>);
 			this._Rates = default(EntityRef<Rates>);
 			OnCreated();
@@ -9685,6 +9713,32 @@ namespace CADsisVenta
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bodegas_ProductTransfer", Storage="_ProductTransfer", ThisKey="idBodega", OtherKey="idbodegaDestino")]
+		public EntitySet<ProductTransfer> ProductTransfer
+		{
+			get
+			{
+				return this._ProductTransfer;
+			}
+			set
+			{
+				this._ProductTransfer.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bodegas_ProductTransfer1", Storage="_ProductTransfer1", ThisKey="idBodega", OtherKey="idBodegaOrigen")]
+		public EntitySet<ProductTransfer> ProductTransfer1
+		{
+			get
+			{
+				return this._ProductTransfer1;
+			}
+			set
+			{
+				this._ProductTransfer1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Empleados_Bodegas", Storage="_Empleados", ThisKey="Resp1_idEmpleado", OtherKey="idEmpleado", IsForeignKey=true)]
 		public Empleados Empleados
 		{
@@ -9879,6 +9933,30 @@ namespace CADsisVenta
 		{
 			this.SendPropertyChanging();
 			entity.Bodegas = null;
+		}
+		
+		private void attach_ProductTransfer(ProductTransfer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Bodegas = this;
+		}
+		
+		private void detach_ProductTransfer(ProductTransfer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Bodegas = null;
+		}
+		
+		private void attach_ProductTransfer1(ProductTransfer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Bodegas1 = this;
+		}
+		
+		private void detach_ProductTransfer1(ProductTransfer entity)
+		{
+			this.SendPropertyChanging();
+			entity.Bodegas1 = null;
 		}
 	}
 	
@@ -12049,6 +12127,8 @@ namespace CADsisVenta
 		
 		private EntitySet<ProductCombined> _ProductCombined;
 		
+		private EntitySet<ProductTransfer_Detail> _ProductTransfer_Detail;
+		
 		private EntityRef<Productos> _Productos;
 		
 		private EntityRef<ProductoUndMedida> _ProductoUndMedida;
@@ -12106,6 +12186,7 @@ namespace CADsisVenta
 			this._Ventas_Detail = new EntitySet<Ventas_Detail>(new Action<Ventas_Detail>(this.attach_Ventas_Detail), new Action<Ventas_Detail>(this.detach_Ventas_Detail));
 			this._FacturaCompra_Detail = new EntitySet<FacturaCompra_Detail>(new Action<FacturaCompra_Detail>(this.attach_FacturaCompra_Detail), new Action<FacturaCompra_Detail>(this.detach_FacturaCompra_Detail));
 			this._ProductCombined = new EntitySet<ProductCombined>(new Action<ProductCombined>(this.attach_ProductCombined), new Action<ProductCombined>(this.detach_ProductCombined));
+			this._ProductTransfer_Detail = new EntitySet<ProductTransfer_Detail>(new Action<ProductTransfer_Detail>(this.attach_ProductTransfer_Detail), new Action<ProductTransfer_Detail>(this.detach_ProductTransfer_Detail));
 			this._Productos = default(EntityRef<Productos>);
 			this._ProductoUndMedida = default(EntityRef<ProductoUndMedida>);
 			this._ProductoUndMedida1 = default(EntityRef<ProductoUndMedida>);
@@ -12581,6 +12662,19 @@ namespace CADsisVenta
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductoPresentacion_ProductTransfer_Detail", Storage="_ProductTransfer_Detail", ThisKey="idPresentacion", OtherKey="idPresent")]
+		public EntitySet<ProductTransfer_Detail> ProductTransfer_Detail
+		{
+			get
+			{
+				return this._ProductTransfer_Detail;
+			}
+			set
+			{
+				this._ProductTransfer_Detail.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Productos_ProductoPresentacion", Storage="_Productos", ThisKey="idProducto", OtherKey="idProducto", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Productos Productos
 		{
@@ -12806,6 +12900,18 @@ namespace CADsisVenta
 		}
 		
 		private void detach_ProductCombined(ProductCombined entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductoPresentacion = null;
+		}
+		
+		private void attach_ProductTransfer_Detail(ProductTransfer_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductoPresentacion = this;
+		}
+		
+		private void detach_ProductTransfer_Detail(ProductTransfer_Detail entity)
 		{
 			this.SendPropertyChanging();
 			entity.ProductoPresentacion = null;
@@ -20058,6 +20164,610 @@ namespace CADsisVenta
 						this._idProducto = default(int);
 					}
 					this.SendPropertyChanged("Productos");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductTransfer")]
+	public partial class ProductTransfer : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _IdTransfer;
+		
+		private System.DateTime _DateTransfer;
+		
+		private string _NameTranfer;
+		
+		private string _codUser;
+		
+		private int _idBodegaOrigen;
+		
+		private int _idbodegaDestino;
+		
+		private decimal _totalPrecioCompra;
+		
+		private decimal _totalPrecioVenta;
+		
+		private EntitySet<ProductTransfer_Detail> _ProductTransfer_Detail;
+		
+		private EntityRef<Bodegas> _Bodegas;
+		
+		private EntityRef<Bodegas> _Bodegas1;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdTransferChanging(int value);
+    partial void OnIdTransferChanged();
+    partial void OnDateTransferChanging(System.DateTime value);
+    partial void OnDateTransferChanged();
+    partial void OnNameTranferChanging(string value);
+    partial void OnNameTranferChanged();
+    partial void OncodUserChanging(string value);
+    partial void OncodUserChanged();
+    partial void OnidBodegaOrigenChanging(int value);
+    partial void OnidBodegaOrigenChanged();
+    partial void OnidbodegaDestinoChanging(int value);
+    partial void OnidbodegaDestinoChanged();
+    partial void OntotalPrecioCompraChanging(decimal value);
+    partial void OntotalPrecioCompraChanged();
+    partial void OntotalPrecioVentaChanging(decimal value);
+    partial void OntotalPrecioVentaChanged();
+    #endregion
+		
+		public ProductTransfer()
+		{
+			this._ProductTransfer_Detail = new EntitySet<ProductTransfer_Detail>(new Action<ProductTransfer_Detail>(this.attach_ProductTransfer_Detail), new Action<ProductTransfer_Detail>(this.detach_ProductTransfer_Detail));
+			this._Bodegas = default(EntityRef<Bodegas>);
+			this._Bodegas1 = default(EntityRef<Bodegas>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTransfer", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int IdTransfer
+		{
+			get
+			{
+				return this._IdTransfer;
+			}
+			set
+			{
+				if ((this._IdTransfer != value))
+				{
+					this.OnIdTransferChanging(value);
+					this.SendPropertyChanging();
+					this._IdTransfer = value;
+					this.SendPropertyChanged("IdTransfer");
+					this.OnIdTransferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTransfer", DbType="DateTime NOT NULL", IsDbGenerated=true)]
+		public System.DateTime DateTransfer
+		{
+			get
+			{
+				return this._DateTransfer;
+			}
+			set
+			{
+				if ((this._DateTransfer != value))
+				{
+					this.OnDateTransferChanging(value);
+					this.SendPropertyChanging();
+					this._DateTransfer = value;
+					this.SendPropertyChanged("DateTransfer");
+					this.OnDateTransferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameTranfer", DbType="VarChar(100)")]
+		public string NameTranfer
+		{
+			get
+			{
+				return this._NameTranfer;
+			}
+			set
+			{
+				if ((this._NameTranfer != value))
+				{
+					this.OnNameTranferChanging(value);
+					this.SendPropertyChanging();
+					this._NameTranfer = value;
+					this.SendPropertyChanged("NameTranfer");
+					this.OnNameTranferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_codUser", DbType="Char(8) NOT NULL", CanBeNull=false)]
+		public string codUser
+		{
+			get
+			{
+				return this._codUser;
+			}
+			set
+			{
+				if ((this._codUser != value))
+				{
+					this.OncodUserChanging(value);
+					this.SendPropertyChanging();
+					this._codUser = value;
+					this.SendPropertyChanged("codUser");
+					this.OncodUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idBodegaOrigen", DbType="Int NOT NULL")]
+		public int idBodegaOrigen
+		{
+			get
+			{
+				return this._idBodegaOrigen;
+			}
+			set
+			{
+				if ((this._idBodegaOrigen != value))
+				{
+					if (this._Bodegas1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidBodegaOrigenChanging(value);
+					this.SendPropertyChanging();
+					this._idBodegaOrigen = value;
+					this.SendPropertyChanged("idBodegaOrigen");
+					this.OnidBodegaOrigenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idbodegaDestino", DbType="Int NOT NULL")]
+		public int idbodegaDestino
+		{
+			get
+			{
+				return this._idbodegaDestino;
+			}
+			set
+			{
+				if ((this._idbodegaDestino != value))
+				{
+					if (this._Bodegas.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidbodegaDestinoChanging(value);
+					this.SendPropertyChanging();
+					this._idbodegaDestino = value;
+					this.SendPropertyChanged("idbodegaDestino");
+					this.OnidbodegaDestinoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalPrecioCompra", DbType="Decimal(25,2) NOT NULL")]
+		public decimal totalPrecioCompra
+		{
+			get
+			{
+				return this._totalPrecioCompra;
+			}
+			set
+			{
+				if ((this._totalPrecioCompra != value))
+				{
+					this.OntotalPrecioCompraChanging(value);
+					this.SendPropertyChanging();
+					this._totalPrecioCompra = value;
+					this.SendPropertyChanged("totalPrecioCompra");
+					this.OntotalPrecioCompraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalPrecioVenta", DbType="Decimal(25,2) NOT NULL")]
+		public decimal totalPrecioVenta
+		{
+			get
+			{
+				return this._totalPrecioVenta;
+			}
+			set
+			{
+				if ((this._totalPrecioVenta != value))
+				{
+					this.OntotalPrecioVentaChanging(value);
+					this.SendPropertyChanging();
+					this._totalPrecioVenta = value;
+					this.SendPropertyChanged("totalPrecioVenta");
+					this.OntotalPrecioVentaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductTransfer_ProductTransfer_Detail", Storage="_ProductTransfer_Detail", ThisKey="IdTransfer", OtherKey="IdTransfer")]
+		public EntitySet<ProductTransfer_Detail> ProductTransfer_Detail
+		{
+			get
+			{
+				return this._ProductTransfer_Detail;
+			}
+			set
+			{
+				this._ProductTransfer_Detail.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bodegas_ProductTransfer", Storage="_Bodegas", ThisKey="idbodegaDestino", OtherKey="idBodega", IsForeignKey=true)]
+		public Bodegas Bodegas
+		{
+			get
+			{
+				return this._Bodegas.Entity;
+			}
+			set
+			{
+				Bodegas previousValue = this._Bodegas.Entity;
+				if (((previousValue != value) 
+							|| (this._Bodegas.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Bodegas.Entity = null;
+						previousValue.ProductTransfer.Remove(this);
+					}
+					this._Bodegas.Entity = value;
+					if ((value != null))
+					{
+						value.ProductTransfer.Add(this);
+						this._idbodegaDestino = value.idBodega;
+					}
+					else
+					{
+						this._idbodegaDestino = default(int);
+					}
+					this.SendPropertyChanged("Bodegas");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bodegas_ProductTransfer1", Storage="_Bodegas1", ThisKey="idBodegaOrigen", OtherKey="idBodega", IsForeignKey=true)]
+		public Bodegas Bodegas1
+		{
+			get
+			{
+				return this._Bodegas1.Entity;
+			}
+			set
+			{
+				Bodegas previousValue = this._Bodegas1.Entity;
+				if (((previousValue != value) 
+							|| (this._Bodegas1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Bodegas1.Entity = null;
+						previousValue.ProductTransfer1.Remove(this);
+					}
+					this._Bodegas1.Entity = value;
+					if ((value != null))
+					{
+						value.ProductTransfer1.Add(this);
+						this._idBodegaOrigen = value.idBodega;
+					}
+					else
+					{
+						this._idBodegaOrigen = default(int);
+					}
+					this.SendPropertyChanged("Bodegas1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ProductTransfer_Detail(ProductTransfer_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductTransfer = this;
+		}
+		
+		private void detach_ProductTransfer_Detail(ProductTransfer_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ProductTransfer = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProductTransfer_Detail")]
+	public partial class ProductTransfer_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idTransferDetail;
+		
+		private int _IdTransfer;
+		
+		private int _idPresent;
+		
+		private decimal _count_Tranfer;
+		
+		private decimal _PrecioCompra;
+		
+		private decimal _PrecioVenta;
+		
+		private EntityRef<ProductoPresentacion> _ProductoPresentacion;
+		
+		private EntityRef<ProductTransfer> _ProductTransfer;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidTransferDetailChanging(int value);
+    partial void OnidTransferDetailChanged();
+    partial void OnIdTransferChanging(int value);
+    partial void OnIdTransferChanged();
+    partial void OnidPresentChanging(int value);
+    partial void OnidPresentChanged();
+    partial void Oncount_TranferChanging(decimal value);
+    partial void Oncount_TranferChanged();
+    partial void OnPrecioCompraChanging(decimal value);
+    partial void OnPrecioCompraChanged();
+    partial void OnPrecioVentaChanging(decimal value);
+    partial void OnPrecioVentaChanged();
+    #endregion
+		
+		public ProductTransfer_Detail()
+		{
+			this._ProductoPresentacion = default(EntityRef<ProductoPresentacion>);
+			this._ProductTransfer = default(EntityRef<ProductTransfer>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTransferDetail", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idTransferDetail
+		{
+			get
+			{
+				return this._idTransferDetail;
+			}
+			set
+			{
+				if ((this._idTransferDetail != value))
+				{
+					this.OnidTransferDetailChanging(value);
+					this.SendPropertyChanging();
+					this._idTransferDetail = value;
+					this.SendPropertyChanged("idTransferDetail");
+					this.OnidTransferDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdTransfer", DbType="Int NOT NULL")]
+		public int IdTransfer
+		{
+			get
+			{
+				return this._IdTransfer;
+			}
+			set
+			{
+				if ((this._IdTransfer != value))
+				{
+					if (this._ProductTransfer.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdTransferChanging(value);
+					this.SendPropertyChanging();
+					this._IdTransfer = value;
+					this.SendPropertyChanged("IdTransfer");
+					this.OnIdTransferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idPresent", DbType="Int NOT NULL")]
+		public int idPresent
+		{
+			get
+			{
+				return this._idPresent;
+			}
+			set
+			{
+				if ((this._idPresent != value))
+				{
+					if (this._ProductoPresentacion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidPresentChanging(value);
+					this.SendPropertyChanging();
+					this._idPresent = value;
+					this.SendPropertyChanged("idPresent");
+					this.OnidPresentChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_count_Tranfer", DbType="Decimal(25,5) NOT NULL")]
+		public decimal count_Tranfer
+		{
+			get
+			{
+				return this._count_Tranfer;
+			}
+			set
+			{
+				if ((this._count_Tranfer != value))
+				{
+					this.Oncount_TranferChanging(value);
+					this.SendPropertyChanging();
+					this._count_Tranfer = value;
+					this.SendPropertyChanged("count_Tranfer");
+					this.Oncount_TranferChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioCompra", DbType="Decimal(25,5) NOT NULL")]
+		public decimal PrecioCompra
+		{
+			get
+			{
+				return this._PrecioCompra;
+			}
+			set
+			{
+				if ((this._PrecioCompra != value))
+				{
+					this.OnPrecioCompraChanging(value);
+					this.SendPropertyChanging();
+					this._PrecioCompra = value;
+					this.SendPropertyChanged("PrecioCompra");
+					this.OnPrecioCompraChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrecioVenta", DbType="Decimal(25,5) NOT NULL")]
+		public decimal PrecioVenta
+		{
+			get
+			{
+				return this._PrecioVenta;
+			}
+			set
+			{
+				if ((this._PrecioVenta != value))
+				{
+					this.OnPrecioVentaChanging(value);
+					this.SendPropertyChanging();
+					this._PrecioVenta = value;
+					this.SendPropertyChanged("PrecioVenta");
+					this.OnPrecioVentaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductoPresentacion_ProductTransfer_Detail", Storage="_ProductoPresentacion", ThisKey="idPresent", OtherKey="idPresentacion", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public ProductoPresentacion ProductoPresentacion
+		{
+			get
+			{
+				return this._ProductoPresentacion.Entity;
+			}
+			set
+			{
+				ProductoPresentacion previousValue = this._ProductoPresentacion.Entity;
+				if (((previousValue != value) 
+							|| (this._ProductoPresentacion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProductoPresentacion.Entity = null;
+						previousValue.ProductTransfer_Detail.Remove(this);
+					}
+					this._ProductoPresentacion.Entity = value;
+					if ((value != null))
+					{
+						value.ProductTransfer_Detail.Add(this);
+						this._idPresent = value.idPresentacion;
+					}
+					else
+					{
+						this._idPresent = default(int);
+					}
+					this.SendPropertyChanged("ProductoPresentacion");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductTransfer_ProductTransfer_Detail", Storage="_ProductTransfer", ThisKey="IdTransfer", OtherKey="IdTransfer", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public ProductTransfer ProductTransfer
+		{
+			get
+			{
+				return this._ProductTransfer.Entity;
+			}
+			set
+			{
+				ProductTransfer previousValue = this._ProductTransfer.Entity;
+				if (((previousValue != value) 
+							|| (this._ProductTransfer.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProductTransfer.Entity = null;
+						previousValue.ProductTransfer_Detail.Remove(this);
+					}
+					this._ProductTransfer.Entity = value;
+					if ((value != null))
+					{
+						value.ProductTransfer_Detail.Add(this);
+						this._IdTransfer = value.IdTransfer;
+					}
+					else
+					{
+						this._IdTransfer = default(int);
+					}
+					this.SendPropertyChanged("ProductTransfer");
 				}
 			}
 		}

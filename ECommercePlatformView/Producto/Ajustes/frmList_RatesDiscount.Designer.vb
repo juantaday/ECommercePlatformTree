@@ -29,6 +29,7 @@ Partial Class frmList_RatesDiscount
         Me.EditTypeButton = New System.Windows.Forms.Button()
         Me.EditRatesButton = New System.Windows.Forms.Button()
         Me.AddNewListButton = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.ContextMenuAdd_new = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CategoriaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SubCategoryToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -41,7 +42,6 @@ Partial Class frmList_RatesDiscount
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dtg = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel6.SuspendLayout()
         Me.ContextMenuAdd_new.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -133,6 +133,19 @@ Partial Class frmList_RatesDiscount
         Me.AddNewListButton.Text = "Agregar.."
         Me.AddNewListButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.AddNewListButton.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Button1.Image = Global.ECommercePlatformView.My.Resources.Resources.Update_32
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(5, 5)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(119, 40)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Actualizar"
+        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'ContextMenuAdd_new
         '
@@ -249,19 +262,6 @@ Partial Class frmList_RatesDiscount
         Me.Label1.Size = New System.Drawing.Size(435, 24)
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "Tarifas de descuentos aplicables para ventas."
-        '
-        'Button1
-        '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button1.Image = Global.ECommercePlatformView.My.Resources.Resources.Update_32
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(5, 5)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(119, 40)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Actualizar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'frmList_RatesDiscount
         '

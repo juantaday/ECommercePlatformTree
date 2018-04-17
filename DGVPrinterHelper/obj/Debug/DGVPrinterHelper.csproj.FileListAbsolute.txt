@@ -27,6 +27,7 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\bin\Debug\DGVPrinterHelper.dll.config
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\bin\Debug\DGVPrinterHelper.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\bin\Debug\DGVPrinterHelper.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Debug\DGVPrinterHelper.csprojResolveAssemblyReference.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Debug\DGVPrinterHelper.csproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Debug\DGVPrinterHelper.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Debug\DGVPrinterHelper.pdb

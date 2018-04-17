@@ -2650,6 +2650,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.Frm_DetailEcommerce.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmConfFactura.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmMyCommerce.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmDefaultDocuments.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmOptionPrint.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmRegistroEquipo.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frm_registerInTerminal.resources
@@ -2661,6 +2662,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmList_Empleados.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmList_EmployeeDebit.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmList_Facturas.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.MyPreLoadders.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.AboutBox.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.ContagFrm.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.Form1.resources
@@ -2696,6 +2698,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmListInventoriesUpdate.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmUpdateInventotyOneProduct.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frm_ListInventories.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frm_ListRevalueProduct.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmBarrCode.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmConfiguracion.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmIvaDialog.resources
@@ -2704,6 +2707,8 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frm_Presentacion.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frm_Proveedor.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.MDI_AddProductos.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmCahgedNameTranfer.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmViewTranfer.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmViewBarcodeList.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.FrmViewSalesSing.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmAdd_Proveedor.resources
@@ -2716,11 +2721,13 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmReportInventoriesUpdates.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmReportNotaVenta.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmReportProforma.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmViewDetailBackupRestory.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupGeneral.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupMediaOption.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupOverwrite.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmAdd_Usuarios.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmBackup.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupViewRunning.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmbackup_Simple.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmChangePassword.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmList_Users.resources
@@ -2745,11 +2752,8 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmZonas.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmZonasDescrip.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.vbproj.GenerateResource.cache
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.exe.licenses
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.vbproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.vbproj.CopyComplete
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.exe
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.xml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.MyPreLoadders.resources
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.BackupViewRunning.resources

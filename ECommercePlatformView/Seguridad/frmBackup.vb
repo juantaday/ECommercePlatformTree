@@ -15,7 +15,7 @@ Public Class frmBackup
     Public OptionMedia As Int16
     Public NameBackup As String
     Public DescriptionBackup As String
-    Public CompresionType As Int16 = 1
+    Public CompresionType As Int16 = 0
 
     Sub New()
 
@@ -30,42 +30,62 @@ Public Class frmBackup
         Me.AccordionControl1.CollapseAll()
         InitializaComponet()
         LoadData()
-
+        Me.Cursor = Cursors.Default
     End Sub
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         If ValidatedControls() Then
             Dim bottoonmy As Button
-            isClosable = True
             If IsNothing(Me.PanelView.Tag) Then
                 Return
             End If
-
-            Select Case Me.PanelView.Tag
-                Case 0
-                    bottoonmy = PanelView.Controls(0).Controls("btnbackup")
-                    bottoonmy.Tag = 0
-                    bottoonmy.PerformClick()
-                    If bottoonmy.Tag = 1 Then
-                        Me.DialogResult = DialogResult.OK
-                        Me.Close()
-                    End If
-                Case 1
-                    PanelView.Controls.Clear()
-                    Dim _controls As New BackupViewRunning(Me, True)
-                    PanelView.Controls.Add(_controls)
-                    _controls.Dock = DockStyle.Fill
-            End Select
-
+            Try
+                isClosable = True
+                Select Case Me.PanelView.Tag
+                    Case 0
+                        bottoonmy = PanelView.Controls(0).Controls("btnbackup")
+                        If IsNothing(bottoonmy) Then
+                            MsgBox("No se pudo determinar a operación a realizar..", MsgBoxStyle.Exclamation, "Lo siento..")
+                            Return
+                        End If
+                        bottoonmy.Tag = 0
+                        bottoonmy.PerformClick()
+                        If bottoonmy.Tag = 1 Then
+                            Me.DialogResult = DialogResult.OK
+                            Me.Close()
+                        End If
+                    Case 1
+                        ' // este panel es auto runn.. por eso no nesecita el boton
+                        PanelView.Controls.Clear()
+                        Dim _controls As New BackupViewRunning(Me, True)
+                        PanelView.Controls.Add(_controls)
+                        _controls.Dock = DockStyle.Fill
+                    Case 2
+                        bottoonmy = PanelView.Controls(0).Controls("btnbackup")
+                        If IsNothing(bottoonmy) Then
+                            MsgBox("No se pudo determinar a operación a realizar..", MsgBoxStyle.Exclamation, "Lo siento..")
+                            Return
+                        End If
+                        bottoonmy.Tag = 0
+                        bottoonmy.PerformClick()
+                        If bottoonmy.Tag = 1 Then
+                            Me.DialogResult = DialogResult.OK
+                            Me.Close()
+                        End If
+                End Select
+            Catch ex As Exception
+                Me.Cursor = DefaultCursor
+                MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            Finally
+                isClosable = False
+            End Try
         End If
-
     End Sub
 
     Private Function ValidatedControls() As Boolean
-        SaveLastedFile()
-        Return True
+        Return SaveLastedFile()
     End Function
-    Private Sub SaveLastedFile()
+    Private Function SaveLastedFile() As Boolean
         Try
             Dim directoryDB = System.Environment.GetFolderPath(
                         System.Environment.SpecialFolder.Personal)
@@ -86,6 +106,14 @@ Public Class frmBackup
             Dim index As Integer = 1
 
             For Each item In MyDirFiles
+                If Not Dir(item.NameFile) <> "" Then
+                    sql = "El archivo de respaldo:" & vbCrLf
+                    sql = sql & item.NameFile & vbCrLf
+                    sql = sql & "No existe.."
+                    MsgBox(sql, MsgBoxStyle.Exclamation, "Revise...")
+                    fs.Close()
+                    Return False
+                End If
                 Dim info As Byte() = New UTF8Encoding(True).GetBytes(item.NameFile)
                 fs.Write(info, 0, info.Length)
 
@@ -96,10 +124,13 @@ Public Class frmBackup
                 index += 1
             Next
             fs.Close()
+            Return True
         Catch ex As Exception
+            Cursor = Cursors.Default
             MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            Return False
         End Try
-    End Sub
+    End Function
 
 
     Private Sub ViewLastedFile()
@@ -285,7 +316,7 @@ Public Class frmBackup
         Me.PanelView.Tag = 0
         PreViewButton.Appearance.Normal.BackColor = Color.LightBlue
         SettingControls.Appearance.Normal.BackColor = MyBackColor
-
+        CleraDataBaseButton.Appearance.Normal.BackColor = MyBackColor
         Try
             Me.Cursor = Cursors.WaitCursor
             PanelView.Controls.Clear()
@@ -308,10 +339,15 @@ Public Class frmBackup
         Me.PanelView.Tag = 1
         SettingControls.Appearance.Normal.BackColor = Color.LightBlue
         PreViewButton.Appearance.Normal.BackColor = MyBackColor
+        CleraDataBaseButton.Appearance.Normal.BackColor = MyBackColor
     End Sub
 
     Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
+        If ListView1.SelectedIndex = -1 Then
+            Return
+        End If
         Try
+            Me.PanelView.Tag = 1
             Me.Cursor = Cursors.WaitCursor
             If ListView1.SelectedIndex = 0 Then
                 Me.PanelView.Controls.Clear()
@@ -338,7 +374,6 @@ Public Class frmBackup
         Finally
             Me.Cursor = Cursors.Default
         End Try
-
     End Sub
 
     Private Function AutoGeneratedNameBackup() As String
@@ -361,9 +396,28 @@ Public Class frmBackup
         e.Cancel = isClosable
     End Sub
 
-    Private Sub AccordionControlElement3_Click(sender As Object, e As EventArgs) Handles AccordionControlElement3.Click
+    Private Sub CleraDataBaseButton_Click(sender As Object, e As EventArgs) Handles CleraDataBaseButton.Click
         Me.PanelView.Tag = 2
+        SettingControls.Appearance.Normal.BackColor = MyBackColor
+        PreViewButton.Appearance.Normal.BackColor = MyBackColor
+        Me.CleraDataBaseButton.Appearance.Normal.BackColor = Color.LightBlue
+        Try
+            Me.Cursor = Cursors.WaitCursor
+            PanelView.Controls.Clear()
+            Dim TabBalanceGeneral1 = New ECommercePlatformView.
+                    frmbackup_SimpleClearLog(Me, If(Me.MyDirFiles.Count > 0,
+                    Me.MyDirFiles(Me.MyDirFiles.Count - 1).NameFile,
+                    String.Empty))
+
+            TabBalanceGeneral1.Dock = DockStyle.Fill
+            PanelView.Controls.Add(TabBalanceGeneral1)
+            Me.Cursor = Cursors.Default
+        Catch ex As Exception
+            Me.Cursor = Cursors.Default
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
+
 
     Private Sub AccordionControlElement2_Click(sender As Object, e As EventArgs) Handles AccordionControlElement2.Click
 

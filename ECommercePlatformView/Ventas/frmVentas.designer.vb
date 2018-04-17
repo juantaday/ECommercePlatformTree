@@ -66,22 +66,6 @@ Partial Class frmVentas
         Me.AplicarTarifaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeleteRatesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtLabel = New System.Windows.Forms.Label()
-        Me.ListView1 = New System.Windows.Forms.ListView()
-        Me.idPresentClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.idProductoClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.codigoClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.NomcomercialClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.EmpClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.CantidadClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PUnitarioClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PParcialClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.DescuentoClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.TarifaClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.IvaPorClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PIvaColm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PrecioUltimCompraClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PPrombodegaClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.PTotalClm = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.menuEliminar = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
@@ -89,6 +73,21 @@ Partial Class frmVentas
         Me.menuPTotal = New System.Windows.Forms.ToolStripMenuItem()
         Me.paneDetail = New System.Windows.Forms.Panel()
         Me.PanelView = New System.Windows.Forms.Panel()
+        Me.ObjectListView1 = New BrightIdeasSoftware.FastDataListView()
+        Me.IdPresent2Clm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.IdProducto2Clm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.CodProductoClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.Nom_ComercialClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.PresentationPrintClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.CuantityClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.UnitPriceClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.PartialPriceClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.DiscountClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.RatesClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.TotalPriceClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.IvaPercentClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.PriceVatClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.Panelfoot = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblcmdInferior = New System.Windows.Forms.Label()
@@ -97,6 +96,8 @@ Partial Class frmVentas
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.PanelHerramineItem = New System.Windows.Forms.Panel()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.txtFindInAdd = New MultiControls.Controls.TextBoxButton()
         Me.Panelultimo = New System.Windows.Forms.Panel()
         Me.UltimoIngresoLabel = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -155,9 +156,11 @@ Partial Class frmVentas
         Me.ContextMenuStrip1.SuspendLayout()
         Me.paneDetail.SuspendLayout()
         Me.PanelView.SuspendLayout()
+        CType(Me.ObjectListView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panelfoot.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.PanelHerramineItem.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.Panelultimo.SuspendLayout()
         Me.GrupCliente.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -686,105 +689,6 @@ Partial Class frmVentas
         Me.txtLabel.Size = New System.Drawing.Size(0, 39)
         Me.txtLabel.TabIndex = 32
         '
-        'ListView1
-        '
-        Me.ListView1.AccessibleRole = System.Windows.Forms.AccessibleRole.ButtonDropDownGrid
-        Me.ListView1.Activation = System.Windows.Forms.ItemActivation.OneClick
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idPresentClm, Me.idProductoClm, Me.codigoClm, Me.NomcomercialClm, Me.EmpClm, Me.CantidadClm, Me.PUnitarioClm, Me.PParcialClm, Me.DescuentoClm, Me.TarifaClm, Me.IvaPorClm, Me.PIvaColm, Me.PrecioUltimCompraClm, Me.PPrombodegaClm, Me.PTotalClm})
-        Me.ListView1.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListView1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ListView1.FullRowSelect = True
-        Me.ListView1.GridLines = True
-        Me.ListView1.HideSelection = False
-        Me.ListView1.Location = New System.Drawing.Point(3, 3)
-        Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(1059, 353)
-        Me.ListView1.TabIndex = 25
-        Me.ListView1.UseCompatibleStateImageBehavior = False
-        Me.ListView1.View = System.Windows.Forms.View.Details
-        '
-        'idPresentClm
-        '
-        Me.idPresentClm.Text = "idPresent"
-        Me.idPresentClm.Width = 0
-        '
-        'idProductoClm
-        '
-        Me.idProductoClm.Text = "idProducto"
-        Me.idProductoClm.Width = 0
-        '
-        'codigoClm
-        '
-        Me.codigoClm.Text = "Codigo"
-        Me.codigoClm.Width = 120
-        '
-        'NomcomercialClm
-        '
-        Me.NomcomercialClm.Text = "Producto"
-        Me.NomcomercialClm.Width = 280
-        '
-        'EmpClm
-        '
-        Me.EmpClm.Text = "Empaque"
-        Me.EmpClm.Width = 80
-        '
-        'CantidadClm
-        '
-        Me.CantidadClm.Text = "Cantidad"
-        Me.CantidadClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.CantidadClm.Width = 80
-        '
-        'PUnitarioClm
-        '
-        Me.PUnitarioClm.Text = "P. Unitario $"
-        Me.PUnitarioClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.PUnitarioClm.Width = 100
-        '
-        'PParcialClm
-        '
-        Me.PParcialClm.Text = "Sub total $"
-        Me.PParcialClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.PParcialClm.Width = 90
-        '
-        'DescuentoClm
-        '
-        Me.DescuentoClm.Text = "Descuento $"
-        Me.DescuentoClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.DescuentoClm.Width = 100
-        '
-        'TarifaClm
-        '
-        Me.TarifaClm.Text = "Adicional $"
-        Me.TarifaClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.TarifaClm.Width = 100
-        '
-        'IvaPorClm
-        '
-        Me.IvaPorClm.Text = "Iva"
-        Me.IvaPorClm.Width = 0
-        '
-        'PIvaColm
-        '
-        Me.PIvaColm.Text = "Valor iva"
-        Me.PIvaColm.Width = 0
-        '
-        'PrecioUltimCompraClm
-        '
-        Me.PrecioUltimCompraClm.Text = "Precio ultima compra"
-        Me.PrecioUltimCompraClm.Width = 0
-        '
-        'PPrombodegaClm
-        '
-        Me.PPrombodegaClm.Text = "Precio Promedio"
-        Me.PPrombodegaClm.Width = 0
-        '
-        'PTotalClm
-        '
-        Me.PTotalClm.Text = "Precio Total $"
-        Me.PTotalClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.PTotalClm.Width = 120
-        '
         'ContextMenuStrip1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menuEliminar, Me.ToolStripSeparator1, Me.menuCantidad, Me.menuPTotal})
@@ -831,13 +735,180 @@ Partial Class frmVentas
         '
         'PanelView
         '
-        Me.PanelView.Controls.Add(Me.ListView1)
+        Me.PanelView.BackColor = System.Drawing.Color.FromArgb(CType(CType(170, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.PanelView.Controls.Add(Me.ObjectListView1)
         Me.PanelView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelView.Location = New System.Drawing.Point(0, 60)
         Me.PanelView.Name = "PanelView"
         Me.PanelView.Padding = New System.Windows.Forms.Padding(3)
         Me.PanelView.Size = New System.Drawing.Size(1065, 359)
         Me.PanelView.TabIndex = 47
+        '
+        'ObjectListView1
+        '
+        Me.ObjectListView1.AllColumns.Add(Me.IdPresent2Clm)
+        Me.ObjectListView1.AllColumns.Add(Me.IdProducto2Clm)
+        Me.ObjectListView1.AllColumns.Add(Me.CodProductoClm)
+        Me.ObjectListView1.AllColumns.Add(Me.Nom_ComercialClm)
+        Me.ObjectListView1.AllColumns.Add(Me.PresentationPrintClm)
+        Me.ObjectListView1.AllColumns.Add(Me.CuantityClm)
+        Me.ObjectListView1.AllColumns.Add(Me.UnitPriceClm)
+        Me.ObjectListView1.AllColumns.Add(Me.PartialPriceClm)
+        Me.ObjectListView1.AllColumns.Add(Me.DiscountClm)
+        Me.ObjectListView1.AllColumns.Add(Me.RatesClm)
+        Me.ObjectListView1.AllColumns.Add(Me.TotalPriceClm)
+        Me.ObjectListView1.AllColumns.Add(Me.IvaPercentClm)
+        Me.ObjectListView1.AllColumns.Add(Me.PriceVatClm)
+        Me.ObjectListView1.AllowColumnReorder = True
+        Me.ObjectListView1.AllowDrop = True
+        Me.ObjectListView1.AlternateRowBackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(237, Byte), Integer), CType(CType(237, Byte), Integer))
+        Me.ObjectListView1.AutoGenerateColumns = False
+        Me.ObjectListView1.BackColor = System.Drawing.Color.White
+        Me.ObjectListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.IdPresent2Clm, Me.CodProductoClm, Me.Nom_ComercialClm, Me.PresentationPrintClm, Me.CuantityClm, Me.UnitPriceClm, Me.PartialPriceClm, Me.DiscountClm, Me.RatesClm, Me.TotalPriceClm})
+        Me.ObjectListView1.ContextMenuStrip = Me.ContextMenuStrip1
+        Me.ObjectListView1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ObjectListView1.DataSource = Nothing
+        Me.ObjectListView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ObjectListView1.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ObjectListView1.FullRowSelect = True
+        Me.ObjectListView1.GridLines = True
+        Me.ObjectListView1.HeaderWordWrap = True
+        Me.ObjectListView1.HideSelection = False
+        Me.ObjectListView1.IncludeColumnHeadersInCopy = True
+        Me.ObjectListView1.IncludeHiddenColumnsInDataTransfer = True
+        Me.ObjectListView1.Location = New System.Drawing.Point(3, 3)
+        Me.ObjectListView1.Name = "ObjectListView1"
+        Me.ObjectListView1.OwnerDraw = True
+        Me.ObjectListView1.SelectedColumnTint = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.ObjectListView1.ShowGroups = False
+        Me.ObjectListView1.ShowImagesOnSubItems = True
+        Me.ObjectListView1.Size = New System.Drawing.Size(1059, 353)
+        Me.ObjectListView1.SmallImageList = Me.ImageList1
+        Me.ObjectListView1.TabIndex = 26
+        Me.ObjectListView1.UnfocusedHighlightBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(198, Byte), Integer))
+        Me.ObjectListView1.UseAlternatingBackColors = True
+        Me.ObjectListView1.UseCompatibleStateImageBehavior = False
+        Me.ObjectListView1.UseFilterIndicator = True
+        Me.ObjectListView1.UseFiltering = True
+        Me.ObjectListView1.UseHotItem = True
+        Me.ObjectListView1.View = System.Windows.Forms.View.Details
+        Me.ObjectListView1.VirtualMode = True
+        '
+        'IdPresent2Clm
+        '
+        Me.IdPresent2Clm.AspectName = "IdPresent"
+        Me.IdPresent2Clm.IsVisible = False
+        Me.IdPresent2Clm.Text = "idPresent"
+        Me.IdPresent2Clm.ToolTipText = "Se puede ver las 200 ultimas trasferencias.."
+        Me.IdPresent2Clm.Width = 0
+        '
+        'IdProducto2Clm
+        '
+        Me.IdProducto2Clm.AspectName = "IdProducto"
+        Me.IdProducto2Clm.DisplayIndex = 1
+        Me.IdProducto2Clm.IsVisible = False
+        Me.IdProducto2Clm.Text = "IdProducto"
+        Me.IdProducto2Clm.Width = 0
+        '
+        'CodProductoClm
+        '
+        Me.CodProductoClm.AspectName = "CodProducto"
+        Me.CodProductoClm.AspectToStringFormat = ""
+        Me.CodProductoClm.Text = "Código"
+        Me.CodProductoClm.ToolTipText = ""
+        Me.CodProductoClm.Width = 90
+        '
+        'Nom_ComercialClm
+        '
+        Me.Nom_ComercialClm.AspectName = "Nom_Comercial"
+        Me.Nom_ComercialClm.Text = "Producto"
+        Me.Nom_ComercialClm.ToolTipText = ""
+        Me.Nom_ComercialClm.Width = 300
+        '
+        'PresentationPrintClm
+        '
+        Me.PresentationPrintClm.AspectName = "PresentationPrint"
+        Me.PresentationPrintClm.Text = "Empaque"
+        Me.PresentationPrintClm.Width = 100
+        '
+        'CuantityClm
+        '
+        Me.CuantityClm.AspectName = "Cuantity"
+        Me.CuantityClm.AspectToStringFormat = "{0:N3}"
+        Me.CuantityClm.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.CuantityClm.Text = "Cantidad"
+        Me.CuantityClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.CuantityClm.Width = 80
+        '
+        'UnitPriceClm
+        '
+        Me.UnitPriceClm.AspectName = "UnitPrice"
+        Me.UnitPriceClm.AspectToStringFormat = "{0:C5}"
+        Me.UnitPriceClm.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.UnitPriceClm.Text = "Precio unitario"
+        Me.UnitPriceClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.UnitPriceClm.Width = 90
+        '
+        'PartialPriceClm
+        '
+        Me.PartialPriceClm.AspectName = "PartialPrice"
+        Me.PartialPriceClm.AspectToStringFormat = "{0:C5}"
+        Me.PartialPriceClm.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.PartialPriceClm.Text = "Sub total"
+        Me.PartialPriceClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.PartialPriceClm.Width = 120
+        '
+        'DiscountClm
+        '
+        Me.DiscountClm.AspectName = "Discount"
+        Me.DiscountClm.AspectToStringFormat = "{0:C5}"
+        Me.DiscountClm.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.DiscountClm.Text = "Descuento"
+        Me.DiscountClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.DiscountClm.Width = 80
+        '
+        'RatesClm
+        '
+        Me.RatesClm.AspectName = "Rates"
+        Me.RatesClm.AspectToStringFormat = "{0:C5}"
+        Me.RatesClm.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.RatesClm.Text = "Adicional"
+        Me.RatesClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.RatesClm.Width = 100
+        '
+        'TotalPriceClm
+        '
+        Me.TotalPriceClm.AspectName = "TotalPrice"
+        Me.TotalPriceClm.AspectToStringFormat = "{0:C5}"
+        Me.TotalPriceClm.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TotalPriceClm.Text = "Total"
+        Me.TotalPriceClm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TotalPriceClm.Width = 120
+        '
+        'IvaPercentClm
+        '
+        Me.IvaPercentClm.AspectName = "IvaPercent"
+        Me.IvaPercentClm.AspectToStringFormat = "{0:P2}"
+        Me.IvaPercentClm.DisplayIndex = 10
+        Me.IvaPercentClm.IsVisible = False
+        Me.IvaPercentClm.Text = "Iva Porcentaje"
+        Me.IvaPercentClm.Width = 0
+        '
+        'PriceVatClm
+        '
+        Me.PriceVatClm.AspectName = "PriceVat"
+        Me.PriceVatClm.AspectToStringFormat = "{0:5}"
+        Me.PriceVatClm.DisplayIndex = 11
+        Me.PriceVatClm.IsVisible = False
+        Me.PriceVatClm.Text = "Iva"
+        Me.PriceVatClm.Width = 0
+        '
+        'ImageList1
+        '
+        Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
+        Me.ImageList1.Images.SetKeyName(0, "if_alert_17834 (1).png")
+        Me.ImageList1.Images.SetKeyName(1, "if_alert_17834.png")
         '
         'Panelfoot
         '
@@ -929,6 +1000,7 @@ Partial Class frmVentas
         'PanelHerramineItem
         '
         Me.PanelHerramineItem.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(220, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.PanelHerramineItem.Controls.Add(Me.GroupBox1)
         Me.PanelHerramineItem.Controls.Add(Me.Panelultimo)
         Me.PanelHerramineItem.Controls.Add(Me.btnPacketProdcut)
         Me.PanelHerramineItem.Controls.Add(Me.btnUp)
@@ -944,13 +1016,37 @@ Partial Class frmVentas
         Me.PanelHerramineItem.Size = New System.Drawing.Size(1065, 60)
         Me.PanelHerramineItem.TabIndex = 45
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(170, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(120, Byte), Integer))
+        Me.GroupBox1.Controls.Add(Me.txtFindInAdd)
+        Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(872, 17)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(191, 41)
+        Me.GroupBox1.TabIndex = 47
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "   Filter"
+        '
+        'txtFindInAdd
+        '
+        Me.txtFindInAdd.ButtonImage = Global.ECommercePlatformView.My.Resources.Resources.Action_Delete_16x16
+        Me.txtFindInAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFindInAdd.Location = New System.Drawing.Point(6, 15)
+        Me.txtFindInAdd.Name = "txtFindInAdd"
+        Me.txtFindInAdd.Size = New System.Drawing.Size(179, 23)
+        Me.txtFindInAdd.TabIndex = 0
+        Me.txtFindInAdd.VisibleButton = False
+        '
         'Panelultimo
         '
+        Me.Panelultimo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panelultimo.Controls.Add(Me.UltimoIngresoLabel)
-        Me.Panelultimo.Dock = System.Windows.Forms.DockStyle.Left
         Me.Panelultimo.Location = New System.Drawing.Point(215, 17)
         Me.Panelultimo.Name = "Panelultimo"
-        Me.Panelultimo.Size = New System.Drawing.Size(758, 41)
+        Me.Panelultimo.Size = New System.Drawing.Size(651, 41)
         Me.Panelultimo.TabIndex = 46
         '
         'UltimoIngresoLabel
@@ -965,12 +1061,11 @@ Partial Class frmVentas
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(5, 2)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(984, 15)
+        Me.Label1.Size = New System.Drawing.Size(1058, 15)
         Me.Label1.TabIndex = 35
         Me.Label1.Text = "F1:Agregar clientes; F2:Elimina cliente; F3:Busca cliente; F4:Productos;  F5:Actu" &
     "alizar costo;  F6:Eliminar ítem;  F8:Cambiar cantidad; F9:Cambiar presentación; " &
@@ -1271,14 +1366,14 @@ Partial Class frmVentas
         '
         Me.ContextMenuCaja.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalidaDeEfecctivoToolStripMenuItem, Me.SalidaDeChequesToolStripMenuItem, Me.VerEstadoToolStripMenuItem})
         Me.ContextMenuCaja.Name = "ContextMenuCaja"
-        Me.ContextMenuCaja.Size = New System.Drawing.Size(188, 118)
+        Me.ContextMenuCaja.Size = New System.Drawing.Size(197, 140)
         '
         'SalidaDeEfecctivoToolStripMenuItem
         '
         Me.SalidaDeEfecctivoToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Atm_32
         Me.SalidaDeEfecctivoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SalidaDeEfecctivoToolStripMenuItem.Name = "SalidaDeEfecctivoToolStripMenuItem"
-        Me.SalidaDeEfecctivoToolStripMenuItem.Size = New System.Drawing.Size(187, 38)
+        Me.SalidaDeEfecctivoToolStripMenuItem.Size = New System.Drawing.Size(196, 38)
         Me.SalidaDeEfecctivoToolStripMenuItem.Text = "Salida de efectivo"
         Me.SalidaDeEfecctivoToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1287,14 +1382,14 @@ Partial Class frmVentas
         Me.SalidaDeChequesToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Atm_Check_32
         Me.SalidaDeChequesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SalidaDeChequesToolStripMenuItem.Name = "SalidaDeChequesToolStripMenuItem"
-        Me.SalidaDeChequesToolStripMenuItem.Size = New System.Drawing.Size(187, 38)
+        Me.SalidaDeChequesToolStripMenuItem.Size = New System.Drawing.Size(196, 38)
         Me.SalidaDeChequesToolStripMenuItem.Text = "Salida de cheques "
         '
         'VerEstadoToolStripMenuItem
         '
         Me.VerEstadoToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Details_24
         Me.VerEstadoToolStripMenuItem.Name = "VerEstadoToolStripMenuItem"
-        Me.VerEstadoToolStripMenuItem.Size = New System.Drawing.Size(187, 38)
+        Me.VerEstadoToolStripMenuItem.Size = New System.Drawing.Size(196, 38)
         Me.VerEstadoToolStripMenuItem.Text = "Ver estado"
         '
         'User_operaLabel
@@ -1479,12 +1574,14 @@ Partial Class frmVentas
         Me.ContextMenuStrip1.ResumeLayout(False)
         Me.paneDetail.ResumeLayout(False)
         Me.PanelView.ResumeLayout(False)
+        CType(Me.ObjectListView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panelfoot.ResumeLayout(False)
         Me.Panelfoot.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.PanelHerramineItem.ResumeLayout(False)
-        Me.PanelHerramineItem.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.Panelultimo.ResumeLayout(False)
         Me.Panelultimo.PerformLayout()
         Me.GrupCliente.ResumeLayout(False)
@@ -1518,34 +1615,22 @@ Partial Class frmVentas
     Friend WithEvents NotaVentaButton As System.Windows.Forms.Button
     Friend WithEvents FacturaButton As System.Windows.Forms.Button
     Friend WithEvents btnClose As System.Windows.Forms.Button
-    Friend WithEvents ListView1 As System.Windows.Forms.ListView
-    Friend WithEvents codigoClm As System.Windows.Forms.ColumnHeader
-    Friend WithEvents NomcomercialClm As System.Windows.Forms.ColumnHeader
-    Friend WithEvents EmpClm As System.Windows.Forms.ColumnHeader
-    Friend WithEvents CantidadClm As System.Windows.Forms.ColumnHeader
-    Friend WithEvents PUnitarioClm As System.Windows.Forms.ColumnHeader
-    Friend WithEvents PTotalClm As System.Windows.Forms.ColumnHeader
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents menuEliminar As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents menuCantidad As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents menuPTotal As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents paneDetail As System.Windows.Forms.Panel
-    Friend WithEvents idPresentClm As System.Windows.Forms.ColumnHeader
-    Friend WithEvents IvaPorClm As System.Windows.Forms.ColumnHeader
-    Friend WithEvents PrecioUltimCompraClm As System.Windows.Forms.ColumnHeader
     Friend WithEvents GrupCliente As System.Windows.Forms.GroupBox
     Friend WithEvents NomClienteText As System.Windows.Forms.TextBox
     Friend WithEvents lblCliente As System.Windows.Forms.Label
     Friend WithEvents txtExploret As System.Windows.Forms.TextBox
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents lblNoexiste As System.Windows.Forms.Label
-    Friend WithEvents idProductoClm As System.Windows.Forms.ColumnHeader
     Friend WithEvents lblcmdInferior As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents btnUp As Button
     Friend WithEvents btnDow As Button
-    Friend WithEvents DescuentoClm As ColumnHeader
     Friend WithEvents lblItemsTotal As System.Windows.Forms.Label
     Friend WithEvents lblIva12 As Label
     Friend WithEvents lbltotal As Label
@@ -1576,7 +1661,6 @@ Partial Class frmVentas
     Friend WithEvents lblVuelto As System.Windows.Forms.Label
     Friend WithEvents btnCancelFactur As System.Windows.Forms.Button
     Friend WithEvents UltDocumentButton As Button
-    Friend WithEvents TarifaClm As ColumnHeader
     Friend WithEvents FindClienteButton As System.Windows.Forms.Button
     Friend WithEvents CedulaTextBox As System.Windows.Forms.TextBox
     Friend WithEvents DetailPersonButton As System.Windows.Forms.Button
@@ -1608,9 +1692,6 @@ Partial Class frmVentas
     Friend WithEvents RatesTypeLabel As Label
     Friend WithEvents ContextMenuDeleteRates As ContextMenuStrip
     Friend WithEvents DeleteRatesToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PParcialClm As ColumnHeader
-    Friend WithEvents PPrombodegaClm As ColumnHeader
-    Friend WithEvents PIvaColm As ColumnHeader
     Friend WithEvents PanelView As Panel
     Friend WithEvents Panelfoot As Panel
     Friend WithEvents PanelHerramineItem As Panel
@@ -1628,4 +1709,21 @@ Partial Class frmVentas
     Friend WithEvents TableFactur As Panel
     Friend WithEvents F11Label As Label
     Friend WithEvents F12Label As Label
+    Private WithEvents GroupBox1 As GroupBox
+    Private WithEvents txtFindInAdd As MultiControls.Controls.TextBoxButton
+    Friend WithEvents ObjectListView1 As BrightIdeasSoftware.FastDataListView
+    Friend WithEvents IdPresent2Clm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents CodProductoClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents Nom_ComercialClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents PresentationPrintClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents CuantityClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents UnitPriceClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents TotalPriceClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents IdProducto2Clm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents PartialPriceClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents DiscountClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents RatesClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents IvaPercentClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents PriceVatClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents ImageList1 As ImageList
 End Class

@@ -2,7 +2,7 @@
 #Region "File Reports"
 
     Private file As String = Application.StartupPath
-    'Private file As String = "C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\ECommercePlatformView"
+    'Private file As String = "F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView"
 
     Public file_rptInventoriesUpdate As String = String.Format("{0}\Reports\rptInventoriesUpdate.rpt", file)
     Public file_rptFacturaBacha As String = String.Format("{0}\Reports\rptFacturaBacha.rpt", file)

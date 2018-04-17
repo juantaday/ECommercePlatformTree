@@ -23,7 +23,16 @@ Public Class frmList_Facturas
     Private Sub frmListFactura_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.DateTimePickerEnd.Value = Date.Now
         Me.DateTimePickerStar.Value = Date.Now.AddDays(-3)
+        InitializeComponents()
         Initializa_Load_Base()
+    End Sub
+
+    Private Sub InitializeComponents()
+        Me.PanelData.Controls.Clear()
+        Me.PanelData.Controls.Add(Me.SplitContainer1)
+        Me.SplitContainer1.Dock = DockStyle.Fill
+        Me.PanelData.Dock = DockStyle.Fill
+        Me.PanelFavority.Visible = False
     End Sub
 
     Private Sub Initializa_Load_Base()
@@ -844,6 +853,113 @@ Public Class frmList_Facturas
     Private Sub Button3_Click(sender As Object, e As EventArgs)
         ListViewDetail.Columns(ColumnCommands.Index).ImageIndex = 0
     End Sub
+    Sub MessageBoxTimer()
+        Dim AckTime As Integer, InfoBox As Object
+        InfoBox = CreateObject("WScript.Shell")
+        'Set the message box to close after 10 seconds
+        AckTime = 1
+        Select Case InfoBox.Popup("Click OK (this window closes automatically after 10 seconds).",
+    AckTime, "This is your Message Box", 0)
+            Case 1, -1
+                Exit Sub
+        End Select
+    End Sub
+
+
+    Private Sub ChangedClientButton_Click(sender As Object, e As EventArgs) Handles ChangedClientButton.Click
+        Dim idPerson As Integer = 0
+        Dim idcliente As Integer = 0
+        Try
+            If Not ListViewCabecera.SelectedItems.Count = 1 Then
+                'MessageBoxTimer()
+                MsgBox("Seleccione un documento", MsgBoxStyle.Exclamation, "Importante")
+                Return
+            End If
+
+            Using VewLogin As New LoginForm(stateReturn._response, "Supervisor de ventas")
+                VewLogin.Text = "Validando usuario"
+                VewLogin.ShowDialog()
+                If Not VewLogin.DialogResult = DialogResult.OK Then
+                    Return
+                End If
+            End Using
+            Using listclien As New frmList_PersonViewTarget(stateLoad.Dialogo)
+                listclien.StartPosition = FormStartPosition.CenterScreen
+                listclien.Text = "Seleccione el nuevo propietario del documento"
+                listclien.ShowDialog()
+                If Not listclien.DialogResult = DialogResult.OK Then
+                    Return
+                End If
+                idPerson = listclien.idPersona
+            End Using
+
+            If idPerson > 0 Then
+                If Not MsgBox("Esta seguro de cambiar el cliente...",
+                          +MsgBoxStyle.Question _
+                          + MsgBoxStyle.YesNo _
+                          + MsgBoxStyle.DefaultButton2 _
+                          , "Responda...") = MsgBoxResult.Yes Then
+                    Return
+                End If
+                idcliente = ClsClientes.isClinteBypersonAdmin(idPerson)
+            End If
+            If idcliente > 0 Then
+                If ChangedClient(idcliente,
+                              Integer.Parse(ListViewCabecera.SelectedItems(0).Text)) Then
+                    Me.NotifyIcon1.BalloonTipText = "Operacion Exitosa"
+                    Me.NotifyIcon1.Text = "JMTSystem Software"
+                    Me.NotifyIcon1.BalloonTipTitle = "Mensaje.."
+                    Me.NotifyIcon1.ShowBalloonTip(4000)
+                    Me.bntBuscar.PerformClick()
+                End If
+            End If
+        Catch ex As Exception
+            Me.Cursor = Cursors.Default
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            Me.Cursor = Cursors.Default
+        End Try
+    End Sub
+
+    Private Function ChangedClient(idcliente As Integer, idFactur As Integer) As Boolean
+        Try
+            Me.Cursor = Cursors.WaitCursor
+            Using cnn As New SqlConnection(SimpleDataApp.Utility.GetConnectionString())
+                cnn.Open()
+                sql = "update FacturaVenta set idCliente = " & idcliente & "
+                       Where idFactVenta = " & idFactur & ""
+                Using cmd As New SqlCommand(sql, cnn)
+                    If cmd.ExecuteNonQuery() Then
+                        Return True
+                    End If
+                End Using
+            End Using
+            Return False
+        Catch ex As Exception
+            Cursor = Cursors.Default
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            Return False
+        End Try
+    End Function
+
+    Private Sub ViewListFavorityButton_Click(sender As Object, e As EventArgs) Handles ViewListFavorityButton.Click
+        Me.PanelData.Controls.Clear()
+        Me.PanelData.Controls.Add(Me.PanelFavority)
+        Me.PanelFavority.Visible = True
+        Me.PanelFavority.Dock = DockStyle.Fill
+        SplitContainer1.Visible = False
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+
+    End Sub
+
+    Private Sub BackArrow_Button_Click(sender As Object, e As EventArgs) Handles BackArrow_Button.Click
+        Me.PanelData.Controls.Clear()
+        Me.PanelData.Controls.Add(Me.SplitContainer1)
+        Me.SplitContainer1.Visible = True
+        Me.SplitContainer1.Dock = DockStyle.Fill
+    End Sub
 
     Private Sub PrintSelectButton_Click(sender As Object, e As EventArgs) Handles PrintSelectButton.Click
         If PrinterSelectInTicket() Then
@@ -1150,7 +1266,8 @@ cargaNuevo:
                 End If
             End If
 
-            Dim Ticket1 As New CreaTicket
+            Dim Ticket1 As New CreaTicket()
+
             Ticket1.PrinterName = myOptnsPrint.NamePrint 'Nombre de la impresona
             'caega color de la impresora
             If myOptnsPrint.Color.Equals("Negro") Then

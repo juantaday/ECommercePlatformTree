@@ -1,0 +1,8 @@
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiControls\bin\Debug\MultiControls.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiControls\bin\Debug\MultiControls.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiControls\obj\Debug\MultiControls.csprojResolveAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiControls\obj\Debug\MultiControls.Properties.Resources.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiControls\obj\Debug\MultiControls.csproj.GenerateResource.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiControls\obj\Debug\MultiControls.csproj.CoreCompileInputs.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiControls\obj\Debug\MultiControls.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\MultiControls\obj\Debug\MultiControls.pdb

@@ -22,19 +22,19 @@ Partial Class frmList_clientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmList_clientes))
         Me.dtg = New System.Windows.Forms.DataGridView()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip()
         Me.btnNuevo = New System.Windows.Forms.Button()
         Me.btnEditarCliente = New System.Windows.Forms.Button()
         Me.btnEliminarCliente = New System.Windows.Forms.Button()
         Me.btnCredit = New System.Windows.Forms.Button()
         Me.btnCobro = New System.Windows.Forms.Button()
         Me.lblnoExiste = New System.Windows.Forms.Label()
-        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
+        Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.lblformaPago = New System.Windows.Forms.Label()
@@ -49,7 +49,7 @@ Partial Class frmList_clientes
         Me.SettingButton = New System.Windows.Forms.Button()
         Me.PanePie = New System.Windows.Forms.Panel()
         Me.TotalListLabel = New System.Windows.Forms.Label()
-        Me.ContextMenuAdd_new = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ContextMenuAdd_new = New System.Windows.Forms.ContextMenuStrip()
         Me.NuevosClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CereditAutorizationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -66,27 +66,27 @@ Partial Class frmList_clientes
         '
         Me.dtg.AllowUserToAddRows = False
         Me.dtg.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.InactiveBorder
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.InactiveBorder
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtg.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
         Me.dtg.BackgroundColor = System.Drawing.Color.White
         Me.dtg.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dtg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dtg.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtg.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dtg.Location = New System.Drawing.Point(0, 114)
         Me.dtg.MultiSelect = False
         Me.dtg.Name = "dtg"
         Me.dtg.ReadOnly = True
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtg.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.dtg.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.dtg.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtg.Size = New System.Drawing.Size(948, 326)
         Me.dtg.TabIndex = 18
@@ -156,16 +156,16 @@ Partial Class frmList_clientes
         Me.btnCredit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnCredit.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCredit.ForeColor = System.Drawing.Color.Black
-        Me.btnCredit.Image = Global.ECommercePlatformView.My.Resources.Resources.Credid_48
+        Me.btnCredit.Image = Global.ECommercePlatformView.My.Resources.Resources.Monto_48
         Me.btnCredit.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnCredit.Location = New System.Drawing.Point(525, 1)
         Me.btnCredit.Margin = New System.Windows.Forms.Padding(1)
         Me.btnCredit.Name = "btnCredit"
         Me.btnCredit.Size = New System.Drawing.Size(66, 68)
         Me.btnCredit.TabIndex = 25
-        Me.btnCredit.Text = "Credito"
+        Me.btnCredit.Text = "Monto"
         Me.btnCredit.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ToolTip1.SetToolTip(Me.btnCredit, "Administrar creditos ")
+        Me.ToolTip1.SetToolTip(Me.btnCredit, "Determinar el monto de crédito.....")
         Me.btnCredit.UseVisualStyleBackColor = False
         '
         'btnCobro
@@ -201,6 +201,7 @@ Partial Class frmList_clientes
         '
         'NotifyIcon1
         '
+        Me.NotifyIcon1.Icon = CType(resources.GetObject("NotifyIcon1.Icon"), System.Drawing.Icon)
         Me.NotifyIcon1.Text = "NotifyIcon1"
         Me.NotifyIcon1.Visible = True
         '

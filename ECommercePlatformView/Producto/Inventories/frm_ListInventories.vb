@@ -5,7 +5,7 @@ Imports CADsisVenta.DataSetSystemTableAdapters
 Imports DGVPrinterHelper
 
 Public Class frm_ListInventories
-    Private ListProductoctSeelct As New List(Of ItemProdcutos)
+    Private ListProductoctSeelct As New List(Of ItemProductos)
     Private isSave As Boolean
     Private Err_code As Integer
     Private Operation As stateOperation
@@ -30,7 +30,7 @@ Public Class frm_ListInventories
     End Sub
 
     Private Sub frm_ListInventories_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ListProductoctSeelct = New List(Of ItemProdcutos)
+        ListProductoctSeelct = New List(Of ItemProductos)
         SplitContainer1.Panel1Collapsed = True
         Carga_bodega()
         PersonalizaDtg()
@@ -69,7 +69,7 @@ Public Class frm_ListInventories
                 'set the bodegas
                 For Each item In listSave
                     ListBodegaComboBox.SelectedValue = item.IdBodega
-                    ListProductoctSeelct.Add(New ItemProdcutos(False, item.idProducto, item.Nom_Comercial, item.Und, item.stock, item.NewStock))
+                    ListProductoctSeelct.Add(New ItemProductos(False, item.idProducto, item.Nom_Comercial, item.Und, item.stock, item.NewStock))
                     MyStado = item.State
                     ObservationRichTextBox.Text = item.Observation
                 Next
@@ -116,7 +116,7 @@ Public Class frm_ListInventories
                     ListBodegaComboBox.DataSource = dt.ToList()
                     ListBodegaComboBox.DisplayMember = "Nom_Bodega"
                     ListBodegaComboBox.ValueMember = "idBodega"
-                    ListBodegaComboBox.SelectedIndex = 0
+                    ListBodegaComboBox.SelectedIndex = -1
                 End Using
             End Using
         Catch ex As Exception
@@ -186,10 +186,10 @@ Public Class frm_ListInventories
 
     Private Sub Read_Data(ByVal dar As System.Data.SqlClient.SqlDataReader)
         Try
-            Dim newList As New List(Of ItemProdcutos)
+            Dim newList As New List(Of ItemProductos)
 
             While dar.Read()
-                newList.Add(New ItemProdcutos(False, dar("idProducto").ToString, dar("Nom_Comercial").ToString,
+                newList.Add(New ItemProductos(False, dar("idProducto").ToString, dar("Nom_Comercial").ToString,
                                                            dar("Und").ToString, dar("stock").ToString, 0))
             End While
             If newList.Count = 0 Then
@@ -220,14 +220,14 @@ Public Class frm_ListInventories
 
                     sql = petOwners.Count
                     For Each item In petOwners
-                        ListProductoctSeelct.Add(New ItemProdcutos(False, item.idProducto,
+                        ListProductoctSeelct.Add(New ItemProductos(False, item.idProducto,
                                                                    item.Nom_Comercial, item.Nom_Comercial,
                                                                    item.Stock, item.NewStock))
                     Next
                     ViewData()
                 End If
             Else
-                For Each item As ItemProdcutos In newList
+                For Each item As ItemProductos In newList
                     ListProductoctSeelct.Add(item)
                 Next
             End If
@@ -237,7 +237,7 @@ Public Class frm_ListInventories
         End Try
     End Sub
 
-    Private Class ItemProdcutos
+    Private Class ItemProductos
         Public Sub New(ByVal checkItem As Boolean, ByVal idproduct As Integer, ByVal nom_Comercial As String, ByVal und As String,
                 ByVal stock As Double, ByVal newStock As Double)
             _idProducto = idproduct
@@ -359,6 +359,7 @@ Public Class frm_ListInventories
                 CheckBoxSeelct.Checked = False
                 FindTextBox.Text = String.Empty
             Else
+                dtgSelect.DataSource = Nothing
                 QuitarFiltroPanel.Visible = False
                 Panelfilter.Visible = False
             End If
@@ -382,7 +383,7 @@ Public Class frm_ListInventories
                 If response Then
                     DeleteButton.Visible = True
                 Else
-                    Dim list As List(Of ItemProdcutos) = ListProductoctSeelct.Where(Function(x) x.CheckItem = True).ToList()
+                    Dim list As List(Of ItemProductos) = ListProductoctSeelct.Where(Function(x) x.CheckItem = True).ToList()
                     DeleteButton.Visible = list.Count
                 End If
             End If
@@ -405,10 +406,11 @@ Public Class frm_ListInventories
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
         Try
             If MsgBox("Esta seguro de eliminar los registros seleccionados.?", MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2 + MsgBoxStyle.Exclamation) = MsgBoxResult.Yes Then
-                Dim list As New List(Of ItemProdcutos)
+                Dim list As New List(Of ItemProductos)
                 list = ListProductoctSeelct.Where(Function(x) x.CheckItem = False).ToList()
+
                 ListProductoctSeelct.Clear()
-                For Each item As ItemProdcutos In list
+                For Each item As ItemProductos In list
                     ListProductoctSeelct.Add(item)
                 Next
                 ViewData()
@@ -463,7 +465,7 @@ Public Class frm_ListInventories
 
     Private Sub findButton_Click(sender As Object, e As EventArgs) Handles findButton.Click
         Try
-            Dim List As New List(Of ItemProdcutos)
+            Dim List As New List(Of ItemProductos)
             List = ListProductoctSeelct.Where(Function(x) x.Nom_Comercial.Contains(FindTextBox.Text.ToUpper())).ToList
             dtgSelect.DataSource = Nothing
             dtgSelect.DataSource = List
@@ -563,7 +565,7 @@ Public Class frm_ListInventories
                         db.SubmitChanges()
 
                         'add the information
-                        For Each item As ItemProdcutos In ListProductoctSeelct
+                        For Each item As ItemProductos In ListProductoctSeelct
                             Dim InventoryDetail As New InventoryDetail With
                               {
                                 .IdInventory = id,
@@ -645,7 +647,7 @@ Public Class frm_ListInventories
                 db.Inventory.InsertOnSubmit(Inventory)
                 db.SubmitChanges()
 
-                For Each item As ItemProdcutos In ListProductoctSeelct
+                For Each item As ItemProductos In ListProductoctSeelct
                     Dim InventoryDetail As New InventoryDetail With
                     {
                              .IdInventory = Inventory.IdInventory,
@@ -860,10 +862,10 @@ Public Class frm_ListInventories
 
     Private Sub ListBodegaComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBodegaComboBox.SelectedIndexChanged
         Try
-            If Not TypeOf ListBodegaComboBox.SelectedValue Is DataRowView Then
+            If Not ListBodegaComboBox.SelectedIndex = -1 Then
                 ' Referenciando el objeto DataRowView correspondiente
                 ' al elemento seleccionado en el control ComboBox.
-                Dim row As DataRowView = DirectCast(ListBodegaComboBox.SelectedItem, DataRowView)
+                Dim row As BodegaSystemRow = DirectCast(ListBodegaComboBox.SelectedItem, BodegaSystemRow)
                 If IsNothing(row) Then
                     Return
                 End If
@@ -935,6 +937,15 @@ Public Class frm_ListInventories
 
     Private Sub closeButton_Click(sender As Object, e As EventArgs) Handles closeButton.Click
         Me.Close()
+    End Sub
+    Private Sub dtgSelect_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dtgSelect.DataError
+        If e.Exception.Message.Contains("formato correcto") Then
+            MsgBox("La celda acepta solo valores numéricos", MsgBoxStyle.Exclamation, "Error")
+        ElseIf (e.Exception.Message.Contains("no tiene un valor.")) Then
+
+        Else
+            MsgBox(e.Exception.Message, MsgBoxStyle.Critical, "Error")
+        End If
     End Sub
 End Class
 

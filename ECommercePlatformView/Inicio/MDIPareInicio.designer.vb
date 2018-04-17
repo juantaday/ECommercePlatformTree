@@ -48,7 +48,6 @@ Partial Class MDIPareInicio
         Me.ReporteDeVentasPorProdcutoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PorEmpleadoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
-        Me.StockDeProductosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HerramientasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarEsteEquipoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RegistrarEnUnaEstaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,6 +60,7 @@ Partial Class MDIPareInicio
         Me.AplicarTarifasParaClienteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MontoDeCreditoParaClientesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.P_CompuestoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.InventarioToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.ListadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClinetListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProveedorListToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -164,7 +164,7 @@ Partial Class MDIPareInicio
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MenuStrip1.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(170, Byte), Integer))
         Me.MenuStrip1.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.MenuStrip1.GripMargin = New System.Windows.Forms.Padding(2)
         Me.MenuStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
@@ -182,7 +182,7 @@ Partial Class MDIPareInicio
         Me.InicioToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.InicioToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MiEmpresaToolStripMenuItem1, Me.CambiarDeUsuarioToolStripMenuItem, Me.SalirToolStripMenuItem2})
         Me.InicioToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.InicioToolStripMenuItem.ForeColor = System.Drawing.Color.Black
+        Me.InicioToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.InicioToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Power_icon_32
         Me.InicioToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.InicioToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -219,8 +219,9 @@ Partial Class MDIPareInicio
         '
         'ArchivoToolStripMenuItem
         '
-        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BalanceToolStripMenuItem, Me.ToolStripSeparator3, Me.CuentasPorCobrarToolStripMenuItem, Me.CuentasPoPagarToolStripMenuItem, Me.ToolStripSeparator1, Me.CompasToolStripMenuItem, Me.VentasToolStripMenuIte, Me.ToolStripSeparator2, Me.StockDeProductosToolStripMenuItem})
+        Me.ArchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BalanceToolStripMenuItem, Me.ToolStripSeparator3, Me.CuentasPorCobrarToolStripMenuItem, Me.CuentasPoPagarToolStripMenuItem, Me.ToolStripSeparator1, Me.CompasToolStripMenuItem, Me.VentasToolStripMenuIte, Me.ToolStripSeparator2})
         Me.ArchivoToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ArchivoToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ArchivoToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.folder_Blue_32
         Me.ArchivoToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ArchivoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -333,17 +334,10 @@ Partial Class MDIPareInicio
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
         Me.ToolStripSeparator2.Size = New System.Drawing.Size(214, 6)
         '
-        'StockDeProductosToolStripMenuItem
-        '
-        Me.StockDeProductosToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.stock_Bodega_32
-        Me.StockDeProductosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.StockDeProductosToolStripMenuItem.Name = "StockDeProductosToolStripMenuItem"
-        Me.StockDeProductosToolStripMenuItem.Size = New System.Drawing.Size(217, 38)
-        Me.StockDeProductosToolStripMenuItem.Text = "Stock de Productos"
-        '
         'HerramientasToolStripMenuItem
         '
         Me.HerramientasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RegistrarEsteEquipoToolStripMenuItem, Me.RegistrarEnUnaEstaciónToolStripMenuItem, Me.EstadoDeTerminalesToolStripMenuItem, Me.AdministrarEmpleadosToolStripMenuItem})
+        Me.HerramientasToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.HerramientasToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Herram_icon_48
         Me.HerramientasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.HerramientasToolStripMenuItem.Name = "HerramientasToolStripMenuItem"
@@ -385,7 +379,8 @@ Partial Class MDIPareInicio
         '
         'SettingToolStripMenuItem
         '
-        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrecioDeVentaDeProductosToolStripMenuItem, Me.OfertasYPromoconesToolStripMenuItem, Me.TarifasDescuentosToolStripMenuItem, Me.AplicarTarifasParaClienteToolStripMenuItem, Me.MontoDeCreditoParaClientesToolStripMenuItem, Me.P_CompuestoToolStripMenuItem})
+        Me.SettingToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PrecioDeVentaDeProductosToolStripMenuItem, Me.OfertasYPromoconesToolStripMenuItem, Me.TarifasDescuentosToolStripMenuItem, Me.AplicarTarifasParaClienteToolStripMenuItem, Me.MontoDeCreditoParaClientesToolStripMenuItem, Me.P_CompuestoToolStripMenuItem, Me.InventarioToolStripMenuItem1})
+        Me.SettingToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.SettingToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Setting_48
         Me.SettingToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SettingToolStripMenuItem.Name = "SettingToolStripMenuItem"
@@ -442,10 +437,19 @@ Partial Class MDIPareInicio
         Me.P_CompuestoToolStripMenuItem.Size = New System.Drawing.Size(288, 38)
         Me.P_CompuestoToolStripMenuItem.Text = "Productos compuestos"
         '
+        'InventarioToolStripMenuItem1
+        '
+        Me.InventarioToolStripMenuItem1.Image = Global.ECommercePlatformView.My.Resources.Resources.stock_Bodega_32
+        Me.InventarioToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.InventarioToolStripMenuItem1.Name = "InventarioToolStripMenuItem1"
+        Me.InventarioToolStripMenuItem1.Size = New System.Drawing.Size(288, 38)
+        Me.InventarioToolStripMenuItem1.Text = "Inventario"
+        '
         'ListadosToolStripMenuItem
         '
         Me.ListadosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClinetListToolStripMenuItem, Me.ProveedorListToolStripMenuItem, Me.EmpleadoListToolStripMenuItem, Me.UsuarioListToolStripMenuItem, Me.PersonListToolStripMenuItem, Me.ToolStripSeparator9, Me.ProductosToolStripMenuItem, Me.BodegasToolStripMenuItem, Me.BancosToolStripMenuItem, Me.EquiposToolStripMenuItem})
         Me.ListadosToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ListadosToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ListadosToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.PanelSettingicon_48
         Me.ListadosToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ListadosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -524,6 +528,7 @@ Partial Class MDIPareInicio
         'ProductoToolStripMenuItem
         '
         Me.ProductoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ListadoDeProductosToolStripMenuItem, Me.InventarioToolStripMenuItem, Me.EtiquetasCodigosToolStripMenuItem, Me.MisLetreritosToolStripMenuItem, Me.TransferenciaToolStripMenuItem, Me.PerdidasToolStripMenuItem, Me.KardexToolStripMenuItem})
+        Me.ProductoToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ProductoToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.barcode_48
         Me.ProductoToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ProductoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -590,6 +595,7 @@ Partial Class MDIPareInicio
         '
         Me.FacturacionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OrdenCompraNew, Me.OrdenesDeCompraToolStripMenuItem, Me.OrdenDeTrabajoToolStripMenuItem, Me.OrdenCompraToolStripMenuItem})
         Me.FacturacionToolStripMenuItem.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FacturacionToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.FacturacionToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.compra_48
         Me.FacturacionToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.FacturacionToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -638,6 +644,7 @@ Partial Class MDIPareInicio
         'VentasToolStripMenuItem
         '
         Me.VentasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.DiariaPorCajaToolStripMenuItem, Me.ArqueoDeCajaToolStripMenuItem, Me.PreciosDeVentasToolStripMenuItem, Me.FacturasToolStripMenuItem, Me.OrdenDeVentaNoFacturadaToolStripMenuItem, Me.DevolucionesVentaToolStripMenuItem})
+        Me.VentasToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.VentasToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Venta_48
         Me.VentasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.VentasToolStripMenuItem.Name = "VentasToolStripMenuItem"
@@ -695,6 +702,7 @@ Partial Class MDIPareInicio
         'ConfiguracionToolStripMenuItem
         '
         Me.ConfiguracionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AsignacionBodegaToolStripMenuItem, Me.NumeracionDeFacturaToolStripMenuItem, Me.ImpresonaTicketToolStripMenuItem, Me.SettingDocumentsToolStripMenuItem})
+        Me.ConfiguracionToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ConfiguracionToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.configura_icon_48
         Me.ConfiguracionToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ConfiguracionToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -740,6 +748,7 @@ Partial Class MDIPareInicio
         'SeguridadToolStripMenuItem
         '
         Me.SeguridadToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsuariosToolStripMenuItem, Me.PermisosDeUsuarioToolStripMenuItem, Me.RespaldarBaseDeDatosToolStripMenuItem, Me.CambiarDeContraseñaToolStripMenuItem})
+        Me.SeguridadToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.SeguridadToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Segurity_48
         Me.SeguridadToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.SeguridadToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -787,6 +796,7 @@ Partial Class MDIPareInicio
         'AcercaToolStripMenuItem
         '
         Me.AcercaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AcercaDeToolStripMenuItem, Me.ContagtoToolStripMenuItem})
+        Me.AcercaToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.AcercaToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.State_Validation_Information_48x48
         Me.AcercaToolStripMenuItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.AcercaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -830,7 +840,7 @@ Partial Class MDIPareInicio
         'MenuStrip
         '
         Me.MenuStrip.AutoSize = False
-        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MenuStrip.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewMenu, Me.WindowsMenu, Me.EditarToolStripMenuItem, Me.ContadorBillteToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 75)
@@ -1178,7 +1188,6 @@ Partial Class MDIPareInicio
     Friend WithEvents PorDocumentoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CambiarDeContraseñaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RegistrarEnUnaEstaciónToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents StockDeProductosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ArqueoDeCajaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents EditarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PasteToolStripMenuItem As ToolStripMenuItem
@@ -1207,4 +1216,5 @@ Partial Class MDIPareInicio
     Friend WithEvents MisLetreritosToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SettingDocumentsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents OrdenesDeCompraToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents InventarioToolStripMenuItem1 As ToolStripMenuItem
 End Class

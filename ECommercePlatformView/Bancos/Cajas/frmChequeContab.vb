@@ -3,9 +3,20 @@ Imports CADsisVenta.DataSetVentasTableAdapters
 
 Public Class frmChequeContab
     Private idCajaStatus As Integer
-    Private listCheque As List(Of facturNotofunt)
+    Private listCheque As List(Of ItemCheqNotFount)
+    Private MyPatent As frmCajaDetail
+
     Private totalSaldoCheque As Double
     Private totalDiferenciaCheque As Double
+
+    Sub New(ByVal myPatent As frmCajaDetail)
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.MyPatent = myPatent
+    End Sub
 
     Public Function Load_Cheque(idCajaStatus As Integer) As Boolean
         Dim countCheque As Integer = 0
@@ -46,7 +57,7 @@ Public Class frmChequeContab
             TotalSaldoCheqLabel.Text = String.Format("Total: {0}", totalSaldoCheque.ToString("C2"))
             TotalCountLabel.Text = String.Format("Total cheques: {0}", countCheque.ToString("N0"))
             For i = 0 To dtNofoun.Rows.Count - 1
-                agregaCheque(dtNofoun.Rows(i)("idCajaDetailCheque"), dtNofoun.Rows(i)("val_Cobro"))
+                ' agregaCheque(dtNofoun.Rows(i)("idCajaDetailCheque"), dtNofoun.Rows(i)("val_Cobro"))
             Next
             Me.idCajaStatus = idCajaStatus
             Return True
@@ -60,9 +71,6 @@ Public Class frmChequeContab
         End Try
     End Function
 
-    Private Sub frmChequeContab_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 
     Private Sub ResumenDataGridView_CellContentDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles ResumenDataGridView.CellContentDoubleClick
         If e.RowIndex >= 0 Then
@@ -119,7 +127,7 @@ Public Class frmChequeContab
 
                 applyGridThemeEdit(DetailDataGridView)
                 For i = 0 To DetailDataGridView.RowCount - 1
-                    DetailDataGridView.Rows(i).Cells(DetailDataGridView.Columns("Ok").Index).Value = DetailDataGridView.Rows(i).Cells(DetailDataGridView.Columns("isArching").Index).Value
+                    DetailDataGridView.Rows(i).Cells(DetailDataGridView.Columns("Ok").Index).Value = True
                 Next
 
             End With
@@ -130,44 +138,50 @@ Public Class frmChequeContab
         End Try
     End Sub
     Private Sub ChequeContabButton_Click(sender As Object, e As EventArgs) Handles ChequeContabButton.Click
-        If Not IsNumeric(sender.tag) Then
-            Return
-        End If
+        Try
 
-        Dim forms As Form
-        forms = ChequeContabButton.FindForm
-        If Not forms.Name.Equals("frmCajaDetail") Then
-            Return
-        End If
-        If Not Me.transferCheque() Then
-            Return
-        End If
-        Dim cajaDetail As frmCajaDetail
-        cajaDetail = forms
-
-        For Each item As ListViewItem In cajaDetail.ListViewList.Items
-            If (Integer.Parse(item.SubItems(1).Text) = sender.Tag) Then
-                item.ImageKey = "ok_16_png"
-                item.Text = String.Format("{0} ({1:C2})", item.SubItems(2).Text, totalDiferenciaCheque)
-                cajaDetail.totalDiferenciaCaheque = totalDiferenciaCheque
-                cajaDetail.ListViewList.Refresh()
-                Exit For
+            If Not IsNumeric(sender.tag) Then
+                Return
             End If
-        Next
 
-        Dim isArquedototo As Boolean = True
-        For Each item As ListViewItem In cajaDetail.ListViewList.Items
-            If String.IsNullOrEmpty(item.ImageKey.ToString) Then
-                isArquedototo = False
+            Dim forms As Form
+            forms = ChequeContabButton.FindForm
+            If Not forms.Name.Equals("frmCajaDetail") Then
+                Return
             End If
-        Next
-        With cajaDetail
-            .totalDiferenciaGeneral = .totalDiferenciaCaheque + .totalDifereniaEfectivo + .totalTargeta
-        End With
-        cajaDetail.OK_Button.Enabled = isArquedototo
-        cajaDetail.totalDiferenciaArqueoLabel.Text = String.Format("Diferencia General: {0:C2}", cajaDetail.totalDiferenciaGeneral)
-        cajaDetail = Nothing
-        forms = Nothing
+
+            MyPatent.ListCheqNotFount = Me.listCheque
+
+            Dim cajaDetail As frmCajaDetail
+            cajaDetail = forms
+            For Each item As ListViewItem In cajaDetail.ListViewList.Items
+                If (Integer.Parse(item.SubItems(1).Text) = sender.Tag) Then
+                    item.ImageKey = "ok_16_png"
+                    item.Text = String.Format("{0} ({1:C2})", item.SubItems(2).Text, totalDiferenciaCheque)
+                    cajaDetail.totalDiferenciaCaheque = totalDiferenciaCheque
+                    cajaDetail.ListViewList.Refresh()
+                    Exit For
+                End If
+            Next
+
+            Dim isArquedototo As Boolean = True
+            For Each item As ListViewItem In cajaDetail.ListViewList.Items
+                If String.IsNullOrEmpty(item.ImageKey.ToString) Then
+                    isArquedototo = False
+                End If
+            Next
+            With cajaDetail
+                .totalDiferenciaGeneral = .totalDiferenciaCaheque + .totalDifereniaEfectivo + .totalTargeta
+            End With
+            cajaDetail.OK_Button.Enabled = isArquedototo
+            cajaDetail.totalDiferenciaArqueoLabel.Text = String.Format("Diferencia General: {0:C2}", cajaDetail.totalDiferenciaGeneral)
+            cajaDetail = Nothing
+            forms = Nothing
+
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
+
     End Sub
 
     Private Function transferCheque() As Boolean
@@ -204,7 +218,7 @@ Public Class frmChequeContab
                             command.Parameters.Add("@isArching", SqlDbType.Bit)
                             command.Parameters.Add("@idCajaDetailCheque", SqlDbType.Int)
                         End If
-                        command.Parameters("@isArching").Value = 0
+                        command.Parameters("@isArching").Value = 1
                         command.Parameters("@idCajaDetailCheque").Value = item.idCajaDetailCheque
                         response = command.ExecuteNonQuery()
                         If Not response = 1 Then
@@ -247,15 +261,15 @@ Public Class frmChequeContab
     End Sub
     Private Sub agregaCheque(id As Integer, parcial As Double)
         If IsNothing(Me.listCheque) Then
-            listCheque = New List(Of facturNotofunt)
+            listCheque = New List(Of ItemCheqNotFount)
         End If
-        Dim item As New facturNotofunt(id, parcial, False)
+        Dim item As New ItemCheqNotFount(id, parcial, True)
         listCheque.Add(item)
         sumaTotal()
     End Sub
     Private Sub eliminaCheque(id As Integer)
         If IsNothing(Me.listCheque) Then
-            listCheque = New List(Of facturNotofunt)
+            listCheque = New List(Of ItemCheqNotFount)
         End If
         For Each item In listCheque
             If item.idCajaDetailCheque = id Then
@@ -275,41 +289,8 @@ Public Class frmChequeContab
             String.Format("Diferecia:{0}, total:{1:C2}", listCheque.Count, total)
         Me.totalDiferenciaCheque = total
     End Sub
-End Class
 
-Class facturNotofunt
-    Private _id As Integer
-    Private _val As Double
-    Private _isArching As Boolean
+    Private Sub ResumenDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles ResumenDataGridView.CellContentClick
 
-    Sub New(id As Integer, _value As Double, isArching As Boolean)
-        _id = id
-        _val = _value
-        _isArching = isArching
     End Sub
-
-    Public Property valCheq() As Double
-        Get
-            Return _val
-        End Get
-        Set(ByVal value As Double)
-            _val = value
-        End Set
-    End Property
-    Public Property idCajaDetailCheque() As Integer
-        Get
-            Return _id
-        End Get
-        Set(ByVal value As Integer)
-            _id = value
-        End Set
-    End Property
-    Public Property isArching() As Boolean
-        Get
-            Return _isArching
-        End Get
-        Set(ByVal value As Boolean)
-            _isArching = value
-        End Set
-    End Property
 End Class

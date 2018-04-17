@@ -246,5 +246,18 @@ Public Class frmSetthingCommerce
         End Try
 
     End Sub
+
+    Private Sub SettingDefaultPrinter_Click(sender As Object, e As EventArgs) Handles SettingDefaultPrinter.Click
+        Try
+            Using forSetting As New frmDefaultDocuments()
+                With forSetting
+                    .ShowDialog()
+
+                End With
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
 End Class
 
