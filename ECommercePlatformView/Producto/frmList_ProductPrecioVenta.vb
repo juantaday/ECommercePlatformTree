@@ -114,7 +114,7 @@ Public Class frmList_ProductPrecioVenta
                         Next
                         Return
                     End If
-                Case 3 OrElse 4
+                Case 3
                     Dim mylist = From l In Me.DataList.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(0).ToUpper()))
 
                     If mylist.Count > 0 Then

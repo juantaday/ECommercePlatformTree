@@ -914,6 +914,7 @@ Salida:
         Try
             Dim Formnew = New frmAdministrarPrecios(stateLoad.List)
             With Formnew
+                .Text = "Administración de productos.."
                 .MdiParent = Me
                 .Show()
                 .WindowState = FormWindowState.Maximized

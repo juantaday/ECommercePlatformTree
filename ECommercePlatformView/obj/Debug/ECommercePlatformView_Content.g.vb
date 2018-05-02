@@ -13,6 +13,7 @@ Option Explicit On
 
 <Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("bin/debug/ecommerceplatformview.vshost.exe"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("conexion/rutaconexion.txt"),  _
+ Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ecommerceplatformthree.ico"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("obj/debug/ecommerceplatformview.vbproj.filelistabsolute.txt"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("obj/debug/temppe/crystalreport1.vb.dll"),  _
  Assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("obj/debug/temppe/my%20project.resources.designer.vb.dll"),  _

@@ -148,6 +148,7 @@ Public Class frmVentas
                              Join p In db.Productos On p.idProducto Equals pp.idProducto
                              Join sc In db.ProductoSubCategoria On sc.idSubCategoria Equals p.IdSubCategoria
                              Join m In db.ProductoUndMedida On pp.idProUndMed Equals m.idProUndMed
+                             Where p.Activo = True
                              Select New With {pp, p.Nom_Comercial, sc.idSubCategoria, sc.idCategoria, m.Nom_Medida, p.ivaPorcentaje}
 
                 Dim myVendible As IQueryable
@@ -603,6 +604,7 @@ Aplicando:
                                     item.UnitPrice = (.txtNumber.Value - item.Discount + item.Rates) / item.Cuantity
                                     Me.ObjectListView1.SetObjects(Me.ListItemVenta)
                                     Me.ObjectListView1.SelectObject(item, True)
+                                    SumatoriaTotal()
                                 End If
                             End With
                         End Using

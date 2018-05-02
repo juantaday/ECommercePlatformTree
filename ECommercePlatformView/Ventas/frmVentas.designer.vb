@@ -1366,14 +1366,14 @@ Partial Class frmVentas
         '
         Me.ContextMenuCaja.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalidaDeEfecctivoToolStripMenuItem, Me.SalidaDeChequesToolStripMenuItem, Me.VerEstadoToolStripMenuItem})
         Me.ContextMenuCaja.Name = "ContextMenuCaja"
-        Me.ContextMenuCaja.Size = New System.Drawing.Size(197, 140)
+        Me.ContextMenuCaja.Size = New System.Drawing.Size(188, 118)
         '
         'SalidaDeEfecctivoToolStripMenuItem
         '
         Me.SalidaDeEfecctivoToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Atm_32
         Me.SalidaDeEfecctivoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SalidaDeEfecctivoToolStripMenuItem.Name = "SalidaDeEfecctivoToolStripMenuItem"
-        Me.SalidaDeEfecctivoToolStripMenuItem.Size = New System.Drawing.Size(196, 38)
+        Me.SalidaDeEfecctivoToolStripMenuItem.Size = New System.Drawing.Size(187, 38)
         Me.SalidaDeEfecctivoToolStripMenuItem.Text = "Salida de efectivo"
         Me.SalidaDeEfecctivoToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
@@ -1382,14 +1382,14 @@ Partial Class frmVentas
         Me.SalidaDeChequesToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Atm_Check_32
         Me.SalidaDeChequesToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.SalidaDeChequesToolStripMenuItem.Name = "SalidaDeChequesToolStripMenuItem"
-        Me.SalidaDeChequesToolStripMenuItem.Size = New System.Drawing.Size(196, 38)
+        Me.SalidaDeChequesToolStripMenuItem.Size = New System.Drawing.Size(187, 38)
         Me.SalidaDeChequesToolStripMenuItem.Text = "Salida de cheques "
         '
         'VerEstadoToolStripMenuItem
         '
         Me.VerEstadoToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Details_24
         Me.VerEstadoToolStripMenuItem.Name = "VerEstadoToolStripMenuItem"
-        Me.VerEstadoToolStripMenuItem.Size = New System.Drawing.Size(196, 38)
+        Me.VerEstadoToolStripMenuItem.Size = New System.Drawing.Size(187, 38)
         Me.VerEstadoToolStripMenuItem.Text = "Ver estado"
         '
         'User_operaLabel

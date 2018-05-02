@@ -2666,6 +2666,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debu
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.AboutBox.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.ContagFrm.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.Form1.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.Form2.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.frmPanel.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.WaitForTaskScreenWithCancellation.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Debug\ECommercePlatformView.LoginForm.resources

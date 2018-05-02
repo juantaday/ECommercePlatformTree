@@ -99,9 +99,9 @@ Partial Public Class WaitForTaskScreenWithCancellation
 
     Private Sub WaitForTaskScreenWithCancellation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            If Not Me.OnInit() Then
-                Me.Close()
-            End If
+            'If Not Me.OnInit() Then
+            '    Me.Close()
+            'End If
             Task.Factory.StartNew(Sub() ActionToExecute(_cancelTokenSource.Token)).ContinueWith(Sub() TaskCompleted())
 
         Catch ex As Exception

@@ -23,6 +23,7 @@ Partial Class LoginForm
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(LoginForm))
         Me.Cancel = New System.Windows.Forms.Button()
         Me.OK = New System.Windows.Forms.Button()
@@ -32,6 +33,7 @@ Partial Class LoginForm
         Me.UsernameLabel = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.BunifuElipse1 = New Bunifu.Framework.UI.BunifuElipse(Me.components)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -120,6 +122,11 @@ Partial Class LoginForm
         Me.PictureBox2.TabStop = False
         Me.PictureBox2.Visible = False
         '
+        'BunifuElipse1
+        '
+        Me.BunifuElipse1.ElipseRadius = 25
+        Me.BunifuElipse1.TargetControl = Me
+        '
         'LoginForm
         '
         Me.AcceptButton = Me.OK
@@ -136,7 +143,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.UsernameLabel)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -158,4 +165,5 @@ Partial Class LoginForm
     Friend WithEvents UsernameLabel As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents PictureBox2 As System.Windows.Forms.PictureBox
+    Friend WithEvents BunifuElipse1 As Bunifu.Framework.UI.BunifuElipse
 End Class

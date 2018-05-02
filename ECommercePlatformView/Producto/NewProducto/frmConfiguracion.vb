@@ -331,20 +331,23 @@ Public Class frmConfiguracion
         Try
             Using cnn As New SqlConnection(SimpleDataApp.Utility.GetConnectionString())
                 cnn.Open()
-                sql = "Update productos set Deft_idPresenCompra = @secompra , Deft_idPresenVenta = @sevende 
-                        where idProducto = @idProducto "
-                Using cmd As New SqlCommand(sql, cnn)
-                    cmd.CommandType = CommandType.Text
-                    cmd.Parameters.Add("@secompra", SqlDbType.Int)
-                    cmd.Parameters.Add("@sevende", SqlDbType.Int)
-                    cmd.Parameters.Add("@idProducto", SqlDbType.Int)
 
-                    cmd.Parameters("@secompra").Value = seCompraCombobox.SelectedValue
-                    cmd.Parameters("@sevende").Value = seVendeCombobox.SelectedValue
-                    cmd.Parameters("@idProducto").Value = myPadre.Id_Producto
+                Using cmd As New SqlCommand("prcDefaultSalesAndPurchars", cnn)
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.Add("@IdPorduct", SqlDbType.Int)
+                    cmd.Parameters.Add("@idDefaultSales", SqlDbType.Int)
+                    cmd.Parameters.Add("@idDefaultPurchars", SqlDbType.Int)
+                    cmd.Parameters.Add("@idIsDefaultSales", SqlDbType.Int)
+
+                    cmd.Parameters("@IdPorduct").Value = myPadre.Id_Producto
+                    cmd.Parameters("@idDefaultPurchars").Value = seCompraCombobox.SelectedValue
+                    cmd.Parameters("@idDefaultSales").Value = seVendeCombobox.SelectedValue
+                    cmd.Parameters("@idIsDefaultSales").Value =
+                       Integer.Parse(CType(seVendeCombobox.SelectedItem, DataRowView).Item("idPresentacion"))
+
                     If cmd.ExecuteNonQuery() Then
-                        myPadre.Id_seCompra = cmd.Parameters("@secompra").Value
-                        myPadre.Id_seVende = cmd.Parameters("@sevende").Value
+                        myPadre.Id_seCompra = cmd.Parameters("@idDefaultPurchars").Value
+                        myPadre.Id_seVende = cmd.Parameters("@idDefaultSales").Value
                         Return True
                     End If
                 End Using

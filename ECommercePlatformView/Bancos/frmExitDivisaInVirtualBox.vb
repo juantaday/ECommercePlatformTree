@@ -152,6 +152,7 @@ Public Class frmExitDivisaInVirtualBox
 
                     clm = dtg.Columns("haber")
                     clm.HeaderText = "Valor"
+                    clm.DefaultCellStyle = myStileMoney
                     clm.DisplayIndex = 2
                 Else
                     clm = dtg.Columns("DateTimeTransfer")
@@ -160,6 +161,7 @@ Public Class frmExitDivisaInVirtualBox
 
                     clm = dtg.Columns("debe")
                     clm.HeaderText = "Valor"
+                    clm.DefaultCellStyle = myStileMoney
                     clm.DisplayIndex = 2
                 End If
 
@@ -288,16 +290,19 @@ Public Class frmExitDivisaInVirtualBox
 
                 clm = dtg.Columns("debe")
                 clm.HeaderText = "Debe"
+                clm.DefaultCellStyle = myStileMoney
                 clm.DisplayIndex = 2
                 clm.Width = 80
 
                 clm = dtg.Columns("haber")
                 clm.HeaderText = "Haber"
+                clm.DefaultCellStyle = myStileMoney
                 clm.DisplayIndex = 3
                 clm.Width = 80
 
                 clm = dtg.Columns("saldo")
                 clm.HeaderText = "Saldo"
+                clm.DefaultCellStyle = myStileMoney
                 clm.DisplayIndex = 4
                 clm.Width = 80
 
@@ -354,5 +359,15 @@ Public Class frmExitDivisaInVirtualBox
     End Sub
     Private Sub PrintTicketButton_Click(sender As Object, e As EventArgs) Handles PrintTicketButton.Click
 
+    End Sub
+
+    Private Sub ByDateRadioButton_CheckedChanged(sender As Object, e As EventArgs) Handles ByDateRadioButton.CheckedChanged
+
+    End Sub
+
+    Private Sub dtg_DataError(sender As Object, e As DataGridViewDataErrorEventArgs) Handles dtg.DataError
+        If Not e.Exception.HResult = -2146233033 Then
+            MsgBox(e.Exception.Message, MsgBoxStyle.Critical, "Error")
+        End If
     End Sub
 End Class

@@ -69,11 +69,11 @@ Partial Class frmExitDivisaInVirtualBox
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Source Sans Pro", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(202, Byte), Integer))
         Me.Label1.Location = New System.Drawing.Point(7, 6)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(428, 30)
+        Me.Label1.Size = New System.Drawing.Size(472, 29)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Salida de divisas desde cajas virtuales."
         '
@@ -84,7 +84,7 @@ Partial Class frmExitDivisaInVirtualBox
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Controls.Add(Me.ListBodegaComboBox)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Font = New System.Drawing.Font("Source Sans Pro", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Panel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.749999!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Panel2.Location = New System.Drawing.Point(3, 43)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(819, 43)
@@ -107,9 +107,9 @@ Partial Class frmExitDivisaInVirtualBox
         Me.Label3.AutoSize = True
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(172, Byte), Integer))
-        Me.Label3.Location = New System.Drawing.Point(5, 2)
+        Me.Label3.Location = New System.Drawing.Point(0, 2)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 16)
+        Me.Label3.Size = New System.Drawing.Size(79, 16)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "Caja Virtual:"
         '
@@ -118,7 +118,7 @@ Partial Class frmExitDivisaInVirtualBox
         Me.virtualNameSelectTextBox.Dock = System.Windows.Forms.DockStyle.Right
         Me.virtualNameSelectTextBox.Location = New System.Drawing.Point(79, 2)
         Me.virtualNameSelectTextBox.Name = "virtualNameSelectTextBox"
-        Me.virtualNameSelectTextBox.Size = New System.Drawing.Size(153, 24)
+        Me.virtualNameSelectTextBox.Size = New System.Drawing.Size(153, 22)
         Me.virtualNameSelectTextBox.TabIndex = 2
         '
         'NewExitDivisaButton
@@ -157,7 +157,7 @@ Partial Class frmExitDivisaInVirtualBox
         Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(222, Byte), Integer), CType(CType(172, Byte), Integer))
         Me.Label2.Location = New System.Drawing.Point(3, 12)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(94, 16)
+        Me.Label2.Size = New System.Drawing.Size(106, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Local o bodega:"
         '
@@ -262,11 +262,11 @@ Partial Class frmExitDivisaInVirtualBox
         'SaldoVirtualLabel
         '
         Me.SaldoVirtualLabel.AutoSize = True
-        Me.SaldoVirtualLabel.Font = New System.Drawing.Font("Source Sans Pro", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaldoVirtualLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaldoVirtualLabel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(239, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(202, Byte), Integer))
         Me.SaldoVirtualLabel.Location = New System.Drawing.Point(3, 3)
         Me.SaldoVirtualLabel.Name = "SaldoVirtualLabel"
-        Me.SaldoVirtualLabel.Size = New System.Drawing.Size(375, 30)
+        Me.SaldoVirtualLabel.Size = New System.Drawing.Size(409, 29)
         Me.SaldoVirtualLabel.TabIndex = 1
         Me.SaldoVirtualLabel.Text = "Saldo de caja vitual 02: $23.36502"
         '
