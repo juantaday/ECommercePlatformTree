@@ -19,10 +19,12 @@
 #End Region
 
 
-
+    Public ListVendiblescollection As List(Of PresentVendiblescollection)
+    Public ListOfertas As List(Of Ofertas)
 
     Public buscar_expediente, buscar, sql As String
     Public id As Integer
+    Public processBackGround As Boolean
     Public msgSelect_list As String = "Seleccione uno de la lista desplegable"
     Public msgRespond As String = "Responda"
     Public msgSave As String = "Está seguro de guardar los cambios..?"

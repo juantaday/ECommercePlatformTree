@@ -396,4 +396,6 @@ Public Class frmAdd_Empleados
     Private Sub btnEddCargo_Click(sender As Object, e As EventArgs) Handles btnEddCargo.Click
 
     End Sub
+
+
 End Class

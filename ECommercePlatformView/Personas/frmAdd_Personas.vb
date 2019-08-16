@@ -504,11 +504,16 @@ Public Class frmAdd_Personas
             End If
             Select Case state
                 Case stateOperation.Insert
-                    If idPersona = 0 Then
-                        idPersona = ClsPerson.InsertPerson(ApellidosText.Text, NombreText.Text, Ruc_CiText.Text, DireccionText.Text, TelefonoText.Text,
+
+                    idPersona = ClsPerson.InsertPerson(ApellidosText.Text, NombreText.Text, Ruc_CiText.Text, DireccionText.Text, TelefonoText.Text,
                          EmailTextBox.Text, fecha_naci, genero, NotaTextBox.Text, foto, telf_casaTextBox.Text, telf_oficTextBox.Text, Me.TypePersonComboBox.SelectedIndex)
+                    If idPersona > 0 Then
                         Return True
+                    Else
+                        Return False
                     End If
+
+
                 Case stateOperation.Update
                     If ClsPerson.UpdatePerson(idPersona, ApellidosText.Text, NombreText.Text, Ruc_CiText.Text, DireccionText.Text, TelefonoText.Text,
                          EmailTextBox.Text, fecha_naci, genero, NotaTextBox.Text, foto, telf_casaTextBox.Text, telf_oficTextBox.Text, Me.TypePersonComboBox.SelectedIndex) Then
@@ -518,7 +523,12 @@ Public Class frmAdd_Personas
             End Select
             Return False
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            If ex.Message.ToString.Contains("UQ_Personas_Ruc") Then
+                MsgBox("Este ruc o cédula ya se encuentra registrado..", MsgBoxStyle.Exclamation, "Alerta..")
+            Else
+                MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            End If
+
             Return False
         End Try
     End Function

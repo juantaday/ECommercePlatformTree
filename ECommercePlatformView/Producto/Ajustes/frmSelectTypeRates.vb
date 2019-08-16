@@ -32,8 +32,8 @@ Public Class frmSelectTypeRates
             Me.Close()
 
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-            isClosed = True
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            isClosed = False
         End Try
 
     End Sub

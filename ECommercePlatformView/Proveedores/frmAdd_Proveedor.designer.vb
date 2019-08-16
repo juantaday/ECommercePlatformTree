@@ -40,13 +40,13 @@ Partial Class frmAdd_Proveedor
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtRepresentante = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.RucMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
         Me.chekboxIva = New System.Windows.Forms.CheckBox()
         Me.cmbTiopo_razon = New System.Windows.Forms.ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtRazon = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.txtRuc = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtidProveedor = New System.Windows.Forms.TextBox()
@@ -76,7 +76,7 @@ Partial Class frmAdd_Proveedor
         Me.dtFechaReg.Location = New System.Drawing.Point(129, 345)
         Me.dtFechaReg.Name = "dtFechaReg"
         Me.dtFechaReg.Size = New System.Drawing.Size(125, 27)
-        Me.dtFechaReg.TabIndex = 2
+        Me.dtFechaReg.TabIndex = 9
         '
         'Label9
         '
@@ -115,7 +115,7 @@ Partial Class frmAdd_Proveedor
         Me.txtUser.Location = New System.Drawing.Point(129, 312)
         Me.txtUser.Name = "txtUser"
         Me.txtUser.Size = New System.Drawing.Size(250, 27)
-        Me.txtUser.TabIndex = 1
+        Me.txtUser.TabIndex = 8
         '
         'Label11
         '
@@ -146,6 +146,7 @@ Partial Class frmAdd_Proveedor
         Me.txtFechaActual.Name = "txtFechaActual"
         Me.txtFechaActual.Size = New System.Drawing.Size(275, 11)
         Me.txtFechaActual.TabIndex = 11
+        Me.txtFechaActual.TabStop = False
         '
         'txtUserActual
         '
@@ -157,6 +158,7 @@ Partial Class frmAdd_Proveedor
         Me.txtUserActual.Name = "txtUserActual"
         Me.txtUserActual.Size = New System.Drawing.Size(275, 11)
         Me.txtUserActual.TabIndex = 12
+        Me.txtUserActual.TabStop = False
         '
         'txtTelefono
         '
@@ -165,7 +167,7 @@ Partial Class frmAdd_Proveedor
         Me.txtTelefono.MaxLength = 20
         Me.txtTelefono.Name = "txtTelefono"
         Me.txtTelefono.Size = New System.Drawing.Size(437, 27)
-        Me.txtTelefono.TabIndex = 4
+        Me.txtTelefono.TabIndex = 5
         '
         'Label7
         '
@@ -183,7 +185,7 @@ Partial Class frmAdd_Proveedor
         Me.btnAcepter.Location = New System.Drawing.Point(426, 446)
         Me.btnAcepter.Name = "btnAcepter"
         Me.btnAcepter.Size = New System.Drawing.Size(114, 31)
-        Me.btnAcepter.TabIndex = 8
+        Me.btnAcepter.TabIndex = 1
         Me.btnAcepter.Text = "&Guardar"
         Me.btnAcepter.UseVisualStyleBackColor = True
         '
@@ -194,7 +196,7 @@ Partial Class frmAdd_Proveedor
         Me.txtDireccion.MaxLength = 100
         Me.txtDireccion.Name = "txtDireccion"
         Me.txtDireccion.Size = New System.Drawing.Size(437, 27)
-        Me.txtDireccion.TabIndex = 3
+        Me.txtDireccion.TabIndex = 4
         '
         'Label6
         '
@@ -213,12 +215,13 @@ Partial Class frmAdd_Proveedor
         Me.txtRepresentante.MaxLength = 50
         Me.txtRepresentante.Name = "txtRepresentante"
         Me.txtRepresentante.Size = New System.Drawing.Size(437, 27)
-        Me.txtRepresentante.TabIndex = 2
+        Me.txtRepresentante.TabIndex = 3
         '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.White
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.RucMaskedTextBox)
         Me.Panel1.Controls.Add(Me.chekboxIva)
         Me.Panel1.Controls.Add(Me.cmbTiopo_razon)
         Me.Panel1.Controls.Add(Me.Label12)
@@ -235,7 +238,6 @@ Partial Class frmAdd_Proveedor
         Me.Panel1.Controls.Add(Me.Label5)
         Me.Panel1.Controls.Add(Me.txtRazon)
         Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.txtRuc)
         Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label2)
         Me.Panel1.Controls.Add(Me.txtidProveedor)
@@ -244,8 +246,17 @@ Partial Class frmAdd_Proveedor
         Me.Panel1.ForeColor = System.Drawing.Color.RoyalBlue
         Me.Panel1.Location = New System.Drawing.Point(18, 56)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(627, 384)
-        Me.Panel1.TabIndex = 7
+        Me.Panel1.Size = New System.Drawing.Size(615, 384)
+        Me.Panel1.TabIndex = 0
+        '
+        'RucMaskedTextBox
+        '
+        Me.RucMaskedTextBox.Location = New System.Drawing.Point(129, 82)
+        Me.RucMaskedTextBox.Mask = "9999999999-999"
+        Me.RucMaskedTextBox.Name = "RucMaskedTextBox"
+        Me.RucMaskedTextBox.Size = New System.Drawing.Size(178, 27)
+        Me.RucMaskedTextBox.TabIndex = 0
+        Me.RucMaskedTextBox.ValidatingType = GetType(Integer)
         '
         'chekboxIva
         '
@@ -253,7 +264,7 @@ Partial Class frmAdd_Proveedor
         Me.chekboxIva.Location = New System.Drawing.Point(131, 284)
         Me.chekboxIva.Name = "chekboxIva"
         Me.chekboxIva.Size = New System.Drawing.Size(308, 23)
-        Me.chekboxIva.TabIndex = 7
+        Me.chekboxIva.TabIndex = 6
         Me.chekboxIva.Text = "Al facturar en el sub total incluyen iva.?"
         Me.chekboxIva.UseVisualStyleBackColor = True
         '
@@ -268,7 +279,7 @@ Partial Class frmAdd_Proveedor
         Me.cmbTiopo_razon.MaxLength = 20
         Me.cmbTiopo_razon.Name = "cmbTiopo_razon"
         Me.cmbTiopo_razon.Size = New System.Drawing.Size(269, 27)
-        Me.cmbTiopo_razon.TabIndex = 6
+        Me.cmbTiopo_razon.TabIndex = 2
         Me.cmbTiopo_razon.Text = "Empresa"
         '
         'Label12
@@ -310,15 +321,6 @@ Partial Class frmAdd_Proveedor
         Me.Label4.Text = "Rozón Social:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'txtRuc
-        '
-        Me.txtRuc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtRuc.Location = New System.Drawing.Point(129, 82)
-        Me.txtRuc.MaxLength = 13
-        Me.txtRuc.Name = "txtRuc"
-        Me.txtRuc.Size = New System.Drawing.Size(437, 27)
-        Me.txtRuc.TabIndex = 6
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -343,9 +345,9 @@ Partial Class frmAdd_Proveedor
         '
         Me.txtidProveedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtidProveedor.Enabled = False
-        Me.txtidProveedor.Location = New System.Drawing.Point(129, 16)
+        Me.txtidProveedor.Location = New System.Drawing.Point(126, 16)
         Me.txtidProveedor.Name = "txtidProveedor"
-        Me.txtidProveedor.Size = New System.Drawing.Size(427, 27)
+        Me.txtidProveedor.Size = New System.Drawing.Size(286, 27)
         Me.txtidProveedor.TabIndex = 1
         Me.txtidProveedor.Text = "0"
         '
@@ -405,7 +407,6 @@ Partial Class frmAdd_Proveedor
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtRazon As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents txtRuc As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtidProveedor As System.Windows.Forms.TextBox
@@ -415,4 +416,5 @@ Partial Class frmAdd_Proveedor
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents chekboxIva As System.Windows.Forms.CheckBox
+    Friend WithEvents RucMaskedTextBox As MaskedTextBox
 End Class

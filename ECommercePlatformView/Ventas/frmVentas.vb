@@ -1,17 +1,21 @@
-﻿Imports BrightIdeasSoftware
+﻿Imports System.Text
+Imports System.Threading
+Imports BrightIdeasSoftware
 
 Public Class frmVentas
     'Para sumar totales
     Private vueltas As Integer
     Private idRates As Integer
+    Private clientRate As Integer
+    Private idRateUser As Integer
+
     Private RatesStruccture As String
     Private RatesTyPe As Boolean
     Private _Rates As Double
-
-
-    Private ListVendiblescollection As List(Of PresentVendiblescollection)
+    Private isDeleteRates As Boolean
+    Private clientPerfilRates As Boolean
     Private ListItemVenta As List(Of ItemViewVenta)
-    Private ListOfertas As List(Of Ofertas)
+
 
     Dim Cant, PUnt, Descuen, totalFact As Double
     Dim nonNumberEntered As Boolean = False
@@ -22,6 +26,7 @@ Public Class frmVentas
     Dim nameProductUltimo As String
     Dim itemUltimoIngreso As Integer
     Dim dtProducItem As DataTable
+
     'miembros peotegidos
     Protected Friend idPersona As Integer
     Protected Friend idcliente As Integer
@@ -38,7 +43,6 @@ Public Class frmVentas
         Else
             ListItemVenta = New List(Of ItemViewVenta)
         End If
-        ListOfertas = New List(Of Ofertas)
         InitializeComponests()
     End Sub
     Private Sub InitializeComponests()
@@ -66,11 +70,11 @@ Public Class frmVentas
     End Sub
 
 
-    Private Sub frmDiario_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+    Private Sub frmVentas_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Try
-            ListVendiblescollection = New List(Of PresentVendiblescollection)
+            'carga de lista de productos y tarifas
+            GetListDataProduct()
             'cargamos bodega en la que manejará el stock
-            View_Bodega()
 
             'caraga cliente predeterminado
             CargaConsumidFinal()
@@ -78,9 +82,6 @@ Public Class frmVentas
 
             Mays()
             'initializa properties
-
-            'borra tafira
-            Load_Data()
             Me.ObjectListView1.SetObjects(Me.ListItemVenta)
             If Me.ListItemVenta.Count > 0 Then
                 SumatoriaTotal()
@@ -90,14 +91,17 @@ Public Class frmVentas
         End Try
     End Sub
 
-    Private Sub Load_Data()
-        Carga_Item_ProductoIdPresent()
+    Private Async Sub GetListDataProduct()
+        Await GetRates(TerminalActivo.idRates)
+        Await GetListVendibles(DeFaultRates.RatesStruccture, DeFaultRates.IDRates)
+        View_Bodega()
+        ViewRates()
     End Sub
+
     Private Sub View_Bodega()
         Try
             If TerminalActivo.idBodega > 0 Then
                 lblBodega.Text = "Despachar desde:" & vbCrLf & TerminalActivo.Nom_Bodega
-                SetRates(TerminalActivo.idRates)
                 OperacionNumLabel.Text = "Operacion:" & vbCrLf & TerminalActivo.idCajaStado
                 User_operaLabel.Text = "Para:" & TerminalActivo.Onwer
             Else
@@ -113,19 +117,21 @@ Public Class frmVentas
 
     Private Sub CargaConsumidFinal()
         Try
+            Me.idPersona = 0
+            Me.idcliente = 0
             Using db As New DataContext
-                Dim _client = From p In db.Personas
-                              Join c In db.Clientes On p.idPersona Equals c.idPersona
-                              Where p.Ruc_Ci = "9999999999"
+                Dim _client = (From p In db.Personas
+                               Join c In db.Clientes On p.idPersona Equals c.idPersona
+                               Where p.Ruc_Ci = "9999999999999").Take(1)
 
                 For Each item In _client
-                    idcliente = item.c.idCliente
+                    Me.idcliente = item.c.idCliente
                     CedulaTextBox.Text = String.Empty
                     NomClienteText.Text = item.p.Apellidos & " " & item.p.Nombre
                 Next
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message + " Al cargar consumidor final", MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -137,100 +143,7 @@ Public Class frmVentas
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
-    Private Function Carga_Item_ProductoIdPresent() As Boolean
-        Try
-            If IsNothing(ListVendiblescollection) Then
-                Return False
-            End If
-            ListVendiblescollection.Clear()
-            Using db As New DataContext
-                Dim mylist = From pp In db.ProductoPresentacion
-                             Join p In db.Productos On p.idProducto Equals pp.idProducto
-                             Join sc In db.ProductoSubCategoria On sc.idSubCategoria Equals p.IdSubCategoria
-                             Join m In db.ProductoUndMedida On pp.idProUndMed Equals m.idProUndMed
-                             Where p.Activo = True
-                             Select New With {pp, p.Nom_Comercial, sc.idSubCategoria, sc.idCategoria, m.Nom_Medida, p.ivaPorcentaje}
 
-                Dim myVendible As IQueryable
-
-                Select Case RatesStruccture
-                    Case "Categoría"
-                        Dim ratesDetail = (From r In db.RatesCategoryDetail Where r.idRates = idRates)
-
-                        myVendible = From d In mylist
-                                     Group Join c In ratesDetail On d.idCategoria Equals c.idCategory
-                                     Into PetList = Group
-                                     From Pet In PetList.DefaultIfEmpty()
-                                     Select New With {d, Key .Fromc = If(Pet Is Nothing, 0, Pet.FromC), Key .PercentC = If(Pet Is Nothing, 0, Pet.PercentC)}
-
-                    Case "Sub Categoría"
-                        Dim ratesDetail = (From r In db.RatesSubCategoryDetail Where r.idRates = idRates)
-
-                        myVendible = From d In mylist
-                                     Group Join c In ratesDetail On d.idSubCategoria Equals c.idSubCategory
-                                         Into PetList = Group
-                                     From Pet In PetList.DefaultIfEmpty()
-                                     Select New With {d, Key .Fromc = If(Pet Is Nothing, 0, Pet.FromC), Key .PercentC = If(Pet Is Nothing, 0, Pet.PercentC)}
-
-                    Case "Producto"
-                        Dim ratesDetail = (From r In db.RatesProductoDetail Where r.idRates = idRates)
-
-                        myVendible = From d In mylist
-                                     Group Join c In ratesDetail On d.pp.idProducto Equals c.idProducto
-                                         Into PetList = Group
-                                     From Pet In PetList.DefaultIfEmpty()
-                                     Select New With {d, Key .Fromc = If(Pet Is Nothing, 0, Pet.FromC), Key .PercentC = If(Pet Is Nothing, 0, Pet.PercentC)}
-
-                    Case "Presentacion"
-                        Dim ratesDetail = (From r In db.RatesPresentantionDetail Where r.idRates = idRates)
-
-                        myVendible = From d In mylist
-                                     Group Join c In ratesDetail On d.pp.idPresentacion Equals c.idPresentacion
-                                             Into PetList = Group
-                                     From Pet In PetList.DefaultIfEmpty()
-                                     Select New With {d, Key .Fromc = If(Pet Is Nothing, 0, Pet.FromC), Key .PercentC = If(Pet Is Nothing, 0, Pet.PercentC)}
-                    Case Else
-                        myVendible = From d In mylist
-                                     Select New With {d, Key .Fromc = 0, Key .PercentC = 0}
-
-                End Select
-
-                For Each item In myVendible
-                    Me.ListVendiblescollection.Add(New PresentVendiblescollection(item.d.pp.idPresentacion,
-                                                                                     item.d.pp.idProducto,
-                                                                                     item.d.pp.codProducto,
-                                                                                     item.d.pp.Barcode,
-                                                                                     item.d.Nom_Comercial,
-                                                                                     item.d.pp.PresentacionPrint,
-                                                                                     item.d.pp.precioCompra,
-                                                                                     item.d.pp.precioVenta,
-                                                                                     item.d.ivaPorcentaje,
-                                                                                     item.PercentC,
-                                                                                     item.Fromc,
-                                                                                     item.d.Nom_Medida,
-                                                                                     item.d.pp.Empaquetado,
-                                                                                     item.d.pp.isDefaultSales))
-                Next
-
-
-                Me.ListOfertas = (From o In db.Ofertas).ToList()
-
-            End Using
-            If ListVendiblescollection.Count > 0 Then
-                Dim iva = ListVendiblescollection.Where(Function(x) x.IvaPercent > 0).FirstOrDefault()
-                If Not IsNothing(iva) Then
-                    lblIva12.Tag = String.Format("Base {0}: ", iva.IvaPercent.ToString("P2"))
-                    lblIva12.Text = String.Format("{0}{1}", lblIva12.Tag, 0.00)
-                End If
-                Return True
-            Else
-                Return False
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error al cargar Item Producto")
-            Return False
-        End Try
-    End Function
     Private Function Agrega_Fila() As Boolean
         Dim totalCantidad As Double = 0
         Dim descuento As Double = 0
@@ -260,17 +173,20 @@ Public Class frmVentas
             End If
 
             If Not (listData.Count = 1) Then
-                Using fornew As New frmList_ProductPrecioVenta(ListVendiblescollection)
+                Using fornew As New frmList_ProductPrecioVenta()
                     With fornew
                         .flag = "Ventas"
                         .txtProduc_Select.Text = Me.txtExploret.Text
                         .ShowDialog()
                         If .DialogResult = DialogResult.OK Then
-                            listData = Me.ListVendiblescollection.
+                            listData = ListVendiblescollection.
                                Where(Function(x) x.IdPresent = .idPresent).ToList()
                             If listData.Count = 1 Then
                                 GoTo Agrega_Item
                             Else
+                                sql = "El producto no esta en la lista de vendibles" & vbCrLf & vbCrLf
+                                sql = sql & "Es posible que este desactivado."
+                                MsgBox(sql, MsgBoxStyle.Information, "Aviso")
                                 Return False
                             End If
                         Else
@@ -497,11 +413,6 @@ Aplicando:
             If Procesa_Datos(sender.tag) Then
                 PanefinalizFactur.Enabled = True
                 sender.backColor = Color.Yellow
-                If sender.Text.Contains("Factura") Then
-                    F12Label.BackColor = Color.Yellow
-                ElseIf sender.Text.Contains("Nota") Then
-                    F11Label.BackColor = Color.Yellow
-                End If
                 btnPago.Focus()
             End If
         Catch ex As Exception
@@ -584,8 +495,8 @@ Aplicando:
             End If
 
             Dim item = CType(ObjectListView1.SelectedObject, ItemViewVenta)
-            Dim index As Integer = 0
 
+            Dim index As Integer = 0
             If IsNothing(item) Then
                 Return
             End If
@@ -602,6 +513,7 @@ Aplicando:
                                 .ShowDialog()
                                 If .DialogResult = DialogResult.OK Then
                                     item.UnitPrice = (.txtNumber.Value - item.Discount + item.Rates) / item.Cuantity
+                                    item.DoNotUpdate = True
                                     Me.ObjectListView1.SetObjects(Me.ListItemVenta)
                                     Me.ObjectListView1.SelectObject(item, True)
                                     SumatoriaTotal()
@@ -655,7 +567,7 @@ Aplicando:
                     If .DialogResult = DialogResult.OK Then
 
                         Dim listData As PresentVendiblescollection =
-                              Me.ListVendiblescollection.Where(Function(x) x.IdPresent = .idpresentacion).FirstOrDefault()
+                             ListVendiblescollection.Where(Function(x) x.IdPresent = .idpresentacion).FirstOrDefault()
                         If listData.IdPresent = .idpresentacion Then
                             itemSelect.AveragePrice = listData.PrecioCompra
                             itemSelect.CodProducto = listData.CodProducto
@@ -884,10 +796,23 @@ Aplicando:
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
-    Private Sub btnActualiza_Click(sender As Object, e As EventArgs) Handles btnActualiza.Click
+    Private Async Sub btnActualiza_Click(sender As Object, e As EventArgs) Handles btnActualiza.Click
         Try
             Me.Cursor = Cursors.WaitCursor
-            Me.Load_Data()
+            If isDeleteRates Then
+                Await GetRates(idRateUser)
+            ElseIf clientPerfilRates Then
+                Await GetRates(clientRate)
+            Else
+                Me.idRates = TerminalActivo.idRates
+                Await GetRates(TerminalActivo.idRates)
+            End If
+
+            Await GetListVendibles(DeFaultRates.RatesStruccture, DeFaultRates.IDRates)
+
+            View_Bodega()
+            ViewRates()
+
             ApplicationRates(Me.idRates)
             SumatoriaTotal()
             Cursor = Cursors.Default
@@ -1090,6 +1015,9 @@ Aplicando:
         responTerminal = Nothing
 
         If Genera_Venta() Then
+            clientPerfilRates = False
+            isDeleteRates = False
+            GetListDataProduct()
             ObjectListView1.ClearObjects()
             ListItemVenta.Clear()
             Me.UltimoIngresoLabel.Text = String.Empty
@@ -1147,7 +1075,11 @@ Aplicando:
                 Me.Cursor = Cursors.WaitCursor
                 Select Case myOptnsPrint.typePrint
                     Case "Ticket"
-                        Print_Ticket(0, True)
+                        Dim print As New PrintTicketAsync(New CancellationTokenSource)
+                        print.ActionToExecute = Sub() print.Print_Ticket(0, True,
+                              "",
+                              isInvoiceElectronic:=False)
+                        print.Star()
                     Case "Matricial"
                         printMatricial(FacturVenta.nameDocunt, idDocument:=0, isLatest:=True)
                     Case "Tinta"
@@ -1272,8 +1204,9 @@ Aplicando:
         End If
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles deleteClienteButton.Click
-        If Not NomClienteText.Text.Contains("Consumidor Final") Then
+        If Not NomClienteText.Text.Contains("CONSUMIDOR FINAL") Then
             Call CargaConsumidFinal()
+            Carga_Cliente(Me.idcliente)
         End If
     End Sub
 
@@ -1295,6 +1228,26 @@ Aplicando:
     End Sub
     Sub Mays()
         CedulaTextBox.CharacterCasing = CharacterCasing.Upper
+        Dim labelFac As New Label With {
+            .BackColor = Color.Transparent,
+            .AutoSize = True,
+            .Text = "F10",
+            .Location = New Point With {.X = 2, .Y = 2}
+        }
+        AddHandler labelFac.Click, AddressOf btnAddFactura_Click
+
+        FacturaButton.Controls.Add(labelFac)
+        Dim labelNota As New Label With {
+           .BackColor = Color.Transparent,
+           .AutoSize = True,
+           .Text = "F11",
+           .Location = New Point With {.X = 2, .Y = 2}
+       }
+        AddHandler labelNota.Click, AddressOf btnAddFactura_Click
+
+        NotaVentaButton.Controls.Add(labelNota)
+        lblIva12.Text = String.Format("Base {0:P0}:", EcommerceActive.IvaPercent)
+        lblIva12.Tag = lblIva12.Text
     End Sub
 
     Private Sub DetailPersonButton_Click(sender As Object, e As EventArgs) Handles DetailPersonButton.Click
@@ -1339,12 +1292,9 @@ Aplicando:
         End Try
     End Sub
     Private Sub Carga_Cliente(_idCliente As Integer)
+        Dim _idRates As Integer
+        clientPerfilRates = False
         Try
-            Me.idRates = 0
-            Me.RatesTypeLabel.Text = String.Empty
-            Me.RatesStruccture = String.Empty
-            Me.RatesTyPe = False
-
             Using db As New DataContext
                 Dim client = (From c In db.Clientes
                               Join p In db.Personas On p.idPersona Equals c.idPersona
@@ -1353,38 +1303,36 @@ Aplicando:
                               From pet In PetList.DefaultIfEmpty()
                               Where c.idCliente = _idCliente
                               Select p.Apellidos, p.Nombre, p.Ruc_Ci, p.Direccion,
-                            IdRates =
+                              IdRates =
                                  If(pet Is Nothing, 0, pet.IdRates))
 
                 If client.Count > 0 Then
-                    Me.idRates = client.FirstOrDefault().IdRates
+                    _idRates = client.FirstOrDefault().IdRates
                     CedulaTextBox.Text = client.FirstOrDefault().Ruc_Ci
                     NomClienteText.Text = client.FirstOrDefault().Apellidos & " " & client.FirstOrDefault().Nombre
                     NomClienteText.Tag = client.FirstOrDefault().Direccion
                 End If
 
-                If Me.idRates > 0 Then
-                    Dim _rates = (From r In db.Rates Where r.idRates = Me.idRates)
+                If Not isDeleteRates Or _idRates > 0 Then
+                    Dim _rates = (From r In db.Rates Where r.idRates = _idRates)
                     If _rates.Count > 0 Then
-                        Me.RatesTypeLabel.Text = Me.idRates
-                        Me.RatesStruccture = _rates.FirstOrDefault().Structure
-                        Me.RatesTyPe = _rates.FirstOrDefault().TypeRate
-                        Me.Load_Data()
-                        ApplicationRates(Me.idRates)
-                        SumatoriaTotal()
+                        clientRate = _idRates
+                        DeFaultRates.IDRates = Me.idRates
+                        DeFaultRates.RatesStruccture = _rates.FirstOrDefault().Structure
+                        DeFaultRates.RatesTyPe = _rates.FirstOrDefault().TypeRate
+                        clientPerfilRates = True
+                    Else
+                        clientRate = 0
+                        DeFaultRates.IDRates = 0
+                        DeFaultRates.RatesStruccture = ""
+                        DeFaultRates.RatesTyPe = False
                     End If
+                    btnActualiza.PerformClick()
                 End If
+
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        Try
-
-        Catch ex As Exception
-
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -1435,33 +1383,44 @@ Aplicando:
     Private Function ApplicationRates(ByVal _idRates As Integer) As Boolean
         Try
             Me.idRates = _idRates
-
-            For Each item As ItemViewVenta In ListItemVenta
+            Dim notUpdate As StringBuilder = New StringBuilder()
+            For Each item As ItemViewVenta In ListItemVenta.Where(Function(x) x.DoNotUpdate = False)
                 Dim listData = (From l In ListVendiblescollection
                                 Where l.IdPresent = item.IdPresent).FirstOrDefault()
-                If item.IdPresent = listData.IdPresent Then
-                    item.AveragePrice = listData.PrecioCompra
-                    item.CodProducto = listData.CodProducto
-                    item.IvaPercent = listData.IvaPercent()
-                    item.LastPurchasePrice = listData.PrecioCompra
-                    item.Nom_Comercial = listData.NomComercial
-                    item.PresentationPrint = listData.PresentationPrint
-                    item.UnitPrice = listData.PrecioVenta
-                    item.Discount = 0
-                    item.Rates = 0
-                    If Me.idRates > 0 Then
-                        If item.Cuantity >= listData.FromC Then
-                            If Me.RatesTyPe Then
-                                item.Discount = Redondear((item.Cuantity * item.UnitPrice) * listData.RatesPercent, 2, True)
-                            Else
-                                item.Rates = Redondear((item.Cuantity * item.UnitPrice) * listData.RatesPercent, 2, True)
+                If listData IsNot Nothing Then
+                    If item.IdPresent = listData.IdPresent Then
+                        item.AveragePrice = listData.PrecioCompra
+                        item.CodProducto = listData.CodProducto
+                        item.IvaPercent = listData.IvaPercent()
+                        item.LastPurchasePrice = listData.PrecioCompra
+                        item.Nom_Comercial = listData.NomComercial
+                        item.PresentationPrint = listData.PresentationPrint
+                        item.UnitPrice = listData.PrecioVenta
+                        item.Discount = 0
+                        item.Rates = 0
+                        If Me.idRates > 0 Then
+                            If item.Cuantity >= listData.FromC Then
+                                If Me.RatesTyPe Then
+                                    item.Discount = Redondear((item.Cuantity * item.UnitPrice) * listData.RatesPercent, 2, True)
+                                Else
+                                    item.Rates = Redondear((item.Cuantity * item.UnitPrice) * listData.RatesPercent, 2, True)
+                                End If
                             End If
+                        Else
+                            CalOfertas(item)
                         End If
-                    Else
-                        CalOfertas(item)
                     End If
+                Else
+                    notUpdate.Append(vbCrLf)
+                    notUpdate.Append(item.Nom_Comercial)
                 End If
+
             Next
+            If Not String.IsNullOrEmpty(notUpdate.ToString()) Then
+                sql = "Hay productos que ya no esta en la lista de Vendibles." & vbCrLf
+                MsgBox(sql & notUpdate.ToString() & vbCrLf &
+                      "A estos no se pudo actualizar.", MsgBoxStyle.Information, "Aviso..")
+            End If
             Return True
         Catch ex As Exception
             Me.Cursor = Cursors.Default
@@ -1509,6 +1468,8 @@ Aplicando:
                     .Text = "Validando para eliminar tarifa.."
                     .ShowDialog()
                     If .DialogResult = DialogResult.OK Then
+                        idRateUser = 0
+                        isDeleteRates = True
                         BorrarTarifa()
                     End If
                 End With
@@ -1675,9 +1636,9 @@ Aplicando:
                                 .OK_Button.Text = "Seleccionar.."
                                 .ShowDialog()
                                 If .DialogResult = DialogResult.OK Then
-                                    If SetRates(.idRates) Then
-                                        btnActualiza.PerformClick()
-                                    End If
+                                    Me.idRateUser = .idRates
+                                    isDeleteRates = True
+                                    btnActualiza.PerformClick()
                                 End If
                             End With
                         End Using
@@ -1689,28 +1650,18 @@ Aplicando:
         End Try
     End Sub
 
-    Private Function SetRates(_IdRates As Integer) As Boolean
+    Private Function ViewRates() As Boolean
         Try
-            Me.idRates = _IdRates
-            If idRates = 0 Then
+            If DeFaultRates.IDRates = 0 Then
                 Me.RatesTypeLabel.Text = "Ninguna.."
                 Return True
             End If
+            Me.idRates = DeFaultRates.IDRates
+            Me.RatesStruccture = DeFaultRates.RatesStruccture
+            Me.RatesTyPe = DeFaultRates.RatesTyPe
+            RatesTypeLabel.Text = "Tarifa:" & vbCrLf & Me.idRates
+            Return True
 
-            Using db As New DataContext
-                Dim _rates = From r In db.Rates
-                             Where r.idRates = _IdRates
-
-                For Each item In _rates
-                    Me.idRates = item.idRates
-                    Me.RatesStruccture = item.Structure
-                    Me.RatesTyPe = item.TypeRate
-                    RatesTypeLabel.Text = "Tarifa:" & vbCrLf & Me.idRates
-                    Return True
-                Next
-
-            End Using
-            Return False
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
             Return False

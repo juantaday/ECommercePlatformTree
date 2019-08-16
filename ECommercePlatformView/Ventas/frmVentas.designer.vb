@@ -53,8 +53,6 @@ Partial Class frmVentas
         Me.PaneFacturacion = New System.Windows.Forms.Panel()
         Me.txtFormaPago = New System.Windows.Forms.TextBox()
         Me.TableFactur = New System.Windows.Forms.Panel()
-        Me.F11Label = New System.Windows.Forms.Label()
-        Me.F12Label = New System.Windows.Forms.Label()
         Me.pedidoButton = New System.Windows.Forms.Button()
         Me.lblVuelto = New System.Windows.Forms.Label()
         Me.PanefinalizFactur = New System.Windows.Forms.Panel()
@@ -333,7 +331,7 @@ Partial Class frmVentas
         Me.FacturaButton.Dock = System.Windows.Forms.DockStyle.Left
         Me.FacturaButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FacturaButton.Image = Global.ECommercePlatformView.My.Resources.Resources.factura_32
-        Me.FacturaButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.FacturaButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.FacturaButton.Location = New System.Drawing.Point(0, 2)
         Me.FacturaButton.Margin = New System.Windows.Forms.Padding(0)
         Me.FacturaButton.Name = "FacturaButton"
@@ -341,7 +339,7 @@ Partial Class frmVentas
         Me.FacturaButton.TabIndex = 30
         Me.FacturaButton.Tag = "Factura"
         Me.FacturaButton.Text = "Factura" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
-        Me.FacturaButton.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.FacturaButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ToolTip1.SetToolTip(Me.FacturaButton, "Documento por emitir")
         Me.FacturaButton.UseVisualStyleBackColor = True
         '
@@ -369,7 +367,7 @@ Partial Class frmVentas
         Me.NotaVentaButton.Dock = System.Windows.Forms.DockStyle.Left
         Me.NotaVentaButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NotaVentaButton.Image = Global.ECommercePlatformView.My.Resources.Resources.NoteSales_32
-        Me.NotaVentaButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.NotaVentaButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.NotaVentaButton.Location = New System.Drawing.Point(67, 2)
         Me.NotaVentaButton.Margin = New System.Windows.Forms.Padding(0)
         Me.NotaVentaButton.Name = "NotaVentaButton"
@@ -377,7 +375,7 @@ Partial Class frmVentas
         Me.NotaVentaButton.TabIndex = 29
         Me.NotaVentaButton.Tag = "Nota de venta"
         Me.NotaVentaButton.Text = "Nota venta"
-        Me.NotaVentaButton.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.NotaVentaButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ToolTip1.SetToolTip(Me.NotaVentaButton, "Documento por emitir")
         Me.NotaVentaButton.UseVisualStyleBackColor = True
         '
@@ -527,8 +525,6 @@ Partial Class frmVentas
         '
         'TableFactur
         '
-        Me.TableFactur.Controls.Add(Me.F11Label)
-        Me.TableFactur.Controls.Add(Me.F12Label)
         Me.TableFactur.Controls.Add(Me.pedidoButton)
         Me.TableFactur.Controls.Add(Me.ProformaButton)
         Me.TableFactur.Controls.Add(Me.NotaVentaButton)
@@ -539,26 +535,6 @@ Partial Class frmVentas
         Me.TableFactur.Padding = New System.Windows.Forms.Padding(0, 2, 0, 2)
         Me.TableFactur.Size = New System.Drawing.Size(263, 60)
         Me.TableFactur.TabIndex = 39
-        '
-        'F11Label
-        '
-        Me.F11Label.AutoSize = True
-        Me.F11Label.BackColor = System.Drawing.SystemColors.Control
-        Me.F11Label.Location = New System.Drawing.Point(69, 22)
-        Me.F11Label.Name = "F11Label"
-        Me.F11Label.Size = New System.Drawing.Size(25, 13)
-        Me.F11Label.TabIndex = 33
-        Me.F11Label.Text = "F11"
-        '
-        'F12Label
-        '
-        Me.F12Label.AutoSize = True
-        Me.F12Label.BackColor = System.Drawing.SystemColors.Control
-        Me.F12Label.Location = New System.Drawing.Point(5, 21)
-        Me.F12Label.Name = "F12Label"
-        Me.F12Label.Size = New System.Drawing.Size(25, 13)
-        Me.F12Label.TabIndex = 32
-        Me.F12Label.Text = "F12"
         '
         'pedidoButton
         '
@@ -1046,7 +1022,7 @@ Partial Class frmVentas
         Me.Panelultimo.Controls.Add(Me.UltimoIngresoLabel)
         Me.Panelultimo.Location = New System.Drawing.Point(215, 17)
         Me.Panelultimo.Name = "Panelultimo"
-        Me.Panelultimo.Size = New System.Drawing.Size(651, 41)
+        Me.Panelultimo.Size = New System.Drawing.Size(570, 41)
         Me.Panelultimo.TabIndex = 46
         '
         'UltimoIngresoLabel
@@ -1067,9 +1043,9 @@ Partial Class frmVentas
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(1058, 15)
         Me.Label1.TabIndex = 35
-        Me.Label1.Text = "F1:Agregar clientes; F2:Elimina cliente; F3:Busca cliente; F4:Productos;  F5:Actu" &
-    "alizar costo;  F6:Eliminar ítem;  F8:Cambiar cantidad; F9:Cambiar presentación; " &
-    "F12:Transferir venta " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.Label1.Text = "[1]Agregar clientes; [F2]Elimina cliente; [F4]Productos;  [F5]Actualizar costo;  " &
+    "[F6]Eliminar ítem;  [F8]Cambiar cantidad; [F9]Cambiar presentación; [F12]Transfe" &
+    "rir venta "
         '
         'GrupCliente
         '
@@ -1567,7 +1543,6 @@ Partial Class frmVentas
         Me.PaneFacturacion.ResumeLayout(False)
         Me.PaneFacturacion.PerformLayout()
         Me.TableFactur.ResumeLayout(False)
-        Me.TableFactur.PerformLayout()
         Me.PanefinalizFactur.ResumeLayout(False)
         Me.PanefinalizFactur.PerformLayout()
         Me.ContextMenuDeleteRates.ResumeLayout(False)
@@ -1707,8 +1682,6 @@ Partial Class frmVentas
     Friend WithEvents ContextMenuBodega As ContextMenuStrip
     Friend WithEvents CambioBodegaToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents TableFactur As Panel
-    Friend WithEvents F11Label As Label
-    Friend WithEvents F12Label As Label
     Private WithEvents GroupBox1 As GroupBox
     Private WithEvents txtFindInAdd As MultiControls.Controls.TextBoxButton
     Friend WithEvents ObjectListView1 As BrightIdeasSoftware.FastDataListView

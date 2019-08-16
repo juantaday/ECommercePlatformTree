@@ -695,6 +695,8 @@ Partial Class MDIPareInicio
         '
         'DevolucionesVentaToolStripMenuItem
         '
+        Me.DevolucionesVentaToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Product_return_32
+        Me.DevolucionesVentaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.DevolucionesVentaToolStripMenuItem.Name = "DevolucionesVentaToolStripMenuItem"
         Me.DevolucionesVentaToolStripMenuItem.Size = New System.Drawing.Size(227, 38)
         Me.DevolucionesVentaToolStripMenuItem.Text = "Devoluciones venta"

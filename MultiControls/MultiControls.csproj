@@ -114,6 +114,7 @@
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Class\DGVPrinter.cs" />
     <Compile Include="Class\ResponseSpliter.cs" />
     <Compile Include="Controls\ComboBoxAutocompleteSuggestion.cs">
       <SubType>Component</SubType>

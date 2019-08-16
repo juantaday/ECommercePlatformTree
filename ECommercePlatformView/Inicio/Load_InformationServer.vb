@@ -10,6 +10,7 @@ Namespace GetInformationServices
             Try
                 Await Inicia_EcommerceSetting(LetMeKnow)
             Catch ex As Exception
+                processBackGround = False
                 If LetMeKnow Then
                     MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
                 End If
@@ -37,8 +38,9 @@ Namespace GetInformationServices
                 End If
                 Return False
             Catch ex As Exception
+                processBackGround = False
                 If LetMeKnow Then
-                    MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+                    MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
                 End If
                 Return False
             End Try
@@ -96,13 +98,23 @@ Namespace GetInformationServices
                     End If
                 End If
             Catch ex As Exception
+                processBackGround = False
                 MsgBox("Al intertar leer el ip de equipo" & ex.Message, MsgBoxStyle.Critical, "Error")
             End Try
         End Sub
 
-        Public Shared Async Sub Inicia_Terminal(LetMeKnow As Boolean)
-            TerminalActivo = Await Load_Terminal(LetMeKnow)
-        End Sub
+        Public Shared Async Function Inicia_Terminal(LetMeKnow As Boolean) As Task
+            Dim terminal = Await Load_Terminal(LetMeKnow)
+
+            TerminalActivo.codTerminal = terminal.codTerminal
+            TerminalActivo.idBodega = terminal.idBodega
+            TerminalActivo.Dominio = terminal.Dominio
+            TerminalActivo.idTerminal = terminal.idTerminal
+            TerminalActivo.Nom_Bodega = terminal.Nom_Bodega
+            TerminalActivo.idRates = terminal.idRates
+
+        End Function
+
         Private Shared Async Function Load_Terminal(LetMeKnow As Boolean) As Task(Of Terminal)
             Try
                 If Not String.IsNullOrEmpty(Dominio._HotName) Then
@@ -145,18 +157,21 @@ Namespace GetInformationServices
                 End If
                 Return New Terminal
             Catch ex As Exception
+                processBackGround = False
                 If LetMeKnow Then
-                    MsgBox(ex.Message & " " & ex.StackTrace.ToString, MsgBoxStyle.Critical, "Error")
+                    MsgBox(ex.Message & vbLet & ex.StackTrace.ToString, MsgBoxStyle.Critical, "Error")
                 End If
                 Return New Terminal
             End Try
         End Function
+
     End Class
     Public Class AccessPanel
         Public Shared Async Sub GetListNenuAccess(LetMeKnow As Boolean)
             Try
                 ListPanelAccessPermissions = Await GetlistMenu(LetMeKnow)
             Catch ex As Exception
+                processBackGround = False
                 If LetMeKnow Then
                     MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
                 End If
@@ -193,7 +208,7 @@ Namespace GetInformationServices
                 End Using
                 Return list
             Catch ex As Exception
-                Throw New NotImplementedException(ex.Message, inner:=ex.InnerException)
+                Throw New Exception(ex.Message, innerException:=ex.InnerException)
             End Try
         End Function
 

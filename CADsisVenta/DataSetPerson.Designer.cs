@@ -4135,6 +4135,7 @@ SELECT idPersona, Apellidos, Nombre, Ruc_Ci, Direccion, telefono, fecha_reg, mai
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@telef_casa", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@telef_ofic", global::System.Data.SqlDbType.VarChar, 12, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TypePerson", global::System.Data.SqlDbType.TinyInt, 1, global::System.Data.ParameterDirection.Input, 3, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idPersona", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.InputOutput, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = "select Count(idPersona)  as [idPersona] from [dbo].[Personas] as p\r\nwhere p.Apell" +
@@ -4763,7 +4764,7 @@ SELECT idPersona, Apellidos, Nombre, Ruc_Ci, Direccion, telefono, fecha_reg, mai
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual object InsertPerson(string Apellidos, string Nombre, string Ruc_Ci, string Direccion, string telefono, string mail, global::System.Nullable<global::System.DateTime> fech_Naci, global::System.Nullable<bool> genero, string nota, byte[] foto, string telef_casa, string telef_ofic, global::System.Nullable<byte> TypePerson) {
+        public virtual object InsertPerson(string Apellidos, string Nombre, string Ruc_Ci, string Direccion, string telefono, string mail, global::System.Nullable<global::System.DateTime> fech_Naci, global::System.Nullable<bool> genero, string nota, byte[] foto, string telef_casa, string telef_ofic, global::System.Nullable<byte> TypePerson, ref global::System.Nullable<int> idPersona) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[4];
             if ((Apellidos == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
@@ -4843,6 +4844,12 @@ SELECT idPersona, Apellidos, Nombre, Ruc_Ci, Direccion, telefono, fecha_reg, mai
             else {
                 command.Parameters[13].Value = global::System.DBNull.Value;
             }
+            if ((idPersona.HasValue == true)) {
+                command.Parameters[14].Value = ((int)(idPersona.Value));
+            }
+            else {
+                command.Parameters[14].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4856,6 +4863,13 @@ SELECT idPersona, Apellidos, Nombre, Ruc_Ci, Direccion, telefono, fecha_reg, mai
                 if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
                     command.Connection.Close();
                 }
+            }
+            if (((command.Parameters[14].Value == null) 
+                        || (command.Parameters[14].Value.GetType() == typeof(global::System.DBNull)))) {
+                idPersona = new global::System.Nullable<int>();
+            }
+            else {
+                idPersona = new global::System.Nullable<int>(((int)(command.Parameters[14].Value)));
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {

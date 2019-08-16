@@ -17,4 +17,4 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\bin\Release\CADsis
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Release\CADsisVenta.csproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Release\CADsisVenta.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Release\CADsisVenta.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Release\CADsisVenta.csprojResolveAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Release\CADsisVenta.csprojAssemblyReference.cache

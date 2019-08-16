@@ -62,6 +62,14 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CAD
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\bin\Debug\CADsisVenta.dll.config
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\bin\Debug\CADsisVenta.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\bin\Debug\CADsisVenta.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.csprojAssemblyReference.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.csproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.pdb
+F:\Source\Repos\ECommercePlatformTree\CADsisVenta\bin\Debug\CADsisVenta.dll.config
+F:\Source\Repos\ECommercePlatformTree\CADsisVenta\bin\Debug\CADsisVenta.dll
+F:\Source\Repos\ECommercePlatformTree\CADsisVenta\bin\Debug\CADsisVenta.pdb
+F:\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.csprojAssemblyReference.cache
+F:\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.csproj.CoreCompileInputs.cache
+F:\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.dll
+F:\Source\Repos\ECommercePlatformTree\CADsisVenta\obj\Debug\CADsisVenta.pdb

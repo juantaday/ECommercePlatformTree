@@ -1,4 +1,4 @@
-﻿using MultiColumnComboSuggestionBox.Class;
+﻿using MultiControls.Class;
 using System.Reflection;
 using Microsoft.VisualBasic;
 using System;

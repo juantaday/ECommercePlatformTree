@@ -13,7 +13,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Sistema para el control de facturación.")>
 <Assembly: AssemblyCompany("JMT System Software")>
 <Assembly: AssemblyProduct("ECommercePlatformThree")>
-<Assembly: AssemblyCopyright("JMTSystem © Hewlett-Packard 2018")>
+<Assembly: AssemblyCopyright("JMTSystem © Hewlett-Packard 2019")>
 <Assembly: AssemblyTrademark("JMTSystemSofware")>
 
 <Assembly: ComVisible(False)>
@@ -32,6 +32,6 @@ Imports System.Runtime.InteropServices
 ' mediante el carácter '*', como se muestra a continuación:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.1.3.6")>
-<Assembly: AssemblyFileVersion("1.1.3.6")>
+<Assembly: AssemblyVersion("1.1.3.7")>
+<Assembly: AssemblyFileVersion("1.1.3.7")>
 <Assembly: NeutralResourcesLanguage("en-US")>

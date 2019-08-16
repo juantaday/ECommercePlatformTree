@@ -1,10 +1,10 @@
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\bin\Release\ObjectListView.XML
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\bin\Release\ObjectListView.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\bin\Release\ObjectListView.pdb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Release\ObjectListView.csprojAssemblyReference.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Release\BrightIdeasSoftware.Properties.Resources.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Release\BrightIdeasSoftware.ColumnSelectionForm.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Release\ObjectListView.csproj.GenerateResource.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Release\ObjectListView.csproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Release\ObjectListView.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Release\ObjectListView.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ObjectListView\obj\Release\ObjectListView.csprojResolveAssemblyReference.cache

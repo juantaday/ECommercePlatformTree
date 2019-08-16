@@ -23,8 +23,8 @@ Partial Class frm_Presentacion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ErrorIcono = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.panePresentacion = New System.Windows.Forms.Panel()
         Me.isPresentFabricCheckedListBox = New System.Windows.Forms.CheckedListBox()
@@ -324,9 +324,9 @@ Partial Class frm_Presentacion
         '
         Me.DataGridPresent.AllowUserToAddRows = False
         Me.DataGridPresent.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.InactiveBorder
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridPresent.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.InactiveBorder
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridPresent.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridPresent.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -337,8 +337,8 @@ Partial Class frm_Presentacion
         Me.DataGridPresent.MultiSelect = False
         Me.DataGridPresent.Name = "DataGridPresent"
         Me.DataGridPresent.ReadOnly = True
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridPresent.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridPresent.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridPresent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.DataGridPresent.Size = New System.Drawing.Size(624, 108)
         Me.DataGridPresent.TabIndex = 5

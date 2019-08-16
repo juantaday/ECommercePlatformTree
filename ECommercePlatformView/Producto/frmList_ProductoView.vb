@@ -1,7 +1,9 @@
-﻿Imports System.Data.SqlClient
+﻿Imports System.Configuration
+Imports System.Data.SqlClient
 Imports System.Drawing.Imaging
 Imports System.Drawing.Printing
 Imports System.IO
+Imports BrightIdeasSoftware
 Imports CADsisVenta
 Imports CADsisVenta.DataSetVentas
 Imports CADsisVenta.DataSetVentasTableAdapters
@@ -19,6 +21,7 @@ Public Class frmList_ProductoView
     Protected Friend flag As String
 
     Private Operation As stateLoad
+    Private key As String = "VisibleCodBar"
     Sub New(ByVal operation As stateLoad)
 
         ' Esta llamada es exigida por el diseñador.
@@ -58,58 +61,74 @@ Public Class frmList_ProductoView
     End Sub
     Private Sub Carga_ListProducto()
         Try
-            Using adat As New pcdGetListProductRentableTableAdapter
-                Using dt As New pcdGetListProductRentableDataTable
-                    adat.Fill(dt, codTerminal:=TerminalActivo.codTerminal, codUser:=UsuarioActivo.codUser)
-                    If dt.Rows.Count > 0 Then
-                        With datalistado
-                            .DataSource = dt
-                            .AutoSizeColumnsMode =
-                          DataGridViewAutoSizeColumnsMode.AllCells
-                            clm = .Columns("Rentabilidad")
-                            clm.DefaultCellStyle = myStilePercentage
-
-                            clm = .Columns("idPresentacion")
-                            clm.Visible = False
-
-                            clm = .Columns("Nom_Comun")
-                            clm.Visible = False
-
-                            clm = .Columns("PresentacionPrint")
-                            clm.HeaderText = "Presentación"
-
-                            clm = .Columns("Barcode")
-                            clm.Visible = False
-
-                            clm = .Columns("codProducto")
-                            clm.HeaderText = "Cod Interno"
-
-                            clm = .Columns("Nom_Comercial")
-                            clm.HeaderText = "Producto"
-
-                            clm = .Columns("Nom_Medida")
-                            clm.HeaderText = "Empaque"
-
-                            clm = .Columns("Cant_Present")
-                            clm.HeaderText = "UND EMQ"
-
-                            clm = .Columns("UltimaCompra")
-                            clm.HeaderText = "Ultima Compra"
-
-                            clm = .Columns("precioVenta")
-                            clm.HeaderText = "PVP Venta"
-
-                            Me.Label2.Text = String.Format("Total registros: {0:N0}", dt.Rows.Count)
-                        End With
-                    End If
+            datalistado.DataSource = Nothing
+            If Me.id_Producto = 0 Then
+                Using adat As New pcdGetListProductRentableTableAdapter
+                    Using dt As New pcdGetListProductRentableDataTable
+                        adat.Fill(dt, codTerminal:=TerminalActivo.codTerminal, codUser:=UsuarioActivo.codUser)
+                        If dt.Rows.Count > 0 Then
+                            datalistado.DataSource = dt
+                        End If
+                    End Using
                 End Using
-            End Using
+            Else
+                Using adat As New pcdGetListProductRentableWithIDTableAdapter
+                    Using dt As New pcdGetListProductRentableWithIDDataTable
+                        adat.Fill(dt, Me.id_Producto)
+                        If dt.Rows.Count > 0 Then
+                            datalistado.DataSource = dt
+                        End If
+                    End Using
+                End Using
+            End If
+            If datalistado.Rows.Count > 0 Then
+                With datalistado
+                    .AutoSizeColumnsMode =
+                          DataGridViewAutoSizeColumnsMode.AllCells
+                    clm = .Columns("Rentabilidad")
+                    clm.DefaultCellStyle = myStilePercentage
+
+                    clm = .Columns("idPresentacion")
+                    clm.Visible = False
+
+                    clm = .Columns("Nom_Comun")
+                    clm.Visible = False
+
+                    clm = .Columns("PresentacionPrint")
+                    clm.HeaderText = "Presentación"
+
+                    clm = .Columns("Barcode")
+                    clm.Visible = False
+
+                    clm = .Columns("codProducto")
+                    clm.HeaderText = "Cod Interno"
+
+                    clm = .Columns("Nom_Comercial")
+                    clm.HeaderText = "Producto"
+
+                    clm = .Columns("Nom_Medida")
+                    clm.HeaderText = "Empaque"
+
+                    clm = .Columns("Cant_Present")
+                    clm.HeaderText = "UND EMQ"
+
+                    clm = .Columns("UltimaCompra")
+                    clm.HeaderText = "Ultima Compra"
+
+                    clm = .Columns("precioVenta")
+                    clm.HeaderText = "PVP Venta"
+                    Me.Label2.Text = String.Format("Total registros: {0:N0}", datalistado.Rows.Count)
+                End With
+            End If
+
         Catch ex As Exception
-            MsgBox(ex.Message + " en el Carga_ListProducto del " + Me.Name, MsgBoxStyle.Critical, "Error al cargar Proveedor")
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error al cargar Proveedor")
         End Try
     End Sub
     Private Sub frmLista_Producto_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         _ziView = 2
+
+
         Dim MenuaDMIN As ContextMenuStrip = ContextMenuAdministra
         Dim MenualECT As ContextMenuStrip = ContextMenuLectura
         dialogoPrint = New PrinterSettings()
@@ -120,8 +139,18 @@ Public Class frmList_ProductoView
                 Case "Administrar"
                     Me.datalistado.ContextMenuStrip = MenuaDMIN
             End Select
+            Using propertie = New Utilities.Properties()
+                Dim entry = propertie.get(key)
+                If (entry IsNot Nothing AndAlso entry.Contains("true")) Then
+                    CollapBarrButton.Tag = 1
+                    SplitContainer1.SplitterDistance = SplitContainer1.Width * 0.75
+                Else
+                    CollapBarrButton.Tag = 0
+                    SplitContainer1.SplitterDistance = SplitContainer1.Width
+                End If
+            End Using
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error en el frmLista_Producto_Load")
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error en el frmLista_Producto_Load")
         End Try
         Me.txtProduc_Select.Focus()
     End Sub
@@ -207,6 +236,10 @@ Public Class frmList_ProductoView
             Using formProdcutos As New MDI_AddProductos(stateOperation.Insert, 0, Me.id_proveedor)
                 With formProdcutos
                     .ShowDialog()
+                    If formProdcutos.DialogResult = DialogResult.OK Then
+                        Me.id_Producto = .Id_Producto
+                        Carga_ListProducto()
+                    End If
                 End With
             End Using
         Catch ex As Exception
@@ -225,6 +258,10 @@ Public Class frmList_ProductoView
                 Using AddProductos As New MDI_AddProductos(stateOperation.Update, Me.id_Producto, 0)
                     With AddProductos
                         .ShowDialog()
+                        If .DialogResult = DialogResult.OK Then
+                            Me.id_Producto = .Id_Producto
+                            Carga_ListProducto()
+                        End If
                     End With
                 End Using
             Catch ex As Exception
@@ -577,5 +614,21 @@ Public Class frmList_ProductoView
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub CollapBarrButton_Click(sender As Object, e As EventArgs) Handles CollapBarrButton.Click
+
+        Using propertie = New Utilities.Properties()
+            If CollapBarrButton.Tag = 0 Then
+                CollapBarrButton.Tag = 1
+                SplitContainer1.SplitterDistance = SplitContainer1.Width * 0.8
+                propertie.set(key, "true")
+            Else
+                CollapBarrButton.Tag = 0
+                SplitContainer1.SplitterDistance = SplitContainer1.Width
+                propertie.set(key, "false")
+            End If
+            propertie.Save()
+        End Using
     End Sub
 End Class

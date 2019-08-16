@@ -684,7 +684,22 @@
             equality.
             </summary>
         </member>
-        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "T:BrightIdeasSoftware.Helpers.SysImageListHelper" -->
+        <member name="P:BrightIdeasSoftware.Helpers.MyFileSystemInfo.IsDirectory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BrightIdeasSoftware.Helpers.MyFileSystemInfo.AsDirectory">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:BrightIdeasSoftware.Helpers.MyFileSystemInfo.AsFile">
+            <summary>
+            
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:BrightIdeasSoftware.Helpers.SysImageListHelper" -->
         <member name="M:BrightIdeasSoftware.Helpers.SysImageListHelper.#ctor(System.Windows.Forms.TreeView)">
             <summary>
             Create a SysImageListHelper that will fetch images for the given tree control
@@ -6427,18 +6442,43 @@
         </member>
         <member name="T:BrightIdeasSoftware.Properties.Resources">
             <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
+              Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
             </summary>
         </member>
         <member name="P:BrightIdeasSoftware.Properties.Resources.ResourceManager">
             <summary>
-              Returns the cached ResourceManager instance used by this class.
+              Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
             </summary>
         </member>
         <member name="P:BrightIdeasSoftware.Properties.Resources.Culture">
             <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
+              Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+              búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
+            </summary>
+        </member>
+        <member name="P:BrightIdeasSoftware.Properties.Resources.ClearFiltering">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BrightIdeasSoftware.Properties.Resources.ColumnFilterIndicator">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BrightIdeasSoftware.Properties.Resources.Filtering">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BrightIdeasSoftware.Properties.Resources.SortAscending">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BrightIdeasSoftware.Properties.Resources.SortDescending">
+            <summary>
+              Busca un recurso adaptado de tipo System.Drawing.Bitmap.
             </summary>
         </member>
         <member name="T:BrightIdeasSoftware.GraphicAdornment">
@@ -15813,6 +15853,22 @@
             <param name="text">The text string to encode. </param>
             <returns>The HTML-encoded text.</returns>
             <remarks>Taken from http://www.west-wind.com/weblog/posts/2009/Feb/05/Html-and-Uri-String-Encoding-without-SystemWeb</remarks>
+        </member>
+        <member name="T:BrightIdeasSoftware.Utilities.Properties">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BrightIdeasSoftware.Utilities.Properties.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="file"></param>
+        </member>
+        <member name="M:BrightIdeasSoftware.Utilities.Properties.#ctor">
+            <summary>
+            Generacarpeta default
+            </summary>
         </member>
         <member name="T:BrightIdeasSoftware.TypedObjectListView`1">
             <summary>

@@ -482,6 +482,16 @@ ECommercePlatformView
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Company_128">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:ECommercePlatformView.My.Resources.Resources.Company_32">
+<summary>
+  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:ECommercePlatformView.My.Resources.Resources.compra_32">
 <summary>
   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
@@ -2111,6 +2121,20 @@ ViewFaltantesSobrantes
 <summary>
 InitializeComponent
 </summary>
+</member>
+<member name="M:ECommercePlatformView.DrawBarCode.DrawBarCodeAndLabel(System.String,System.String,System.Double,System.String,System.Byte,System.Single,System.Drawing.Graphics,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="CodBar">Codigo numerico</param>
+ <param name="LabelProduc">Descripcion del producto</param>
+ <param name="PriceProduc">Precio del producto</param>
+ <param name="LabelEmp">Empaque del producto</param>
+ <param name="Zise">Tamaño del grafico</param>
+ <param name="Width">Acho del grafico</param>
+ <param name="GraficoView">Lugar donde se grafica</param>
+ <param name="isPrintLabel">Debe graficar los titulos</param>
+ <returns>Dibujo de grafico de barras</returns>
 </member>
 <member name="T:ECommercePlatformView.ItemBebitEmployee">
 <summary>

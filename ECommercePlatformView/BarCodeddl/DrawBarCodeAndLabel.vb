@@ -25,7 +25,18 @@
     Private Shared _PriceProduct As Double
     Private Shared _EmqProduct As String
     Private Shared _IsPrintLabel As Boolean
-
+    ''' <summary>
+    ''' 
+    ''' </summary>
+    ''' <param name="CodBar">Codigo numerico</param>
+    ''' <param name="LabelProduc">Descripcion del producto</param>
+    ''' <param name="PriceProduc">Precio del producto</param>
+    ''' <param name="LabelEmp">Empaque del producto</param>
+    ''' <param name="Zise">Tamaño del grafico</param>
+    ''' <param name="Width">Acho del grafico</param>
+    ''' <param name="GraficoView">Lugar donde se grafica</param>
+    ''' <param name="isPrintLabel">Debe graficar los titulos</param>
+    ''' <returns>Dibujo de grafico de barras</returns>
     Public Shared Function DrawBarCodeAndLabel(ByVal CodBar As String,
                                                ByVal LabelProduc As String,
                                                ByVal PriceProduc As Double,
@@ -68,7 +79,7 @@
             deliteHeigth = 0
             Select Case logitudCodigoBarras
                 Case 8
-                    delitedWidth = If(Zise = 1, 120, 150)
+                    delitedWidth = If(Zise = 1, 120, 165)
                     deliteHeigth = If(Zise = 1, 90, 120)
                 Case 12
                     delitedWidth = If(Zise = 1, 120, 220)

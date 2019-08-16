@@ -148,7 +148,7 @@ Public Class frmbackup_SimpleClearLog
                 "tatos de LOG de transaccione, hacer una copia de seguridad de esta." & vbCrLf & vbCrLf
         sql = sql & "Una vez echan y la copia de seguridad y puesta a buen recaudo, proceda hacer la limpieza." & vbCrLf & vbCrLf
 
-        sql = sql & "Base de batos : " & myParent.DataBase
+        sql = sql & "Base de datos : " & myParent.DataBase
         sql = sql & vbCrLf & vbCrLf
         sql = sql & "Suerte…."
 

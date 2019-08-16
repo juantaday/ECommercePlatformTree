@@ -1110,7 +1110,7 @@ Partial Class frmAdquisicion
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.06122!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.93877!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 124.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.DescBase0Text, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TotalBasText, 3, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.Label26, 2, 2)
@@ -1143,7 +1143,7 @@ Partial Class frmAdquisicion
         Me.DescBase0Text.Multiline = True
         Me.DescBase0Text.Name = "DescBase0Text"
         Me.DescBase0Text.ReadOnly = True
-        Me.DescBase0Text.Size = New System.Drawing.Size(130, 32)
+        Me.DescBase0Text.Size = New System.Drawing.Size(128, 32)
         Me.DescBase0Text.TabIndex = 14
         Me.DescBase0Text.Text = "0"
         Me.DescBase0Text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1154,12 +1154,12 @@ Partial Class frmAdquisicion
         Me.TotalBasText.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TotalBasText.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalBasText.ForeColor = System.Drawing.Color.Navy
-        Me.TotalBasText.Location = New System.Drawing.Point(216, 69)
+        Me.TotalBasText.Location = New System.Drawing.Point(214, 69)
         Me.TotalBasText.Margin = New System.Windows.Forms.Padding(0)
         Me.TotalBasText.Multiline = True
         Me.TotalBasText.Name = "TotalBasText"
         Me.TotalBasText.ReadOnly = True
-        Me.TotalBasText.Size = New System.Drawing.Size(125, 34)
+        Me.TotalBasText.Size = New System.Drawing.Size(127, 34)
         Me.TotalBasText.TabIndex = 7
         Me.TotalBasText.Text = "0"
         Me.TotalBasText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1170,7 +1170,7 @@ Partial Class frmAdquisicion
         Me.Label26.AutoSize = True
         Me.Label26.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label26.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label26.Location = New System.Drawing.Point(187, 69)
+        Me.Label26.Location = New System.Drawing.Point(185, 69)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(25, 34)
         Me.Label26.TabIndex = 6
@@ -1198,7 +1198,7 @@ Partial Class frmAdquisicion
         Me.DescBase12Text.Multiline = True
         Me.DescBase12Text.Name = "DescBase12Text"
         Me.DescBase12Text.ReadOnly = True
-        Me.DescBase12Text.Size = New System.Drawing.Size(130, 33)
+        Me.DescBase12Text.Size = New System.Drawing.Size(128, 33)
         Me.DescBase12Text.TabIndex = 3
         Me.DescBase12Text.Text = "0"
         Me.DescBase12Text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1209,7 +1209,7 @@ Partial Class frmAdquisicion
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(187, 35)
+        Me.Label11.Location = New System.Drawing.Point(185, 35)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(25, 33)
         Me.Label11.TabIndex = 2
@@ -1244,12 +1244,12 @@ Partial Class frmAdquisicion
         '
         Me.Bas12text.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Bas12text.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Bas12text.Location = New System.Drawing.Point(216, 35)
+        Me.Bas12text.Location = New System.Drawing.Point(214, 35)
         Me.Bas12text.Margin = New System.Windows.Forms.Padding(0)
         Me.Bas12text.Multiline = True
         Me.Bas12text.Name = "Bas12text"
         Me.Bas12text.ReadOnly = True
-        Me.Bas12text.Size = New System.Drawing.Size(125, 33)
+        Me.Bas12text.Size = New System.Drawing.Size(127, 33)
         Me.Bas12text.TabIndex = 1
         Me.Bas12text.Text = "0"
         Me.Bas12text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1259,12 +1259,12 @@ Partial Class frmAdquisicion
         '
         Me.Bas0text.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Bas0text.Font = New System.Drawing.Font("Tahoma", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Bas0text.Location = New System.Drawing.Point(216, 2)
+        Me.Bas0text.Location = New System.Drawing.Point(214, 2)
         Me.Bas0text.Margin = New System.Windows.Forms.Padding(0)
         Me.Bas0text.Multiline = True
         Me.Bas0text.Name = "Bas0text"
         Me.Bas0text.ReadOnly = True
-        Me.Bas0text.Size = New System.Drawing.Size(125, 32)
+        Me.Bas0text.Size = New System.Drawing.Size(127, 32)
         Me.Bas0text.TabIndex = 1
         Me.Bas0text.Text = "0"
         Me.Bas0text.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1275,7 +1275,7 @@ Partial Class frmAdquisicion
         Me.Label5.AutoSize = True
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(187, 2)
+        Me.Label5.Location = New System.Drawing.Point(185, 2)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(25, 32)
         Me.Label5.TabIndex = 0
@@ -1292,7 +1292,7 @@ Partial Class frmAdquisicion
         Me.TotalBase.Multiline = True
         Me.TotalBase.Name = "TotalBase"
         Me.TotalBase.ReadOnly = True
-        Me.TotalBase.Size = New System.Drawing.Size(130, 34)
+        Me.TotalBase.Size = New System.Drawing.Size(128, 34)
         Me.TotalBase.TabIndex = 5
         Me.TotalBase.Text = "0"
         Me.TotalBase.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -1647,7 +1647,7 @@ Partial Class frmAdquisicion
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.68162!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.31839!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.btnCancelCompra, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.btnGuardarCompra, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Label12, 0, 0)
@@ -1675,7 +1675,7 @@ Partial Class frmAdquisicion
         Me.btnGuardarCompra.BackColor = System.Drawing.Color.Navy
         Me.btnGuardarCompra.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnGuardarCompra.ForeColor = System.Drawing.Color.White
-        Me.btnGuardarCompra.Location = New System.Drawing.Point(777, 4)
+        Me.btnGuardarCompra.Location = New System.Drawing.Point(776, 4)
         Me.btnGuardarCompra.Name = "btnGuardarCompra"
         Me.btnGuardarCompra.Size = New System.Drawing.Size(195, 35)
         Me.btnGuardarCompra.TabIndex = 13
@@ -1782,7 +1782,7 @@ Partial Class frmAdquisicion
         Me.TableLayoutPanel3.ColumnCount = 3
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.20454!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.79545!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.Button1, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label13, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnAcepProveedor, 1, 0)
@@ -1797,9 +1797,9 @@ Partial Class frmAdquisicion
         'Button1
         '
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.Location = New System.Drawing.Point(978, 3)
+        Me.Button1.Location = New System.Drawing.Point(977, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(141, 43)
+        Me.Button1.Size = New System.Drawing.Size(142, 43)
         Me.Button1.TabIndex = 13
         Me.Button1.Text = "Cancelar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -1821,7 +1821,7 @@ Partial Class frmAdquisicion
         Me.btnAcepProveedor.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAcepProveedor.Image = Global.ECommercePlatformView.My.Resources.Resources.VentasCarro_32
         Me.btnAcepProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAcepProveedor.Location = New System.Drawing.Point(776, 3)
+        Me.btnAcepProveedor.Location = New System.Drawing.Point(775, 3)
         Me.btnAcepProveedor.Name = "btnAcepProveedor"
         Me.btnAcepProveedor.Size = New System.Drawing.Size(196, 43)
         Me.btnAcepProveedor.TabIndex = 11

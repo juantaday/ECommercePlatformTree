@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmList_Facturas
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmList_Facturas
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmList_Facturas))
@@ -43,7 +43,7 @@ Partial Class frmList_Facturas
         Me.ViewListFavorityButton = New System.Windows.Forms.Button()
         Me.BackArrow_Button = New System.Windows.Forms.Button()
         Me.FavorityButton = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.chageNoteButton = New System.Windows.Forms.Button()
         Me.OperacionNumLabel = New System.Windows.Forms.Label()
         Me.ListViewCabecera = New System.Windows.Forms.ListView()
         Me.IdFactureColum = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
@@ -85,10 +85,10 @@ Partial Class frmList_Facturas
         Me.btnClose = New System.Windows.Forms.Button()
         Me.lbltotalFactur = New System.Windows.Forms.Label()
         Me.lblNoInforcion = New System.Windows.Forms.Label()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.MenuFlow = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnNoselect = New System.Windows.Forms.Button()
         Me.btnCopy = New System.Windows.Forms.Button()
-        Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FilterFlow = New System.Windows.Forms.FlowLayoutPanel()
         Me.PanelImputDate = New System.Windows.Forms.Panel()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -128,13 +128,18 @@ Partial Class frmList_Facturas
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.PanelData = New System.Windows.Forms.Panel()
         Me.PanelFavority = New System.Windows.Forms.Panel()
+        Me.ObjectListView1 = New BrightIdeasSoftware.ObjectListView()
+        Me.idClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.idFactVentaClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.noteClm = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
+        Me.totalCml = CType(New BrightIdeasSoftware.OLVColumn(), BrightIdeasSoftware.OLVColumn)
         Me.Panel8 = New System.Windows.Forms.Panel()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.DeleteFavoritButton = New System.Windows.Forms.Button()
+        Me.ViewDetalFavoritebutton = New System.Windows.Forms.Button()
         Me.paneTitulo.SuspendLayout()
         Me.PanePie.SuspendLayout()
-        Me.FlowLayoutPanel1.SuspendLayout()
-        Me.FlowLayoutPanel4.SuspendLayout()
+        Me.MenuFlow.SuspendLayout()
+        Me.FilterFlow.SuspendLayout()
         Me.PanelImputDate.SuspendLayout()
         Me.PaneCentral.SuspendLayout()
         Me.PanelView.SuspendLayout()
@@ -156,6 +161,7 @@ Partial Class frmList_Facturas
         Me.Panel4.SuspendLayout()
         Me.Panel6.SuspendLayout()
         Me.PanelFavority.SuspendLayout()
+        CType(Me.ObjectListView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel8.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -383,21 +389,21 @@ Partial Class frmList_Facturas
         Me.ToolTip1.SetToolTip(Me.FavorityButton, "Agregar a mis documentos favoritos..")
         Me.FavorityButton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'chageNoteButton
         '
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Image = Global.ECommercePlatformView.My.Resources.Resources.change_name_32
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(241, 2)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(155, 41)
-        Me.Button2.TabIndex = 0
-        Me.Button2.Text = "Cambiar nombre "
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ToolTip1.SetToolTip(Me.Button2, "Enviar a documento favoritos...")
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.chageNoteButton.BackColor = System.Drawing.Color.White
+        Me.chageNoteButton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.chageNoteButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.chageNoteButton.Image = Global.ECommercePlatformView.My.Resources.Resources.change_name_32
+        Me.chageNoteButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.chageNoteButton.Location = New System.Drawing.Point(275, 2)
+        Me.chageNoteButton.Name = "chageNoteButton"
+        Me.chageNoteButton.Size = New System.Drawing.Size(155, 41)
+        Me.chageNoteButton.TabIndex = 0
+        Me.chageNoteButton.Text = "Cambiar nombre "
+        Me.chageNoteButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ToolTip1.SetToolTip(Me.chageNoteButton, "Enviar a documento favoritos...")
+        Me.chageNoteButton.UseVisualStyleBackColor = False
         '
         'OperacionNumLabel
         '
@@ -702,18 +708,18 @@ Partial Class frmList_Facturas
         Me.lblNoInforcion.Text = "No existe información...."
         Me.lblNoInforcion.Visible = False
         '
-        'FlowLayoutPanel1
+        'MenuFlow
         '
-        Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.AppWorkspace
-        Me.FlowLayoutPanel1.Controls.Add(Me.ViewListFavorityButton)
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnSelectAll)
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnNoselect)
-        Me.FlowLayoutPanel1.Controls.Add(Me.btnCopy)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 42)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1209, 38)
-        Me.FlowLayoutPanel1.TabIndex = 79
+        Me.MenuFlow.BackColor = System.Drawing.SystemColors.AppWorkspace
+        Me.MenuFlow.Controls.Add(Me.ViewListFavorityButton)
+        Me.MenuFlow.Controls.Add(Me.btnSelectAll)
+        Me.MenuFlow.Controls.Add(Me.btnNoselect)
+        Me.MenuFlow.Controls.Add(Me.btnCopy)
+        Me.MenuFlow.Dock = System.Windows.Forms.DockStyle.Top
+        Me.MenuFlow.Location = New System.Drawing.Point(3, 42)
+        Me.MenuFlow.Name = "MenuFlow"
+        Me.MenuFlow.Size = New System.Drawing.Size(1209, 38)
+        Me.MenuFlow.TabIndex = 79
         '
         'btnNoselect
         '
@@ -741,19 +747,19 @@ Partial Class frmList_Facturas
         Me.btnCopy.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCopy.UseVisualStyleBackColor = True
         '
-        'FlowLayoutPanel4
+        'FilterFlow
         '
-        Me.FlowLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.FlowLayoutPanel4.Controls.Add(Me.CmbOptionSelect)
-        Me.FlowLayoutPanel4.Controls.Add(Me.txtbuscar)
-        Me.FlowLayoutPanel4.Controls.Add(Me.PanelImputDate)
-        Me.FlowLayoutPanel4.Controls.Add(Me.bntBuscar)
-        Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(3, 80)
-        Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(1209, 33)
-        Me.FlowLayoutPanel4.TabIndex = 81
+        Me.FilterFlow.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.FilterFlow.Controls.Add(Me.CmbOptionSelect)
+        Me.FilterFlow.Controls.Add(Me.txtbuscar)
+        Me.FilterFlow.Controls.Add(Me.PanelImputDate)
+        Me.FilterFlow.Controls.Add(Me.bntBuscar)
+        Me.FilterFlow.Dock = System.Windows.Forms.DockStyle.Top
+        Me.FilterFlow.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FilterFlow.Location = New System.Drawing.Point(3, 80)
+        Me.FilterFlow.Name = "FilterFlow"
+        Me.FilterFlow.Size = New System.Drawing.Size(1209, 33)
+        Me.FilterFlow.TabIndex = 81
         '
         'PanelImputDate
         '
@@ -1123,60 +1129,121 @@ Partial Class frmList_Facturas
         Me.PanelData.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PanelData.Location = New System.Drawing.Point(17, 119)
         Me.PanelData.Name = "PanelData"
-        Me.PanelData.Size = New System.Drawing.Size(65, 26)
+        Me.PanelData.Size = New System.Drawing.Size(73, 78)
         Me.PanelData.TabIndex = 83
         '
         'PanelFavority
         '
+        Me.PanelFavority.Controls.Add(Me.ObjectListView1)
         Me.PanelFavority.Controls.Add(Me.Panel8)
         Me.PanelFavority.Location = New System.Drawing.Point(103, 119)
         Me.PanelFavority.Name = "PanelFavority"
-        Me.PanelFavority.Size = New System.Drawing.Size(921, 142)
+        Me.PanelFavority.Padding = New System.Windows.Forms.Padding(2)
+        Me.PanelFavority.Size = New System.Drawing.Size(921, 178)
         Me.PanelFavority.TabIndex = 84
+        '
+        'ObjectListView1
+        '
+        Me.ObjectListView1.AllColumns.Add(Me.idClm)
+        Me.ObjectListView1.AllColumns.Add(Me.idFactVentaClm)
+        Me.ObjectListView1.AllColumns.Add(Me.noteClm)
+        Me.ObjectListView1.AllColumns.Add(Me.totalCml)
+        Me.ObjectListView1.AllowColumnReorder = True
+        Me.ObjectListView1.AllowDrop = True
+        Me.ObjectListView1.AlternateRowBackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.ObjectListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.idClm, Me.idFactVentaClm, Me.noteClm, Me.totalCml})
+        Me.ObjectListView1.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ObjectListView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ObjectListView1.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ObjectListView1.FullRowSelect = True
+        Me.ObjectListView1.GridLines = True
+        Me.ObjectListView1.HeaderWordWrap = True
+        Me.ObjectListView1.HideSelection = False
+        Me.ObjectListView1.IncludeColumnHeadersInCopy = True
+        Me.ObjectListView1.IncludeHiddenColumnsInDataTransfer = True
+        Me.ObjectListView1.Location = New System.Drawing.Point(2, 49)
+        Me.ObjectListView1.Name = "ObjectListView1"
+        Me.ObjectListView1.OwnerDraw = True
+        Me.ObjectListView1.ShowGroups = False
+        Me.ObjectListView1.Size = New System.Drawing.Size(917, 127)
+        Me.ObjectListView1.TabIndex = 1
+        Me.ObjectListView1.UseAlternatingBackColors = True
+        Me.ObjectListView1.UseCompatibleStateImageBehavior = False
+        Me.ObjectListView1.UseFilterIndicator = True
+        Me.ObjectListView1.UseFiltering = True
+        Me.ObjectListView1.UseHotItem = True
+        Me.ObjectListView1.View = System.Windows.Forms.View.Details
+        '
+        'idClm
+        '
+        Me.idClm.AspectName = "id"
+        Me.idClm.IsVisible = False
+        Me.idClm.Text = "ID"
+        Me.idClm.Width = 80
+        '
+        'idFactVentaClm
+        '
+        Me.idFactVentaClm.AspectName = "idFactVenta"
+        Me.idFactVentaClm.Text = "Cod Interno"
+        Me.idFactVentaClm.Width = 80
+        '
+        'noteClm
+        '
+        Me.noteClm.AspectName = "note"
+        Me.noteClm.Text = "Descripcion"
+        Me.noteClm.Width = 350
+        '
+        'totalCml
+        '
+        Me.totalCml.AspectName = "total"
+        Me.totalCml.HeaderTextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.totalCml.Text = "Valor Factura"
+        Me.totalCml.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.totalCml.Width = 120
         '
         'Panel8
         '
         Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel8.Controls.Add(Me.Button4)
-        Me.Panel8.Controls.Add(Me.Button2)
-        Me.Panel8.Controls.Add(Me.Button3)
+        Me.Panel8.Controls.Add(Me.DeleteFavoritButton)
+        Me.Panel8.Controls.Add(Me.chageNoteButton)
+        Me.Panel8.Controls.Add(Me.ViewDetalFavoritebutton)
         Me.Panel8.Controls.Add(Me.BackArrow_Button)
         Me.Panel8.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel8.Location = New System.Drawing.Point(0, 0)
+        Me.Panel8.Location = New System.Drawing.Point(2, 2)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Padding = New System.Windows.Forms.Padding(15, 2, 2, 2)
-        Me.Panel8.Size = New System.Drawing.Size(921, 47)
+        Me.Panel8.Size = New System.Drawing.Size(917, 47)
         Me.Panel8.TabIndex = 0
         '
-        'Button4
+        'DeleteFavoritButton
         '
-        Me.Button4.BackColor = System.Drawing.Color.White
-        Me.Button4.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Image = Global.ECommercePlatformView.My.Resources.Resources.Delete_32
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(396, 2)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(177, 41)
-        Me.Button4.TabIndex = 2
-        Me.Button4.Text = "Retirar de esta lista"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.DeleteFavoritButton.BackColor = System.Drawing.Color.White
+        Me.DeleteFavoritButton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.DeleteFavoritButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DeleteFavoritButton.Image = Global.ECommercePlatformView.My.Resources.Resources.Delete_32
+        Me.DeleteFavoritButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.DeleteFavoritButton.Location = New System.Drawing.Point(430, 2)
+        Me.DeleteFavoritButton.Name = "DeleteFavoritButton"
+        Me.DeleteFavoritButton.Size = New System.Drawing.Size(177, 41)
+        Me.DeleteFavoritButton.TabIndex = 2
+        Me.DeleteFavoritButton.Text = "Retirar de esta lista"
+        Me.DeleteFavoritButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.DeleteFavoritButton.UseVisualStyleBackColor = False
         '
-        'Button3
+        'ViewDetalFavoritebutton
         '
-        Me.Button3.BackColor = System.Drawing.Color.White
-        Me.Button3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Image = Global.ECommercePlatformView.My.Resources.Resources.DetailInvoice_32
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(82, 2)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(159, 41)
-        Me.Button3.TabIndex = 1
-        Me.Button3.Text = "Ver el documento"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.ViewDetalFavoritebutton.BackColor = System.Drawing.Color.White
+        Me.ViewDetalFavoritebutton.Dock = System.Windows.Forms.DockStyle.Left
+        Me.ViewDetalFavoritebutton.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ViewDetalFavoritebutton.Image = Global.ECommercePlatformView.My.Resources.Resources.DetailInvoice_32
+        Me.ViewDetalFavoritebutton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ViewDetalFavoritebutton.Location = New System.Drawing.Point(82, 2)
+        Me.ViewDetalFavoritebutton.Name = "ViewDetalFavoritebutton"
+        Me.ViewDetalFavoritebutton.Size = New System.Drawing.Size(193, 41)
+        Me.ViewDetalFavoritebutton.TabIndex = 1
+        Me.ViewDetalFavoritebutton.Text = "Ver articulos de la lista"
+        Me.ViewDetalFavoritebutton.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ViewDetalFavoritebutton.UseVisualStyleBackColor = False
         '
         'frmList_Facturas
         '
@@ -1188,8 +1255,8 @@ Partial Class frmList_Facturas
         Me.Controls.Add(Me.PanelFavority)
         Me.Controls.Add(Me.PanelData)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Controls.Add(Me.FlowLayoutPanel4)
-        Me.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Controls.Add(Me.FilterFlow)
+        Me.Controls.Add(Me.MenuFlow)
         Me.Controls.Add(Me.PanePie)
         Me.Controls.Add(Me.paneTitulo)
         Me.Controls.Add(Me.Label1)
@@ -1201,9 +1268,9 @@ Partial Class frmList_Facturas
         Me.paneTitulo.PerformLayout()
         Me.PanePie.ResumeLayout(False)
         Me.PanePie.PerformLayout()
-        Me.FlowLayoutPanel1.ResumeLayout(False)
-        Me.FlowLayoutPanel4.ResumeLayout(False)
-        Me.FlowLayoutPanel4.PerformLayout()
+        Me.MenuFlow.ResumeLayout(False)
+        Me.FilterFlow.ResumeLayout(False)
+        Me.FilterFlow.PerformLayout()
         Me.PanelImputDate.ResumeLayout(False)
         Me.PanelImputDate.PerformLayout()
         Me.PaneCentral.ResumeLayout(False)
@@ -1231,6 +1298,7 @@ Partial Class frmList_Facturas
         Me.Panel6.ResumeLayout(False)
         Me.Panel6.PerformLayout()
         Me.PanelFavority.ResumeLayout(False)
+        CType(Me.ObjectListView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel8.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -1267,11 +1335,11 @@ Partial Class frmList_Facturas
     Friend WithEvents paneTitulo As System.Windows.Forms.Panel
     Friend WithEvents PanePie As System.Windows.Forms.Panel
     Friend WithEvents btnClose As System.Windows.Forms.Button
-    Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents MenuFlow As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents btnSelectAll As System.Windows.Forms.Button
     Friend WithEvents btnNoselect As System.Windows.Forms.Button
     Friend WithEvents btnCopy As System.Windows.Forms.Button
-    Friend WithEvents FlowLayoutPanel4 As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents FilterFlow As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents PaneCentral As System.Windows.Forms.Panel
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents lblTituloDetalle As System.Windows.Forms.Label
@@ -1338,9 +1406,14 @@ Partial Class frmList_Facturas
     Friend WithEvents PanelData As Panel
     Friend WithEvents PanelFavority As Panel
     Friend WithEvents Panel8 As Panel
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents chageNoteButton As Button
+    Friend WithEvents ViewDetalFavoritebutton As Button
+    Friend WithEvents DeleteFavoritButton As Button
     Friend WithEvents BackArrow_Button As Button
     Friend WithEvents FavorityButton As Button
+    Friend WithEvents ObjectListView1 As BrightIdeasSoftware.ObjectListView
+    Friend WithEvents idClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents noteClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents idFactVentaClm As BrightIdeasSoftware.OLVColumn
+    Friend WithEvents totalCml As BrightIdeasSoftware.OLVColumn
 End Class

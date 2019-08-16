@@ -100,6 +100,7 @@ Public Class frmWhereHouseCommerce
                     Me.ListView1.Items.Add(SetViewItemInListView(item))
                 Next
             End Using
+            ListView1_SelectedIndexChanged(ListView1, New EventArgs)
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
@@ -360,7 +361,7 @@ Public Class frmWhereHouseCommerce
         End Try
     End Sub
 
-    Private Sub findButton_Click(sender As Object, e As EventArgs) Handles findButton.Click
+    Private Async Sub findButton_Click(sender As Object, e As EventArgs) Handles findButton.Click
         Try
             DeleteRatesButton.Tag = 0
             If Not ListView1.SelectedItems.Count = 1 Then
@@ -374,6 +375,7 @@ Public Class frmWhereHouseCommerce
                         DeleteRatesButton.Tag = .idRates
                         If SaveRates(DeleteRatesButton.Tag, ListView1.SelectedItems(0).Text) Then
                             FindRatesTextBox.Text = "(" & .idRates & ") " & .Descriptios
+                            Await GetInformationServices.GeneralInformation.Inicia_Terminal(True)
                         End If
                     End If
                 End With
@@ -400,7 +402,7 @@ Public Class frmWhereHouseCommerce
             Return False
         End Try
     End Function
-    Private Sub DeleteRatesButton_Click(sender As Object, e As EventArgs) Handles DeleteRatesButton.Click
+    Private Async Sub DeleteRatesButton_Click(sender As Object, e As EventArgs) Handles DeleteRatesButton.Click
         DeleteRatesButton.Tag = 0
         If Not ListView1.SelectedItems.Count = 1 Then
             MsgBox("Seleccione un local o bodega", MsgBoxStyle.Exclamation, "Importante")
@@ -411,6 +413,7 @@ Public Class frmWhereHouseCommerce
             If DeleteRates(ListView1.SelectedItems(0).Text) Then
                 FindRatesTextBox.Text = "Ninguno..."
                 DeleteRatesButton.Visible = False
+                Await GetInformationServices.GeneralInformation.Inicia_Terminal(True)
             End If
         End If
     End Sub
@@ -508,5 +511,7 @@ Public Class frmWhereHouseCommerce
         End Try
     End Function
 
-
+    Private Sub ListView1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListView1.SelectedIndexChanged
+        PanelConfig.Enabled = ListView1.SelectedItems.Count = 1
+    End Sub
 End Class

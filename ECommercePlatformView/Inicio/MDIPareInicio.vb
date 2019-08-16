@@ -1,6 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Net
+Imports System.Threading
+
 Public Class MDIPareInicio
     Private Sub StatusBarToolStripMenuItem_Click(ByVal sender As Object, ByVal e As EventArgs) Handles StatusBarToolStripMenuItem.Click
         Me.StatusStrip.Visible = Me.StatusBarToolStripMenuItem.Checked
@@ -291,20 +293,24 @@ Public Class MDIPareInicio
     Private Sub DiariaPorCajaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DiariaPorCajaToolStripMenuItem.Click
         Try
             Me.Cursor = Cursors.WaitCursor
-            GetInformationServices.GeneralInformation.Inicia_Terminal(True)
+
             Dim myTerminalActivo As ResponseTerminal = isTerminalHabil(UsuarioActivo.codUser, TerminalActivo.codTerminal)
             If myTerminalActivo.Success Then
                 Dim responIsHabil As ResponseTerminal = Carga_idCajaStado(myTerminalActivo.DataDb)
                 If responIsHabil.Success Then
-                    Dim frmVentaNew = New frmVentas
-                    With frmVentaNew
-                        .MdiParent = Me
-                        .Show()
-                        .WindowState = FormWindowState.Maximized
-                    End With
+
+                    System.Diagnostics.Debug.WriteLine(Date.Now.ToLongTimeString() & " Iniciando vista")
+                    Dim frmVentaNew = New frmVentas()
+                    System.Diagnostics.Debug.WriteLine(Date.Now.ToLongTimeString() & "  vista iniciada")
+                    frmVentaNew.MdiParent = Me
+
+                    frmVentaNew.Show()
+                    System.Diagnostics.Debug.WriteLine(Date.Now.ToString() & "  vista clara")
+                    frmVentaNew.WindowState = FormWindowState.Maximized
                 End If
             End If
             myTerminalActivo = Nothing
+
         Catch ex As Exception
             Me.Cursor = Cursors.Default
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
@@ -1121,6 +1127,18 @@ Salida:
             End With
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Exclamation, "Error")
+        End Try
+    End Sub
+
+    Private Sub DevolucionesVentaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DevolucionesVentaToolStripMenuItem.Click
+        Try
+            Using Form As New frmList_Facturas()
+                With Form
+                    .ShowDialog()
+                End With
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 End Class

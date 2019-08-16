@@ -101,7 +101,7 @@ Public Class frmMyCommerce
             PanelViewData.Controls.Add(panlevew)
             panlevew.Dock = DockStyle.Fill
         Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message & "" & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
     Private Sub SetOwner()

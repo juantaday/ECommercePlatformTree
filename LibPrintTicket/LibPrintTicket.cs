@@ -126,7 +126,7 @@ namespace LibPrintTicket
             }
 
             #endregion
-            public void TextoIzquierda(string texto, bool Justificado)                          // agrega texto a la izquierda
+            public void TextoIzquierda(string texto, bool Justificado=false)                          // agrega texto a la izquierda
             {
                 string Alineacion = "\x1B" + "a" + "\x0";
                 RawPrinterHelper.SendStringToPrinter(PrinterName, Alineacion); // comando de alineación
@@ -414,7 +414,7 @@ namespace LibPrintTicket
             }
             public void AvanzaPiePagina()
             {
-                string avance = "\x1B" + "J" + "\x14";        //avanza 13 lines mínimas
+                string avance = "\x1B" + "J" + "\x11";        //avanza 13 lines mínimas
                 RawPrinterHelper.SendStringToPrinter(PrinterName, avance); // Retrocede
             }
             public void Avanza2Lines()
@@ -596,7 +596,6 @@ namespace LibPrintTicket
 
         // ESTA CLASE ES PARA PODER IMPRIMIR EL TEXTO PLANO
         #region Clase para enviar a imprsora texto plano
-
 
 
         public class RawPrinterHelper

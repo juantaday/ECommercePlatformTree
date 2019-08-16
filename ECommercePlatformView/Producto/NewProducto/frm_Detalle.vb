@@ -90,6 +90,8 @@ Public Class frm_detalle
                     StateCheckBox.Checked = Boolean.Parse(dt.Rows(0)("Activo"))
                     StateCheckBox.Enabled = False
 
+                    Me.AdminDateExpirateCheckBox.Checked = Boolean.Parse(dt.Rows(0)("ItIsExpirable"))
+
                     If IsNothing(Me.myPadre) Then
                         Return
                     End If
@@ -176,15 +178,19 @@ Public Class frm_detalle
             Dim coduser As String = UsuarioActivo.codUser
             Dim AdminDateExpirate? As Int16 = If(Me.AdminDateExpirateCheckBox.Checked, 1, 0)
 
+            Activo = If(StateCheckBox.Checked, 1, 0)
+            IvaPorcent = If(IvaCheckBox.Checked, ivaPorcentaje, 0)
 
-            If (IvaCheckBox.Checked) Then
-                IvaPorcent = ivaPorcentaje
-            End If
+
             Dim cmd As New SqlCommand()
             cmd.CommandType = CommandType.Text
             cmd.Connection = Cnn_sql
+            If Me.Id_Producto > 0 Then
+                Me.Operation = stateOperation.Update
+            End If
 
-            If Operation = stateOperation.Insert Then ' si boy agregar
+
+            If Me.Operation = stateOperation.Insert Then ' si boy agregar
 
                 sql = "Insert into Productos(Nom_Comercial,Nom_Comun,Descripcion,Cant_minima,idUnidad,IdSubCategoria,Deft_idPresenCompra, "
                 sql = sql & "Deft_idPresenVenta,IvaPorcentaje,coduser,Facturable,ItIsExpirable, IdKind) "
@@ -199,7 +205,7 @@ Public Class frm_detalle
                     Id_Producto = (cmd.Parameters("@identity").Value)
                     Return True
                 End If
-            ElseIf Operation = stateOperation.Update Then ' para midificar
+            ElseIf Me.Operation = stateOperation.Update Then ' para midificar
                 sql = "UPDATE Productos SET Nom_Comercial='" & Nom_Comercial & "',Nom_Comun='" & Nom_Comun & "',Descripcion ='" & Descripcion & "',Cant_minima =" & Cant_minima & ", "
                 sql = sql & "idUnidad =" & idUnidad & ", "
                 sql = sql & "IvaPorcentaje = " & IvaPorcent & " ,coduser='" & coduser & "',Facturable = " & Facturable & ", Activo = " & Activo & ", "
@@ -219,7 +225,7 @@ Public Class frm_detalle
             End If
             Return False
         Catch ex As Exception
-            MsgBox(ex.Message + " en el Agrega_Producto del " + Name, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
             Return False
         End Try
     End Function

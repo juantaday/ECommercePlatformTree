@@ -51,6 +51,7 @@ Partial Class frmList_ProductoView
         Me.AgregarButton = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.CollapBarrButton = New System.Windows.Forms.Button()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.Panel5 = New System.Windows.Forms.Panel()
         Me.FolderBrouserButton = New System.Windows.Forms.Button()
@@ -342,6 +343,7 @@ Partial Class frmList_ProductoView
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(27, Byte), Integer), CType(CType(165, Byte), Integer), CType(CType(184, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.CollapBarrButton)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.txtProduc_Select)
         Me.Panel1.Controls.Add(Me.btnBuscar)
@@ -350,6 +352,19 @@ Partial Class frmList_ProductoView
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(1094, 39)
         Me.Panel1.TabIndex = 0
+        '
+        'CollapBarrButton
+        '
+        Me.CollapBarrButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CollapBarrButton.Location = New System.Drawing.Point(1009, 26)
+        Me.CollapBarrButton.Name = "CollapBarrButton"
+        Me.CollapBarrButton.Size = New System.Drawing.Size(83, 14)
+        Me.CollapBarrButton.TabIndex = 12
+        Me.CollapBarrButton.Tag = "1"
+        Me.CollapBarrButton.Text = ".........."
+        Me.CollapBarrButton.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.ToolTip1.SetToolTip(Me.CollapBarrButton, "Mantener visible codigo de barra")
+        Me.CollapBarrButton.UseVisualStyleBackColor = True
         '
         'SplitContainer1
         '
@@ -703,4 +718,5 @@ Partial Class frmList_ProductoView
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents FacturaCompraDocumentoTableAdapter1 As CADsisVenta.DataSetComprasTableAdapters.FacturaCompraDocumentoTableAdapter
     Friend WithEvents ExpirateButton As Button
+    Friend WithEvents CollapBarrButton As Button
 End Class

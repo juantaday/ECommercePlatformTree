@@ -26,12 +26,12 @@ Partial Class frmMyCommerce
         Me.menuDetalle = New System.Windows.Forms.ToolStripMenuItem()
         Me.PropietariosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuConfiguracion = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuWhereHouse = New System.Windows.Forms.ToolStripMenuItem()
         Me.menuProveedor = New System.Windows.Forms.ToolStripMenuItem()
         Me.PanelFood = New System.Windows.Forms.Panel()
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.PanelViewData = New System.Windows.Forms.Panel()
-        Me.EmpleadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         Me.PanelFood.SuspendLayout()
         Me.SuspendLayout()
@@ -65,11 +65,12 @@ Partial Class frmMyCommerce
         '
         'PropietariosToolStripMenuItem
         '
+        Me.PropietariosToolStripMenuItem.AutoSize = False
         Me.PropietariosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonHighlight
         Me.PropietariosToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Onwer_32
         Me.PropietariosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.PropietariosToolStripMenuItem.Name = "PropietariosToolStripMenuItem"
-        Me.PropietariosToolStripMenuItem.Size = New System.Drawing.Size(138, 36)
+        Me.PropietariosToolStripMenuItem.Size = New System.Drawing.Size(180, 33)
         Me.PropietariosToolStripMenuItem.Text = "Propietarios"
         '
         'menuConfiguracion
@@ -81,6 +82,16 @@ Partial Class frmMyCommerce
         Me.menuConfiguracion.Name = "menuConfiguracion"
         Me.menuConfiguracion.Size = New System.Drawing.Size(180, 33)
         Me.menuConfiguracion.Text = "Con&figuración"
+        '
+        'EmpleadosToolStripMenuItem
+        '
+        Me.EmpleadosToolStripMenuItem.AutoSize = False
+        Me.EmpleadosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
+        Me.EmpleadosToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Empleado_24
+        Me.EmpleadosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
+        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(180, 33)
+        Me.EmpleadosToolStripMenuItem.Text = "Empleados"
         '
         'menuWhereHouse
         '
@@ -135,15 +146,6 @@ Partial Class frmMyCommerce
         Me.PanelViewData.Name = "PanelViewData"
         Me.PanelViewData.Size = New System.Drawing.Size(694, 440)
         Me.PanelViewData.TabIndex = 5
-        '
-        'EmpleadosToolStripMenuItem
-        '
-        Me.EmpleadosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
-        Me.EmpleadosToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Empleado_24
-        Me.EmpleadosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.EmpleadosToolStripMenuItem.Name = "EmpleadosToolStripMenuItem"
-        Me.EmpleadosToolStripMenuItem.Size = New System.Drawing.Size(122, 28)
-        Me.EmpleadosToolStripMenuItem.Text = "Empleados"
         '
         'frmMyCommerce
         '

@@ -3,8 +3,6 @@ Imports CADsisVenta.DataSetSystemTableAdapters
 Imports CADsisVenta.DataSetCompras
 Imports CADsisVenta.DataSetComprasTableAdapters
 Imports CADsisVenta.ClsSystem
-Imports CADsisVenta
-Imports MultiColumnComboSuggestionBox.Funtions
 Imports BrightIdeasSoftware
 
 Public Class frmAdquisicion
@@ -1182,7 +1180,7 @@ inicia:
     End Sub
 
     Private Sub MoveDowButton_Click(sender As Object, e As EventArgs) Handles MoveDowButton.Click
-    
+
     End Sub
 
     Private Sub IvaCheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles IsIncludeIvaCheckBox.CheckedChanged

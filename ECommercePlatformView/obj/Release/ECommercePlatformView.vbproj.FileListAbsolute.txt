@@ -432,7 +432,16 @@ C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\WindowsApp5\obj\Release\EC
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\WindowsApp5\obj\Release\ECommercePlatformView.exe
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\WindowsApp5\obj\Release\ECommercePlatformView.xml
 C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\WindowsApp5\obj\Release\ECommercePlatformView.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Release Notes.txt
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.vbprojAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.exe.config
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Bancos\ViewFaltantesSobrantes.baml
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Bancos\Cajas\MoneyDetail.g.vb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Bancos\ViewFaltantesSobrantes.g.vb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Empleados\ItemBebitEmployee.g.vb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView_Content.g.vb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\GeneratedInternalTypeHelper.g.vb
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView_MarkupCompile.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView_MarkupCompile.lref
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\SqlServerTypes\x64\msvcr120.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\SqlServerTypes\x64\SqlServerSpatial140.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\SqlServerTypes\x86\msvcr120.dll
@@ -441,7 +450,6 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\ECommercePlatformView.exe
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\ECommercePlatformView.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\ECommercePlatformView.xml
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\BarcodeLib.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Bunifu_UI_v1.5.3.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CADsisVenta.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CrystalDecisions.CrystalReports.Engine.dll
@@ -475,6 +483,7 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.XtraSpreadsheet.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.XtraTreeList.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DGVPrinterHelper.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\FlashControlV71.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\itextsharp.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\LibPrintTicket.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.ReportViewer.Common.dll
@@ -499,19 +508,18 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CrystalDecisions.ReportAppServer.CubeDefModel.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CrystalDecisions.ReportAppServer.ObjectFactory.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\FlashControlV71.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.Xpo.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.CodeParser.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.Diagram.v17.1.Core.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.XtraDiagram.v17.1.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.Pdf.v17.1.Core.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DevExpress.XtraVerticalGrid.v17.1.dll
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\ShockwaveFlashObjects.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\EnvDTE.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.Shell.Interop.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.Shell.Interop.8.0.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CrystalDecisions.ReportAppServer.CommonControls.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\stdole.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\ShockwaveFlashObjects.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.OLE.Interop.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.TextManager.Interop.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.VSHelp.dll
@@ -530,7 +538,6 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.Shell.Interop.10.0.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\VSLangProj80.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.ManagedInterfaces.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.WCFReference.Interop.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.Debugger.Interop.11.0.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Newtonsoft.Json.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\System.Threading.Tasks.Dataflow.dll
@@ -540,7 +547,6 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.VisualStudio.TextManager.Interop.10.0.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\Microsoft.Build.Framework.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\VSLangProj2.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\BarcodeLib.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CADsisVenta.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\CADsisVenta.dll.config
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\DGVPrinterHelper.pdb
@@ -729,16 +735,6 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\es\Microsoft.VisualStudio.Data.Services.resources.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\es\Microsoft.VisualStudio.Data.Core.resources.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\bin\Release\es\Microsoft.VisualStudio.GraphModel.resources.dll
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.vbprojResolveAssemblyReference.cache
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.exe.config
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Bancos\ViewFaltantesSobrantes.baml
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Bancos\Cajas\MoneyDetail.g.vb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Bancos\ViewFaltantesSobrantes.g.vb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Empleados\ItemBebitEmployee.g.vb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView_Content.g.vb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\GeneratedInternalTypeHelper.g.vb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView_MarkupCompile.cache
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView_MarkupCompile.lref
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Bancos\Cajas\MoneyDetail.baml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\Empleados\ItemBebitEmployee.baml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.g.resources
@@ -812,11 +808,12 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmListEmployeeView.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmList_Empleados.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmList_EmployeeDebit.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmDetailFacturaVenta.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.FrmDocumentFavorityNote.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmList_Facturas.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.MyPreLoadders.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.AboutBox.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.ContagFrm.resources
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.Form1.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmPanel.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.WaitForTaskScreenWithCancellation.resources
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.LoginForm.resources
@@ -908,4 +905,4 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Rele
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.exe
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.xml
 F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.Form2.resources
+F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\ECommercePlatformView.frmViewCombinedDetail.resources

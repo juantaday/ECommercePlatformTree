@@ -5,7 +5,7 @@ Public Class ItemPerson
                    ByVal apellid As String,
                    ByVal nombre As String, ByVal direccion As String, ByVal telefon As String, ByVal email As String,
                    ByVal idRates As Integer, ByVal description As String, ByVal _genero As Boolean, Optional montoMax As Double = 0,
-                   Optional _image As Byte() = Nothing)
+                   Optional _image As Byte() = Nothing, Optional typePerson_ As Short = 0)
         _idPersona = idperson
         _idCliente = idClient
         _Apellidos = apellid
@@ -22,6 +22,7 @@ Public Class ItemPerson
         _monto_Max = montoMax
         _Images = _image
         __Genero = _genero
+        _TypePerson = typePerson_
     End Sub
     Private _monto_Max As Double
 
@@ -192,6 +193,15 @@ Public Class ItemPerson
         End Get
         Set(ByVal value As Boolean)
             __Genero = value
+        End Set
+    End Property
+    Private _TypePerson As Int16
+    Public Property TypePerson() As Int16
+        Get
+            Return _TypePerson
+        End Get
+        Set(ByVal value As Int16)
+            _TypePerson = value
         End Set
     End Property
 End Class

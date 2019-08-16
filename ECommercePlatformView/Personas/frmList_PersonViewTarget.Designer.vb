@@ -31,6 +31,7 @@ Partial Class frmList_PersonViewTarget
         Me.AddNewButton = New System.Windows.Forms.Button()
         Me.PersonVisibleNemuClicLabel = New System.Windows.Forms.Label()
         Me.PanelBusqueda = New System.Windows.Forms.Panel()
+        Me.FindTextBox = New MultiControls.Controls.TextBoxButton()
         Me.FindButton = New System.Windows.Forms.Button()
         Me.TableView = New System.Windows.Forms.TableLayoutPanel()
         Me.PanelDatos = New System.Windows.Forms.Panel()
@@ -41,7 +42,7 @@ Partial Class frmList_PersonViewTarget
         Me.PersonClickNamaLabel = New System.Windows.Forms.Label()
         Me.SelectPersonButton = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.FindTextBox = New MultiControls.Controls.TextBoxButton()
+        Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.PanelMenu.SuspendLayout()
         Me.PanelBusqueda.SuspendLayout()
         Me.PanelDatos.SuspendLayout()
@@ -150,6 +151,16 @@ Partial Class frmList_PersonViewTarget
         Me.PanelBusqueda.Size = New System.Drawing.Size(978, 46)
         Me.PanelBusqueda.TabIndex = 0
         '
+        'FindTextBox
+        '
+        Me.FindTextBox.ButtonImage = Global.ECommercePlatformView.My.Resources.Resources.Action_Delete_16x16
+        Me.FindTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FindTextBox.Location = New System.Drawing.Point(17, 11)
+        Me.FindTextBox.Name = "FindTextBox"
+        Me.FindTextBox.Size = New System.Drawing.Size(350, 26)
+        Me.FindTextBox.TabIndex = 0
+        Me.FindTextBox.VisibleButton = False
+        '
         'FindButton
         '
         Me.FindButton.Image = Global.ECommercePlatformView.My.Resources.Resources.FindCustomers_32x32
@@ -203,6 +214,7 @@ Partial Class frmList_PersonViewTarget
         Me.PanelFood.Controls.Add(Me.PreviuLinkLabel)
         Me.PanelFood.Controls.Add(Me.PersonClickNamaLabel)
         Me.PanelFood.Controls.Add(Me.SelectPersonButton)
+        Me.PanelFood.Controls.Add(Me.Cancel_Button)
         Me.PanelFood.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.PanelFood.Location = New System.Drawing.Point(3, 232)
         Me.PanelFood.Name = "PanelFood"
@@ -248,9 +260,9 @@ Partial Class frmList_PersonViewTarget
         'PersonClickNamaLabel
         '
         Me.PersonClickNamaLabel.Dock = System.Windows.Forms.DockStyle.Right
-        Me.PersonClickNamaLabel.Location = New System.Drawing.Point(622, 2)
+        Me.PersonClickNamaLabel.Location = New System.Drawing.Point(548, 2)
         Me.PersonClickNamaLabel.Name = "PersonClickNamaLabel"
-        Me.PersonClickNamaLabel.Size = New System.Drawing.Size(243, 32)
+        Me.PersonClickNamaLabel.Size = New System.Drawing.Size(240, 32)
         Me.PersonClickNamaLabel.TabIndex = 1
         Me.PersonClickNamaLabel.Tag = "0"
         '
@@ -258,27 +270,30 @@ Partial Class frmList_PersonViewTarget
         '
         Me.SelectPersonButton.BackColor = System.Drawing.Color.Silver
         Me.SelectPersonButton.Dock = System.Windows.Forms.DockStyle.Right
-        Me.SelectPersonButton.Location = New System.Drawing.Point(865, 2)
+        Me.SelectPersonButton.Location = New System.Drawing.Point(788, 2)
         Me.SelectPersonButton.Name = "SelectPersonButton"
         Me.SelectPersonButton.Size = New System.Drawing.Size(103, 32)
         Me.SelectPersonButton.TabIndex = 0
         Me.SelectPersonButton.Text = "Seleccionar.."
         Me.SelectPersonButton.UseVisualStyleBackColor = False
         '
-        'FindTextBox
+        'Cancel_Button
         '
-        Me.FindTextBox.ButtonImage = Global.ECommercePlatformView.My.Resources.Resources.Action_Delete_16x16
-        Me.FindTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FindTextBox.Location = New System.Drawing.Point(17, 11)
-        Me.FindTextBox.Name = "FindTextBox"
-        Me.FindTextBox.Size = New System.Drawing.Size(350, 26)
-        Me.FindTextBox.TabIndex = 0
-        Me.FindTextBox.VisibleButton = False
+        Me.Cancel_Button.BackColor = System.Drawing.Color.Silver
+        Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Cancel_Button.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Cancel_Button.Location = New System.Drawing.Point(891, 2)
+        Me.Cancel_Button.Name = "Cancel_Button"
+        Me.Cancel_Button.Size = New System.Drawing.Size(77, 32)
+        Me.Cancel_Button.TabIndex = 5
+        Me.Cancel_Button.Text = "Cancelar"
+        Me.Cancel_Button.UseVisualStyleBackColor = False
         '
         'frmList_PersonViewTarget
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(978, 396)
         Me.Controls.Add(Me.PanelDatos)
         Me.Controls.Add(Me.PanelBusqueda)
@@ -323,4 +338,5 @@ Partial Class frmList_PersonViewTarget
     Friend WithEvents AddNewButton As System.Windows.Forms.Button
     Friend WithEvents FindTextBox As MultiControls.Controls.TextBoxButton
     Friend WithEvents DeleteButton As System.Windows.Forms.Button
+    Friend WithEvents Cancel_Button As Button
 End Class

@@ -1,6 +1,0 @@
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\bin\x86\Debug\Release Notes.txt
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\bin\x86\Debug\BarcodeLib.dll
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\bin\x86\Debug\BarcodeLib.pdb
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\x86\Debug\BarcodeLib.csproj.CoreCompileInputs.cache
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\x86\Debug\BarcodeLib.dll
-C:\Users\Juan Taday\Source\Repos\ECommercePlatformTwo\BarcodeLib\obj\x86\Debug\BarcodeLib.pdb

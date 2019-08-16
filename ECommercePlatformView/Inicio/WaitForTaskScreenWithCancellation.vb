@@ -26,7 +26,6 @@ Partial Public Class WaitForTaskScreenWithCancellation
     <DllImport("Trial.dll", EntryPoint:="DisplayRegistrationStr", CharSet:=CharSet.Ansi)>
     Private Shared Function GetPropertyValue(ByVal aPropName As String, ByVal aResult As StringBuilder,
       ByRef aResultLen As UInt32) As UInteger
-
     End Function
 
     Private Shared klibraryKey As String = "CBC1BE2B5A6F9A925C71A548C3918E671D5386C906D5EC0773731E25FC8F1892F110940BC30D"
@@ -46,7 +45,6 @@ Partial Public Class WaitForTaskScreenWithCancellation
         End Try
     End Function
 #End Region
-
 
     Public ActionToExecute As Action(Of CancellationToken)
     Private _cancelTokenSource As CancellationTokenSource = New CancellationTokenSource
@@ -91,7 +89,7 @@ Partial Public Class WaitForTaskScreenWithCancellation
             Me.Invoke(CType((Function()
                                  Me.Close()
                                  Me.DialogResult = System.Windows.Forms.DialogResult.OK
-                                 Return vbOK
+                                 Return System.Windows.Forms.DialogResult.OK
                              End Function), MethodInvoker))
         End If
         releaseCancellationTokenSource()
@@ -102,13 +100,13 @@ Partial Public Class WaitForTaskScreenWithCancellation
             'If Not Me.OnInit() Then
             '    Me.Close()
             'End If
-            Task.Factory.StartNew(Sub() ActionToExecute(_cancelTokenSource.Token)).ContinueWith(Sub() TaskCompleted())
+
+            Task.Factory.StartNew(Sub() ActionToExecute(_cancelTokenSource.Token)) _
+                .ContinueWith(Sub() TaskCompleted())
 
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
-
-
         Try
 
             'Título de la aplicación

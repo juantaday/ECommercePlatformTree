@@ -17,4 +17,4 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\bin\Release\D
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Release\DGVPrinterHelper.csproj.CoreCompileInputs.cache
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Release\DGVPrinterHelper.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Release\DGVPrinterHelper.pdb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Release\DGVPrinterHelper.csprojResolveAssemblyReference.cache
+F:\Users\juant\Source\Repos\ECommercePlatformTree\DGVPrinterHelper\obj\Release\DGVPrinterHelper.csprojAssemblyReference.cache

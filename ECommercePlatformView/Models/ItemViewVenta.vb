@@ -173,4 +173,13 @@ Public Class ItemViewVenta
         Set(ByVal value As Double)
         End Set
     End Property
+    Private _DoNotUpdate As Boolean
+    Public Property DoNotUpdate() As Boolean
+        Get
+            Return _DoNotUpdate
+        End Get
+        Set(ByVal value As Boolean)
+            _DoNotUpdate = value
+        End Set
+    End Property
 End Class

@@ -25,10 +25,17 @@ namespace BrightIdeasSoftware.Helpers
             if (fileSystemInfo == null) throw new ArgumentNullException("fileSystemInfo");
             this.info = fileSystemInfo;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsDirectory { get { return this.AsDirectory != null; } }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public DirectoryInfo AsDirectory { get { return info as DirectoryInfo; } }
+        /// <summary>
+        /// 
+        /// </summary>
         public FileInfo AsFile { get { return info as FileInfo; } }
 
         public FileSystemInfo Info

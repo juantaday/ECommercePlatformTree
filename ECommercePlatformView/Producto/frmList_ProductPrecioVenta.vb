@@ -7,17 +7,14 @@ Public Class frmList_ProductPrecioVenta
     Protected Friend idPresent As Integer
     Protected Friend flag As String
     Protected Friend State As _state
-    Private DataList As List(Of PresentVendiblescollection)
+
     Sub New(Optional _dataListado As List(Of PresentVendiblescollection) = Nothing)
 
         ' Esta llamada es exigida por el diseñador.
         InitializeComponent()
 
         ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
-        DataList = New List(Of PresentVendiblescollection)
-        If Not IsNothing(_dataListado) Then
-            Me.DataList = _dataListado
-        End If
+
     End Sub
     Private Sub frmPreciosVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         idProducto = 0
@@ -50,9 +47,9 @@ Public Class frmList_ProductPrecioVenta
             Me.datalistado.DataSource = Nothing
 
             '/Generate spliter for select and preparated statement in master id datalist equals cero
-            Dim mySpliter As ResponseSpliter = GenerateSpliter(txtProduc_Select.Text, If(Me.DataList.Count = 0, True, False))
+            Dim mySpliter As ResponseSpliter = GenerateSpliter(txtProduc_Select.Text, If(ListVendiblescollection.Count = 0, True, False))
 
-            If Me.DataList.Count > 0 Then
+            If ListVendiblescollection.Count > 0 Then
                 Load_DataForLinq(mySpliter)
             Else
                 Carga_ListProducto()
@@ -79,7 +76,7 @@ Public Class frmList_ProductPrecioVenta
         Try
             '/ si busca el dodigo de barra
             If mySpliter.IsNumeric Then
-                Dim mylist = From l In Me.DataList.Where(Function(x) x.Barcode = mySpliter.Spliter(0))
+                Dim mylist = From l In ListVendiblescollection.Where(Function(x) x.Barcode = mySpliter.Spliter(0))
 
                 For Each item In mylist
                     ListGeneral.Add(item)
@@ -88,7 +85,7 @@ Public Class frmList_ProductPrecioVenta
             End If
             '/si busca el codigo de producto
             If mySpliter.IsCode Then
-                Dim mylist = From l In Me.DataList.Where(Function(x) x.CodProducto = mySpliter.Spliter(0))
+                Dim mylist = From l In ListVendiblescollection.Where(Function(x) x.CodProducto = mySpliter.Spliter(0))
 
                 For Each item In mylist
                     ListGeneral.Add(item)
@@ -98,14 +95,14 @@ Public Class frmList_ProductPrecioVenta
             '/si busca el codigo de nombre de procuto
             Select Case mySpliter.Spliter.Count
                 Case 1
-                    Dim mylist = From l In Me.DataList.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(0).ToUpper()))
+                    Dim mylist = From l In ListVendiblescollection.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(0).ToUpper()))
 
                     For Each item In mylist
                         ListGeneral.Add(item)
                     Next
                     Return
                 Case 2
-                    Dim mylist = From l In Me.DataList.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(0).ToUpper()))
+                    Dim mylist = From l In ListVendiblescollection.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(0).ToUpper()))
 
                     If mylist.Count > 0 Then
                         Dim mylist2 = From l In mylist.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(1).ToUpper()))
@@ -115,7 +112,7 @@ Public Class frmList_ProductPrecioVenta
                         Return
                     End If
                 Case 3
-                    Dim mylist = From l In Me.DataList.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(0).ToUpper()))
+                    Dim mylist = From l In ListVendiblescollection.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(0).ToUpper()))
 
                     If mylist.Count > 0 Then
                         Dim mylist2 = From l In mylist.Where(Function(x) x.NomComercial.ToUpper().Contains(mySpliter.Spliter(1).ToUpper()))

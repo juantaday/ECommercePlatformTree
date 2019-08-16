@@ -236,7 +236,7 @@ Partial Class MDI_AddProductos
         Me.SiguienteButton.Name = "SiguienteButton"
         Me.SiguienteButton.Size = New System.Drawing.Size(102, 31)
         Me.SiguienteButton.TabIndex = 17
-        Me.SiguienteButton.Text = "Siguinte=>"
+        Me.SiguienteButton.Text = "Siguiente=>"
         Me.SiguienteButton.UseVisualStyleBackColor = True
         '
         'AtrasButton

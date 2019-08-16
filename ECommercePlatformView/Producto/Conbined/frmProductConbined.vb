@@ -3,6 +3,7 @@ Imports BrightIdeasSoftware
 Imports CADsisVenta
 
 Public Class frmProductConbined
+
     Private Barcode As String
     Private id_PresentInProduct As Integer
     Private id_NewProduct As Integer
@@ -11,6 +12,110 @@ Public Class frmProductConbined
     Private operation As stateOperation
     Private PictureBoxCopy As Bitmap
     Private listItemProductCombined As List(Of ProductCombined)
+
+    Sub New()
+
+        ' Esta llamada es exigida por el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        Me.ObjectListView1.AddDecoration(New EditingCellBorderDecoration(True))
+    End Sub
+
+    Private Sub Load_dataProduct()
+        Try
+
+            Using db As New DataContext
+                Dim listdata = (From p In db.Productos
+                                Join pp In db.ProductoPresentacion On p.idProducto Equals pp.idProducto
+                                Where p.IdKind = 2
+                                Select New ItemViewProductCombined With {.idPresent = pp.idPresentacion, .idProducto = p.idProducto, .Nom_Comercial = p.Nom_Comercial,
+                                  .Presentacion = pp.Presentacion, .Cant_Conbined = pp.Cant_Present,
+                                  .PrecioCompra = pp.precioCompra, .PrecioVenta = pp.precioVenta,
+                                  .Barcode = pp.Barcode, .Button = "Ver detalle"}).ToList()
+
+                Me.ObjectListView1.SetObjects(listdata)
+
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Class ItemViewProductCombined
+        Inherits ProductCombined
+        Private _Nom_Comercial As String
+        Public Property Nom_Comercial() As String
+            Get
+                Return _Nom_Comercial
+            End Get
+            Set(ByVal value As String)
+                _Nom_Comercial = value
+            End Set
+        End Property
+        Private _Prsentacion As String
+        Public Property Presentacion() As String
+            Get
+                Return _Prsentacion
+            End Get
+            Set(ByVal value As String)
+                _Prsentacion = value
+            End Set
+        End Property
+        Private _precioCompra As Double
+        Public Property PrecioCompra() As Double
+            Get
+                Return _precioCompra
+            End Get
+            Set(ByVal value As Double)
+                _precioCompra = value
+            End Set
+        End Property
+        Private _precioVenta As Double
+        Public Property PrecioVenta() As Double
+            Get
+                Return _precioVenta
+            End Get
+            Set(ByVal value As Double)
+                _precioVenta = value
+            End Set
+        End Property
+        Private _barcode As String
+        Public Property Barcode() As String
+            Get
+                Return _barcode
+            End Get
+            Set(ByVal value As String)
+                _barcode = value
+            End Set
+        End Property
+
+        Public ReadOnly Property Utilidad() As Double
+            Get
+                Return Me.PrecioVenta - Me.PrecioCompra
+            End Get
+        End Property
+        Public ReadOnly Property Rentabilidad() As String
+            Get
+                If Me.PrecioCompra > 0 Then
+                    Return ((Me.PrecioVenta - Me.PrecioCompra) / Me.PrecioCompra).ToString("P2")
+                Else
+                    Return "- %"
+                End If
+
+            End Get
+        End Property
+        Private _button As String
+        Public Property Button() As String
+            Get
+                Return _button
+            End Get
+            Set(ByVal value As String)
+                _button = value
+            End Set
+        End Property
+    End Class
+
     Private Sub BunifuThinButton21_Click(sender As Object, e As EventArgs)
         Try
             id_NewProduct = 0
@@ -24,7 +129,6 @@ Public Class frmProductConbined
                     id_NewProduct = newDetail.Id_Producto
                     Me.PanelTools.Enabled = False
                     Me.PanelViewdata.Enabled = False
-                    Me.PanelDetail.Enabled = True
                     View_Details(id_NewProduct)
                 End If
             End Using
@@ -33,115 +137,30 @@ Public Class frmProductConbined
         End Try
     End Sub
 
+    Private Sub View_Details(id As Integer)
+        Try
+            Using ViewDetail As New frmViewCombinedDetail(stateOperation.Update,
+                   id, Me.id_PresentInProduct)
+
+                ViewDetail.ShowDialog()
+                If ViewDetail.DialogResult = DialogResult.OK Then
+                    Load_dataProduct()
+                End If
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, vbCritical, "Error")
+        End Try
+    End Sub
+
     Private Sub frmProductConbined_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        SettingWithPanel()
-        InitializeComponetControl()
         Load_dataProduct()
         Me.BunifuThinButton23.BackColor = System.Drawing.Color.Transparent
         BunifuThinButton24.BackColor = System.Drawing.Color.Transparent
         BunifuThinButton25.BackColor = System.Drawing.Color.Transparent
     End Sub
-    Private Sub InitializeComponetControl()
-        Me.totalCompraClm.AspectGetter = Function(ByVal row As Object)
-                                             If Not IsNothing(row) Then
-                                                 Return row.Cant_Conbined * row.precioCompra
-                                             End If
-                                             Return 0
-                                         End Function
-
-        Me.totalVentaClm.AspectGetter = Function(ByVal row As Object)
-                                            If Not IsNothing(row) Then
-                                                Return row.Cant_Conbined * row.precioVenta
-                                            End If
-                                            Return 0
-                                        End Function
-
-        Me.ObjectListView1.AddDecoration(New EditingCellBorderDecoration(True))
 
 
-    End Sub
-    Private Sub SettingWithPanel()
-        Me.PanelViewdata.Width = Me.Width * 0.6
-        Me.PanelDetail.Enabled = False
-    End Sub
-    Private Sub Load_dataProduct()
-        Try
-            Me.Nom_ComercialLabel.Text = String.Empty
-            Using db As New DataContext
-                Dim listdata = (From p In db.Productos
-                                Join pp In db.ProductoPresentacion On p.idProducto Equals pp.idProducto
-                                Where p.IdKind = 2
-                                Select New With {pp.idPresentacion, p.idProducto, p.Nom_Comercial,
-                                  pp.Presentacion, pp.Cant_Present, pp.precioCompra, pp.precioVenta, pp.Barcode}).ToList()
-
-                Me.ObjectListView1.SetObjects(listdata)
-
-            End Using
-        Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-
-    Private Sub frmProductConbined_SizeChanged(sender As Object, e As EventArgs) Handles MyBase.SizeChanged
-        'SettingWithPanel()
-    End Sub
-
-
-
-    Private Sub View_Details(idProduct As Integer)
-        Try
-            Using db As New DataContext
-                Dim listdata = (From cb In db.ProductCombined
-                                Join pp In db.ProductoPresentacion On cb.idPresent Equals pp.idPresentacion
-                                Join p In db.Productos On p.idProducto Equals pp.idProducto
-                                Where cb.idProducto = idProduct
-                                Select New With {cb.idProductCombined, pp.idPresentacion, p.Nom_Comercial,
-                                  pp.PresentacionPrint, cb.Cant_Conbined, pp.precioCompra, pp.precioVenta}).ToList()
-
-                Me.DataListView1.DataSource = listdata
-                DataListView1.UpdateObjects(Me.DataListView1.Objects)
-                idPresentacionclmd.Width = 0
-                idPresentacionclmd.IsVisible = False
-
-                sumTotals()
-            End Using
-        Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-
-    Private Sub sumTotals()
-        Try
-            Dim list = Me.DataListView1.Objects
-
-            If Not IsNothing(list) Then
-                Dim item = CType(list, IList)
-                If item.Count > 0 Then
-
-                    totalPrecioCompra = Aggregate it In item
-                          Into Sum(Double.Parse(it.precioCompra * it.Cant_Conbined))
-
-                    Dim totalVenta = Aggregate it In item
-                          Into Sum(Double.Parse(it.precioVenta * it.Cant_Conbined))
-
-                    total_Cant_Present = Aggregate it In item
-                          Into Sum(Double.Parse(it.Cant_Conbined))
-
-                    totalCompraLabel.Text = String.Format("Total precio compra: {0}", totalPrecioCompra.ToString("C2"))
-                    totalVentaLabel.Text = String.Format("Total al precio venta normal: {0}", totalVenta.ToString("C2"))
-                End If
-                'Total al precio venta normal: 0
-            End If
-        Catch ex As Exception
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-
-    Private Sub Cancel_Button_Click(sender As Object, e As EventArgs) Handles Cancel_Button.Click
-        retunrButton_Click(retunrButton, New EventArgs)
-    End Sub
-
-    Private Sub NewCombinedButton_Click(sender As Object, e As EventArgs) Handles NewCombinedButton.Click
+    Private Sub NewCombinedButton_Click(sender As Object, e As EventArgs)
         If Me.id_NewProduct = 0 Then
             MsgBox("No se ha determiando el producto", MsgBoxStyle.Exclamation, "Importante")
             Return
@@ -192,44 +211,7 @@ Public Class frmProductConbined
             Return False
         End Try
     End Function
-    Private Sub CountButton_Click(sender As Object, e As EventArgs) Handles CountButton.Click
-        If Me.DataListView1.SelectedIndices.Count = 1 Then
-            Try
-                Dim count As Double = DataListView1.SelectedObject.Cant_Conbined
 
-                Using imdata As New frmImputData
-                    imdata.txtNumber.Value = count
-                    imdata.ShowDialog()
-                    If imdata.DialogResult() = DialogResult.OK Then
-                        DataListView1.SelectedObject.Cant_Conbined = imdata.txtNumber.Value
-                    End If
-                End Using
-
-                DataListView1.RefreshObject(DataListView1.SelectedObject)
-                sumTotals()
-                DataListView1.Select()
-            Catch ex As Exception
-                Me.Cursor = Cursors.Default
-                MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-                Return
-            End Try
-
-        End If
-    End Sub
-
-    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
-        ErrorProvider1.SetError(DeleteButton, String.Empty)
-        If Not DataListView1.SelectedIndices.Count = 1 Then
-            ErrorProvider1.SetError(DeleteButton, "Seleccione uno de la lista de detalle")
-            Return
-        End If
-        If MsgBox("Está seguro de eliminar este producto", MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2) = MsgBoxResult.Yes Then
-            If DeleteItem(Integer.Parse(DataListView1.SelectedObject.idProductCombined)) Then
-                View_Details(id_NewProduct)
-            End If
-        End If
-
-    End Sub
     Private Function DeleteItem(idProductCombined As Integer)
         Try
             Using db As New DataContext
@@ -243,174 +225,6 @@ Public Class frmProductConbined
             End Using
             Return False
         Catch ex As Exception
-            Me.Cursor = Cursors.Default
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-            Return False
-        End Try
-    End Function
-
-    Private Sub Ok_Button_Click(sender As Object, e As EventArgs) Handles Ok_Button.Click
-        If operation = stateOperation.Insert Then
-
-            If InsertInProdcutPresent() Then
-                Load_dataProduct()
-                Me.PanelDetail.Enabled = False
-                Me.PanelViewdata.Enabled = True
-                Me.DataListView1.Select()
-            End If
-        ElseIf operation = stateOperation.Update Then
-            If UpdateInProdcutPresent() Then
-                Load_dataProduct()
-                Me.PanelDetail.Enabled = False
-                Me.PanelViewdata.Enabled = True
-                Me.DataListView1.Select()
-            End If
-        End If
-    End Sub
-
-    Private Function UpdateInProdcutPresent() As Boolean
-        Try
-
-
-            Dim transaction As System.Data.Common.DbTransaction
-
-            Dim lis As List(Of itemDeleteble) = New List(Of itemDeleteble)
-
-            For Each item As Object In DataListView1.Objects
-                lis.Add(New itemDeleteble With {
-                        .IdPresent = item.idPresentacion, .IdProductCombined = item.idProductCombined,
-                        .Cant_Conbined = item.Cant_Conbined})
-            Next
-
-            Using db As New DataContext
-                db.Connection.Open()
-                transaction = db.Connection.BeginTransaction()
-                db.Transaction = transaction
-                For Each item In lis
-                    Dim itemEdit = (From cm In db.ProductCombined
-                                    Where cm.idProductCombined = item.IdProductCombined).FirstOrDefault()
-                    If Not IsNothing(itemEdit) Then
-                        itemEdit.Cant_Conbined = item.Cant_Conbined
-                    Else
-                        Dim newEdit As New ProductCombined With
-                        {
-                            .Cant_Conbined = item.Cant_Conbined,
-                            .idPresent = item.IdPresent,
-                            .idProducto = item.IdProducto
-                        }
-                        db.ProductCombined.InsertOnSubmit(newEdit)
-                    End If
-                    'update in presentacion
-                    Dim itemPresentEdit = (From pp In db.ProductoPresentacion
-                                           Where pp.idPresentacion = item.IdPresent).FirstOrDefault()
-
-                    If Not IsNothing(itemPresentEdit) Then
-                        itemPresentEdit.belongCombined = 1
-                    End If
-                Next
-                db.SubmitChanges()
-
-                Dim producPresen = (From pp In db.ProductoPresentacion
-                                    Where pp.idPresentacion = Me.id_PresentInProduct).FirstOrDefault()
-                If Not IsNothing(producPresen) Then
-                    producPresen.Cant_Present = total_Cant_Present
-                    producPresen.precioCompra = totalPrecioCompra
-                Else
-                    transaction.Rollback()
-                    Return False
-                End If
-                Try
-                    db.SubmitChanges()
-                    transaction.Commit()
-                Catch ex2 As Exception
-                    transaction.Rollback()
-                    Me.Cursor = Cursors.Default
-                    MsgBox(ex2.Message & ex2.StackTrace, MsgBoxStyle.Critical, "Error")
-                    Return False
-                End Try
-            End Using
-            Return False
-        Catch ex As Exception
-            Me.Cursor = Cursors.Default
-            MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
-            Return False
-        End Try
-    End Function
-
-    Private Function InsertInProdcutPresent() As Boolean
-        Dim transaction As System.Data.Common.DbTransaction = Nothing
-        Try
-
-            Dim lis As List(Of itemDeleteble) = New List(Of itemDeleteble)
-
-            For Each item As Object In DataListView1.Objects
-                lis.Add(New itemDeleteble With {
-                        .IdPresent = item.idPresentacion, .IdProductCombined = item.idProductCombined,
-                        .Cant_Conbined = item.Cant_Conbined})
-            Next
-
-
-            Using db As New DataContext
-                'FIND THE ID EMPAQUETADO
-                db.Connection.Open()
-                transaction = db.Connection.BeginTransaction()
-                db.Transaction = transaction
-
-                Dim idEmpaq = db.ProductoUndMedida.Where(Function(x) x.Medida = "EM").FirstOrDefault().idProUndMed
-                If IsNothing(idEmpaq) Then
-                    MsgBox("No se encontro el idProUndMed para la medida del empaquetado requerido en esta opcion")
-                    Return False
-                End If
-
-                For Each item2 In lis
-                    Dim itemEdit = (From cm In db.ProductCombined
-                                    Where cm.idProductCombined = item2.IdProductCombined).FirstOrDefault()
-                    If Not IsNothing(itemEdit) Then
-                        itemEdit.Cant_Conbined = item2.Cant_Conbined
-                    Else
-                        Dim newEdit As New ProductCombined With
-                        {
-                            .Cant_Conbined = item2.Cant_Conbined,
-                            .idPresent = item2.IdPresent,
-                            .idProducto = item2.IdProducto
-                        }
-                        db.ProductCombined.InsertOnSubmit(newEdit)
-                    End If
-                    'update in presentacion
-                    Dim itemPresentEdit = (From pp In db.ProductoPresentacion
-                                           Where pp.idPresentacion = item2.IdPresent).FirstOrDefault()
-
-                    If Not IsNothing(itemPresentEdit) Then
-                        itemPresentEdit.belongCombined = 1
-                    End If
-                Next
-                db.SubmitChanges()
-
-                Dim item As New ProductoPresentacion With
-                {
-                .Cant_Present = total_Cant_Present,
-                .codProducto = Guid.NewGuid().ToString(),
-                .CodUser = UsuarioActivo.codUser,
-                .idProducto = id_NewProduct,
-                .idProUndMed = idEmpaq,
-                .idProUndReferen = idEmpaq,
-                .Empaquetado = total_Cant_Present,
-                .precioCompra = totalPrecioCompra,
-                .precioVenta = 0,
-                .isPresentFactory = 0
-                  }
-                db.ProductoPresentacion.InsertOnSubmit(item)
-                db.SubmitChanges()
-                id_PresentInProduct = item.idPresentacion
-                transaction.Commit()
-                Return True
-            End Using
-            Return False
-        Catch ex As Exception
-            If Not IsNothing(transaction) Then
-                transaction.Rollback()
-            End If
-
             Me.Cursor = Cursors.Default
             MsgBox(ex.Message & ex.StackTrace, MsgBoxStyle.Critical, "Error")
             Return False
@@ -461,15 +275,20 @@ Public Class frmProductConbined
     End Function
 
 
-    Private Function DeleteProductConbinedCommand() As Boolean
+    Private Function DeleteProductConbinedCommand(Optional idNewProduct As Integer = 0) As Boolean
         Try
             Dim transaction As System.Data.Common.DbTransaction
 
             Dim lis As List(Of itemDeleteble) = New List(Of itemDeleteble)
 
-            For Each item As Object In ObjectListView1.SelectedObjects
-                lis.Add(New itemDeleteble With {.IdProducto = item.idProducto})
-            Next
+            If idNewProduct > 0 Then
+                lis.Add(New itemDeleteble With {.IdProducto = idNewProduct})
+            Else
+                For Each item As Object In ObjectListView1.SelectedObjects
+                    lis.Add(New itemDeleteble With {.IdProducto = item.idProducto})
+                Next
+            End If
+
 
             Using db As New DataContext
 
@@ -496,6 +315,7 @@ Public Class frmProductConbined
                 Try
                     db.SubmitChanges()
                     transaction.Commit()
+                    Return True
                 Catch ex2 As Exception
                     transaction.Rollback()
                     Me.Cursor = Cursors.Default
@@ -511,44 +331,6 @@ Public Class frmProductConbined
             Return False
         End Try
     End Function
-    Private Class itemDeleteble
-        Private _idProductCombined As Integer
-        Public Property IdProductCombined() As Integer
-            Get
-                Return _idProductCombined
-            End Get
-            Set(ByVal value As Integer)
-                _idProductCombined = value
-            End Set
-        End Property
-        Private _idProduct As Integer
-        Public Property IdProducto() As Integer
-            Get
-                Return _idProduct
-            End Get
-            Set(ByVal value As Integer)
-                _idProduct = value
-            End Set
-        End Property
-        Private _idPresent As Integer
-        Public Property IdPresent() As Integer
-            Get
-                Return _idPresent
-            End Get
-            Set(ByVal value As Integer)
-                _idPresent = value
-            End Set
-        End Property
-        Private _Cant_Conbined As Double
-        Public Property Cant_Conbined() As Double
-            Get
-                Return _Cant_Conbined
-            End Get
-            Set(ByVal value As Double)
-                _Cant_Conbined = value
-            End Set
-        End Property
-    End Class
 
     Private Sub BunifuThinButton25_Click(sender As Object, e As EventArgs) Handles BunifuThinButton25.Click
         Try
@@ -561,11 +343,17 @@ Public Class frmProductConbined
                 newDetail.ivaPreserminadoLinkLabel.Enabled = False
                 newDetail.ShowDialog()
                 If newDetail.DialogResult = DialogResult.OK Then
-                    id_NewProduct = newDetail.Id_Producto
-                    Me.PanelTools.Enabled = False
-                    Me.PanelViewdata.Enabled = False
-                    Me.PanelDetail.Enabled = True
-                    View_Details(id_NewProduct)
+                    Me.id_NewProduct = newDetail.Id_Producto
+
+                    Using ViewDetail As New frmViewCombinedDetail(operation, Me.id_NewProduct)
+                        ViewDetail.Nom_ComercialLabel.Text = newDetail.Nom_Comercialtxt.Text
+                        ViewDetail.ShowDialog()
+                        If ViewDetail.DialogResult = DialogResult.OK Then
+                            Me.Load_dataProduct()
+                        Else
+                            DeleteProductConbinedCommand(Me.id_NewProduct)
+                        End If
+                    End Using
                 End If
             End Using
         Catch ex As Exception
@@ -584,33 +372,8 @@ Public Class frmProductConbined
         End If
     End Sub
 
-    Private Sub BunifuThinButton21_Click_1(sender As Object, e As EventArgs) Handles BunifuThinButton21.Click
-        Try
-            If Not Me.ObjectListView1.SelectedObjects.Count = 1 Then
-                Return
-            End If
-            operation = stateOperation.Update
 
-            Me.PanelDetail.Enabled = True
-            Me.PanelViewdata.Enabled = False
-
-            Dim item = ObjectListView1.SelectedObject
-
-            Dim item2 As String() = Split(item.ToString, ",")
-            If item2.Count = 0 Then
-                Return
-            End If
-            id_NewProduct = Strings.Right(item2(1), item2(1).Length - Strings.InStr(item2(1), "="))
-            id_PresentInProduct = Strings.Right(item2(0), item2(0).Length - Strings.InStr(item2(0), "="))
-            Me.Nom_ComercialLabel.Text = Strings.Right(item2(2), item2(2).Length - Strings.InStr(item2(2), "="))
-            View_Details(id_NewProduct)
-            DataListView1.Select()
-        Catch ex As Exception
-            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
-        End Try
-    End Sub
-
-    Private Sub retunrButton_Click(sender As Object, e As EventArgs) Handles retunrButton.Click
+    Private Sub retunrButton_Click(sender As Object, e As EventArgs)
         If operation = stateOperation.Insert Then
             If Me.id_PresentInProduct = 0 Then
                 sql = "A un no se ha agregado productos para combinar." & vbCrLf & vbCrLf
@@ -624,7 +387,6 @@ Public Class frmProductConbined
                 End If
             End If
         End If
-        Me.PanelDetail.Enabled = False
         Me.PanelViewdata.Enabled = True
         Me.ObjectListView1.Select()
     End Sub
@@ -658,10 +420,11 @@ Public Class frmProductConbined
             End Using
 
             Me.Cursor = Cursors.WaitCursor
+
             Using forAdminPrice As New frmAdministrarPrecios(stateLoad.Dialogo)
                 With forAdminPrice
                     .Text = "Administradondo precios"
-                    .txtProduc_Select.Text = Nom_ComercialLabel.Text
+                    .txtProduc_Select.Text = Me.ObjectListView1.SelectedObject.Nom_Comercial
                     .StartPosition = FormStartPosition.CenterScreen
                     .FormBorderStyle = FormBorderStyle.Fixed3D
                     .WindowState = FormWindowState.Normal
@@ -688,8 +451,7 @@ Public Class frmProductConbined
         End If
         Try
             Me.id_NewProduct = Me.ObjectListView1.SelectedObject.idProducto
-            Me.id_PresentInProduct = Me.ObjectListView1.SelectedObject.idPresentacion
-            Me.Nom_ComercialLabel.Text = Me.ObjectListView1.SelectedObject.Nom_Comercial
+            Me.id_PresentInProduct = Me.ObjectListView1.SelectedObject.idPresent 'idPresent
             If Not IsNothing(Me.ObjectListView1.SelectedObject.Barcode) Then
                 Me.Barcode = Trim(Me.ObjectListView1.SelectedObject.Barcode)
                 DrawCodBarr(Me.Barcode)
@@ -711,18 +473,24 @@ Public Class frmProductConbined
     End Sub
     Private Sub GeneratedBarCode()
         Try
+            Barcode = String.Empty
             If Not (Me.ObjectListView1.SelectedObjects.Count = 1) Then
                 Return
             End If
             Using frmBarrCodes As New frmBarrCode
                 With frmBarrCodes
-                    .ProductoLabel.Text = Nom_ComercialLabel.Text
+                    .ProductoLabel.Text = Me.ObjectListView1.SelectedObject.Nom_Comercial
                     .PresentacionLabel.Text = String.Empty
                     .idPresent = Me.id_PresentInProduct
-                    .barCodeTextBox.Text = Barcode
+                    .barCodeTextBox.Text = Me.ObjectListView1.SelectedObject.Barcode
                     .ShowDialog()
                     If .DialogResult = DialogResult.OK Then
                         DrawCodBarr(.barCodeTextBox.Text)
+                        Dim detail = DirectCast(ObjectListView1.SelectedObject, ItemViewProductCombined)
+                        If detail IsNot Nothing Then
+                            detail.Barcode = frmBarrCodes.barCodeTextBox.Text
+                            ObjectListView1.RefreshObject(ObjectListView1.SelectedObject)
+                        End If
                     End If
                 End With
             End Using
@@ -784,17 +552,80 @@ Public Class frmProductConbined
                 newDetail.ivaPreserminadoLinkLabel.Enabled = False
                 newDetail.ShowDialog()
                 If newDetail.DialogResult = DialogResult.OK Then
-                    id_NewProduct = newDetail.Id_Producto
-                    Me.PanelTools.Enabled = False
-                    Me.PanelViewdata.Enabled = False
-                    Me.PanelDetail.Enabled = True
-                    View_Details(id_NewProduct)
+                    Dim detail = DirectCast(ObjectListView1.SelectedObject, ItemViewProductCombined)
+                    If detail IsNot Nothing Then
+                        detail.Nom_Comercial = newDetail.Nom_Comercialtxt.Text
+                        ObjectListView1.RefreshObject(ObjectListView1.SelectedObject)
+                    End If
                 End If
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
+
+    Private Sub ObjectListView1_CellClick(sender As Object, e As CellClickEventArgs) Handles ObjectListView1.CellClick
+
+
+        If e.RowIndex >= 0 AndAlso e.Column.AspectName = "Button" Then 'VerButtonColumn
+            Try
+                Me.id_NewProduct = Me.ObjectListView1.SelectedObject.idProducto
+                Me.id_PresentInProduct = Me.ObjectListView1.SelectedObject.idPresent
+                Using ViewDetail As New frmViewCombinedDetail(stateOperation.Update,
+                    Me.id_NewProduct, Me.id_PresentInProduct)
+                    ViewDetail.Nom_ComercialLabel.Text = Me.ObjectListView1.SelectedObject.Nom_Comercial
+                    ViewDetail.ShowDialog()
+                    If ViewDetail.DialogResult = DialogResult.OK Then
+                        Load_dataProduct()
+                    End If
+                End Using
+            Catch ex As Exception
+                MsgBox(ex.Message & vbCrLf & ex.StackTrace, vbCritical, "Error")
+            End Try
+
+        End If
+    End Sub
+
+
+    Private Class itemDeleteble
+        Private _idProductCombined As Integer
+        Public Property IdProductCombined() As Integer
+            Get
+                Return _idProductCombined
+            End Get
+            Set(ByVal value As Integer)
+                _idProductCombined = value
+            End Set
+        End Property
+        Private _idProduct As Integer
+        Public Property IdProducto() As Integer
+            Get
+                Return _idProduct
+            End Get
+            Set(ByVal value As Integer)
+                _idProduct = value
+            End Set
+        End Property
+        Private _idPresent As Integer
+        Public Property IdPresent() As Integer
+            Get
+                Return _idPresent
+            End Get
+            Set(ByVal value As Integer)
+                _idPresent = value
+            End Set
+        End Property
+        Private _Cant_Conbined As Double
+        Public Property Cant_Conbined() As Double
+            Get
+                Return _Cant_Conbined
+            End Get
+            Set(ByVal value As Double)
+                _Cant_Conbined = value
+            End Set
+        End Property
+    End Class
+
 
     '=======================================================
     'Service provided by Telerik (www.telerik.com)

@@ -22,7 +22,7 @@ namespace CADsisVenta
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="JSofwareCommerceDB03")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="jsofwareCommerceDB03")]
 	public partial class DataClassesDBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -225,6 +225,9 @@ namespace CADsisVenta
     partial void InsertProductTransfer_Detail(ProductTransfer_Detail instance);
     partial void UpdateProductTransfer_Detail(ProductTransfer_Detail instance);
     partial void DeleteProductTransfer_Detail(ProductTransfer_Detail instance);
+    partial void InsertDocumentFavorite(DocumentFavorite instance);
+    partial void UpdateDocumentFavorite(DocumentFavorite instance);
+    partial void DeleteDocumentFavorite(DocumentFavorite instance);
     #endregion
 		
 		public DataClassesDBDataContext() : 
@@ -798,6 +801,14 @@ namespace CADsisVenta
 			get
 			{
 				return this.GetTable<ProductTransfer_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DocumentFavorite> DocumentFavorite
+		{
+			get
+			{
+				return this.GetTable<DocumentFavorite>();
 			}
 		}
 		
@@ -4740,7 +4751,7 @@ namespace CADsisVenta
 		
 		private string _Structure;
 		
-		private System.Nullable<bool> _TypeRate;
+		private bool _TypeRate;
 		
 		private EntitySet<RatesCategoryDetail> _RatesCategoryDetail;
 		
@@ -4768,7 +4779,7 @@ namespace CADsisVenta
     partial void OnDateStarChanged();
     partial void OnStructureChanging(string value);
     partial void OnStructureChanged();
-    partial void OnTypeRateChanging(System.Nullable<bool> value);
+    partial void OnTypeRateChanging(bool value);
     partial void OnTypeRateChanged();
     #endregion
 		
@@ -4883,8 +4894,8 @@ namespace CADsisVenta
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeRate", DbType="Bit NOT NULL", IsDbGenerated=true)]
-		public System.Nullable<bool> TypeRate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeRate", DbType="Bit NOT NULL")]
+		public bool TypeRate
 		{
 			get
 			{
@@ -14320,6 +14331,8 @@ namespace CADsisVenta
 		
 		private EntitySet<FacturaVentaDevolucion> _FacturaVentaDevolucion;
 		
+		private EntitySet<DocumentFavorite> _DocumentFavorite;
+		
 		private EntityRef<Bodegas> _Bodegas;
 		
 		private EntityRef<Clientes> _Clientes;
@@ -14373,6 +14386,7 @@ namespace CADsisVenta
 			this._Cobros = new EntitySet<Cobros>(new Action<Cobros>(this.attach_Cobros), new Action<Cobros>(this.detach_Cobros));
 			this._FacturaVentaDetail = new EntitySet<FacturaVentaDetail>(new Action<FacturaVentaDetail>(this.attach_FacturaVentaDetail), new Action<FacturaVentaDetail>(this.detach_FacturaVentaDetail));
 			this._FacturaVentaDevolucion = new EntitySet<FacturaVentaDevolucion>(new Action<FacturaVentaDevolucion>(this.attach_FacturaVentaDevolucion), new Action<FacturaVentaDevolucion>(this.detach_FacturaVentaDevolucion));
+			this._DocumentFavorite = new EntitySet<DocumentFavorite>(new Action<DocumentFavorite>(this.attach_DocumentFavorite), new Action<DocumentFavorite>(this.detach_DocumentFavorite));
 			this._Bodegas = default(EntityRef<Bodegas>);
 			this._Clientes = default(EntityRef<Clientes>);
 			this._FormaPago = default(EntityRef<FormaPago>);
@@ -14775,6 +14789,19 @@ namespace CADsisVenta
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FacturaVenta_DocumentFavorite", Storage="_DocumentFavorite", ThisKey="idFactVenta", OtherKey="idFactVenta")]
+		public EntitySet<DocumentFavorite> DocumentFavorite
+		{
+			get
+			{
+				return this._DocumentFavorite;
+			}
+			set
+			{
+				this._DocumentFavorite.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Bodegas_FacturaVenta", Storage="_Bodegas", ThisKey="idBodega", OtherKey="idBodega", IsForeignKey=true)]
 		public Bodegas Bodegas
 		{
@@ -14962,6 +14989,18 @@ namespace CADsisVenta
 		}
 		
 		private void detach_FacturaVentaDevolucion(FacturaVentaDevolucion entity)
+		{
+			this.SendPropertyChanging();
+			entity.FacturaVenta = null;
+		}
+		
+		private void attach_DocumentFavorite(DocumentFavorite entity)
+		{
+			this.SendPropertyChanging();
+			entity.FacturaVenta = this;
+		}
+		
+		private void detach_DocumentFavorite(DocumentFavorite entity)
 		{
 			this.SendPropertyChanging();
 			entity.FacturaVenta = null;
@@ -20768,6 +20807,181 @@ namespace CADsisVenta
 						this._IdTransfer = default(int);
 					}
 					this.SendPropertyChanged("ProductTransfer");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DocumentFavorite")]
+	public partial class DocumentFavorite : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private int _idFactVenta;
+		
+		private decimal _total;
+		
+		private string _note;
+		
+		private EntityRef<FacturaVenta> _FacturaVenta;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnidFactVentaChanging(int value);
+    partial void OnidFactVentaChanged();
+    partial void OntotalChanging(decimal value);
+    partial void OntotalChanged();
+    partial void OnnoteChanging(string value);
+    partial void OnnoteChanged();
+    #endregion
+		
+		public DocumentFavorite()
+		{
+			this._FacturaVenta = default(EntityRef<FacturaVenta>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idFactVenta", DbType="Int NOT NULL")]
+		public int idFactVenta
+		{
+			get
+			{
+				return this._idFactVenta;
+			}
+			set
+			{
+				if ((this._idFactVenta != value))
+				{
+					if (this._FacturaVenta.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidFactVentaChanging(value);
+					this.SendPropertyChanging();
+					this._idFactVenta = value;
+					this.SendPropertyChanged("idFactVenta");
+					this.OnidFactVentaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_total", DbType="Decimal(20,2) NOT NULL")]
+		public decimal total
+		{
+			get
+			{
+				return this._total;
+			}
+			set
+			{
+				if ((this._total != value))
+				{
+					this.OntotalChanging(value);
+					this.SendPropertyChanging();
+					this._total = value;
+					this.SendPropertyChanged("total");
+					this.OntotalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_note", DbType="VarChar(256)")]
+		public string note
+		{
+			get
+			{
+				return this._note;
+			}
+			set
+			{
+				if ((this._note != value))
+				{
+					this.OnnoteChanging(value);
+					this.SendPropertyChanging();
+					this._note = value;
+					this.SendPropertyChanged("note");
+					this.OnnoteChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="FacturaVenta_DocumentFavorite", Storage="_FacturaVenta", ThisKey="idFactVenta", OtherKey="idFactVenta", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public FacturaVenta FacturaVenta
+		{
+			get
+			{
+				return this._FacturaVenta.Entity;
+			}
+			set
+			{
+				FacturaVenta previousValue = this._FacturaVenta.Entity;
+				if (((previousValue != value) 
+							|| (this._FacturaVenta.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._FacturaVenta.Entity = null;
+						previousValue.DocumentFavorite.Remove(this);
+					}
+					this._FacturaVenta.Entity = value;
+					if ((value != null))
+					{
+						value.DocumentFavorite.Add(this);
+						this._idFactVenta = value.idFactVenta;
+					}
+					else
+					{
+						this._idFactVenta = default(int);
+					}
+					this.SendPropertyChanged("FacturaVenta");
 				}
 			}
 		}

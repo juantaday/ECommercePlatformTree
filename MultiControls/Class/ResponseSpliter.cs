@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiColumnComboSuggestionBox.Class
+namespace MultiControls.Class
 {
     public class ResponseSpliter
     {

@@ -2,6 +2,8 @@
 Imports CADsisVenta
 Public Class frmList_PersonViewTarget
     Private stateLoad As stateLoad
+    Private indexTarget As Integer
+
     Protected Friend dtPersonas As New DataTable()
     Protected Friend idPersona As Integer
     Dim IndexDtPerso, countIndexToPage, minIndex, maxIndex As Integer
@@ -244,6 +246,7 @@ Public Class frmList_PersonViewTarget
                 SelectPersonButton.Enabled = True
                 SelectPersonButton.PerformClick()
             End If
+            Me.AcceptButton = SelectPersonButton
         Catch ex As Exception
             MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
         End Try
@@ -330,7 +333,7 @@ Public Class frmList_PersonViewTarget
 
         AcceptButton = Nothing
         If FindTextBox.TextLength > 2 Then
-            AcceptButton = FindButton
+            Me.AcceptButton = FindButton
         End If
     End Sub
 
@@ -418,6 +421,7 @@ Public Class frmList_PersonViewTarget
                 Me.stateLoad = stateLoad.List
                 PanelMas_Enter(TableView.Controls(0).Controls(0), New EventArgs)
                 TableView.Controls(0).Controls(0).Focus()
+                indexTarget = 0
                 Me.stateLoad = reaspo
             End If
             Return True
@@ -430,11 +434,19 @@ Public Class frmList_PersonViewTarget
             Else
                 Dim reaspo As stateLoad = Me.stateLoad
                 Me.stateLoad = stateLoad.List
-                PanelMas_Enter(TableView.Controls(0).Controls(0), New EventArgs)
-                TableView.Controls(0).Controls(0).Focus()
+
+                indexTarget = If(Me.dtPersonas.Rows.Count = indexTarget + 1, 0, indexTarget + 1)
+
+                PanelMas_Enter(TableView.Controls(indexTarget).Controls(0), New EventArgs)
+                TableView.Controls(indexTarget).Controls(0).Focus()
                 Me.stateLoad = reaspo
             End If
             Return True
+        ElseIf Me.ActiveControl.Name.Equals("PicturePerson") Then
+            If (keyData = Keys.Shift + Keys.Tab) Then
+                FindTextBox.Focus()
+                Return True
+            End If
         End If
         Return False
     End Function

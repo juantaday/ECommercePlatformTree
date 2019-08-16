@@ -105,12 +105,19 @@ Public Structure _dominio
     Public _ip As String
     Public isWep As Boolean
 End Structure
+Public Structure _RateDefault
+    Public IDRates As Integer
+    Public RatesStruccture As String
+    Public RatesTyPe As Boolean
+End Structure
 
 Public Module SettinObject
     Public UsuarioActivo As Usuario
     Public TerminalActivo As Terminal
     Public ClienteActivo As Cliente
     Public Dominio As _dominio
+    Public BodegaActual As Bodegas
     Public EcommerceActive As myCommerce
+    Public DeFaultRates As _RateDefault
     Public ListPanelAccessPermissions As List(Of ItemAccessPanelUers)
 End Module

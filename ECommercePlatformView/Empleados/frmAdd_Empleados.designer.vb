@@ -30,7 +30,9 @@ Partial Class frmAdd_Empleados
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dtFecha_Ingreso = New System.Windows.Forms.DateTimePicker()
         Me.txtNameReportto = New System.Windows.Forms.TextBox()
+        Me.SalariosComboBox = New System.Windows.Forms.ComboBox()
         Me.tituloCombobox = New System.Windows.Forms.ComboBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -51,8 +53,6 @@ Partial Class frmAdd_Empleados
         Me.descriptionEmployeeLabel = New System.Windows.Forms.Label()
         Me.rucEmployeeLabel = New System.Windows.Forms.Label()
         Me.NameEmployeeLinkLabel = New System.Windows.Forms.LinkLabel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.SalariosComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox2.SuspendLayout()
         CType(Me.sueldoTextBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imgFoto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -134,6 +134,15 @@ Partial Class frmAdd_Empleados
         Me.txtNameReportto.Size = New System.Drawing.Size(330, 23)
         Me.txtNameReportto.TabIndex = 9
         '
+        'SalariosComboBox
+        '
+        Me.SalariosComboBox.FormattingEnabled = True
+        Me.SalariosComboBox.Items.AddRange(New Object() {"Salario", "Sueldo", "Honorarios", "Comisión"})
+        Me.SalariosComboBox.Location = New System.Drawing.Point(440, 44)
+        Me.SalariosComboBox.Name = "SalariosComboBox"
+        Me.SalariosComboBox.Size = New System.Drawing.Size(205, 24)
+        Me.SalariosComboBox.TabIndex = 8
+        '
         'tituloCombobox
         '
         Me.tituloCombobox.FormattingEnabled = True
@@ -142,6 +151,15 @@ Partial Class frmAdd_Empleados
         Me.tituloCombobox.Name = "tituloCombobox"
         Me.tituloCombobox.Size = New System.Drawing.Size(168, 24)
         Me.tituloCombobox.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(396, 47)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(38, 16)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Tipo:"
         '
         'Label8
         '
@@ -223,20 +241,19 @@ Partial Class frmAdd_Empleados
         'CargoBombox
         '
         Me.CargoBombox.FormattingEnabled = True
-        Me.CargoBombox.Location = New System.Drawing.Point(89, 27)
+        Me.CargoBombox.Location = New System.Drawing.Point(127, 27)
         Me.CargoBombox.Name = "CargoBombox"
-        Me.CargoBombox.Size = New System.Drawing.Size(443, 24)
+        Me.CargoBombox.Size = New System.Drawing.Size(405, 24)
         Me.CargoBombox.TabIndex = 12
         '
         'LblLogin
         '
         Me.LblLogin.AutoSize = True
-        Me.LblLogin.Location = New System.Drawing.Point(23, 33)
+        Me.LblLogin.Location = New System.Drawing.Point(63, 30)
         Me.LblLogin.Name = "LblLogin"
         Me.LblLogin.Size = New System.Drawing.Size(58, 17)
         Me.LblLogin.TabIndex = 0
         Me.LblLogin.Text = "CARGO:"
-        Me.LblLogin.Visible = False
         '
         'ErrorIcono
         '
@@ -329,24 +346,6 @@ Partial Class frmAdd_Empleados
         Me.NameEmployeeLinkLabel.TabIndex = 7
         Me.NameEmployeeLinkLabel.TabStop = True
         Me.NameEmployeeLinkLabel.Text = "LinkLabel1"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(396, 47)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(38, 16)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Tipo:"
-        '
-        'SalariosComboBox
-        '
-        Me.SalariosComboBox.FormattingEnabled = True
-        Me.SalariosComboBox.Items.AddRange(New Object() {"Salario", "Sueldo", "Honorarios", "Comisión"})
-        Me.SalariosComboBox.Location = New System.Drawing.Point(440, 44)
-        Me.SalariosComboBox.Name = "SalariosComboBox"
-        Me.SalariosComboBox.Size = New System.Drawing.Size(205, 24)
-        Me.SalariosComboBox.TabIndex = 8
         '
         'frmAdd_Empleados
         '

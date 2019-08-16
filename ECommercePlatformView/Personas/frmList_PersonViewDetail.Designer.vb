@@ -22,6 +22,7 @@ Partial Class frmList_PersonViewDetail
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmList_PersonViewDetail))
         Me.OK_Button = New System.Windows.Forms.Button()
         Me.Cancel_Button = New System.Windows.Forms.Button()
@@ -51,6 +52,7 @@ Partial Class frmList_PersonViewDetail
         Me.TarifaClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ImageClm = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Genero = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TypePerson = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PanelPieList = New System.Windows.Forms.Panel()
         Me.TotalListLabel = New System.Windows.Forms.Label()
         Me.PanelMenuList = New System.Windows.Forms.Panel()
@@ -59,7 +61,7 @@ Partial Class frmList_PersonViewDetail
         Me.QuitFilterButton = New System.Windows.Forms.Button()
         Me.FindButton = New System.Windows.Forms.Button()
         Me.FindTextBox = New System.Windows.Forms.TextBox()
-        Me.SettingButton = New System.Windows.Forms.Button()
+        Me.ToolsButton = New System.Windows.Forms.Button()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -72,6 +74,9 @@ Partial Class frmList_PersonViewDetail
         Me.NameEmployeeLabel = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ToolsContextMenuStrip = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.PersonasNaturalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CompaniasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Panel1.SuspendLayout()
         Me.adminEmployeePanel.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -89,6 +94,7 @@ Partial Class frmList_PersonViewDetail
         Me.AdminPayMentPanel.SuspendLayout()
         Me.Panel4.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ToolsContextMenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'OK_Button
@@ -236,7 +242,7 @@ Partial Class frmList_PersonViewDetail
         'dtg
         '
         Me.dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idPersonaClm, Me.idClienteclm, Me.IdEmployeeClm, Me.ApellidosClm, Me.NombreClm, Me.IsSelectClm, Me.Ruc_CiClm, Me.ClienteClm, Me.DireccionClm, Me.telefonoClm, Me.mailClm, Me.idRatesClm, Me.DescriptionClm, Me.TarifaClm, Me.ImageClm, Me.Genero})
+        Me.dtg.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idPersonaClm, Me.idClienteclm, Me.IdEmployeeClm, Me.ApellidosClm, Me.NombreClm, Me.IsSelectClm, Me.Ruc_CiClm, Me.ClienteClm, Me.DireccionClm, Me.telefonoClm, Me.mailClm, Me.idRatesClm, Me.DescriptionClm, Me.TarifaClm, Me.ImageClm, Me.Genero, Me.TypePerson})
         Me.dtg.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dtg.Location = New System.Drawing.Point(0, 0)
         Me.dtg.Name = "dtg"
@@ -366,6 +372,14 @@ Partial Class frmList_PersonViewDetail
         Me.Genero.Name = "Genero"
         Me.Genero.Visible = False
         '
+        'TypePerson
+        '
+        Me.TypePerson.DataPropertyName = "TypePerson"
+        Me.TypePerson.HeaderText = "TypePerson"
+        Me.TypePerson.Name = "TypePerson"
+        Me.TypePerson.ReadOnly = True
+        Me.TypePerson.Visible = False
+        '
         'PanelPieList
         '
         Me.PanelPieList.Controls.Add(Me.TotalListLabel)
@@ -411,7 +425,7 @@ Partial Class frmList_PersonViewDetail
         Me.PanelFind.Controls.Add(Me.QuitFilterButton)
         Me.PanelFind.Controls.Add(Me.FindButton)
         Me.PanelFind.Controls.Add(Me.FindTextBox)
-        Me.PanelFind.Controls.Add(Me.SettingButton)
+        Me.PanelFind.Controls.Add(Me.ToolsButton)
         Me.PanelFind.Dock = System.Windows.Forms.DockStyle.Right
         Me.PanelFind.Location = New System.Drawing.Point(70, 0)
         Me.PanelFind.Name = "PanelFind"
@@ -456,16 +470,16 @@ Partial Class frmList_PersonViewDetail
         Me.FindTextBox.Size = New System.Drawing.Size(299, 30)
         Me.FindTextBox.TabIndex = 7
         '
-        'SettingButton
+        'ToolsButton
         '
-        Me.SettingButton.Dock = System.Windows.Forms.DockStyle.Right
-        Me.SettingButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SettingButton.Location = New System.Drawing.Point(300, 1)
-        Me.SettingButton.Name = "SettingButton"
-        Me.SettingButton.Size = New System.Drawing.Size(83, 30)
-        Me.SettingButton.TabIndex = 8
-        Me.SettingButton.Text = "Herraminetas"
-        Me.SettingButton.UseVisualStyleBackColor = False
+        Me.ToolsButton.Dock = System.Windows.Forms.DockStyle.Right
+        Me.ToolsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ToolsButton.Location = New System.Drawing.Point(300, 1)
+        Me.ToolsButton.Name = "ToolsButton"
+        Me.ToolsButton.Size = New System.Drawing.Size(83, 30)
+        Me.ToolsButton.TabIndex = 8
+        Me.ToolsButton.Text = "Herraminetas"
+        Me.ToolsButton.UseVisualStyleBackColor = False
         '
         'ListBox1
         '
@@ -529,7 +543,7 @@ Partial Class frmList_PersonViewDetail
         Me.BunifuThinButton24.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuThinButton24.ForeColor = System.Drawing.Color.SeaGreen
         Me.BunifuThinButton24.IdleBorderThickness = 1
-        Me.BunifuThinButton24.IdleCornerRadius = 30
+        Me.BunifuThinButton24.IdleCornerRadius = 20
         Me.BunifuThinButton24.IdleFillColor = System.Drawing.Color.White
         Me.BunifuThinButton24.IdleForecolor = System.Drawing.Color.SeaGreen
         Me.BunifuThinButton24.IdleLineColor = System.Drawing.Color.SeaGreen
@@ -556,7 +570,7 @@ Partial Class frmList_PersonViewDetail
         Me.BunifuThinButton23.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuThinButton23.ForeColor = System.Drawing.Color.Navy
         Me.BunifuThinButton23.IdleBorderThickness = 1
-        Me.BunifuThinButton23.IdleCornerRadius = 30
+        Me.BunifuThinButton23.IdleCornerRadius = 20
         Me.BunifuThinButton23.IdleFillColor = System.Drawing.Color.White
         Me.BunifuThinButton23.IdleForecolor = System.Drawing.Color.Navy
         Me.BunifuThinButton23.IdleLineColor = System.Drawing.Color.Navy
@@ -583,7 +597,7 @@ Partial Class frmList_PersonViewDetail
         Me.BunifuThinButton22.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BunifuThinButton22.ForeColor = System.Drawing.Color.SeaGreen
         Me.BunifuThinButton22.IdleBorderThickness = 1
-        Me.BunifuThinButton22.IdleCornerRadius = 30
+        Me.BunifuThinButton22.IdleCornerRadius = 20
         Me.BunifuThinButton22.IdleFillColor = System.Drawing.Color.White
         Me.BunifuThinButton22.IdleForecolor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.BunifuThinButton22.IdleLineColor = System.Drawing.Color.Red
@@ -644,6 +658,26 @@ Partial Class frmList_PersonViewDetail
         Me.PictureBox1.TabIndex = 62
         Me.PictureBox1.TabStop = False
         '
+        'ToolsContextMenuStrip
+        '
+        Me.ToolsContextMenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PersonasNaturalesToolStripMenuItem, Me.CompaniasToolStripMenuItem})
+        Me.ToolsContextMenuStrip.Name = "ToolsContextMenuStrip"
+        Me.ToolsContextMenuStrip.Size = New System.Drawing.Size(173, 48)
+        '
+        'PersonasNaturalesToolStripMenuItem
+        '
+        Me.PersonasNaturalesToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Client_32
+        Me.PersonasNaturalesToolStripMenuItem.Name = "PersonasNaturalesToolStripMenuItem"
+        Me.PersonasNaturalesToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
+        Me.PersonasNaturalesToolStripMenuItem.Text = "Personas naturales"
+        '
+        'CompaniasToolStripMenuItem
+        '
+        Me.CompaniasToolStripMenuItem.Image = Global.ECommercePlatformView.My.Resources.Resources.Company_32
+        Me.CompaniasToolStripMenuItem.Name = "CompaniasToolStripMenuItem"
+        Me.CompaniasToolStripMenuItem.Size = New System.Drawing.Size(172, 22)
+        Me.CompaniasToolStripMenuItem.Text = "Companias"
+        '
         'frmList_PersonViewDetail
         '
         Me.AcceptButton = Me.OK_Button
@@ -682,6 +716,7 @@ Partial Class frmList_PersonViewDetail
         Me.AdminPayMentPanel.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ToolsContextMenuStrip.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -697,6 +732,30 @@ Partial Class frmList_PersonViewDetail
     Friend WithEvents PanelList As Panel
     Friend WithEvents PanelView As Panel
     Friend WithEvents dtg As DataGridView
+    Friend WithEvents PanelPieList As Panel
+    Friend WithEvents TotalListLabel As Label
+    Friend WithEvents PanelMenuList As Panel
+    Friend WithEvents PanelBusq As Panel
+    Friend WithEvents PanelFind As Panel
+    Friend WithEvents QuitFilterButton As Button
+    Friend WithEvents FindButton As Button
+    Friend WithEvents FindTextBox As TextBox
+    Friend WithEvents ToolsButton As Button
+    Friend WithEvents ListBox1 As ListBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents AdminPayMentPanel As Panel
+    Friend WithEvents BunifuThinButton24 As Bunifu.Framework.UI.BunifuThinButton2
+    Friend WithEvents BunifuThinButton23 As Bunifu.Framework.UI.BunifuThinButton2
+    Friend WithEvents BunifuThinButton22 As Bunifu.Framework.UI.BunifuThinButton2
+    Friend WithEvents EmailLabel As Label
+    Friend WithEvents PhoneLabel As Label
+    Friend WithEvents NameEmployeeLabel As Label
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents ToolsContextMenuStrip As ContextMenuStrip
+    Friend WithEvents PersonasNaturalesToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents CompaniasToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents idPersonaClm As DataGridViewTextBoxColumn
     Friend WithEvents idClienteclm As DataGridViewTextBoxColumn
     Friend WithEvents IdEmployeeClm As DataGridViewTextBoxColumn
@@ -713,25 +772,5 @@ Partial Class frmList_PersonViewDetail
     Friend WithEvents TarifaClm As DataGridViewTextBoxColumn
     Friend WithEvents ImageClm As DataGridViewTextBoxColumn
     Friend WithEvents Genero As DataGridViewTextBoxColumn
-    Friend WithEvents PanelPieList As Panel
-    Friend WithEvents TotalListLabel As Label
-    Friend WithEvents PanelMenuList As Panel
-    Friend WithEvents PanelBusq As Panel
-    Friend WithEvents PanelFind As Panel
-    Friend WithEvents QuitFilterButton As Button
-    Friend WithEvents FindButton As Button
-    Friend WithEvents FindTextBox As TextBox
-    Friend WithEvents SettingButton As Button
-    Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Panel3 As Panel
-    Friend WithEvents AdminPayMentPanel As Panel
-    Friend WithEvents BunifuThinButton24 As Bunifu.Framework.UI.BunifuThinButton2
-    Friend WithEvents BunifuThinButton23 As Bunifu.Framework.UI.BunifuThinButton2
-    Friend WithEvents BunifuThinButton22 As Bunifu.Framework.UI.BunifuThinButton2
-    Friend WithEvents EmailLabel As Label
-    Friend WithEvents PhoneLabel As Label
-    Friend WithEvents NameEmployeeLabel As Label
-    Friend WithEvents Panel4 As Panel
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents TypePerson As DataGridViewTextBoxColumn
 End Class

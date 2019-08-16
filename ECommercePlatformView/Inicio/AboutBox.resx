@@ -121,11 +121,12 @@
     <value>Sistema diseñado para facturación, gestión de compras, ventas, pedidos, stock, bodegas, empleados, clientes y mucho más...
 
 La información de los Usuarios, Módulos y Permisos del Usuario
-están almacenados en una base de datos de SQL Server 2016 Express.
+están almacenados en una base de datos de SQL Server 2017 Express.
 Utilizando como id de desarrollo Microsoft Visual Studio 2017
 
 Para más información puede contactar:
 Email: juantadaymalan3@hotmail.com
+            juantadaymalan3@gmail.com
 Teléfono:  0939531173 - 0994028952</value>
   </data>
 </root>

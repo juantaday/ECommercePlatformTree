@@ -45,7 +45,7 @@ Public Class frmAdd_Proveedor
 
             If dt.Rows.Count > 0 Then
                 Me.cmbTipoEmp.SelectedValue = dt(0)("idTypoProvee").ToString
-                Me.txtRuc.Text = dt(0)("Ruc_Ci").ToString
+                Me.RucMaskedTextBox.Text = dt(0)("Ruc_Ci").ToString
                 Me.txtRazon.Text = dt(0)("Razon_social").ToString
                 Me.cmbTiopo_razon.SelectedValue = dt(0)("Razon_tipo").ToString
                 Me.txtRepresentante.Text = dt(0)("Represent").ToString
@@ -77,6 +77,7 @@ Public Class frmAdd_Proveedor
                 .DataSource = dt
                 .DisplayMember = "Nom_tipoProveedor"
                 .ValueMember = "idTypoProvee"
+                .SelectedIndex = 1
             End With
         End If
 
@@ -97,17 +98,17 @@ Public Class frmAdd_Proveedor
             End If
             If flag = "Agregar" Then
 
-                If Buscar_Ruc(Me.txtRuc.Text) Then
+                If Buscar_Ruc(Me.RucMaskedTextBox.Text.Replace("-", "")) Then
                     frmStateCancel = True
-                    MsgBox("Ya existe el ruc: " & Me.txtRuc.Text, MsgBoxStyle.Information, "Aviso")
+                    MsgBox("Ya existe el ruc: " & Me.RucMaskedTextBox.Text, MsgBoxStyle.Information, "Aviso")
                     Return False
                 End If
                 sql = "Insert into Proveedores (idTypoProvee, Ruc_Ci, Razon_social, Razon_tipo, Represent, Direccion, Telefono, codUser, ivaSubtotal)"
-                sql = sql & "Values (" & Id_Tipo & ", '" & txtRuc.Text & "','" & txtRazon.Text & "', '" & Tipo_Razon & "','" & txtRepresentante.Text & "',"
+                sql = sql & "Values (" & Id_Tipo & ", '" & RucMaskedTextBox.Text.Replace("-", "") & "','" & txtRazon.Text & "', '" & Tipo_Razon & "','" & txtRepresentante.Text & "',"
                 sql = sql & "'" & txtDireccion.Text & "','" & txtTelefono.Text & "', '" & UsuarioActivo.codUser & "', " & ivaSubtotal & ")"
                 'Busco si ya existe este ruc
             ElseIf flag = "Modificar" Then
-                sql = "UPDATE Proveedores SET idTypoProvee=" & Id_Tipo & ", Ruc_Ci ='" & txtRuc.Text & "',Razon_social='" & txtRazon.Text & "',Razon_tipo= '" & Tipo_Razon & "',"
+                sql = "UPDATE Proveedores SET idTypoProvee=" & Id_Tipo & ", Ruc_Ci ='" & RucMaskedTextBox.Text.Replace("-", "") & "',Razon_social='" & txtRazon.Text & "',Razon_tipo= '" & Tipo_Razon & "',"
                 sql = sql & "Represent='" & txtRepresentante.Text & "',Direccion ='" & Me.txtDireccion.Text & "',Telefono ='" & Me.txtTelefono.Text & "', codUser ='" & UsuarioActivo.codUser & "', ivaSubtotal=" & ivaSubtotal & " "
                 sql = sql & "WHERE (((Proveedores.idProveedor)=" & Me.txtidProveedor.Text & "));"
             Else
@@ -151,8 +152,8 @@ Public Class frmAdd_Proveedor
                 Return False
             End If
 
-            If Not (Me.txtRuc.Text.Length > 0) Then
-                ErrorIcono.SetError(txtRuc, "Ingrese el Ruc")
+            If Not (Me.RucMaskedTextBox.Text.Length = 11 OrElse Me.RucMaskedTextBox.Text.Length = 14) Then
+                ErrorIcono.SetError(RucMaskedTextBox, "Ingrese el Ruc")
                 Return False
             End If
             If Not (Me.txtRazon.Text.Length > 0) Then
@@ -174,7 +175,7 @@ Public Class frmAdd_Proveedor
         Me.cmbTipoEmp.Text = "Selecione..."
         Me.cmbTipoEmp.SelectedIndex = -1
         Me.txtRazon.Text = ""
-        Me.txtRuc.Text = ""
+        Me.RucMaskedTextBox.Text = ""
         Me.txtRepresentante.Text = ""
         Me.txtDireccion.Text = ""
         Me.txtTelefono.Text = ""
@@ -188,15 +189,11 @@ Public Class frmAdd_Proveedor
         Me.AcceptButton = btn
     End Sub
 
-    Private Sub txtRuc_Leave(sender As Object, e As EventArgs) Handles txtRuc.Leave
-        txtRuc.Text = LTrim(txtRuc.Text)
-        If Len(Me.txtRuc.Text) <> 13 Then
+    Private Sub txtRuc_Leave(sender As Object, e As EventArgs)
+        RucMaskedTextBox.Text = LTrim(RucMaskedTextBox.Text)
+        If Len(Me.RucMaskedTextBox.Text) <> 13 Then
             MsgBox("El Ruc deberia ser de 13 difitos", MsgBoxStyle.Information, "Aviso")
         End If
-    End Sub
-
-    Private Sub txtRuc_TextChanged(sender As Object, e As EventArgs) Handles txtRuc.TextChanged
-        Me.CancelButton = Nothing
     End Sub
 
     Private Function Buscar_Ruc(ByVal strRuc As String) As Boolean

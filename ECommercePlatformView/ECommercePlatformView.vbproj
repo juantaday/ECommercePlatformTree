@@ -76,18 +76,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>A:\Archivos de programa (x86)\Bunifu Technologies\Bunifu Framework Manager\bin\updates\Bunifu UI 1.5.3\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine">
-      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
-    </Reference>
-    <Reference Include="CrystalDecisions.ReportSource">
-      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
-    </Reference>
-    <Reference Include="CrystalDecisions.Shared">
-      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
-    </Reference>
-    <Reference Include="CrystalDecisions.Windows.Forms">
-      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
-    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Charts.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 17.1\Components\Bin\Framework\DevExpress.Charts.v17.1.Core.dll</HintPath>
@@ -141,6 +133,7 @@
     <Reference Include="DevExpress.XtraScheduler.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraSpreadsheet.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="itextsharp">
       <HintPath>..\BarcodeDLL\itextsharp.dll</HintPath>
     </Reference>
@@ -183,6 +176,7 @@
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
@@ -625,6 +619,8 @@
     </Compile>
     <Compile Include="DataInternal\FileType.vb" />
     <Compile Include="DataInternal\GetDateFile.vb" />
+    <Compile Include="DataInternal\PackeProcessVendiblesAsync.vb" />
+    <Compile Include="DataInternal\Vendibles.vb" />
     <Compile Include="Empleados\frmAdd_Empleados.designer.vb">
       <DependentUpon>frmAdd_Empleados.vb</DependentUpon>
     </Compile>
@@ -660,6 +656,18 @@
     </Compile>
     <Compile Include="Enumm\EnumSatateModule.vb" />
     <Compile Include="Facturacion\Ffacturacion.vb" />
+    <Compile Include="Facturacion\frmDetailFacturaVenta.Designer.vb">
+      <DependentUpon>frmDetailFacturaVenta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\frmDetailFacturaVenta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturacion\FrmDocumentFavorityNote.Designer.vb">
+      <DependentUpon>FrmDocumentFavorityNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Facturacion\FrmDocumentFavorityNote.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Facturacion\frmList_Facturas.designer.vb">
       <DependentUpon>frmList_Facturas.vb</DependentUpon>
     </Compile>
@@ -684,19 +692,7 @@
     <Compile Include="Inicio\ContagFrm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio\FInicio.vb" />
-    <Compile Include="Inicio\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Inicio\Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inicio\Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Inicio\Form2.vb">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Inicio\Inicio.vb" />
     <Compile Include="Inicio\frmPanel.designer.vb">
       <DependentUpon>frmPanel.vb</DependentUpon>
     </Compile>
@@ -765,8 +761,9 @@
     <Compile Include="Models\Person.vb" />
     <Compile Include="Models\PresentVendiblescollection.vb" />
     <Compile Include="Models\RatesCollecction.vb" />
-    <Compile Include="Modulos\Funciones.vb" />
-    <Compile Include="Modulos\PrintTickets.vb" />
+    <Compile Include="Printers\Funciones.vb" />
+    <Compile Include="Printers\PrintTicketAsync.vb" />
+    <Compile Include="Printers\PrintTickets.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -853,6 +850,12 @@
       <DependentUpon>frmProductConbined.vb</DependentUpon>
     </Compile>
     <Compile Include="Producto\Conbined\frmProductConbined.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Producto\Conbined\frmViewCombinedDetail.Designer.vb">
+      <DependentUpon>frmViewCombinedDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Producto\Conbined\frmViewCombinedDetail.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Producto\Expiration\frmAddNewDateExpir.Designer.vb">
@@ -1043,6 +1046,12 @@
     </Compile>
     <Compile Include="Proveedores\frmProduc_Proveedor.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\CrystalReport1.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\rptCloseTerminal2.vb">
       <AutoGen>True</AutoGen>
@@ -1529,6 +1538,12 @@
     <EmbeddedResource Include="Empleados\frmList_EmployeeDebit.resx">
       <DependentUpon>frmList_EmployeeDebit.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\frmDetailFacturaVenta.resx">
+      <DependentUpon>frmDetailFacturaVenta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturacion\FrmDocumentFavorityNote.resx">
+      <DependentUpon>FrmDocumentFavorityNote.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Facturacion\frmList_Facturas.resx">
       <DependentUpon>frmList_Facturas.vb</DependentUpon>
     </EmbeddedResource>
@@ -1540,12 +1555,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio\ContagFrm.resx">
       <DependentUpon>ContagFrm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inicio\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inicio\Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio\frmPanel.resx">
       <DependentUpon>frmPanel.vb</DependentUpon>
@@ -1606,6 +1615,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Conbined\frmProductConbined.resx">
       <DependentUpon>frmProductConbined.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Producto\Conbined\frmViewCombinedDetail.resx">
+      <DependentUpon>frmViewCombinedDetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Producto\Expiration\frmAddNewDateExpir.resx">
       <DependentUpon>frmAddNewDateExpir.vb</DependentUpon>
@@ -1700,6 +1712,11 @@
     <EmbeddedResource Include="Proveedores\frmProduc_Proveedor.resx">
       <DependentUpon>frmProduc_Proveedor.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
     <EmbeddedResource Include="Reports\rptCloseTerminal.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptCloseTerminal2.vb</LastGenOutput>
@@ -1941,6 +1958,8 @@
     <None Include="Resources\Favority_32.png" />
     <None Include="Resources\ReValue_32.png" />
     <None Include="Resources\Tansfer_32.png" />
+    <None Include="Resources\Company_32.png" />
+    <None Include="Resources\Company_128.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -2365,10 +2384,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BarcodeLib\BarcodeLib.csproj">
-      <Project>{f8646414-0c9c-49bb-9da3-3923bf78a398}</Project>
-      <Name>BarcodeLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CADsisVenta\CADsisVenta.csproj">
       <Project>{a8751b79-0344-46e3-99b8-9d92418ec0c5}</Project>
       <Name>CADsisVenta</Name>
@@ -2389,6 +2404,9 @@
       <Project>{18feda0c-d147-4286-b39a-01204808106a}</Project>
       <Name>ObjectListView</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

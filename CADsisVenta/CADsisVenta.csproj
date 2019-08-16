@@ -188,7 +188,6 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="ClassDiagram1.cd" />
     <None Include="DataClassesDB.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClassesDB.designer.cs</LastGenOutput>
@@ -407,6 +406,7 @@
   <ItemGroup>
     <None Include="DataClassesDB.dbml.layout">
       <DependentUpon>DataClassesDB.dbml</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

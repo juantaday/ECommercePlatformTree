@@ -948,17 +948,209 @@ Public Class frmList_Facturas
         Me.PanelFavority.Visible = True
         Me.PanelFavority.Dock = DockStyle.Fill
         SplitContainer1.Visible = False
+        MenuFlow.Visible = False
+        FilterFlow.Visible = False
+        Carga_DocumentFavority()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Carga_DocumentFavority()
+        Try
+            Me.ObjectListView1.Objects = Nothing
+            Using db As New DataContext()
+                Me.ObjectListView1.Objects = db.DocumentFavorite.ToList()
+            End Using
 
+        Catch ex As Exception
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
+
+
 
     Private Sub BackArrow_Button_Click(sender As Object, e As EventArgs) Handles BackArrow_Button.Click
         Me.PanelData.Controls.Clear()
         Me.PanelData.Controls.Add(Me.SplitContainer1)
         Me.SplitContainer1.Visible = True
         Me.SplitContainer1.Dock = DockStyle.Fill
+        MenuFlow.Visible = True
+        FilterFlow.Visible = True
+    End Sub
+
+    Private Sub EnviarVentasButton_Click(sender As Object, e As EventArgs) Handles EnviarVentasButton.Click
+        Try
+            Me.Cursor = Cursors.WaitCursor
+            Dim list = New List(Of ItemViewVenta)
+
+            If ListViewCabecera.CheckedItems.Count = 1 Then
+                idVenta = Me.ListViewCabecera.CheckedItems(IdFactureColum.Index).Text
+            Else
+                MsgBox("Seleccione solo uno de la lista.", MsgBoxStyle.Exclamation, "Importante")
+                Return
+            End If
+            Using db As New DataContext
+                Dim deatilVenta = db.FacturaVentaDetail.Where(Function(x) x.idFacturaVenta = idVenta)
+
+                For Each itemDetail In deatilVenta
+                    Dim present = (From pp In db.ProductoPresentacion
+                                   Join p In db.Productos On pp.idProducto Equals p.idProducto
+                                   Where pp.idPresentacion = itemDetail.idPresent
+                                   Select New With {p, pp}).FirstOrDefault()
+
+                    If IsNothing(present) Then
+                        MsgBox("not foiunt the present in ProductoPresentacion ", MsgBoxStyle.Critical, "Error")
+                        Return
+                    End If
+                    list.Add(New ItemViewVenta With
+                         {
+                          .IdPresent = itemDetail.idPresent,
+                          .IdProducto = present.pp.idProducto,
+                          .CodProducto = present.pp.codProducto,
+                           .Nom_Comercial = present.p.Nom_Comercial,
+                           .PresentationPrint = present.pp.PresentacionPrint,
+                           .Cuantity = itemDetail.Cantidad,
+                           .UnitPrice = If((itemDetail.Prec_Venta + itemDetail.descuento) > 0, (itemDetail.Prec_Venta + itemDetail.descuento) / itemDetail.Cantidad, 0),
+                           .Discount = itemDetail.descuento,
+                           .Rates = 0,
+                           .IvaPercent = present.p.ivaPorcentaje,
+                           .LastPurchasePrice = present.pp.precioCompra,
+                           .AveragePrice = 0,
+                           .TotalPrice = itemDetail.Prec_Venta
+                         })
+
+                Next
+
+            End Using
+
+            If list.Count > 0 Then
+                Dim formVentas As New frmVentas(list)
+                For Each mdi As Windows.Forms.Form In Application.OpenForms
+                    If mdi.Name.Equals("MDIPareInicio") Then
+                        formVentas.MdiParent = mdi
+                        formVentas.Show()
+                        Dim index? As Integer = mdi.MdiChildren.Count - 1
+                        mdi.MdiChildren(index).Select()
+                        Me.Close()
+                        Exit For
+                    End If
+                Next
+            End If
+        Catch ex As Exception
+            Me.Cursor = Cursors.Default
+            MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        Finally
+            Me.Cursor = Cursors.Default
+        End Try
+    End Sub
+
+    Private Sub FavorityButton_Click(sender As Object, e As EventArgs) Handles FavorityButton.Click
+        Try
+            Dim total As Double = 0
+            If ListViewCabecera.CheckedItems.Count = 1 Then
+                idVenta = Me.ListViewCabecera.CheckedItems(IdFactureColum.Index).Text
+                total = Me.ListViewCabecera.CheckedItems(0).SubItems(TotalColum.Index).Text
+            Else
+                MsgBox("Seleccione solo uno de la lista.", MsgBoxStyle.Exclamation, "Importante")
+                Return
+            End If
+
+            Using formNote As New FrmDocumentFavorityNote(idVenta, total)
+                formNote.ShowDialog()
+                If formNote.DialogResult = DialogResult.OK Then
+
+                End If
+            End Using
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub DeleteFavoritButton_Click(sender As Object, e As EventArgs) Handles DeleteFavoritButton.Click
+        If Not ObjectListView1.SelectedObjects.Count > 0 Then
+            MsgBox("Seleccione uno de la lista", MsgBoxStyle.Information, "Importante..")
+            Return
+        End If
+
+        If MsgBox("Esta seguro de eliminar de esta lista..",
+                  MsgBoxStyle.Question + MsgBoxStyle.YesNo + MsgBoxStyle.DefaultButton2) = MsgBoxResult.Yes Then
+            Try
+                Using db As New DataContext()
+                    Dim data As ArrayList
+                    data = ObjectListView1.SelectedObjects()
+                    For Each item As DocumentFavorite In ObjectListView1.SelectedObjects
+                        Dim ojt = db.DocumentFavorite _
+                            .Where(Function(x) x.id = item.id).FirstOrDefault()
+                        If Not ojt Is Nothing Then
+                            db.DocumentFavorite.DeleteOnSubmit(ojt)
+                        End If
+                    Next
+                    db.SubmitChanges()
+                    ObjectListView1.RemoveObjects(data)
+                End Using
+                ObjectListView1.Select()
+            Catch ex As Exception
+                MsgBox(ex.Message & " " & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+            End Try
+        End If
+    End Sub
+
+    Private Sub chageNoteButton_Click(sender As Object, e As EventArgs) Handles chageNoteButton.Click
+        Try
+            If Not Me.ObjectListView1.SelectedObjects.Count = 1 Then
+                MsgBox("Seleccion solo uno de la lista", MsgBoxStyle.Information, "Importante")
+                Return
+            End If
+
+            Dim item As DocumentFavorite = ObjectListView1.SelectedObject()
+            Using note As New FrmDocumentFavorityNote(item)
+                note.ShowDialog()
+                If note.DialogResult = DialogResult.OK Then
+                    item.note = note._DocumentFavorite.note
+                    ObjectListView1.Refresh()
+                End If
+            End Using
+            ObjectListView1.Select()
+        Catch ex As Exception
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
+    End Sub
+
+    Private Sub ViewDetalFavoritebutton_Click(sender As Object, e As EventArgs) Handles ViewDetalFavoritebutton.Click
+        Try
+
+            If Not Me.ObjectListView1.SelectedObjects.Count = 1 Then
+                MsgBox("Seleccione uno de la lista...", MsgBoxStyle.Information, "Importante")
+                Return
+            End If
+
+            Dim item As DocumentFavorite = ObjectListView1.SelectedObject()
+            Carga_DetalleFactur(item.idFactVenta)
+            Dim listVew As New ListView()
+
+            For Each colum As ColumnHeader In ListViewDetail.Columns
+                listVew.Columns.Add(colum.Clone)
+            Next
+
+            For Each itemList As ListViewItem In ListViewDetail.Items
+                listVew.Items.Add(itemList.Clone)
+            Next
+
+            listVew.Columns(ColumnCommands.Index).Width = 0
+            listVew.Columns(ColumnDisponible.Index).Width = 0
+            listVew.Columns(ColumnDevuellto.Index).Width = 0
+            listVew.Columns(5).Width = 0
+            listVew.Columns(6).Width = 0
+            listVew.Dock = DockStyle.Fill
+            listVew.View = View.Details
+
+            listVew.Columns(clmEmpaque.Index).Width = 150
+            listVew.Columns(nom_ProductColm.Index).Width = 250
+            Using forView As New frmDetailFacturaVenta(listVew)
+                forView.ShowDialog()
+            End Using
+
+        Catch ex As Exception
+            MsgBox(ex.Message & vbCrLf & ex.StackTrace, MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 
     Private Sub PrintSelectButton_Click(sender As Object, e As EventArgs) Handles PrintSelectButton.Click
@@ -1009,11 +1201,11 @@ Public Class frmList_Facturas
         sql = ""
         Select Case CmbOptionSelect.Text
             Case "Número de Factura"
-                sql = "WHERE  (fv.Num_Factu Like '%" + Me.txtbuscar.Text + "%') "
+                sql = "WHERE (fv.Num_Factu Like '%" + Me.txtbuscar.Text + "%') "
             Case "Cliente"
-                sql = "WHERE  (c.Nombres LIKE '%" + Me.txtbuscar.Text + "%') "
+                sql = FilterToName()
             Case "Ruc (o) C.I"
-                sql = "WHERE  (c.Ruc_Ci LIKE '%" + Me.txtbuscar.Text + "%') "
+                sql = "WHERE (c.Ruc_Ci LIKE '%" + Me.txtbuscar.Text + "%') "
             Case "No Impresas"
                 sql = "WHERE (fv.Impreso = 0) AND (fv.codUser = '" + UsuarioActivo.codUser + "')"
             Case "Fecha del documento"
@@ -1034,6 +1226,21 @@ Public Class frmList_Facturas
             MsgBox("Seleccione una de las opciones de consulta...", MsgBoxStyle.Information, "Aviso")
         End If
     End Sub
+
+    Private Function FilterToName() As String
+
+        Dim mySpliter As ResponseSpliter = GenerateSpliter(txtbuscar.Text)
+        sql = ""
+        Select Case mySpliter.Spliter.Count()
+            Case 1
+                sql = "WHERE (c.Nombres LIKE '%" & mySpliter.Spliter(0) & "%') "
+            Case 2
+                sql = "WHERE (c.Nombres LIKE '%" + mySpliter.Spliter(0) + "%') and (c.Nombres LIKE '%" + mySpliter.Spliter(1) + "%')  "
+            Case 3
+                sql = "WHERE (c.Nombres LIKE '%" + mySpliter.Spliter(0) + "%') and (c.Nombres LIKE '%" + mySpliter.Spliter(1) + "%') and (c.Nombres LIKE '%" + mySpliter.Spliter(2) + "%') "
+        End Select
+        Return sql
+    End Function
 
     Private Function MostarFactura_Select(ByVal SrtWhere As String) As Boolean
         Me.isLoad = False
@@ -1131,6 +1338,7 @@ Public Class frmList_Facturas
             ElseIf CmbOptionSelect.Text.Contains("Fecha del documento") Then
                 txtbuscar.Visible = False
                 Me.PanelImputDate.Visible = True
+                bntBuscar.Enabled = True
             Else
                 txtbuscar.Enabled = True
                 bntBuscar.Enabled = True

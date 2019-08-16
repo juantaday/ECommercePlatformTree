@@ -228,7 +228,7 @@ Public Class frmList_Proveedores
                     .ShowDialog()
                     If .DialogResult = DialogResult.OK Then
                         dataListado.DataSource = Nothing
-                        Mostrar_Selecion(.txtRuc.Text)
+                        Mostrar_Selecion(.RucMaskedTextBox.Text.Replace("-", ""))
                         Me.btnOk.PerformClick()
                     Else
                         Me.DialogResult = DialogResult.None

@@ -144,7 +144,7 @@ Public Class frmList_PersonViewDetail
                 AdminPayMentPanel.Enabled = True
             End If
 
-            If NameEmployeeLabel.Text.Contains("Consumidor") Then
+            If NameEmployeeLabel.Text.ToUpper().Contains("CONSUMIDOR") Then
                 EdidPersonButton.Enabled = False
                 DeletePersonButton.Enabled = False
                 adminEmployeePanel.Enabled = False
@@ -182,6 +182,11 @@ Public Class frmList_PersonViewDetail
                     PictureBox1.Image = Image.FromStream(ms)
                     PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
                 Else
+                    If sender.SelectedCells.Item(sender.Columns("TypePerson").Index).Value = 1 Then
+                        PictureBox1.Image = Global.ECommercePlatformView.My.Resources.Company_128
+                        PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+                        Return
+                    End If
                     If Boolean.Parse(sender.SelectedCells.Item(sender.Columns("Genero").Index).Value) Then
                         PictureBox1.Image = Global.ECommercePlatformView.My.Resources.Person_128png
                         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
@@ -190,7 +195,12 @@ Public Class frmList_PersonViewDetail
                         PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
                     End If
                 End If
-            Else
+            Else 'TypePerson
+                If sender.SelectedCells.Item(sender.Columns("TypePerson").Index).Value = 1 Then
+                    PictureBox1.Image = Global.ECommercePlatformView.My.Resources.Company_128
+                    PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
+                    Return
+                End If
                 If Boolean.Parse(sender.SelectedCells.Item(sender.Columns("Genero").Index).Value) Then
                     PictureBox1.Image = Global.ECommercePlatformView.My.Resources.Person_128png
                     PictureBox1.SizeMode = PictureBoxSizeMode.StretchImage
@@ -280,8 +290,10 @@ Public Class frmList_PersonViewDetail
                                                     item.mail,
                                                     0,
                                                     0,
-                                                    item.genero, 0,
-                                                   If(IsNothing(item.foto), Nothing, item.foto.ToArray())))
+                                                    If(IsNothing(item.genero), False, item.genero),
+                                                    0,
+                                                   If(IsNothing(item.foto), Nothing, item.foto.ToArray()),
+                                                    item.TypePerson))
                 Next
             End Using
             dtg.DataSource = Nothing
@@ -427,4 +439,55 @@ Public Class frmList_PersonViewDetail
             Carga_Detail(dtg, dtg.SelectedRows(0).Index)
         End If
     End Sub
+
+    Private Sub ToolsButton_MouseDown(sender As Object, e As MouseEventArgs) Handles ToolsButton.MouseDown
+        If (e.Button = System.Windows.Forms.MouseButtons.Left) Then
+            Dim Menu As ContextMenuStrip = Me.ToolsContextMenuStrip()
+            Menu.Show(Cursor.Position)
+        End If
+    End Sub
+
+    Private Sub PersonasNaturalesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PersonasNaturalesToolStripMenuItem.Click
+        Load_DataPerson()
+    End Sub
+
+    Private Sub CompaniasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompaniasToolStripMenuItem.Click
+        Load_DataCompany()
+    End Sub
+
+    Private Sub Load_DataCompany()
+        Try
+            Me.Cursor = Cursors.WaitCursor
+            listPerson.Clear()
+            Using db As New DataContext
+                Dim list = From p In db.Personas Where p.TypePerson = 1
+
+                For Each item In list
+                    listPerson.Add(New ItemPerson(item.idPersona,
+                                                    0,
+                                                   0,
+                                                    item.Ruc_Ci,
+                                                    item.Apellidos,
+                                                    item.Nombre,
+                                                    item.Direccion,
+                                                    item.telefono,
+                                                    item.mail,
+                                                    0,
+                                                    0,
+                                                    If(IsNothing(item.genero), False, item.genero),
+                                                    0,
+                                                   If(IsNothing(item.foto), Nothing, item.foto.ToArray()),
+                                                   item.TypePerson))
+                Next
+            End Using
+            dtg.DataSource = Nothing
+            dtg.DataSource = listPerson.OrderBy(Function(x) x.Apellidos).ThenBy(Function(x) x.Nombre).ToList()
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            Me.Cursor = Cursors.Default
+            TotalListLabel.Text = String.Format("Total en la lista: {0}", listPerson.Count.ToString("N0"))
+        End Try
+    End Sub
+
 End Class
