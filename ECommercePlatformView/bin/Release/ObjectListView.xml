@@ -699,7 +699,7 @@
             
             </summary>
         </member>
-        <!-- El comentario XML con formato incorrecto se ha omitido para el miembro "T:BrightIdeasSoftware.Helpers.SysImageListHelper" -->
+        <!-- Badly formed XML comment ignored for member "T:BrightIdeasSoftware.Helpers.SysImageListHelper" -->
         <member name="M:BrightIdeasSoftware.Helpers.SysImageListHelper.#ctor(System.Windows.Forms.TreeView)">
             <summary>
             Create a SysImageListHelper that will fetch images for the given tree control

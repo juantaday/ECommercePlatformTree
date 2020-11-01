@@ -28,7 +28,7 @@ Partial Public Class WaitForTaskScreenWithCancellation
       ByRef aResultLen As UInt32) As UInteger
     End Function
 
-    Private Shared klibraryKey As String = "CBC1BE2B5A6F9A925C71A548C3918E671D5386C906D5EC0773731E25FC8F1892F110940BC30D"
+    Private Shared klibraryKey As String = "F2AE847F4DD9E494B0A930D137C2E2E7A696C72BC7981DFDB23469BEE281508978FB078B2F83"
     Private registered As Boolean
     Private Function OnInit() As Boolean
         Try
@@ -97,6 +97,7 @@ Partial Public Class WaitForTaskScreenWithCancellation
 
     Private Sub WaitForTaskScreenWithCancellation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+
             'If Not Me.OnInit() Then
             '    Me.Close()
             'End If

@@ -516,6 +516,7 @@ Partial Class frmList_Facturas
         Me.ListViewDetail.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListViewDetail.FullRowSelect = True
         Me.ListViewDetail.GridLines = True
+        Me.ListViewDetail.HideSelection = False
         Me.ListViewDetail.Location = New System.Drawing.Point(0, 20)
         Me.ListViewDetail.Name = "ListViewDetail"
         Me.ListViewDetail.Size = New System.Drawing.Size(307, 111)
@@ -1037,6 +1038,7 @@ Partial Class frmList_Facturas
         Me.ListViewDevueltos.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListViewDevueltos.FullRowSelect = True
         Me.ListViewDevueltos.GridLines = True
+        Me.ListViewDevueltos.HideSelection = False
         Me.ListViewDevueltos.Location = New System.Drawing.Point(0, 20)
         Me.ListViewDevueltos.Name = "ListViewDevueltos"
         Me.ListViewDevueltos.Size = New System.Drawing.Size(272, 111)

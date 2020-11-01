@@ -15,3 +15,9 @@ F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\Lib
 F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.dll
 F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.pdb
 F:\Users\juant\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.csprojAssemblyReference.cache
+F:\Source\Repos\ECommercePlatformTree\LibPrintTicket\bin\Release\LibPrintTicket.dll
+F:\Source\Repos\ECommercePlatformTree\LibPrintTicket\bin\Release\LibPrintTicket.pdb
+F:\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.csprojAssemblyReference.cache
+F:\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.dll
+F:\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.pdb
+F:\Source\Repos\ECommercePlatformTree\LibPrintTicket\obj\Release\LibPrintTicket.csproj.CoreCompileInputs.cache

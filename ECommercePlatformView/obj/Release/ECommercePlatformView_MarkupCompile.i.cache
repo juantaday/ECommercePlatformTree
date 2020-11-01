@@ -4,7 +4,7 @@
 winexe
 VB
 .vb
-F:\Users\juant\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\
+F:\Source\Repos\ECommercePlatformTree\ECommercePlatformView\obj\Release\
 ECommercePlatformView
 none
 false
@@ -12,9 +12,9 @@ false
 
 31272287789
 4262110554725
-403809636593
-671201278655
+4051797838321
+67921753995
 Bancos\Cajas\MoneyDetail.xaml;Bancos\ViewFaltantesSobrantes.xaml;Empleados\ItemBebitEmployee.xaml;
 
-True
+False
 

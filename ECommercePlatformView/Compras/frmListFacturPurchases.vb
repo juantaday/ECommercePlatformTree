@@ -9,6 +9,7 @@
             Me.FastDataListView1.DataSource = Nothing
             Me.FastDataListView1.Clear()
 
+            Dim ff = FastDataListView1.VirtualMode
             Select Case Me.ComboBox1.SelectedIndex
                 Case 0
                     Load_LastedPurcharse(150)
